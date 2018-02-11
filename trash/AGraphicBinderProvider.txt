@@ -1,0 +1,43 @@
+package gui.locations.binder.provider;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
+import controllers.main.matchmaking.ControllerMatchMaking;
+import gui.locations.binder.AGraphicBinder;
+import gui.windows.WindowType;
+import main.AGame;
+import managment.playerManagement.ATeam;
+import managment.playerManagement.PlayerManager;
+
+public final class AGraphicBinderProvider implements Provider<AGraphicBinder> {
+
+//    @Inject
+//    private AGame aGame;
+//
+//    @Inject
+//    private PlayerManager playerManager;
+
+    private ControllerMatchMaking controllerMatchMaking;
+
+    private final ATeam leftTeam;
+
+    private final ATeam rightTeam;
+
+    private AGraphicBinder graphicBinder;
+
+    @Inject
+    public AGraphicBinderProvider(final AGame aGame, final PlayerManager playerManager){
+        this.controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
+                .get(WindowType.MATCHMAKING).getController();
+        this.leftTeam = playerManager.getLeftATeam();
+        this.rightTeam = playerManager.getRightATeam();
+    }
+
+    @Override
+    public final AGraphicBinder get() {
+        if (this.graphicBinder == null){
+            this.graphicBinder = new AGraphicBinder(controllerMatchMaking, leftTeam, rightTeam);
+        }
+        return this.graphicBinder;
+    }
+}

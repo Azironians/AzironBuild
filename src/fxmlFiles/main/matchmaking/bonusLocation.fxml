@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="root" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerBonusLocation"
+            visible="true">
+    <children>
+        <Pane layoutX="160.0" layoutY="140.0">
+            <children>
+                <!--<ImageView fx:id="leftBonus" fitHeight="353.0" fitWidth="309.0" onMouseEntered="#increaseLeftBonusEntered" onMouseExited="#decreaseLeftBonusExited" pickOnBounds="true" preserveRatio="true">-->
+                <!--<image>-->
+                <!--<Image url="@../../../resources/bonuses/general/AAttack.png" />-->
+                <!--</image>-->
+                <!--</ImageView>-->
+                <!--<ImageView fx:id="middleBonus" fitHeight="353.0" fitWidth="309.0" layoutX="335.0" onMouseEntered="#increaseMiddleBonusEntered" onMouseExited="#decreaseMiddleBonusExited" pickOnBounds="true" preserveRatio="true">-->
+                <!--<image>-->
+                <!--<Image url="@../../../resources/bonuses/general/SCounterSpell.png" />-->
+                <!--</image>-->
+                <!--</ImageView>-->
+                <!--<ImageView fx:id="rightBonus" fitHeight="353.0" fitWidth="309.0" layoutX="660.0" layoutY="11.0" onMouseEntered="#increaseRightBonusEntered" onMouseExited="#decreaseRightBonusExited" pickOnBounds="true" preserveRatio="true">-->
+                <!--<image>-->
+                <!--<Image url="@../../../resources/bonuses/general/HExorcism.png" />-->
+                <!--</image>-->
+                <!--</ImageView>-->
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

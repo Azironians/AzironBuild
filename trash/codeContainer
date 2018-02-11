@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../../resources/css/azirona.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerMatchMaking">
+
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Windows/battleProcess.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="menuButton" layoutX="560.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#buttonMenuClicked" prefHeight="40.0" prefWidth="160.0" text="Меню" />
+        <AnchorPane fx:id="rightLocation" layoutX="721.0" layoutY="65.78515625">
+            <children>
+                <AnchorPane fx:id="rightBonusStack" layoutX="507.0" layoutY="133.21484375">
+                    <children>
+                        <Button fx:id="rightBonus0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0" />
+                        <Button fx:id="rightBonus2" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2" />
+                        <Button fx:id="rightBonus3" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3" />
+                        <Button fx:id="rightBonus1" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="1" />
+                        <Button fx:id="rightBonus4" layoutY="200.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" text="4" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="rightSkillPane" layoutX="260.0" layoutY="541.21484375">
+                    <children>
+                        <Pane fx:id="right3Skill" layoutX="151.0" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                        <Pane fx:id="right1Skill" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                        <Pane fx:id="right2Skill" layoutX="78.0" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                    </children>
+                </AnchorPane>
+                <ImageView fx:id="rightHero" fitHeight="250.0" fitWidth="250.0" layoutX="200.0" layoutY="133.21484375" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../resources/heroes/lordVampire/face/lordVampire.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane fx:id="rightCharacteristics" layoutY="28.21484375">
+                    <children>
+                        <Text fx:id="rightLevel" fill="#070707" layoutX="213.0" layoutY="12.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="60.13671875">
+                            <font>
+                                <Font size="37.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightAttack" fill="WHITE" layoutX="232.0" layoutY="454.9208984375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="1100" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="38.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="441.0" layoutY="61.107421875" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="\\" wrappingWidth="13.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightTreatment" fill="WHITE" layoutX="402.0" layoutY="453.9208984375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="5000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="38.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightTime" fill="WHITE" layoutX="-2.0" layoutY="45.7119140625" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" wrappingWidth="60.13671875">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightSupplyHealth" fill="WHITE" layoutX="456.0" layoutY="63.107421875" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="70000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightHitPoints" fill="WHITE" layoutX="356.0" layoutY="63.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="20000" wrappingWidth="88.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rightCurrentExperience" layoutX="305.0" layoutY="9.474609375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="rigthRequedExperience" layoutX="416.0" layoutY="9.474609375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="50000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="rightHeroes" layoutX="163.0" layoutY="-52.0" prefHeight="111.0" prefWidth="383.0">
+                    <children>
+                        <Button fx:id="rightCurrentHero" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="currentHero" />
+                        <Button fx:id="rightBackHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" />
+                        <Text layoutX="236.0" layoutY="88.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="\\" wrappingWidth="13.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="leftLocation" layoutY="59.0" prefHeight="661.0" prefWidth="557.0">
+            <children>
+                <AnchorPane fx:id="leftHeroes" layoutX="9.0" layoutY="-46.0" prefHeight="83.0" prefWidth="389.0">
+                    <children>
+                        <Button fx:id="leftCurrentHero" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="currentHero" />
+                        <Button fx:id="leftBackHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="leftBonusStack" layoutX="2.0" layoutY="136.0" prefHeight="251.0" prefWidth="50.0">
+                    <children>
+                        <Button fx:id="leftBonus0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0" />
+                        <Button fx:id="leftBonus2" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2" />
+                        <Button fx:id="leftBonus3" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3" />
+                        <Button fx:id="leftBonus1" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="1" />
+                        <Button fx:id="leftBonus4" layoutY="200.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" text="4" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="leftSkillPane" layoutX="14.0" layoutY="549.0">
+                    <children>
+                        <Pane fx:id="left1Skill" layoutX="151.0" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                        <Pane fx:id="left3Skill" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                        <Pane fx:id="left2Skill" layoutX="78.0" minHeight="111.0" minWidth="130.0" pickOnBounds="true" />
+                    </children>
+                </AnchorPane>
+                <ImageView fx:id="leftHero" fitHeight="250.0" fitWidth="250.0" layoutX="107.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../resources/heroes/devourer/face/devourer.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane fx:id="leftCharacteristics" layoutY="3.0" prefHeight="497.0" prefWidth="576.0">
+                    <children>
+                        <Text fx:id="leftAttack" fill="WHITE" layoutX="236.0" layoutY="487.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="1000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="38.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="99.0" layoutY="93.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="/" wrappingWidth="13.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftTreatment" fill="WHITE" layoutX="71.0" layoutY="487.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="5000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="38.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftTime" fill="WHITE" layoutX="515.0" layoutY="79.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" wrappingWidth="60.13671875">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftSupplyHealth" fill="WHITE" layoutX="115.0" layoutY="95.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="70000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftHitPoints" fill="WHITE" layoutX="11.0" layoutY="96.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="20000" wrappingWidth="88.13671875">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftLevel" fill="#070707" layoutX="306.0" layoutY="44.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="50.0">
+                            <font>
+                                <Font size="37.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftCurrentExperience" layoutX="49.0" layoutY="45.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="leftRequiredExperience" layoutX="163.0" layoutY="45.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="50000" wrappingWidth="95.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                        <Text layoutX="145.0" layoutY="43.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="/" wrappingWidth="13.13671875">
+                            <font>
+                                <Font size="34.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="pausePane" layoutX="-212.0" layoutY="-62.0" visible="false">
+            <children>
+                <ImageView fitHeight="866.0" fitWidth="1592.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../resources/Triggers/Pane.png" />
+                    </image>
+                </ImageView>
+                <AnchorPane fx:id="menuPane" layoutX="646.0" layoutY="252.0" prefHeight="504.0" prefWidth="403.0">
+                    <children>
+                        <ImageView fitHeight="504.0" fitWidth="422.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../resources/Triggers/PaneMessage.png" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="buttonResumeGame" focusTraversable="false" layoutX="93.0" layoutY="109.0" onMouseClicked="#buttonResumeGameClicked" opacity="0.9" prefHeight="54.0" prefWidth="250.0" text="Продолжить игру" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Button>
+                        <Text fill="#b9e3ff" layoutX="151.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Меню:">
+                            <font>
+                                <Font size="44.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="buttonParams" focusTraversable="false" layoutX="93.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#buttonParamsClicked" opacity="0.9" prefHeight="54.0" prefWidth="250.0" text="Параметры" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonEndMatch" focusTraversable="false" layoutX="93.0" layoutY="334.0" mnemonicParsing="false" opacity="0.9" prefHeight="54.0" prefWidth="250.0" text="Завершить матч" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonExit" focusTraversable="false" layoutX="93.0" layoutY="404.0" onMouseClicked="#buttonExitClicked" opacity="0.9" prefHeight="54.0" prefWidth="250.0" text="Выйти из игры" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonInfo" focusTraversable="false" layoutX="93.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#buttonInfoClicked" opacity="0.9" prefHeight="54.0" prefWidth="250.0" text="Справка" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+
+                <fx:include fx:id="infoPane" layoutX="500" layoutY="250" source="../../subsidiary/WindowInfo.fxml" />
+                <fx:include fx:id="paramPane" layoutX="500" layoutY="250" source="../../subsidiary/WindowParams.fxml" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

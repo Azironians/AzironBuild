@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.main.ControllerChoiceHero">
+    <children>
+        <ImageView fx:id="currentBackground" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <ImageView fx:id="spotLightDev" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Windows/DEV_Spotlight.jpg"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="myPicture" layoutX="100" layoutY="100">
+            <image>
+                <Image url="@../../resources/heroes/devourer/skills/flameSnakes/description.png"/>
+            </image>
+        </ImageView>
+
+
+        <ImageView fx:id="spotLightLV" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true"
+                   visible="false">
+            <image>
+                <Image url="@../../resources/Windows/LV_Spotlight.jpg"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="spotLightBHR" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true"
+                   visible="false">
+            <image>
+                <Image url="@../../resources/Windows/BHR_Spotlight.jpg"/>
+            </image>
+        </ImageView>
+        <Pane fx:id="paneControls" layoutX="340.0" layoutY="210.0">
+            <children>
+                <ImageView fx:id="btnOnLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                           visible="false">
+                    <image>
+                        <Image url="@../../resources/Triggers/Button_Left_Moused.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true"
+                           preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/Triggers/Button_Right_Moused.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnOffLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Button_Left.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnOffRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Button_Right.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane fx:id="paneMessage" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="730.0" visible="false">
+            <children>
+                <ImageView fx:id="panelMessage" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="210.0" fitWidth="220.0" layoutX="230.0" layoutY="65.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Icon.png"/>
+                    </image>
+                </ImageView>
+                <Text fill="#6cccee" layoutX="-34.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Герой выбран" textAlignment="CENTER" wrappingWidth="732.9764404296875">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Pane layoutX="843.0" layoutY="506.0" prefHeight="200.0" prefWidth="410.0">
+            <children>
+                <ImageView fx:id="btnOffChoiceHero" fitHeight="88.0" fitWidth="387.0" layoutX="19.0" layoutY="98.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Buttons/btnOffChoceHero.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="btnOnChoiceHero" fitHeight="88.0" fitWidth="387.0" layoutX="19.0" layoutY="98.0"
+                           pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/Buttons/btnOnChoceHero.png"/>
+                    </image>
+                </ImageView>
+                <Button fx:id="buttonMoveToWindowBonusChoice" layoutX="21.0" layoutY="8.0" mnemonicParsing="false"
+                        prefHeight="74.0" prefWidth="359.0" text="Редактировать заклинания">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <ImageView fx:id="btnOffBack" fitHeight="88.0" fitWidth="68.0" layoutX="1209.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Buttons/ButtonExitOffWindowLocMatchOnTwo.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="btnOnBack" fitHeight="88.0" fitWidth="68.0" layoutX="1209.0" pickOnBounds="true"
+                   preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../resources/Buttons/ButtonExitOnWindowLocMatchOnTwo.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="btnChoiceHero" layoutX="98.0" layoutY="-40.0" mnemonicParsing="false" text="Button"/>
+        <Button fx:id="btnBackToProfile" layoutX="165.0" layoutY="-40.0" mnemonicParsing="false" text="Button"/>
+        <Text fx:id="nameOfBonusCollection" layoutX="405.0" layoutY="71.0" stroke="#ab1a1a" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Книга заклинаний:" underline="true" wrappingWidth="435.13671875">
+            <font>
+                <Font size="44.0"/>
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

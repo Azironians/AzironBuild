@@ -1,0 +1,211 @@
+
+//    //Getters & setters:
+//    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    @Contract(pure = true)
+//    @Override
+//    public AnchorPane getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(AnchorPane location) {
+//        this.location = location;
+//    }
+//    @Contract(pure = true)
+//    @Override
+//    public ImageView getFace() {
+//        return face;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public AnchorPane getSkillPane() {
+//        return skillPane;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Pane getFirstSkill() {
+//        return firstSkill;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Pane getSecondSkill() {
+//        return secondSkill;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Pane getThirdSkill() {
+//        return thirdSkill;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public AnchorPane getCharacteristics() {
+//        return characteristics;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getLevel() {
+//        return level;
+//    }
+//
+//    @Override
+//    public void changeLevel(final int delta) {
+//        int level = Integer.parseInt(this.level.getText());
+//        level += delta;
+//        this.level.setText(level + "");
+//    }
+//
+//
+//    @Override
+//    public void setLevel(final int level) {
+//        this.level.setText(level + "");
+//    }
+//
+//    @Nullable
+//    @Contract(pure = true)
+//    @Override
+//    public Text getAttack() {
+//        return attack;
+//    }
+//
+//    @Override
+//    public void changeAttack(final int delta) {
+//        int attack = Integer.parseInt(this.attack.getText());
+//        attack += delta;
+//        this.attack.setText(attack + "");
+//    }
+//
+//    @Override
+//    public void setAttack(int attack) {
+//        this.attack.setText(attack + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getTreatment() {
+//        return treatment;
+//    }
+//
+//    @Override
+//    public void changeTreatment(final int delta) {
+//        int treatment = Integer.parseInt(this.treatment.getText());
+//        treatment += delta;
+//        this.treatment.setText(treatment + "");
+//    }
+//
+//    @Override
+//    public void setTreatment(int treatment) {
+//        this.treatment.setText(treatment + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getHitPoints() {
+//        return hitPoints;
+//    }
+//
+//    @Override
+//    public void changeHitPoints(final int delta) {
+//        int hitPoints = Integer.parseInt(this.hitPoints.getText());
+//        hitPoints += delta;
+//        this.hitPoints.setText(hitPoints + "");
+//    }
+//
+//    @Override
+//    public void setHitPoints(final int hitPoints) {
+//        this.hitPoints.setText(hitPoints + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getSupplyHealth() {
+//        return supplyHealth;
+//    }
+//
+//    @Override
+//    public void changeSupplyHealth(final int delta) {
+//        int supplyHealth = Integer.parseInt(this.supplyHealth.getText());
+//        supplyHealth += delta;
+//        this.supplyHealth.setText(supplyHealth + "");
+//    }
+//
+//    @Override
+//    public void setSupplyHealth(int supplyHealth) {
+//        this.supplyHealth.setText(supplyHealth + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getExperience() {
+//        return experience;
+//    }
+//
+//    @Override
+//    public void changeExperience(final int delta) {
+//        double experience = Double.parseDouble(this.experience.getText());
+//        experience += delta;
+//        this.experience.setText(experience + "");
+//    }
+//
+//    @Override
+//    public void setExperience(int experience) {
+//        this.experience.setText(experience + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getRequiredExperience() {
+//        return requiredExperience;
+//    }
+//
+//    @Override
+//    public void changeRequiredExperience(final int delta) {
+//        int requiredExperience = Integer.parseInt(this.requiredExperience.getText());
+//        requiredExperience += delta;
+//        this.requiredExperience.setText(requiredExperience + "");
+//    }
+//
+//    @Override
+//    public void setRequiredExperience(final int requiredExperience) {
+//        this.requiredExperience.setText(requiredExperience + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Text getTime() {
+//        return time;
+//    }
+//
+//    @Override
+//    public void changeTime(int delta) {
+//        int time = Integer.parseInt(this.time.getText());
+//        time += delta;
+//        this.time.setText(time + "");
+//    }
+//
+//    @Override
+//    public void setTime(final int time) {
+//        this.time.setText(time + "");
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public AnchorPane getHeroes() {
+//        return heroes;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Button getCurrentHero() {
+//        return currentHero;
+//    }
+//
+//    @Contract(pure = true)
+//    @Override
+//    public Button getBackHero() {
+//        return backHero;
+//    }

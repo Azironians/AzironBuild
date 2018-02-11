@@ -1,0 +1,91 @@
+package controllers.main.matchmaking;
+
+import controllers.Controller;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+
+public interface ControllerLocation extends Controller {
+
+    //Global:
+    AnchorPane getLocation();
+
+    //Face
+    ImageView getFace();
+
+    //Skills:
+    AnchorPane getSkillPane();
+
+    Pane getFirstSkill();
+
+    Pane getSecondSkill();
+
+    Pane getThirdSkill();
+
+    //Characteristics:
+    AnchorPane getCharacteristics();
+
+    Text getLevel();
+
+    void changeLevel(final int delta);
+
+    void setLevel (final int level);
+
+    Text getAttack();
+
+    void changeAttack(final int delta);
+
+    void setAttack(final int attack);
+
+    Text getTreatment();
+
+    void changeTreatment(final int delta);
+
+    void setTreatment(final int treatment);
+
+    Text getHitPoints();
+
+    void changeHitPoints(final int delta);
+
+    void setHitPoints(final int hitPoints);
+
+    Text getSupplyHealth();
+
+    void changeSupplyHealth(final int delta);
+
+    void setSupplyHealth(final int supplyHealth );
+
+    Text getExperience();
+
+    void  changeExperience(final int delta);
+
+    void setExperience(final int experience);
+
+    Text getRequiredExperience();
+
+    void changeRequiredExperience(final int delta);
+
+    void setRequiredExperience(final int requiredExperience);
+
+    Text getTime();
+
+    void changeTime(final int delta);
+
+    void setTime(final int time);
+
+    //Swap heroes:
+
+    AnchorPane getHeroes();
+
+    Button getCurrentHero();
+
+    Button getBackHero();
+
+    default void change(Text text, final int delta){
+        int param = Integer.parseInt(text.getText());
+        param += delta;
+        text.setText(param + "");
+    }
+}

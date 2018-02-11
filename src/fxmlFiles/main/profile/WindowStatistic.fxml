@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneStatistic" visible="false" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.main.profile.ControllerStatistic">
+    <children>
+        <ImageView fx:id="panelStatistics" fitHeight="330.0" fitWidth="579.0" layoutX="11.0" layoutY="-13.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Triggers/Pane.png"/>
+            </image>
+        </ImageView>
+        <Text fx:id="textRank" fill="#24c6eb" layoutX="6.0" layoutY="51.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Rank:" textAlignment="CENTER" wrappingWidth="590.0">
+            <font>
+                <Font size="34.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textRating" fill="#24c6eb" layoutX="30.0" layoutY="100.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Рейтинг:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textWins" fill="#24c6eb" layoutX="30.0" layoutY="130.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Побед:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textLoses" fill="#24c6eb" layoutX="30.0" layoutY="160.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Поражений:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textWinsDevourer" fill="#24c6eb" layoutX="30.0" layoutY="190.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Побед за Пожирателя:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textWinsLV" fill="#24c6eb" layoutX="30.0" layoutY="220.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Побед за Лорда Вампа:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textWinsOrcBasher" fill="#24c6eb" layoutX="30.0" layoutY="250.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Побед за Орка-Оглушителя:" textAlignment="LEFT" wrappingWidth="590.0">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Text>
+        <ImageView fx:id="buttonOffCloseStatistics" fitHeight="50.0" fitWidth="50.0" layoutX="530.0"
+                   layoutY="-5.0" pickOnBounds="true" preserveRatio="true" onMouseEntered="#buttonOffCloseStatisticsEntered">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonExitOffWindowLocMatchOnTwo.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOnCloseStatistics" fitHeight="50.0" fitWidth="50.0" layoutX="530.0"
+                   layoutY="-5.0" pickOnBounds="true" preserveRatio="true" onMouseExited="#buttonOnCloseStatisticsExited" onMouseClicked="#buttonOnCloseStatisticsClicked">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonExitOnWindowLocMatchOnTwo.png"/>
+            </image>
+        </ImageView>
+    </children>
+</Pane>

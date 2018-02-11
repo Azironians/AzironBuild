@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="paramsPane" prefHeight="368.0" prefWidth="700.0" stylesheets="@../../resources/css/azirona.css"
+            visible="false" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.subsidiary.ControllerParams">
+    <children>
+        <ImageView fitHeight="465.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Triggers/Pane.png"/>
+            </image>
+        </ImageView>
+        <Text fx:id="paramMessage" fill="WHITE" layoutX="225.0" layoutY="346.0" opacity="0.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Параметры успешно изменены" wrappingWidth="249.13671875">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Text>
+        <Pane fx:id="parametersPane" layoutX="55.0" layoutY="65.0" prefHeight="185.0" prefWidth="121.0">
+            <children>
+                <Button fx:id="buttonVideoParams" mnemonicParsing="false" onMouseClicked="#buttonVideoParamsClicked"
+                        prefHeight="37.0" prefWidth="140.0" text="Видео"/>
+                <Button fx:id="buttonSoundParams" layoutY="50.0" mnemonicParsing="false"
+                        onMouseClicked="#buttonSoundParamsClicked" prefHeight="37.0" prefWidth="140.0" text="Звук"/>
+                <Button fx:id="buttonGameParams" layoutY="99.0" mnemonicParsing="false"
+                        onMouseClicked="#buttonGameParamsClicked" prefHeight="37.0" prefWidth="140.0" text="Игра"/>
+                <Button fx:id="hotKeyParams" layoutY="148.0" mnemonicParsing="false"
+                        onMouseClicked="#buttonHotKeyParamsClicked" prefHeight="37.0" prefWidth="140.0"
+                        text="Горячие клавиши"/>
+            </children>
+        </Pane>
+        <Button fx:id="buttonAccept" layoutX="488.0" layoutY="321.0" mnemonicParsing="false"
+                onMouseClicked="#buttonAcceptClicked" prefHeight="37.0" prefWidth="140.0" text="Принять"/>
+        <Button fx:id="buttonBack" layoutX="55.0" layoutY="320.0" mnemonicParsing="false"
+                onMouseClicked="#buttonBackClicked" prefHeight="37.0" prefWidth="140.0" text="Назад"/>
+        <AnchorPane fx:id="paramScreens" layoutX="195.0" layoutY="25.0">
+            <children>
+                <AnchorPane fx:id="videoParamsPane" prefHeight="290.0" prefWidth="481.0">
+                    <children>
+                        <Text fill="WHITE" layoutX="140.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Настройка видео:">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="soundParamsPane" prefHeight="290.0" prefWidth="481.0" visible="false">
+                    <children>
+                        <Text fill="WHITE" layoutX="140.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Настройка звука:">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="gameParamsPane" prefHeight="290.0" prefWidth="481.0" visible="false">
+                    <children>
+                        <Text fill="WHITE" layoutX="140.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Настройка игры:">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="hotKeyParamsPane" prefHeight="290.0" prefWidth="481.0" visible="false">
+                    <children>
+                        <Text fill="WHITE" layoutX="81.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Настройка горячих клавиш:">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
