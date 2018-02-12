@@ -1,11 +1,10 @@
 package managment.profileManagement;
 
-import bonus.deck.Deck;
 import managment.playerManagement.Player;
+import security.loadSuppliers.bonusSupplier.BonusData;
 
 import java.io.*;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Profile {
@@ -23,10 +22,10 @@ public class Profile {
     private Integer winForLV;
     private Integer winForOrcBash;
 
-    private Map<String, List<Deck>> bonusCollections;
+    private BonusData bonusData;
 
     public Profile(String name, int rank, Integer MMR, Integer win, Integer lose, Integer winForDevourer,
-                   Integer winForLV, Integer winForOrcBash, Map<String, List<Deck>> bonusCollections) {
+                   Integer winForLV, Integer winForOrcBash, BonusData bonusData) {
         this.name = name;
         this.rank = rank;
         this.MMR = MMR;
@@ -35,7 +34,7 @@ public class Profile {
         this.winForDevourer = winForDevourer;
         this.winForLV = winForLV;
         this.winForOrcBash = winForOrcBash;
-        this.bonusCollections = bonusCollections;
+        this.bonusData = bonusData;
     }
 
     public Profile(String name, int rank, Integer MMR, Integer win, Integer lose, Integer winForDevourer,
@@ -230,7 +229,11 @@ public class Profile {
         this.winForOrcBash = winForOrcBash;
     }
 
-    public void setBonusCollections(Map<String, List<Deck>> bonusCollections) {
-        this.bonusCollections = bonusCollections;
+    public BonusData getBonusData() {
+        return bonusData;
+    }
+
+    public void setBonusData(BonusData bonusData) {
+        this.bonusData = bonusData;
     }
 }

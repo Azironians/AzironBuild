@@ -4,6 +4,7 @@ import annotations.bindingAnnotations.BonusService;
 import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import managment.profileManagement.Profile;
 import security.loadSuppliers.LoadSupplier;
 import gui.endavour.Endeavour;
 import com.google.inject.Inject;
@@ -11,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.jetbrains.annotations.NotNull;
 import security.assistants.ProfileAssistant;
+import security.loadSuppliers.bonusSupplier.BonusData;
 
 import java.io.*;
 import java.util.*;
@@ -34,11 +36,11 @@ public final class AGate {
 
     @Inject
     @ProfileService
-    private LoadSupplier profileLoadSupplier;
+    private LoadSupplier<Profile> profileLoadSupplier;
 
     @Inject
     @BonusService
-    private LoadSupplier bonusLoadSupplier;
+    private LoadSupplier<BonusData> bonusLoadSupplier;
 
     @NotNull
     public final Endeavour isAuthorizationSuccessful(final TextField textFieldSignIn
@@ -52,6 +54,12 @@ public final class AGate {
         } else {
             return profileReading;
         }
+    }
+
+    public final void doAuthorization(final Profile profile, final BonusData bonusData){
+        profileLoadSupplier.setData(profile);
+        bonusLoadSupplier.setData(bonusData);
+        doAuthorization();
     }
 
     public final void doAuthorization() {

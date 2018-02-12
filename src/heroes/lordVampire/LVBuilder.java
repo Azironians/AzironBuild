@@ -235,11 +235,11 @@ public final class LVBuilder implements AHeroBuilder {
         );
 
         final AHero.Presentation PRESENTATION = new AHero.Presentation(
-                new ImageView(new Image("file:src\\resources\\heroes\\lordVampire\\face\\lordVampire.png")),
+                new ImageView(new Image("file:src\\resources\\heroes\\lordVampire\\presentation\\spotlight.jpg")),
                 PRESENTATION_MEDIA_LIST, new Pane());
 
         //Возврат собранного героя:
-        return new LV(START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE
+        return new LV("LordVampire", START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE
                 , START_LEVEL, REQUIRED_EXPERIENCE_LIST, DAMAGE_LIST, TREATMENT_LIST, SUPPLY_HEATH_LIST, SKILL_LIST, SWAP_SKILL
                 , FACE, ATTACK_MEDIA_LIST, TREATMENT_MEDIA_LIST, PRESENTATION, deck);
     }

@@ -106,9 +106,9 @@ public final class ControllerProfile implements Initializable, Controller {
     //Style & gameInterface:
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public final void buttonOnChoiceHeroesClicked() {
-        sceneMover.moveToScene(WindowType.CHOICE_HERO);
         final ControllerChoiceHero controllerChoiceHero = getControllerChoiceHero();
-        controllerChoiceHero.appearance();
+        controllerChoiceHero.installHeroes();
+        sceneMover.moveToScene(WindowType.CHOICE_HERO);
     }
 
     public void buttonOffChoiceHeroesEntered() {
@@ -150,7 +150,6 @@ public final class ControllerProfile implements Initializable, Controller {
         resetHeroImages();
         sceneMover.moveToScene(WindowType.AUTHORIZATION);
     }
-
 
     //Getters & setters:
     public final Pane getPaneStatistics() {

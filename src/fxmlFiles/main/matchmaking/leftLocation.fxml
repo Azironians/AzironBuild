@@ -12,7 +12,7 @@
         <AnchorPane fx:id="heroes" layoutX="9.0" layoutY="-46.0" prefHeight="83.0" prefWidth="389.0">
             <children>
                 <Button fx:id="currentHero" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="currentHero" visible="false"/>
-                <Button fx:id="backHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" onMouseClicked="#changeHeroOnClicked" visible="false"/>
+                <Button fx:id="backHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" onMouseClicked="#changeHeroOnClicked" visible="true"/>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="bonusStack" layoutX="2.0" layoutY="136.0" prefHeight="251.0" prefWidth="50.0">

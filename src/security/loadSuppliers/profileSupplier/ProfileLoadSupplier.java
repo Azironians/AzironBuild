@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Singleton
-public final class ProfileLoadSupplier implements LoadSupplier {
+public final class ProfileLoadSupplier implements LoadSupplier<Profile> {
 
     private static final Logger log = LoggerFactory.getLogger(ProfileLoadSupplier.class);
 
@@ -88,6 +88,8 @@ public final class ProfileLoadSupplier implements LoadSupplier {
 
     private List<String> profileData;
 
+    private Profile profile;
+
     @NotNull
     public final Endeavour readData(final String login, final String password) {
         final Map mapOfPlayers = playerManager.getMapOfPlayers();
@@ -131,14 +133,15 @@ public final class ProfileLoadSupplier implements LoadSupplier {
     private List<String> loadProfileData(final String profileName) throws FileNotFoundException {
         final BufferedReader reader = new BufferedReader(new FileReader
                 (new File(ProfileAssistant.profilePath(profileName))));
-        return reader.lines().collect(Collectors.toList());
+        final List<String> profileData = reader.lines().collect(Collectors.toList());
+        this.profile = convertToProfile(profileData);
+        return profileData;
     }
 
     public final void sendData() {
-        final Profile profile = convertToProfile(profileData);
         profileManager.setCurrentProfile(profile);
         final ControllerProfile controllerProfile = getControllerProfile();
-        controllerProfile.setTextProfileName(profileData.get(0));
+        controllerProfile.setTextProfileName(profile.getName());
         setStatistics(controllerProfile, profile);
     }
 
@@ -168,6 +171,16 @@ public final class ProfileLoadSupplier implements LoadSupplier {
     }
 
     public final void writeData() {
+    }
+
+    @Override
+    public final Profile get() {
+        return profile;
+    }
+
+    @Override
+    public final void setData(final Profile profile) {
+        this.profile = profile;
     }
 
     private ControllerProfile getControllerProfile() {

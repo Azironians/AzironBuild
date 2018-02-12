@@ -16,6 +16,9 @@ import main.AGame;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
 import managment.playerManagement.PlayerManager;
 import managment.playerManagement.FictionalTeams;
+import managment.profileManagement.Profile;
+import managment.profileManagement.ProfileManager;
+import security.gate.AGate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,29 +44,40 @@ public final class ControllerPlayer implements Initializable, Controller {
     private AnchorPane secondaryPlayerPane;
 
     @FXML
-    private Button primaryLeftPlayer;
+    public  Button primaryLeftPlayer;
 
     @FXML
-    private Button primaryRightPlayer;
+    public  Button primaryRightPlayer;
 
     @FXML
-    private Button secondaryLeftPlayer;
+    public  Button secondaryLeftPlayer;
 
     @FXML
-    private Button secondaryRightPlayer;
+    public  Button secondaryRightPlayer;
 
     @Inject
     private AGame aGame;
 
+    //EventEngines:
     @Inject
     private BonusEventEngine bonusEventEngine;
 
+    //Managers:
     @Inject
     private PlayerManager playerManager;
 
     @Inject
+    private ProfileManager profileManager;
+
+    //GraphicEngines:
+    @Inject
     private GraphicEngine graphicEngine;
 
+    //Gate:
+    @Inject
+    private AGate aGate;
+
+    //SceneMover:
     @Inject
     private SceneMover sceneMover;
 
@@ -81,25 +95,30 @@ public final class ControllerPlayer implements Initializable, Controller {
     }
 
     public final void addPrimaryLeftPlayer(){
-        addPlayer(PlayerRequest.PRIMARY_LEFT);
+        addPlayer(ProfileRequest.PRIMARY_LEFT);
     }
 
     public final void addSecondaryLeftPlayer(){
-        addPlayer(PlayerRequest.SECONDARY_LEFT);
+        addPlayer(ProfileRequest.SECONDARY_LEFT);
     }
 
     public final void addPrimaryRightPlayer(){
-        addPlayer(PlayerRequest.PRIMARY_RIGHT);
+        addPlayer(ProfileRequest.PRIMARY_RIGHT);
     }
 
     public final void addSecondaryRightPlayer(){
-        addPlayer(PlayerRequest.SECONDARY_RIGHT);
+        addPlayer(ProfileRequest.SECONDARY_RIGHT);
     }
 
-    private void addPlayer(final PlayerRequest playerRequest){
-        final ControllerChoiceHero controllerChoiceHero = getControllerChoiceHero();
-        controllerChoiceHero.setPlayerRequest(playerRequest);
-        sceneMover.moveToScene(WindowType.AUTHORIZATION);
+    private void addPlayer(final ProfileRequest profileRequest){
+        if (!profileRequest.isAuthorized()){
+            profileManager.setProfileRequest(profileRequest);
+            sceneMover.moveToScene(WindowType.AUTHORIZATION);
+        } else {
+            final Profile profile = profileManager.getProfileEnumMap().get(profileRequest).getProfile();
+            aGate.doAuthorization(profile, profile.getBonusData());
+            sceneMover.moveToScene(WindowType.PROFILE);
+        }
     }
 
     public final void buttonStartClicked() {
@@ -123,9 +142,6 @@ public final class ControllerPlayer implements Initializable, Controller {
     }
 
     private void installPlayers() {
-        //setup teams:
-        playerManager.setLeftATeam(FictionalTeams.createLeft());
-        playerManager.setRightATeam(FictionalTeams.createRight());
         //setup randomly start team:
         playerManager.setStartPosition();
     }
@@ -143,8 +159,6 @@ public final class ControllerPlayer implements Initializable, Controller {
     }
 
     private void installMatchMaking(){
-        final ControllerMatchMaking matchMaking = getControllerMatchMaking();
-        matchMaking.appearance();
         sceneMover.moveToScene(WindowType.MATCHMAKING);
     }
 

@@ -22,6 +22,9 @@ public abstract class AHero {
 
     private final double START_EXPERIENCE = 0.0;
 
+    //Name:
+    private final String name;
+
     //Inner:
     private Double attack; //Атака
     private Double treatment; //Лечение
@@ -35,7 +38,7 @@ public abstract class AHero {
     private final List<Double> levelTreatmentList;
     private final List<Skill> collectionOfSkills; //Коллекция суперспособностей
     private Skill swapSkill; //Способность при выходе на поле боя
-    private final List<Bonus> bonusCollection;
+    private List<Bonus> bonusCollection;
 
     //Outer:
     private final ImageView face; //Картинка героя
@@ -53,6 +56,9 @@ public abstract class AHero {
         private final ImageView backGround;
         private final List<Media> listOfPresentationMedia;
         private final Pane pane;
+
+        private String deckName;
+        private int deckPriority;
 
         public Presentation(final ImageView backGround, final List<Media> listOfPresentationMedia, final Pane pane) {
             backGround.setFitWidth(WIDTH);
@@ -93,6 +99,28 @@ public abstract class AHero {
         @Contract(pure = true)
         public final Pane getPane() {
             return pane;
+        }
+
+        public String getDeckName() {
+            return deckName;
+        }
+
+        public void setDeckName(String deckName) {
+            this.deckName = deckName;
+        }
+
+        public int getDeckPriority() {
+            return deckPriority;
+        }
+
+        public void setDeckPriority(int deckPriority) {
+            this.deckPriority = deckPriority;
+        }
+
+
+        public void setDeckInfo(final String deckName, final int deckPriority){
+            this.deckName = deckName;
+            this.deckPriority = deckPriority;
         }
     }
 
@@ -286,7 +314,7 @@ public abstract class AHero {
     }
 
     //AHero constructor:
-    public AHero(final Double attack, final Double treatment, final Double hitPoints, final Double supplyHealth
+    public AHero(final String name, final Double attack, final Double treatment, final Double hitPoints, final Double supplyHealth
             , final Double currentExperience, final int level, final List<Double> listOfRequiredExperience
             , final List<Double> levelAttackList, final List<Double> levelTreatmentList, final List<Double> listOfSupplyHealth
             , final List<Skill> collectionOfSkills, final Skill swapSkill
@@ -294,6 +322,7 @@ public abstract class AHero {
             , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices
             , final Presentation presentation, final List<Bonus> bonusCollection) {
 
+        this.name = name;
         this.attack = attack;
         this.treatment = treatment;
         this.hitPoints = hitPoints;
@@ -324,7 +353,6 @@ public abstract class AHero {
     private boolean damageAccess = true;
 
     //ActionEvents:
-
 
     public final boolean getHealing(final double healing) {
         if (hitPoints < supplyHealth) {
@@ -432,6 +460,10 @@ public abstract class AHero {
     }
 
     //Getters:
+    public String getName() {
+        return name;
+    }
+
     public Presentation getPresentation() {
         return presentation;
     }
@@ -526,6 +558,10 @@ public abstract class AHero {
 
     public final List<Bonus> getBonusCollection() {
         return bonusCollection;
+    }
+
+    public void putBonusCollection(List<Bonus> bonusCollection) {
+        this.bonusCollection = bonusCollection;
     }
 
     public List<Media> getListOfAttackVoices() {

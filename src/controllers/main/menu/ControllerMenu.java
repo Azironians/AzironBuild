@@ -7,6 +7,7 @@ import gui.windows.WindowType;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -20,15 +21,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import managment.playerManagement.PlayerManager;
+import managment.profileManagement.ProfileManager;
 import org.jetbrains.annotations.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static controllers.main.menu.ProfileRequest.*;
+
 //Finished:
 // FIXME: 28.12.2017 falling controller
 public final class ControllerMenu implements Initializable, Controller {
+
     private final Logger logger = LoggerFactory.getLogger(ControllerMenu.class);
 
     @FXML
@@ -67,6 +72,9 @@ public final class ControllerMenu implements Initializable, Controller {
 
     @Inject
     private PlayerManager playerManager;
+
+    @Inject
+    private ProfileManager profileManager;
 
     private static final int PRIMARY_PLAYER_INDEX = 3;
 
@@ -250,6 +258,40 @@ public final class ControllerMenu implements Initializable, Controller {
                 .get(WindowType.MATCHMAKING).getController();
         controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
         controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
+    }
+
+    public final void setReadyProfile(){
+        final Pane primaryProfiles = (Pane) playerPane.getChildren().get(PRIMARY_PLAYER_INDEX);
+        final Pane secondaryProfiles = (Pane) playerPane.getChildren().get(SECONDARY_PLAYER_INDEX);
+        Button profileButton = new Button();
+
+        switch (profileManager.getProfileRequest()){
+            case PRIMARY_LEFT:
+                profileButton = (Button) primaryProfiles.getChildren().get(0);
+                break;
+            case PRIMARY_RIGHT:
+                profileButton = (Button) primaryProfiles.getChildren().get(1);
+                break;
+            case SECONDARY_LEFT:
+                profileButton = (Button) secondaryProfiles.getChildren().get(0);
+                break;
+            case SECONDARY_RIGHT:
+                profileButton = (Button) secondaryProfiles.getChildren().get(1);
+        }
+        if (profileManager.getProfileRequest().isAuthorized()){
+            setReadyProfileGraphic(profileButton, profileManager.getCurrentProfile().getName());
+            if (PRIMARY_LEFT.isAuthorized() && PRIMARY_RIGHT.isAuthorized()
+                    && SECONDARY_LEFT.isAuthorized() && SECONDARY_RIGHT.isAuthorized()){
+                final int BUTTON_START_INDEX = 1;
+                playerPane.getChildren().get(BUTTON_START_INDEX).setVisible(true);
+            }
+        } else {
+            setReadyProfileGraphic(profileButton, "Добавить игрока");
+        }
+    }
+
+    private void setReadyProfileGraphic(final Button button, final String profileName){
+        button.setText(profileName);
     }
 
     //Getters:

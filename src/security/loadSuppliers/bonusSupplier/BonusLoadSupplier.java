@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 import static heroes.properties.HeroProperties.heroNames;
 
-public final class BonusLoadSupplier implements LoadSupplier {
+public final class BonusLoadSupplier implements LoadSupplier<BonusData> {
 
     private static final Logger log = Logger.getLogger(BonusLoadSupplier.class.getName());
 
@@ -63,11 +63,13 @@ public final class BonusLoadSupplier implements LoadSupplier {
     @Inject
     private ProfileManager profileManager;
 
-    private Map<String, List<Deck>> bonusData;
+    private Map<String, List<Deck>> heroDecks;
 
     private List<Deck> privilegedDecks;
 
     private Deck bestDeck;
+
+    private BonusData bonusData;
 
     @NotNull
     public final Endeavour readData(final String login, final String password) {
@@ -77,13 +79,13 @@ public final class BonusLoadSupplier implements LoadSupplier {
             for (final File file : getHeroFiles(login)) {
                 final String heroName = getFileName(file);
                 final List<Deck> heroDecks = readAndTransformHeroDecks(file, heroName, splitter);
-                privilegedDecks.add(getHighPriorityDeck(heroDecks));
-                bonusData.put(heroName, heroDecks);
+                this.privilegedDecks.add(getHighPriorityDeck(heroDecks));
+                this.heroDecks.put(heroName, heroDecks);
                 splitter += HERO_SHIFT;
             }
-            bestDeck = getHighPriorityDeck(privilegedDecks);
-            privilegedDecks.remove(bestDeck);
-            if (bonusData.size() == heroNames.size()) {
+            this.bestDeck = getHighPriorityDeck(privilegedDecks);
+            this.bonusData = new BonusData(bestDeck, privilegedDecks, heroDecks);
+            if (this.heroDecks.size() == heroNames.size()) {
                 return new Endeavour(SUCCESSFUL_LOGIN, true);
             } else {
                 return new Endeavour(BAD_COLLECTIONS, false);
@@ -94,7 +96,7 @@ public final class BonusLoadSupplier implements LoadSupplier {
     }
 
     private void initialize() {
-        this.bonusData = new HashMap<>(); //all decks
+        this.heroDecks = new HashMap<>(); //all decks
         this.privilegedDecks = new ArrayList<>(); //best deck for each hero
     }
 
@@ -160,17 +162,26 @@ public final class BonusLoadSupplier implements LoadSupplier {
     }
 
     public final void sendData() {
-        profileManager.setBestDeck(bestDeck);
-        profileManager.setPrivilegedDecks(privilegedDecks);
+        profileManager.setBonusData(bonusData);
 
         log.finest("PRIMARY DECK: \n" + bestDeck.toString());
         log.finest("PRIVILEGED DECKS: \n" + privilegedDecks.toString());
-        log.finest("BONUS DATA: \n" + bonusData.toString());
+        log.finest("BONUS DATA: \n" + heroDecks.toString());
     }
 
     public final void writeData() {
 
 
+    }
+
+    @Override
+    public final BonusData get() {
+        return bonusData;
+    }
+
+    @Override
+    public final void setData(final BonusData bonusData) {
+        this.bonusData = bonusData;
     }
 
 //    @NotNull

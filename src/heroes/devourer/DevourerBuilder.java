@@ -289,11 +289,11 @@ public final class DevourerBuilder implements AHeroBuilder {
         );
 
         final AHero.Presentation PRESENTATION = new AHero.Presentation(
-                new ImageView(new Image("file:src\\resources\\heroes\\devourer\\presentation\\spotlight.jpg")),
+                new ImageView(new Image("file:src\\resources\\heroes\\devourer\\presentation\\spotlight.png")),
                 PRESENTATION_MEDIA_LIST, new Pane());
 
         //Возврат собранного героя:
-        return new Devourer(START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE
+        return new Devourer("Devourer", START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE
                 , START_LEVEL, REQUIRED_EXPERIENCE_LIST, DAMAGE_LIST, TREATMENT_LIST, SUPPLY_HEATH_LIST, SKILL_LIST, SWAP_SKILL
                 , FACE, ATTACK_MEDIA_LIST, TREATMENT_MEDIA_LIST, PRESENTATION, inputDeck);
     }

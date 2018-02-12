@@ -1,6 +1,7 @@
 package managment.playerManagement;
 
 import com.google.inject.Inject;
+import controllers.main.matchmaking.GameMode;
 import heroes.abstractHero.AHero;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
@@ -18,9 +19,11 @@ public final class PlayerManager {
 
     private int countPlayers = 0;
 
-    private ATeam rightATeam;
+    private GameMode gameMode;
 
-    private ATeam leftATeam;
+    private ATeam rightATeam = FictionalTeams.createRight();
+
+    private ATeam leftATeam = FictionalTeams.createLeft();
 
     private ATeam currentATeam;
 
@@ -105,4 +108,13 @@ public final class PlayerManager {
     public final void setLeftATeam(final ATeam leftATeam) {
         this.leftATeam = leftATeam;
     }
+
+    public GameMode getGameMode() {
+        return gameMode;
+    }
+
+    public void setGameMode(GameMode gameMode) {
+        this.gameMode = gameMode;
+    }
+
 }
