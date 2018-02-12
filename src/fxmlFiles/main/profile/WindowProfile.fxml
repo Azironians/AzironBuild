@@ -28,7 +28,7 @@
                         <Image url="@../../../resources/heroes/lordVampire/face/lordVampire.png"/>
                     </image>
                 </ImageView>
-                <ImageView fx:id="orcBasher" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
+                <ImageView fx:id="orcBash" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
                            visible="false">
                     <image>
                         <Image url="@../../../resources/heroes/orcBash/face/orcBash.png"/>
@@ -99,7 +99,6 @@
                 <Font size="25.0"/>
             </font>
         </Text>
-        <Button fx:id="btn" layoutX="72.0" layoutY="-66.0" mnemonicParsing="false" text="Button"/>
         <Button fx:id="buttonWindowOfBonusChoice" layoutX="20" layoutY="580" prefWidth="250" prefHeight="50"
                 text='Редактировать заклинания'>
             <font>

@@ -8,8 +8,10 @@ import controllers.main.ControllerChoiceHero;
 import gui.windows.WindowType;
 import main.AGame;
 
+import java.util.List;
+
 @Singleton
-public class ProfileManager {
+public final class ProfileManager {
 
     @Inject
     private AGame aGame;
@@ -18,17 +20,17 @@ public class ProfileManager {
 
     private Deck bestDeck;
 
+    private List<Deck> privilegedDecks;
+
     public void removeAccountData() {
         final ControllerChoiceBonus controllerChoiceBonus = getControllerChoiceBonus();
         controllerChoiceBonus.setBonusData(null);
         controllerChoiceBonus.setPrivilegedCollections(null);
         controllerChoiceBonus.setDefaultPrimaryDeck(null);
 
-        final ControllerChoiceHero controllerChoiceHero = getControllerChoiceHero();
-        controllerChoiceHero.setPrivilegedCollections(null);
-        controllerChoiceHero.setDefaultPrimaryDeck(null);
         currentProfile = null;
         bestDeck = null;
+        privilegedDecks = null;
     }
 
 
@@ -52,7 +54,11 @@ public class ProfileManager {
         return bestDeck;
     }
 
-    public void setBestDeck(Deck bestDeck) {
+    public void setBestDeck(final Deck bestDeck) {
         this.bestDeck = bestDeck;
+    }
+
+    public void setPrivilegedDecks(final List<Deck> privilegedDecks) {
+        this.privilegedDecks = privilegedDecks;
     }
 }

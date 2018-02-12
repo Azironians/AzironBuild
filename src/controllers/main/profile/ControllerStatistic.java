@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class ControllerStatistic {
+public final class ControllerStatistic {
     @FXML
     private Pane paneStatistic;
     @FXML
@@ -30,15 +30,15 @@ public class ControllerStatistic {
     @FXML
     private ImageView buttonOnCloseStatistics;
 
-    public void buttonOffCloseStatisticsEntered(){
+    public final void buttonOffCloseStatisticsEntered(){
         buttonOffCloseStatistics.setVisible(false);
         buttonOnCloseStatistics.setVisible(true);
     }
-    public void buttonOnCloseStatisticsExited(){
+    public final void buttonOnCloseStatisticsExited(){
         buttonOffCloseStatistics.setVisible(true);
         buttonOnCloseStatistics.setVisible(false);
     }
-    public void buttonOnCloseStatisticsClicked(){
+    public final void buttonOnCloseStatisticsClicked(){
         paneStatistic.setVisible(false);
     }
 

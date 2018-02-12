@@ -12,7 +12,6 @@ import main.AGame;
 import com.google.inject.Inject;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -22,19 +21,25 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class ControllerProfile implements Initializable, Controller {
+public final class ControllerProfile implements Initializable, Controller {
+
     private static Logger log = Logger.getLogger(ControllerProfile.class.getName());
 
     @FXML
     private ImageView buttonOffLogOut;
+
     @FXML
     private ImageView buttonOnLogOut;
+
     @FXML
     private ImageView buttonOffShowStatistics;
+
     @FXML
     private ImageView buttonOnShowStatistics;
+
     @FXML
     private ImageView buttonOffChoiceHeroes;
+
     @FXML
     private ImageView buttonOnChoiceHeroes;
 
@@ -43,8 +48,10 @@ public class ControllerProfile implements Initializable, Controller {
 
     @FXML
     private ImageView devourer;
+
     @FXML
     private ImageView lordVamp;
+
     @FXML
     private ImageView orcBash;
 
@@ -57,8 +64,6 @@ public class ControllerProfile implements Initializable, Controller {
     @FXML
     private Pane paneStatistics;
 
-    @FXML
-    private Button btn;
     @FXML
     private Text time;
 
@@ -74,14 +79,10 @@ public class ControllerProfile implements Initializable, Controller {
     @Override
     public final void initialize(final URL location, final ResourceBundle resources) {
         AClock.launchTimer(time);
-        btn.setOnKeyPressed(event -> {
-            System.out.println(profileManager.getBestDeck());
-            System.out.println(profileManager.getBestDeck().getCollection().size());
-        });
     }
 
     @Override
-    public void appearance() {
+    public final void appearance() {
         final String name = profileManager.getBestDeck().getHero();
         switch (name) {
             case "Devourer":
@@ -104,8 +105,10 @@ public class ControllerProfile implements Initializable, Controller {
 
     //Style & gameInterface:
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void buttonOnChoiceHeroesClicked() {
+    public final void buttonOnChoiceHeroesClicked() {
         sceneMover.moveToScene(WindowType.CHOICE_HERO);
+        final ControllerChoiceHero controllerChoiceHero = getControllerChoiceHero();
+        controllerChoiceHero.appearance();
     }
 
     public void buttonOffChoiceHeroesEntered() {

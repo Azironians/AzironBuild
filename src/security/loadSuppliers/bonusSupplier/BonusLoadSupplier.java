@@ -65,7 +65,7 @@ public final class BonusLoadSupplier implements LoadSupplier {
 
     private Map<String, List<Deck>> bonusData;
 
-    private List<Deck> privilegedCollections;
+    private List<Deck> privilegedDecks;
 
     private Deck bestDeck;
 
@@ -77,11 +77,12 @@ public final class BonusLoadSupplier implements LoadSupplier {
             for (final File file : getHeroFiles(login)) {
                 final String heroName = getFileName(file);
                 final List<Deck> heroDecks = readAndTransformHeroDecks(file, heroName, splitter);
-                privilegedCollections.add(getHighPriorityDeck(heroDecks));
+                privilegedDecks.add(getHighPriorityDeck(heroDecks));
                 bonusData.put(heroName, heroDecks);
                 splitter += HERO_SHIFT;
             }
-            bestDeck = getHighPriorityDeck(privilegedCollections);
+            bestDeck = getHighPriorityDeck(privilegedDecks);
+            privilegedDecks.remove(bestDeck);
             if (bonusData.size() == heroNames.size()) {
                 return new Endeavour(SUCCESSFUL_LOGIN, true);
             } else {
@@ -94,7 +95,7 @@ public final class BonusLoadSupplier implements LoadSupplier {
 
     private void initialize() {
         this.bonusData = new HashMap<>(); //all decks
-        this.privilegedCollections = new ArrayList<>(); //best deck for each hero
+        this.privilegedDecks = new ArrayList<>(); //best deck for each hero
     }
 
     private Collection<File> getHeroFiles(final String login) {
@@ -160,9 +161,10 @@ public final class BonusLoadSupplier implements LoadSupplier {
 
     public final void sendData() {
         profileManager.setBestDeck(bestDeck);
+        profileManager.setPrivilegedDecks(privilegedDecks);
 
         log.finest("PRIMARY DECK: \n" + bestDeck.toString());
-        log.finest("PRIVILEGED DECKS: \n" + privilegedCollections.toString());
+        log.finest("PRIVILEGED DECKS: \n" + privilegedDecks.toString());
         log.finest("BONUS DATA: \n" + bonusData.toString());
     }
 
