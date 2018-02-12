@@ -1,5 +1,6 @@
 package managment.profileManagement;
 
+import annotations.bindingAnnotations.ProfileService;
 import bonus.deck.Deck;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -17,7 +18,6 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-@Singleton
 public final class ProfileManager {
 
     @Inject
@@ -36,7 +36,9 @@ public final class ProfileManager {
 
     private ProfileRequest profileRequest;
 
-    private final EnumMap<ProfileRequest, Player> profileEnumMap = new EnumMap<>(ProfileRequest.class);
+    @Inject
+    @ProfileService
+    private EnumMap<ProfileRequest, Player> profileEnumMap;
 
     public void removeAccountData() {
         profileRequest.setAuthorized(false);

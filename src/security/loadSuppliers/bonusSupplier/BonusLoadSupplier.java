@@ -1,6 +1,7 @@
 package security.loadSuppliers.bonusSupplier;
 
 import annotations.bindingAnnotations.BonusService;
+import annotations.bindingAnnotations.ProfileService;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.factory.BonusFactory;
 import bonus.deck.Deck;

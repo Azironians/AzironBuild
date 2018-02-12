@@ -1,5 +1,6 @@
 package controllers.main.menu;
 
+import annotations.bindingAnnotations.ProfileService;
 import controllers.Controller;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.clock.AClock;

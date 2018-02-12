@@ -1,5 +1,6 @@
 package controllers.main.menu;
 
+import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.Inject;
 import controllers.Controller;
 import controllers.main.ControllerChoiceHero;

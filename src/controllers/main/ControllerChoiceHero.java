@@ -1,5 +1,6 @@
 package controllers.main;
 
+import annotations.bindingAnnotations.ProfileService;
 import bonus.deck.Deck;
 import com.google.inject.Inject;
 import controllers.Controller;

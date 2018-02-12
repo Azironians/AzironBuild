@@ -9,5 +9,6 @@ public final class MainManagerModule extends AbstractModule {
         install(new PlayerManagerModule());
         install(new BattleManagerModule());
         install(new ActionManagerModule());
+        install(new ProfileManagerModule());
     }
 }

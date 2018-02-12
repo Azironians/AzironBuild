@@ -1,5 +1,6 @@
 package controllers.main.profile;
 
+import annotations.bindingAnnotations.ProfileService;
 import controllers.Controller;
 import controllers.main.ControllerChoiceBonus;
 import controllers.main.ControllerChoiceHero;
