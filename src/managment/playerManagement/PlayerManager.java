@@ -3,7 +3,7 @@ package managment.playerManagement;
 import com.google.inject.Inject;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.windows.WindowType;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;

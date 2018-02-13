@@ -1,9 +1,9 @@
 package heroes.lordVampire;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.AHeroBuilder;
-import heroes.abstractHero.AHero;
-import heroes.abstractHero.HeroResourceSupplier;
+import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;

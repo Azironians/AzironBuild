@@ -2,7 +2,7 @@ package managment.playerManagement;
 
 import bonus.bonuses.Bonus;
 import gui.locations.ALocation;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.Contract;
 

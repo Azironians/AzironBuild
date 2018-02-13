@@ -1,7 +1,7 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import javafx.scene.image.ImageView;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;

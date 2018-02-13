@@ -2,7 +2,7 @@ package managment.playerManagement;
 
 import bonus.bonuses.Bonus;
 import bonus.deck.fictionalDecks.FictionalDecks;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import heroes.lordVampire.LVBuilder;
 import heroes.orcBash.OrcBashBuilder;
 import managment.profileManagement.Profile;

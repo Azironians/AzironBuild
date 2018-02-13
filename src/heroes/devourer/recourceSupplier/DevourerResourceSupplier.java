@@ -1,6 +1,6 @@
-package heroes.devourer;
+package heroes.devourer.recourceSupplier;
 
-import heroes.abstractHero.HeroResourceSupplier;
+import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -23,7 +23,6 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
             add(new GetSkills(getConsumingSpriteInstance(), getConsumingDescriptionInstance()));
         }};
     }
-
 
     private ImageView getFlameSnakesSpriteInstance(){
         return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\flameSnakes\\sprite.png")));
@@ -48,5 +47,4 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     private ImageView getConsumingDescriptionInstance(){
         return skillDescriptionFormat(new ImageView(new Image(heroPath + "skills\\consuming\\description.png")));
     }
-
 }

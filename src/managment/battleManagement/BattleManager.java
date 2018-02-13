@@ -2,7 +2,7 @@ package managment.battleManagement;
 
 import bonus.bonuses.Bonus;
 import gui.locations.engine.GraphicEngine;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import managment.actionManagement.ActionManager;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;

@@ -1,4 +1,4 @@
-package heroes.abstractHero;
+package heroes.abstractHero.resourceSupplier;
 
 
 import javafx.scene.image.ImageView;

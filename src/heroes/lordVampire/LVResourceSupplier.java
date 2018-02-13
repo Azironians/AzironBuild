@@ -1,6 +1,6 @@
 package heroes.lordVampire;
 
-import heroes.abstractHero.HeroResourceSupplier;
+import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

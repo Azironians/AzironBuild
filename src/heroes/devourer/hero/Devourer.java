@@ -1,7 +1,7 @@
-package heroes.devourer;
+package heroes.devourer.hero;
 
-import bonus.bonuses.Bonus;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 
@@ -13,11 +13,10 @@ public final class Devourer extends AHero {
             , final Double currentExperience, final int levelHero, final List<Double> listOfRequiredExperience
             , final List<Double> listOfDamage, final List<Double> listOfTreatment, final List<Double> listOfSupplyHealth
             , final List<Skill> collectionOfSkills, final Skill swapSkill, final ImageView face, final List<Media> listOfAttackVoices
-            , final List<Media> listOfTreatmentVoices, final Presentation presentation
-            , final List<Bonus> currentCollection) {
+            , final List<Media> listOfTreatmentVoices) {
         super(name, attack, treatment, hitPoints, supplyHealth, currentExperience, levelHero, listOfRequiredExperience
                 , listOfDamage, listOfTreatment, listOfSupplyHealth, collectionOfSkills, swapSkill, face, listOfAttackVoices
-                , listOfTreatmentVoices, presentation, currentCollection);
+                , listOfTreatmentVoices);
     }
 
     @Override

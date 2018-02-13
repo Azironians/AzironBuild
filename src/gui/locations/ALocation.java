@@ -1,6 +1,7 @@
 package gui.locations;
 
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -111,12 +112,12 @@ public final class ALocation {
         return skills;
     }
 
-    public final void setupSkills(final AHero parentHero, final List<AHero.Skill> skills){
+    public final void setupSuperSkills(final AHero parentHero, final List<Skill> skills){
         final int startY = 0;
         int startX = invert ? 0 : 150;
         final int shiftX = invert ? + 75 : -75;
         skillPane.getChildren().clear();
-        for (final AHero.Skill skill : skills){
+        for (final Skill skill : skills){
             skill.install(skillPane, parentHero, startX, startY, invert);
             startX += shiftX;
         }

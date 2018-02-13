@@ -1,7 +1,7 @@
 package gui.animation;
 
 import com.google.inject.Singleton;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import managment.playerManagement.Player;
 
 @Singleton

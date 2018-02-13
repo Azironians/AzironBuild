@@ -6,7 +6,7 @@ import com.google.inject.Singleton;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.locations.ALocation;
 import gui.windows.WindowType;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
@@ -133,7 +133,7 @@ public final class GraphicEngine {
             location.setRequiredExperience("");
         }
         //Skills:
-        location.setupSkills(hero, hero.getCollectionOfSkills());
+        location.setupSuperSkills(hero, hero.getCollectionOfSkills());
         for (final AHero.Skill skill : hero.getCollectionOfSkills()){
             final boolean levelReached = hero.getLevel() >= skill.getRequiredLevel();
             if (skill.isReady() && levelReached){

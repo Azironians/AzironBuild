@@ -1,6 +1,7 @@
-package heroes.abstractHero;
+package heroes.abstractHero.hero;
 
 import bonus.bonuses.Bonus;
+import heroes.abstractHero.skills.Skill;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -18,9 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AHero {
+
     private static final Logger log = LoggerFactory.getLogger(AHero.class);
 
-    private final double START_EXPERIENCE = 0.0;
+    private static final double START_EXPERIENCE = 0.0;
 
     //Name:
     private final String name;
@@ -44,273 +46,9 @@ public abstract class AHero {
     private final ImageView face; //Картинка героя
     private final List<Media> listOfAttackVoices;
     private final List<Media> listOfTreatmentVoices;
-    private final Presentation presentation;
-
-    //Presentation clazz:
-    public final static class Presentation {
-        private final int WIDTH = 1280;
-        private final int HEIGHT = 720;
-        private final int START_OPACITY = 0;
-        private final int ANIMATION_TIME = 2;
-
-        private final ImageView backGround;
-        private final List<Media> listOfPresentationMedia;
-        private final Pane pane;
-
-        private String deckName;
-        private int deckPriority;
-
-        public Presentation(final ImageView backGround, final List<Media> listOfPresentationMedia, final Pane pane) {
-            backGround.setFitWidth(WIDTH);
-            backGround.setFitHeight(HEIGHT);
-            pane.getChildren().add(backGround);
-            pane.setVisible(false);
-            pane.setOpacity(START_OPACITY);
-            this.backGround = backGround;
-            this.listOfPresentationMedia = listOfPresentationMedia;
-            this.pane = pane;
-        }
-
-        public final void showPresentation() {
-            pane.setVisible(true);
-            final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(ANIMATION_TIME), pane);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
-        }
-
-        public final void hidePresentation() {
-            final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(ANIMATION_TIME), pane);
-            fadeTransition.setToValue(0);
-            fadeTransition.setOnFinished(end -> pane.setVisible(false));
-            fadeTransition.play();
-        }
-
-        @Contract(pure = true)
-        public final ImageView getBackGround() {
-            return backGround;
-        }
-
-        @Contract(pure = true)
-        public final List<Media> getPresentationMediaList() {
-            return listOfPresentationMedia;
-        }
-
-
-        @Contract(pure = true)
-        public final Pane getPane() {
-            return pane;
-        }
-
-        public String getDeckName() {
-            return deckName;
-        }
-
-        public void setDeckName(String deckName) {
-            this.deckName = deckName;
-        }
-
-        public int getDeckPriority() {
-            return deckPriority;
-        }
-
-        public void setDeckPriority(int deckPriority) {
-            this.deckPriority = deckPriority;
-        }
-
-
-        public void setDeckInfo(final String deckName, final int deckPriority){
-            this.deckName = deckName;
-            this.deckPriority = deckPriority;
-        }
-    }
-
-    //Skill clazz:
-    public abstract static class Skill {
-
-        private final String name;
-
-        protected int temp = 1;
-        protected int reload;
-        private int requiredLevel;
-
-        protected List<Double> coefficients;
-
-        private final int START_OPACITY = 0;
-
-        private ImageView pictureOfDescription;
-        private ImageView sprite;
-        private Media animationSound;
-        private final List<Media> listOfVoices;
-
-        //Parent:
-        protected AHero parent;
-
-        //ActionManager:
-        protected ActionManager actionManager;
-
-        protected Skill(final String name, final int reload, final int requiredLevel, final List<Double> coefficients
-                , final ImageView sprite, final ImageView pictureOfDescription, final List<Media> listOfVoices) {
-            this.name = name;
-            this.reload = reload;
-            this.requiredLevel = requiredLevel;
-            this.coefficients = coefficients;
-
-            sprite.setOnMouseEntered(event -> showDescription());
-            sprite.setOnMouseExited(event -> hideDescription());
-            sprite.setOnMouseClicked(event -> sendRequest());
-            sprite.setVisible(false);
-            this.pictureOfDescription = pictureOfDescription;
-            this.sprite = sprite;
-            this.listOfVoices = listOfVoices;
-        }
-
-        //Swap skill:
-        protected Skill(final int reload, final List<Double> coefficients, final List<Media> voiceList) {
-            this.name = "swap";
-            this.reload = reload;
-            this.requiredLevel = 1;
-            this.coefficients = coefficients;
-
-            this.listOfVoices = voiceList;
-        }
-
-        private void sendRequest() {
-            if (parent != null) {
-                log.info(" skill request");
-                actionManager.setSkillRequest(parent, this);
-
-            }
-        }
-
-        public abstract void use(final BattleManager battleManager, final PlayerManager playerManager);
-
-        protected final List<ActionEvent> actionEvents = new ArrayList<>();
-
-        public final List<ActionEvent> getActionEvents() {
-            return actionEvents;
-        }
-
-        public final boolean isReady() {
-            return temp >= reload;
-        }
-
-        public void reload() {
-            if (parent != null){
-                if (parent.level >= requiredLevel){
-                    temp++;
-                } else {
-                    temp = 1;
-                }
-            }
-        }
-
-        public void reset() {
-            temp = temp % reload;
-            if (sprite != null) {
-                sprite.setVisible(false);
-            }
-        }
-
-        final void showDescription() {
-            log.info("show description");
-            final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), pictureOfDescription);
-            fadeTransition.setToValue(1);
-            fadeTransition.play();
-        }
-
-        final void hideDescription() {
-            log.info("hide description");
-            final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), pictureOfDescription);
-            fadeTransition.setToValue(0);
-            fadeTransition.play();
-        }
-
-        public final void install(final Pane parentPane, final AHero parent
-                , final double x, final double y, final boolean invert) {
-            //the skill must match the parent!
-            this.parent = parent;
-            //init description:
-            pictureOfDescription.setLayoutX(x);
-            pictureOfDescription.setLayoutY(-127);
-            pictureOfDescription.setOpacity(START_OPACITY);
-            parentPane.getChildren().add(pictureOfDescription);
-            //init sprite:
-            final int inversion = invert ? -1 : 1;
-            sprite.setLayoutX(x);
-            sprite.setLayoutY(y);
-            sprite.setScaleX(inversion);
-            parentPane.getChildren().add(sprite);
-        }
-
-        public final List<Double> getCoefficients() {
-            return coefficients;
-        }
-
-        public ImageView getSprite() {
-            return sprite;
-        }
-
-        public abstract void showAnimation();
-
-        private boolean skillAccess = true;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setCoefficients(List<Double> coefficients) {
-            this.coefficients = coefficients;
-        }
-
-        @Contract(pure = true)
-        public final List<Media> getListOfVoices() {
-            return listOfVoices;
-        }
-
-        @Contract(pure = true)
-        public final Media getAnimationSound() {
-            return animationSound;
-        }
-
-        public boolean isSkillAccess() {
-            return skillAccess;
-        }
-
-        public void setSkillAccess(boolean skillAccess) {
-            this.skillAccess = skillAccess;
-        }
-
-        public int getTemp() {
-            return temp;
-        }
-
-        public int getReload() {
-            return reload;
-        }
-
-        public void setReload(int reload) {
-            this.reload = reload;
-        }
-
-        public AHero getParent() {
-            return parent;
-        }
-
-        public void setActionManager(final ActionManager actionManager) {
-            this.actionManager = actionManager;
-        }
-
-        public final int getRequiredLevel() {
-            return requiredLevel;
-        }
-
-        public final void setRequiredLevel(final int requiredLevel) {
-            this.requiredLevel = requiredLevel;
-        }
-    }
 
     public final void reloadSkills() {
-        collectionOfSkills.forEach(AHero.Skill::reload);
+        collectionOfSkills.forEach(Skill::reload);
     }
 
     //AHero constructor:
@@ -319,8 +57,7 @@ public abstract class AHero {
             , final List<Double> levelAttackList, final List<Double> levelTreatmentList, final List<Double> listOfSupplyHealth
             , final List<Skill> collectionOfSkills, final Skill swapSkill
                  //Outer:
-            , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices
-            , final Presentation presentation, final List<Bonus> bonusCollection) {
+            , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices) {
 
         this.name = name;
         this.attack = attack;
@@ -339,8 +76,6 @@ public abstract class AHero {
         this.face = face;
         this.listOfAttackVoices = listOfAttackVoices;
         this.listOfTreatmentVoices = listOfTreatmentVoices;
-        this.presentation = presentation;
-        this.bonusCollection = bonusCollection;
     }
 
     //ActionAccess:
@@ -462,10 +197,6 @@ public abstract class AHero {
     //Getters:
     public String getName() {
         return name;
-    }
-
-    public Presentation getPresentation() {
-        return presentation;
     }
 
     public ImageView getFace() {

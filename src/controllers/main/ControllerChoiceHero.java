@@ -1,17 +1,16 @@
 package controllers.main;
 
-import annotations.bindingAnnotations.ProfileService;
 import bonus.deck.Deck;
 import com.google.inject.Inject;
 import controllers.Controller;
 import controllers.main.menu.ControllerMenu;
-import controllers.main.menu.ControllerPlayer;
 import controllers.main.menu.ProfileRequest;
 import gui.sceneMover.SceneMover;
 import gui.windows.WindowType;
-import heroes.abstractHero.AHero;
-import heroes.abstractHero.AHeroBuilder;
-import heroes.devourer.DevourerBuilder;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.presentation.Presentation;
+import heroes.devourer.builder.DevourerBuilder;
 import heroes.lordVampire.LVBuilder;
 import heroes.orcBash.OrcBashBuilder;
 import javafx.fxml.FXML;
@@ -85,7 +84,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
 
     private List<AHero> heroes;
 
-    private List<AHero.Presentation> presentations;
+    private List<Presentation> presentations;
 
     @Override
     public final void initialize(URL location, ResourceBundle resources) {

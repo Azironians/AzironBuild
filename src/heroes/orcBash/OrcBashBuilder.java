@@ -1,16 +1,14 @@
 package heroes.orcBash;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.AHeroBuilder;
-import heroes.abstractHero.AHero;
-import heroes.abstractHero.HeroResourceSupplier;
+import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
-import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
-import managment.actionManagement.actions.ActionType;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;

@@ -1,5 +1,6 @@
 package modules.securityModules.loadSuppliers;
 
+import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 import security.assistants.PropertiesAssistant;

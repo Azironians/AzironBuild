@@ -3,7 +3,7 @@ package bonus.general;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
 import bonus.bonuses.InstallerBonus;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;

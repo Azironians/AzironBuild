@@ -1,7 +1,7 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.playerManagement.Player;

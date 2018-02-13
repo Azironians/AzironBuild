@@ -5,7 +5,7 @@ import com.google.inject.name.Names;
 import security.assistants.PropertiesAssistant;
 import security.gate.AGate;
 
-public class AGateModule extends AbstractModule{
+public final class AGateModule extends AbstractModule{
 
     @Override
     protected void configure() {

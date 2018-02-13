@@ -3,7 +3,8 @@ package managment.actionManagement;
 import bonus.bonuses.Bonus;
 import gui.locations.engine.GraphicEngine;
 import com.google.inject.Inject;
-import heroes.abstractHero.AHero;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import main.AGame;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
@@ -104,7 +105,7 @@ public final class ActionManager {
         }
     }
 
-    public final void setSkillRequest(final AHero hero, final AHero.Skill skill) {
+    public final void setSkillRequest(final AHero hero, final Skill skill) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
 
@@ -120,7 +121,7 @@ public final class ActionManager {
         }
     }
 
-    private void skillProcess(final ATeam currentTeam, AHero.Skill skill) {
+    private void skillProcess(final ATeam currentTeam, Skill skill) {
         if (isStandardSkill) {
             skill.getActionEvents().clear();
             skill.use(battleManager, playerManager);
@@ -142,7 +143,7 @@ public final class ActionManager {
                 final AHero alternativeHero = currentTeam.getAlternativePlayer().getHero();
                 if (alternativeHero.getSwapSkill().isReady() && team.swapPlayers()) {
                     final AHero currentHero = currentTeam.getCurrentPlayer().getHero();
-                    final AHero.Skill swapSkill = currentHero.getSwapSkill();
+                    final Skill swapSkill = currentHero.getSwapSkill();
                     bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
                     bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));
                     if (swapSkill.isSkillAccess()) {

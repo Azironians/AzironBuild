@@ -1,10 +1,18 @@
-package heroes.devourer;
+package heroes.devourer.builder;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.AHeroBuilder;
-import heroes.abstractHero.AHero;
-import heroes.abstractHero.HeroResourceSupplier;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.presentation.Presentation;
+import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
+import heroes.abstractHero.skills.Skill;
+import heroes.abstractHero.skills.SkillFactory;
+import heroes.devourer.annotation.DevourerSource;
+import heroes.devourer.recourceSupplier.DevourerResourceSupplier;
+import heroes.devourer.hero.Devourer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -28,38 +36,51 @@ public final class DevourerBuilder implements AHeroBuilder {
 
     private static final Logger log = LoggerFactory.getLogger(DevourerBuilder.class);
 
-    private final HeroResourceSupplier resourceSupplier = new DevourerResourceSupplier();
+    //Start characteristics:
+    @Inject
+    @Named("DEVOURER_START_ATTACK")
+    private static double START_ATTACK;
+
+    @Inject
+    @Named("DEVOURER_START_TREATMENT")
+    private static double START_TREATMENT;
+
+    @Inject
+    @Named("DEVOURER_START_HIT_POINTS")
+    private static double START_HIT_POINTS;
+
+    @Inject
+    @Named("DEVOURER_START_SUPPLY_HEALTH")
+    private static double START_SUPPLY_HEALTH;
+
+    @Inject
+    @Named("DEVOURER_START_EXPERIENCE")
+    private static double START_EXPERIENCE;
+
+    @Inject
+    @Named("DEVOURER_START_LEVEL")
+    private static int START_LEVEL;
+
+    @Inject
+    @DevourerSource
+    private SkillFactory skillFactory;
+
+    @Inject
+    @DevourerSource
+    private HeroResourceSupplier resourceSupplier;
+
+
 
     @NotNull
     @Override
     public final AHero buildHero(final List<Bonus> inputDeck) {
-        //Start characteristics:
-        final double START_ATTACK = 40.0;
-        final double START_TREATMENT = 100.0;
-        final double START_HIT_POINTS = 400.0;
-        final double START_SUPPLY_HEALTH = 400.0;
-        final double START_EXPERIENCE = 0.0;
-        final int START_LEVEL = 1;
 
         //Swap skill:
         final int SWAP_RELOAD = 5;
 
         final double SWAP_SKILL_COEFFICIENT = 1.0;
         final List<Double> SWAP_SKILL_COEFFICIENTS = Collections.singletonList(SWAP_SKILL_COEFFICIENT);
-        final AHero.Skill SWAP_SKILL = new AHero.Skill(SWAP_RELOAD, SWAP_SKILL_COEFFICIENTS, new ArrayList<>()) {
-
-            @Override
-            public final void reload() {
-                if (temp + 1 <= reload){
-                    log.info("TEMP:" + temp);
-                    temp++;
-                }
-            }
-
-            @Override
-            public final void reset() {
-                temp = 1;
-            }
+        final Skill SWAP_SKILL = new AHero.Skill(SWAP_RELOAD, SWAP_SKILL_COEFFICIENTS, new ArrayList<>()) {
 
             @Override
             public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
@@ -309,5 +330,10 @@ public final class DevourerBuilder implements AHeroBuilder {
         return new Devourer("Devourer", START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE
                 , START_LEVEL, REQUIRED_EXPERIENCE_LIST, DAMAGE_LIST, TREATMENT_LIST, SUPPLY_HEATH_LIST, SKILL_LIST, SWAP_SKILL
                 , FACE, ATTACK_MEDIA_LIST, TREATMENT_MEDIA_LIST, PRESENTATION, inputDeck);
+    }
+
+    @Override
+    public Presentation buildPresentation() {
+        return null;
     }
 }
