@@ -17,16 +17,16 @@ public final class LVResourceSupplier implements HeroResourceSupplier {
     }
 
     @Override
-    public final List<GetSkills> getSkillInstances() {
+    public final List<GetSkill> getSuperSkillResources() {
         return new ArrayList<>(){{
-            add(new GetSkills(getCannibalismSpriteInstance(), getCannibalismDescriptionInstance()));
-            add(new GetSkills(getNightBladesSpriteInstance(), getNightBladesDescriptionInstance()));
-            add(new GetSkills(getReincarnationSpriteInstance(), getReincarnationDescriptionInstance()));
+            add(new GetSkill(getCannibalismSpriteInstance(), getCannibalismDescriptionInstance()));
+            add(new GetSkill(getNightBladesSpriteInstance(), getNightBladesDescriptionInstance()));
+            add(new GetSkill(getReincarnationSpriteInstance(), getReincarnationDescriptionInstance()));
         }};
     }
 
     private ImageView getCannibalismSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\cannibalism\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\cannibalism\\sprite.png")));
     }
 
     private ImageView getCannibalismDescriptionInstance(){
@@ -34,7 +34,7 @@ public final class LVResourceSupplier implements HeroResourceSupplier {
     }
 
     private ImageView getNightBladesSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\nightBlades\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\nightBlades\\sprite.png")));
     }
 
     private ImageView getNightBladesDescriptionInstance(){
@@ -42,7 +42,7 @@ public final class LVResourceSupplier implements HeroResourceSupplier {
     }
 
     private ImageView getReincarnationSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\reincarnation\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\reincarnation\\sprite.png")));
     }
 
     private ImageView getReincarnationDescriptionInstance(){

@@ -187,7 +187,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
             pointer++;
         }
         heroSpotlights.getChildren().get(pointer).setVisible(true);
-        setDeckHeadline(presentations.get(pointer).getDeckName());
+        setDeckHeadline(presentations.get(pointer).getDeckNameText());
     }
 
     private void previousSpotlight(){
@@ -198,7 +198,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
             pointer--;
         }
         heroSpotlights.getChildren().get(pointer).setVisible(true);
-        setDeckHeadline(presentations.get(pointer).getDeckName());
+        setDeckHeadline(presentations.get(pointer).getDeckNameText());
     }
 
     public final void buttonOffChoiceHeroEntered(){

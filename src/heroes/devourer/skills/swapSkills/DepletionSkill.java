@@ -40,7 +40,7 @@ public final class DepletionSkill extends AbstractSwapSkill {
     }
 
     @Override
-    public void showAnimation() {
+    public final void showAnimation() {
 
     }
 }

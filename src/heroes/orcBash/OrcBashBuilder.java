@@ -77,7 +77,7 @@ public final class OrcBashBuilder implements AHeroBuilder {
 
         final double BASH_SKILL_COEFFICIENT = 5.0;
         final List<Double> BASH_SKILL_COEFFICIENTS = Collections.singletonList(BASH_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills BASH_RESOURCE = resourceSupplier.getSkillInstances().get(0);
+        final HeroResourceSupplier.GetSkill BASH_RESOURCE = resourceSupplier.getSuperSkillResources().get(0);
         final AHero.Skill BASH = new AHero.Skill("Bash"
                 , BASH_RELOAD, BASH_REQUIRED_LEVEL, BASH_SKILL_COEFFICIENTS
                 , BASH_RESOURCE.getSprite()
@@ -113,7 +113,7 @@ public final class OrcBashBuilder implements AHeroBuilder {
         final List<Double> FAVOURITE_BEATER_SKILL_COEFFICIENTS = Arrays.asList
                 (FAVOURITE_BEATER_SKILL_COEFFICIENT
                 , FAVOURITE_BEATER_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills FAVOURITE_BEATER_RESOURCE = resourceSupplier.getSkillInstances().get(1);
+        final HeroResourceSupplier.GetSkill FAVOURITE_BEATER_RESOURCE = resourceSupplier.getSuperSkillResources().get(1);
         final AHero.Skill FAVOURITE_BEATER = new AHero.Skill("FavouriteBeater"
                 , FAVOURITE_BEATER_RELOAD, FAVOURITE_BEATER_REQUIRED_LEVEL, FAVOURITE_BEATER_SKILL_COEFFICIENTS
                 , FAVOURITE_BEATER_RESOURCE.getSprite()
@@ -147,7 +147,7 @@ public final class OrcBashBuilder implements AHeroBuilder {
 
         final double RUSH_SKILL_COEFFICIENT = 1.0;
         final List<Double> RUSH_SKILL_COEFFICIENTS = Collections.singletonList(RUSH_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills RUSH_RESOURCE = resourceSupplier.getSkillInstances().get(2);
+        final HeroResourceSupplier.GetSkill RUSH_RESOURCE = resourceSupplier.getSuperSkillResources().get(2);
         final AHero.Skill RUSH = new AHero.Skill("Rush"
                 , RUSH_RELOAD, RUSH_REQUIRED_LEVEL, RUSH_SKILL_COEFFICIENTS
                 , RUSH_RESOURCE.getSprite()

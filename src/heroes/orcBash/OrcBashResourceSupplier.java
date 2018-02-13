@@ -12,20 +12,20 @@ public final class OrcBashResourceSupplier implements HeroResourceSupplier {
 
     @Override
     public final ImageView getFaceImageInstance() {
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "face\\orcBash.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "face\\orcBash.png")));
     }
 
     @Override
-    public final List<GetSkills> getSkillInstances() {
+    public final List<GetSkill> getSuperSkillResources() {
         return new ArrayList<>(){{
-            add(new GetSkills(getBashSpriteInstance(), getBashDescriptionInstance()));
-            add(new GetSkills(getFavouriteBeaterSpriteInstance(), getFavouriteBeaterDescriptionInstance()));
-            add(new GetSkills(getRushSpriteInstance(), getRushDescriptionInstance()));
+            add(new GetSkill(getBashSpriteInstance(), getBashDescriptionInstance()));
+            add(new GetSkill(getFavouriteBeaterSpriteInstance(), getFavouriteBeaterDescriptionInstance()));
+            add(new GetSkill(getRushSpriteInstance(), getRushDescriptionInstance()));
         }};
     }
 
     private ImageView getBashSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\bash\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\bash\\sprite.png")));
     }
 
     private ImageView getBashDescriptionInstance(){
@@ -33,7 +33,7 @@ public final class OrcBashResourceSupplier implements HeroResourceSupplier {
     }
 
     private ImageView getFavouriteBeaterSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\favouriteBeater\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\favouriteBeater\\sprite.png")));
     }
 
     private ImageView getFavouriteBeaterDescriptionInstance(){
@@ -41,7 +41,7 @@ public final class OrcBashResourceSupplier implements HeroResourceSupplier {
     }
 
     private ImageView getRushSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\rush\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\rush\\sprite.png")));
     }
 
     private ImageView getRushDescriptionInstance(){

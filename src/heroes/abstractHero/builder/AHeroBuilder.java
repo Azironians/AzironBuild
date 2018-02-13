@@ -10,5 +10,5 @@ public interface AHeroBuilder {
 
     AHero buildHero(final List<Bonus> deck);
 
-    Presentation buildPresentation();
+    Presentation buildPresentation(final String deckName, final int deckPriority);
 }

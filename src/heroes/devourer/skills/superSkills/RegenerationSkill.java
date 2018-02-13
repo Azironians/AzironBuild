@@ -20,7 +20,7 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
     private static final Logger log = LoggerFactory.getLogger(RegenerationSkill.class);
 
-    private static final String REGENERATION_NAME = "Regeneration";
+    private static final String NAME = "Regeneration";
 
     private static final int REGENERATION_RELOAD = 7;
 
@@ -30,8 +30,8 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
     private static final List<Double> REGENERATION_SKILL_COEFFICIENTS = Collections.singletonList(REGENERATION_SKILL_COEFFICIENT);
 
-    protected RegenerationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(REGENERATION_NAME, REGENERATION_RELOAD, REGENERATION_REQUIRED_LEVEL, REGENERATION_SKILL_COEFFICIENTS
+    public RegenerationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
+        super(NAME, REGENERATION_RELOAD, REGENERATION_REQUIRED_LEVEL, REGENERATION_SKILL_COEFFICIENTS
                 , sprite, description, voiceList);
     }
 
@@ -48,14 +48,14 @@ public final class RegenerationSkill extends AbstractSwapSkill {
             private boolean isWorking = true;
 
             @Override
-            public void setup() {
+            public final void setup() {
                 this.player = currentPlayer;
                 this.coefficient = coefficients.get(0);
                 log.info("Setup was successful");
             }
 
             @Override
-            public void handle(final ActionEvent actionEvent) {
+            public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer() == player){
                     getEffect(player, coefficient);
                     setAble(false);
@@ -64,22 +64,22 @@ public final class RegenerationSkill extends AbstractSwapSkill {
             }
 
             @Override
-            public String getName() {
+            public final String getName() {
                 return "Regeneration skill";
             }
 
             @Override
-            public Player getPlayer() {
+            public final Player getPlayer() {
                 return player;
             }
 
             @Override
-            public boolean isWorking() {
+            public final boolean isWorking() {
                 return isWorking;
             }
 
             @Override
-            public void setAble(boolean able) {
+            public final void setAble(boolean able) {
                 this.isWorking = false;
             }
         });
@@ -95,7 +95,7 @@ public final class RegenerationSkill extends AbstractSwapSkill {
     }
 
     @Override
-    public void showAnimation() {
+    public final void showAnimation() {
 
     }
 }

@@ -80,7 +80,7 @@ public final class LVBuilder implements AHeroBuilder {
                 (CANNIBALISM_DAMAGE_SKILL_COEFFICIENT
                 , CANNIBALISM_HEALING_SKILL_COEFFICIENT);
 
-        final HeroResourceSupplier.GetSkills CANNIBALISM_RESOURCE = resourceSupplier.getSkillInstances().get(0);
+        final HeroResourceSupplier.GetSkill CANNIBALISM_RESOURCE = resourceSupplier.getSuperSkillResources().get(0);
         final AHero.Skill CANNIBALISM = new AHero.Skill("Cannibalism"
                 , CANNIBALISM_RELOAD, CANNIBALISM_REQUIRED_LEVEL, CANNIBALISM_SKILL_COEFFICIENTS
                 , CANNIBALISM_RESOURCE.getSprite()
@@ -118,7 +118,7 @@ public final class LVBuilder implements AHeroBuilder {
 
         final double NIGHT_BLADES_SKILL_COEFFICIENT = 1.2;
         final List<Double> NIGHT_BLADES_SKILL_COEFFICIENTS = Collections.singletonList(NIGHT_BLADES_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills NIGHT_BLADES_RESOURCE = resourceSupplier.getSkillInstances().get(1);
+        final HeroResourceSupplier.GetSkill NIGHT_BLADES_RESOURCE = resourceSupplier.getSuperSkillResources().get(1);
         final AHero.Skill NIGHT_BLADES = new AHero.Skill("NightBlades"
                 , NIGHT_BLADES_RELOAD, NIGHT_BLADES_REQUIRED_LEVEL, NIGHT_BLADES_SKILL_COEFFICIENTS
                 , NIGHT_BLADES_RESOURCE.getSprite()
@@ -143,7 +143,7 @@ public final class LVBuilder implements AHeroBuilder {
 
         final double REINCARNATION_SKILL_COEFFICIENT = 1.0;
         final List<Double> REINCARNATION_SKILL_COEFFICIENTS = Collections.singletonList(REINCARNATION_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills REINCARNATION_RESOURCE = resourceSupplier.getSkillInstances().get(2);
+        final HeroResourceSupplier.GetSkill REINCARNATION_RESOURCE = resourceSupplier.getSuperSkillResources().get(2);
         final AHero.Skill REINCARNATION = new AHero.Skill("Reincarnation"
                 , REINCARNATION_RELOAD, REINCARNATION_REQUIRED_LEVEL, REINCARNATION_SKILL_COEFFICIENTS
                 , REINCARNATION_RESOURCE.getSprite()

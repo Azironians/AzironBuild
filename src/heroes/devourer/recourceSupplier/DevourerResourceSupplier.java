@@ -3,6 +3,7 @@ package heroes.devourer.recourceSupplier;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +17,39 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     }
 
     @Override
-    public final List<GetSkills> getSkillInstances() {
+    public List<Media> getAttackVoiceList() {
+        return null;
+    }
+
+    @Override
+    public List<Media> getTreatmentVoiceList() {
+        return null;
+    }
+
+    @Override
+    public final List<GetSkill> getSuperSkillResources() {
         return new ArrayList<>(){{
-            add(new GetSkills(getFlameSnakesSpriteInstance(), getFlameSnakesDescriptionInstance()));
-            add(new GetSkills(getRegenerationSpriteInstance(), getRegenerationDescriptionInstance()));
-            add(new GetSkills(getConsumingSpriteInstance(), getConsumingDescriptionInstance()));
+            add(new GetSkill(getFlameSnakesSpriteInstance(), getFlameSnakesDescriptionInstance(), new ArrayList<>())); //temporary
+            add(new GetSkill(getRegenerationSpriteInstance(), getRegenerationDescriptionInstance(), new ArrayList<>()));
+            add(new GetSkill(getConsumingSpriteInstance(), getConsumingDescriptionInstance(), new ArrayList<>()));
         }};
     }
 
+    @Override
+    public final GetSkill getSwapSkillResources() {
+        return new GetSkill(getDepletionSpriteInstance(), getDepletionDescriptionInstance(), new ArrayList<>());
+    }
+
+    private ImageView getDepletionSpriteInstance(){
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills")));
+    }
+
+    private ImageView getDepletionDescriptionInstance(){
+        return skillDescriptionFormat(new ImageView(new Image(heroPath + "skills")));
+    }
+
     private ImageView getFlameSnakesSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\flameSnakes\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\flameSnakes\\sprite.png")));
     }
 
     private ImageView getFlameSnakesDescriptionInstance(){
@@ -33,7 +57,7 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     }
 
     private ImageView getRegenerationSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\regeneration\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\regeneration\\sprite.png")));
     }
 
     private ImageView getRegenerationDescriptionInstance(){
@@ -41,10 +65,21 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     }
 
     private ImageView getConsumingSpriteInstance(){
-        return skillSpriteFormat(new ImageView(new Image(heroPath + "skills\\consuming\\sprite.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "skills\\consuming\\sprite.png")));
     }
 
     private ImageView getConsumingDescriptionInstance(){
         return skillDescriptionFormat(new ImageView(new Image(heroPath + "skills\\consuming\\description.png")));
+    }
+
+    //Presentation:
+    @Override
+    public ImageView getPresentationBackground() {
+        return new ImageView(new Image(heroPath + "presentation\\spotlight.png"));
+    }
+
+    @Override
+    public List<Media> getPresentationVoiceList() {
+        return null;
     }
 }

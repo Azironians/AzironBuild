@@ -1,9 +1,7 @@
 package heroes.devourer.skills.superSkills;
 
 import heroes.abstractHero.hero.AHero;
-import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.superSkills.AbstractSkill;
-import heroes.devourer.builder.DevourerBuilder;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEventFactory;
@@ -37,7 +35,7 @@ public final class FlameSnakesSkill extends AbstractSkill {
     }
 
     @Override
-    public void use(BattleManager battleManager, PlayerManager playerManager) {
+    public final void use(BattleManager battleManager, PlayerManager playerManager) {
         final double DAMAGE = getParent().getAttack() * coefficients.get(0);
         log.info("FLAME_SNAKES_DAMAGE : " + DAMAGE);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
@@ -49,7 +47,7 @@ public final class FlameSnakesSkill extends AbstractSkill {
     }
 
     @Override
-    public void showAnimation() {
+    public final void showAnimation() {
 
     }
 }
