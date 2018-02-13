@@ -15,13 +15,18 @@ public interface Skill {
 
     void use(final BattleManager battleManager, final PlayerManager playerManager);
 
-    boolean isReady();
+    default boolean isReady(){
+        return getTemp() >= getReload();
+    }
 
     void reload();
 
     void reset();
 
-    void install(final Pane parentPane, final AHero parent, final double x, final double y, final boolean invert);
+    void install(final Pane parentPane, final AHero parent
+            , final double spriteX, final double spriteY
+            , final double descriptionX, final double descriptionY
+            , final boolean invert);
 
     //Getters & setters:
     void showAnimation();

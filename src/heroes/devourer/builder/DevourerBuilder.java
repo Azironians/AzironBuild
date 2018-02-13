@@ -9,9 +9,8 @@ import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.presentation.Presentation;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
-import heroes.abstractHero.skills.SkillFactory;
+import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.devourer.annotation.DevourerSource;
-import heroes.devourer.recourceSupplier.DevourerResourceSupplier;
 import heroes.devourer.hero.Devourer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,31 +35,6 @@ public final class DevourerBuilder implements AHeroBuilder {
 
     private static final Logger log = LoggerFactory.getLogger(DevourerBuilder.class);
 
-    //Start characteristics:
-    @Inject
-    @Named("DEVOURER_START_ATTACK")
-    private static double START_ATTACK;
-
-    @Inject
-    @Named("DEVOURER_START_TREATMENT")
-    private static double START_TREATMENT;
-
-    @Inject
-    @Named("DEVOURER_START_HIT_POINTS")
-    private static double START_HIT_POINTS;
-
-    @Inject
-    @Named("DEVOURER_START_SUPPLY_HEALTH")
-    private static double START_SUPPLY_HEALTH;
-
-    @Inject
-    @Named("DEVOURER_START_EXPERIENCE")
-    private static double START_EXPERIENCE;
-
-    @Inject
-    @Named("DEVOURER_START_LEVEL")
-    private static int START_LEVEL;
-
     @Inject
     @DevourerSource
     private SkillFactory skillFactory;
@@ -69,144 +43,13 @@ public final class DevourerBuilder implements AHeroBuilder {
     @DevourerSource
     private HeroResourceSupplier resourceSupplier;
 
-
-
     @NotNull
     @Override
     public final AHero buildHero(final List<Bonus> inputDeck) {
 
-        //Swap skill:
-        final int SWAP_RELOAD = 5;
 
-        final double SWAP_SKILL_COEFFICIENT = 1.0;
-        final List<Double> SWAP_SKILL_COEFFICIENTS = Collections.singletonList(SWAP_SKILL_COEFFICIENT);
-        final Skill SWAP_SKILL = new AHero.Skill(SWAP_RELOAD, SWAP_SKILL_COEFFICIENTS, new ArrayList<>()) {
 
-            @Override
-            public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
-                final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-                final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-                final AHero opponentHero = opponentPlayer.getHero();
-                final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();
-                final double SKILL_COEFFICIENT = levelComparison > 0 ? (levelComparison + 1) * coefficients.get(0)
-                        : coefficients.get(0);
-                final double DAMAGE = currentHero.getAttack() * SKILL_COEFFICIENT;
-                opponentHero.removeExperience(DAMAGE);
-            }
 
-            @Override
-            public final void showAnimation() {
-
-            }
-        };
-
-        //Суперспособность 1:
-        final int FLAME_SNAKES_RELOAD = 5;
-        final int FLAME_SNAKES_REQUIRED_LEVEL = 1;
-
-        final double FLAME_SNAKES_SKILL_COEFFICIENT = 5;
-        final List<Double> FLAME_SNAKES_SKILL_COEFFICIENTS = Collections.singletonList(FLAME_SNAKES_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills FLAME_SNAKES_RESOURCE = resourceSupplier.getSkillInstances().get(0);
-        final AHero.Skill FLAME_SNAKES = new AHero.Skill("FlameSnakes"
-                , FLAME_SNAKES_RELOAD, FLAME_SNAKES_REQUIRED_LEVEL, FLAME_SNAKES_SKILL_COEFFICIENTS
-                , FLAME_SNAKES_RESOURCE.getSprite()
-                , FLAME_SNAKES_RESOURCE.getDescription()
-                , new ArrayList<>()) {
-            @Override
-            public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
-                final double DAMAGE = getParent().getAttack() * coefficients.get(0);
-                log.info("FLAME_SNAKES_DAMAGE : " + DAMAGE);
-                final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-                final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-                final AHero opponentHero = opponentPlayer.getHero();
-                if (opponentHero.getDamage(DAMAGE)) {
-                    actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
-                }
-            }
-
-            @Override
-            public final void showAnimation() {
-
-            }
-        };
-
-        //Суперспособность 2:
-        final int REGENERATION_RELOAD = 7;
-        final int REGENERATION_REQUIRED_LEVEL = 3;
-
-        final double REGENERATION_SKILL_COEFFICIENT = 1.4;
-        final List<Double> REGENERATION_SKILL_COEFFICIENTS = Collections.singletonList(REGENERATION_SKILL_COEFFICIENT);
-        final HeroResourceSupplier.GetSkills REGENERATION_RESOURCE = resourceSupplier.getSkillInstances().get(1);
-        final AHero.Skill REGENERATION = new AHero.Skill("Regeneration"
-                , REGENERATION_RELOAD, REGENERATION_REQUIRED_LEVEL, REGENERATION_SKILL_COEFFICIENTS
-                , REGENERATION_RESOURCE.getSprite()
-                , REGENERATION_RESOURCE.getDescription()
-                , new ArrayList<>()) {
-
-            private void getEffect(final Player currentPlayer, final double coefficient){
-                final double HEALING = getParent().getTreatment() * coefficient;
-                final AHero currentHero = currentPlayer.getHero();
-                if (currentHero.getHealing(HEALING)){
-                    actionManager.getBonusEventEngine().handle();
-                }
-            }
-
-            @Override
-            public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
-                final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-                getEffect(currentPlayer, coefficients.get(0));
-                actionManager.getBonusEventEngine().addHandler(new HandlerBonus.GetAHandler() {
-
-                    private Player player;
-
-                    private double coefficient;
-
-                    private boolean isWorking = true;
-
-                    @Override
-                    public void setup() {
-                        this.player = currentPlayer;
-                        this.coefficient = coefficients.get(0);
-                        log.info("Setup was successful");
-                    }
-
-                    @Override
-                    public void handle(final ActionEvent actionEvent) {
-                        if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer() == player){
-                            getEffect(player, coefficient);
-                            setAble(false);
-                            log.info("Second healing");
-                        }
-                    }
-
-                    @Override
-                    public String getName() {
-                        return "Regeneration skill";
-                    }
-
-                    @Override
-                    public Player getPlayer() {
-                        return player;
-                    }
-
-                    @Override
-                    public boolean isWorking() {
-                        return isWorking;
-                    }
-
-                    @Override
-                    public void setAble(boolean able) {
-                        this.isWorking = false;
-                    }
-                });
-                log.info("skill added");
-            }
-
-            @Override
-            public final void showAnimation() {
-
-            }
-        };
 
         //Суперспособность 3:
         final int CONSUMING_RELOAD = 4;

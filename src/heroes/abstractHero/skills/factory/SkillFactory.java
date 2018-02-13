@@ -1,4 +1,6 @@
-package heroes.abstractHero.skills;
+package heroes.abstractHero.skills.factory;
+
+import heroes.abstractHero.skills.Skill;
 
 import java.util.List;
 

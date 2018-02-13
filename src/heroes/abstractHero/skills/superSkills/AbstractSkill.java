@@ -17,9 +17,9 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractSuperSkill implements Skill {
+public abstract class AbstractSkill implements Skill {
 
-    private static final Logger log = LoggerFactory.getLogger(AbstractSuperSkill.class);
+    private static final Logger log = LoggerFactory.getLogger(AbstractSkill.class);
 
     private static final int START_OPACITY = 0;
 
@@ -47,7 +47,7 @@ public abstract class AbstractSuperSkill implements Skill {
     //ActionManager:
     protected ActionManager actionManager;
 
-    protected AbstractSuperSkill(final String name, final int reload, final int requiredLevel, final List<Double> coefficients
+    protected AbstractSkill(final String name, final int reload, final int requiredLevel, final List<Double> coefficients
             , final ImageView sprite, final ImageView pictureOfDescription, final List<Media> listOfVoices) {
         this.name = name;
         this.reload = reload;
@@ -73,10 +73,6 @@ public abstract class AbstractSuperSkill implements Skill {
     }
 
     public abstract void use(final BattleManager battleManager, final PlayerManager playerManager);
-
-    public final boolean isReady() {
-        return temp >= reload;
-    }
 
     public void reload() {
         if (parent != null) {
@@ -110,18 +106,20 @@ public abstract class AbstractSuperSkill implements Skill {
     }
 
     public final void install(final Pane parentPane, final AHero parent
-            , final double x, final double y, final boolean invert) {
+            , final double spriteX, final double spriteY
+            , final double descriptionX, final double descriptionY
+            , final boolean invert) {
         //the skill must match the parent!
         this.parent = parent;
         //init description:
-        pictureOfDescription.setLayoutX(x);
-        pictureOfDescription.setLayoutY(-127);
+        pictureOfDescription.setLayoutX(descriptionX);
+        pictureOfDescription.setLayoutY(descriptionY); //-127
         pictureOfDescription.setOpacity(START_OPACITY);
         parentPane.getChildren().add(pictureOfDescription);
         //init sprite:
         final int inversion = invert ? -1 : 1;
-        sprite.setLayoutX(x);
-        sprite.setLayoutY(y);
+        sprite.setLayoutX(spriteX);
+        sprite.setLayoutY(spriteY);
         sprite.setScaleX(inversion);
         parentPane.getChildren().add(sprite);
     }
