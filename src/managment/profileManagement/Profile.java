@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Profile {
+public final class Profile {
     private String name;
 
     public int getRank() {

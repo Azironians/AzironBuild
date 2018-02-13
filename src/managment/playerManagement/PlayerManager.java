@@ -1,8 +1,10 @@
 package managment.playerManagement;
 
 import com.google.inject.Inject;
-import controllers.main.matchmaking.GameMode;
+import controllers.main.matchmaking.ControllerMatchMaking;
+import gui.windows.WindowType;
 import heroes.abstractHero.AHero;
+import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
 
@@ -11,6 +13,9 @@ import java.util.Map;
 import java.util.Random;
 
 public final class PlayerManager {
+
+    @Inject
+    private AGame aGame;
 
     @Inject
     private BattleManager battleManager;
@@ -30,7 +35,7 @@ public final class PlayerManager {
     private ATeam opponentATeam;
 
     //Setters:
-    public final void setPlayerCount(int countPlayers) {
+    private void setPlayerCount(int countPlayers) {
         this.countPlayers = countPlayers;
         this.mapOfPlayers = new HashMap<>(countPlayers);
     }
@@ -115,6 +120,24 @@ public final class PlayerManager {
 
     public void setGameMode(GameMode gameMode) {
         this.gameMode = gameMode;
+        switch (gameMode){
+            case _1x1:
+                setPlayerCount(2);
+                set2x2(false);
+                break;
+            case _2x2:
+                setPlayerCount(4);
+                set2x2(true);
+        }
+    }
+
+    private void set2x2(boolean setter) {
+        rightATeam.getAlternativePlayer().setAlive(false);
+        leftATeam.getAlternativePlayer().setAlive(false);
+        final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
+                .get(WindowType.MATCHMAKING).getController();
+        controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
+        controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
     }
 
 }

@@ -129,8 +129,8 @@ public abstract class AHero {
 
         private final String name;
 
-        int temp = 1;
-        int reload;
+        protected int temp = 1;
+        protected int reload;
         private int requiredLevel;
 
         protected List<Double> coefficients;
@@ -194,7 +194,7 @@ public abstract class AHero {
             return temp >= reload;
         }
 
-        public final void reload() {
+        public void reload() {
             if (parent != null){
                 if (parent.level >= requiredLevel){
                     temp++;
@@ -204,7 +204,7 @@ public abstract class AHero {
             }
         }
 
-        public final void reset() {
+        public void reset() {
             temp = temp % reload;
             if (sprite != null) {
                 sprite.setVisible(false);

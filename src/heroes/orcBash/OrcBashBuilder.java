@@ -59,6 +59,18 @@ public final class OrcBashBuilder implements AHeroBuilder {
             public final void showAnimation() {
 
             }
+
+            @Override
+            public final void reload() {
+                if (temp + 1 <= reload){
+                    temp++;
+                }
+            }
+
+            @Override
+            public final void reset() {
+                temp = 1;
+            }
         };
 
         //Суперспособность 1:

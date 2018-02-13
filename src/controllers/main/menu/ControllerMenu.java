@@ -21,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import managment.playerManagement.GameMode;
 import managment.playerManagement.PlayerManager;
 import managment.profileManagement.ProfileManager;
 import org.jetbrains.annotations.Contract;
@@ -155,14 +156,10 @@ public final class ControllerMenu implements Initializable, Controller {
     }
 
     public final void buttonOnGame1x1Clicked() {
-        setPlayerCount(2);
-        setCommandGame(false);
+        setGameMode(GameMode._1x1);
         showLocMatchPanel();
-
         playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
         playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(false);
-        Text gameMode = (Text) playerPane.getChildren().get(5);
-        gameMode.setText("1x1");
     }
 
     //Кнопка "2x2":
@@ -174,14 +171,10 @@ public final class ControllerMenu implements Initializable, Controller {
     }
 
     public final void buttonOnGame2x2Clicked() {
-        setPlayerCount(4);
-        setCommandGame(true);
+        setGameMode(GameMode._2x2);
         showLocMatchPanel();
-
         playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
         playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(true);
-        Text gameMode = (Text) playerPane.getChildren().get(5);
-        gameMode.setText("2x2");
     }
 
     private void showLocMatchPanel() {
@@ -249,16 +242,10 @@ public final class ControllerMenu implements Initializable, Controller {
         });
     }
 
-    private void setPlayerCount(final int count) {
-        playerManager.setPlayerCount(count);
-        logger.info("Setup players: " + playerManager.getCountPlayers());
-    }
-
-    private void setCommandGame(boolean setter) {
-        final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
-                .get(WindowType.MATCHMAKING).getController();
-        controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
-        controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
+    private void setGameMode(final GameMode gameMode){
+        playerManager.setGameMode(gameMode);
+        final Text gameModeText = (Text) playerPane.getChildren().get(5);
+        gameModeText.setText(gameMode.toString());
     }
 
     public final void setReadyProfile(){

@@ -49,6 +49,19 @@ public final class DevourerBuilder implements AHeroBuilder {
         final AHero.Skill SWAP_SKILL = new AHero.Skill(SWAP_RELOAD, SWAP_SKILL_COEFFICIENTS, new ArrayList<>()) {
 
             @Override
+            public final void reload() {
+                if (temp + 1 <= reload){
+                    log.info("TEMP:" + temp);
+                    temp++;
+                }
+            }
+
+            @Override
+            public final void reset() {
+                temp = 1;
+            }
+
+            @Override
             public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
                 final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
                 final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();

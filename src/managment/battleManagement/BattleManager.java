@@ -135,8 +135,6 @@ public final class BattleManager {
         }
     }
 
-
-
     private boolean isEndGame() {
         final Player alternativePlayer = playerManager.getCurrentTeam().getAlternativePlayer();
         return !alternativePlayer.isAlive();

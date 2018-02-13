@@ -140,6 +140,9 @@ public final class GraphicEngine {
                 skill.getSprite().setVisible(true);
             }
         }
+        log.debug("SWAP_TEMP:" + team.getAlternativePlayer().getHero().getSwapSkill().getTemp());
+        log.debug("ALIVE: " + team.getAlternativePlayer().isAlive());
+        log.debug("READY_SWAP: " + team.getAlternativePlayer().getHero().getSwapSkill().isReady());
         if (team.getAlternativePlayer().getHero().getSwapSkill().isReady()  && team.getAlternativePlayer().isAlive()){
             log.debug("SWAP_SKILL_IS_VISIBLE");
             location.getBackHero().setVisible(true);
