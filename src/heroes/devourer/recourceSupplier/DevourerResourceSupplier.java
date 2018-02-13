@@ -74,12 +74,12 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
 
     //Presentation:
     @Override
-    public ImageView getPresentationBackground() {
+    public final ImageView getPresentationBackground() {
         return new ImageView(new Image(heroPath + "presentation\\spotlight.png"));
     }
 
     @Override
-    public List<Media> getPresentationVoiceList() {
+    public final List<Media> getPresentationVoiceList() {
         return null;
     }
 }
