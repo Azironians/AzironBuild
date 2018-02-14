@@ -2,7 +2,7 @@ package modules;
 
 import com.google.inject.AbstractModule;
 import modules.bonusModules.bonusFactoryModule.BonusFactoryModule;
-import modules.heroModules.presentationModule.MainHeroModule;
+import modules.heroModules.MainHeroModule;
 import modules.managerModules.MainManagerModule;
 import modules.securityModules.gate.AGateModule;
 import modules.securityModules.loadSuppliers.LoadSupplierModule;

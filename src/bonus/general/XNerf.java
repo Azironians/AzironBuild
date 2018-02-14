@@ -2,6 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
@@ -26,8 +27,8 @@ public final class XNerf extends Bonus {
 
         final double EXPERIENCE_BOOST = currentHero.getAttack() * BONUS_COEFFICIENT;
 
-        final List<AHero.Skill> skills = currentHero.getCollectionOfSkills();
-        for (final AHero.Skill skill : skills) {
+        final List<Skill> skills = currentHero.getCollectionOfSkills();
+        for (final Skill skill : skills) {
             final boolean levelReached = currentHero.getLevel() >= skill.getRequiredLevel();
             if (skill.isReady() && levelReached) {
                 if (currentHero.addExperience(EXPERIENCE_BOOST)) {

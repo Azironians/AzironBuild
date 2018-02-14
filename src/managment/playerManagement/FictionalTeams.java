@@ -4,7 +4,7 @@ import bonus.bonuses.Bonus;
 import bonus.deck.fictionalDecks.FictionalDecks;
 import heroes.abstractHero.hero.AHero;
 import heroes.lv.builder.LVBuilder;
-import heroes.orcBash.OrcBashBuilder;
+import heroes.orcBash.builder.OrcBashBuilder;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,8 +17,6 @@ import java.util.List;
 
 public final class FictionalTeams {
 
-    private static final List<Bonus> generalDeck = FictionalDecks.getGeneralDeck().getCollection();
-
     @NotNull
     public static ATeam createLeft(){
 
@@ -27,8 +25,8 @@ public final class FictionalTeams {
         final Profile goresProfile = new Profile("Gore", 0, null, null, null
                 , null, null, 0, null);
 
-        final AHero joysDevourer = new OrcBashBuilder().buildHero(generalDeck);
-        final AHero goresOrcBash = new OrcBashBuilder().buildHero(generalDeck);
+        final AHero joysDevourer = new OrcBashBuilder().buildHero();
+        final AHero goresOrcBash = new OrcBashBuilder().buildHero();
 
         final Player joysPlayer = new Player(joysProfile, joysDevourer);
         final Player goresPlayer = new Player(goresProfile, goresOrcBash);
@@ -45,8 +43,8 @@ public final class FictionalTeams {
                 , null
                 , null, null, null);
 
-        final AHero mikesLordVampire = new LVBuilder().buildHero(generalDeck);
-        final AHero kevinOrcBash = new LVBuilder().buildHero(generalDeck);
+        final AHero mikesLordVampire = new LVBuilder().buildHero();
+        final AHero kevinOrcBash = new LVBuilder().buildHero();
 
         final Player mikesPlayer = new Player(mikesProfile, mikesLordVampire);
         final Player kevinPlayer = new Player(kevinProfile, kevinOrcBash);

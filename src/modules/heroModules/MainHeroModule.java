@@ -1,6 +1,7 @@
-package modules.heroModules.presentationModule;
+package modules.heroModules;
 
 import com.google.inject.AbstractModule;
+import modules.heroModules.presentationModule.PresentationModule;
 
 public final class MainHeroModule extends AbstractModule{
 

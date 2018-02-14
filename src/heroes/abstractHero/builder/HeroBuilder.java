@@ -7,7 +7,7 @@ import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.devourer.hero.Devourer;
 import heroes.lv.hero.LV;
-import heroes.orcBash.OrcBash;
+import heroes.orcBash.hero.OrcBash;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 

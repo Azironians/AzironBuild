@@ -3,6 +3,7 @@ package bonus.general;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
 import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -26,8 +27,8 @@ public final class SMagicTotem extends Bonus implements HandlerBonus {
     @Override
     public final void use() {
         final AHero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-        final List<AHero.Skill> skills = hero.getCollectionOfSkills();
-        for (final AHero.Skill skill : skills) {
+        final List<Skill> skills = hero.getCollectionOfSkills();
+        for (final Skill skill : skills) {
             final List<Double> coefficients = skill.getCoefficients();
             final List<Double> newCoefficients = new ArrayList<>();
             for (final double coefficient : coefficients) {
@@ -59,8 +60,8 @@ public final class SMagicTotem extends Bonus implements HandlerBonus {
             public final void handle(final ActionEvent actionEvent) {
                 if (skillPassed){
                     final AHero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-                    final List<AHero.Skill> skills = hero.getCollectionOfSkills();
-                    for (final AHero.Skill skill : skills) {
+                    final List<Skill> skills = hero.getCollectionOfSkills();
+                    for (final Skill skill : skills) {
                         final List<Double> coefficients = skill.getCoefficients();
                         final List<Double> newCoefficients = new ArrayList<>();
                         for (final double coefficient : coefficients) {

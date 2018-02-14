@@ -2,6 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +23,8 @@ public final class SWayOfWizard extends Bonus {
     @Override
     public final void use() {
         final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-        final List<AHero.Skill> skills = currentHero.getCollectionOfSkills();
-        for (final AHero.Skill skill : skills) {
+        final List<Skill> skills = currentHero.getCollectionOfSkills();
+        for (final Skill skill : skills) {
             final List<Double> coefficients = skill.getCoefficients();
             final List<Double> newCoefficients = new ArrayList<>();
             for (final double coefficient : coefficients) {

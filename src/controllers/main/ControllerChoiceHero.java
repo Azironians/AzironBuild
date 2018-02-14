@@ -12,7 +12,7 @@ import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
 import heroes.devourer.builder.DevourerBuilder;
 import heroes.lv.builder.LVBuilder;
-import heroes.orcBash.OrcBashBuilder;
+import heroes.orcBash.builder.OrcBashBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -98,13 +98,13 @@ public final class ControllerChoiceHero implements Initializable, Controller {
 
     public final void installHeroes(){
         final List<AHero> heroes = new ArrayList<>();
-        final List<AHero.Presentation> presentations = new ArrayList<>();
+        final List<Presentation> presentations = new ArrayList<>();
         final List<HeroBuilder> builders = Arrays.asList(new DevourerBuilder(), new LVBuilder(), new OrcBashBuilder());
         final Deck bestDeck = profileManager.getBestDeck();
         clearHeroSpotLights();
         for (int i = 0; i < builders.size(); i++){
-            final AHero hero = builders.get(i).buildHero(null);
-            final AHero.Presentation presentation = hero.getPresentation();
+            final AHero hero = builders.get(i).buildHero();
+            final Presentation presentation = hero.getPresentation();
             final Deck privilegedDeck = profileManager.getPrivilegedDecks().get(i);
             presentation.setDeckInfo(privilegedDeck.getCollectionName(), privilegedDeck.getPriority());
             heroes.add(hero);

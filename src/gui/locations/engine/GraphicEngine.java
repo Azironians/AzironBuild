@@ -7,6 +7,7 @@ import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.locations.ALocation;
 import gui.windows.WindowType;
 import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
@@ -95,8 +96,8 @@ public final class GraphicEngine {
             add(rightATeam.getAlternativePlayer().getHero());
         }};
         for (final AHero hero: allHeroes){
-            final List<AHero.Skill> skills = hero.getCollectionOfSkills();
-            for (final AHero.Skill skill : skills){
+            final List<Skill> skills = hero.getCollectionOfSkills();
+            for (final Skill skill : skills){
                 skill.setActionManager(actionManager);
                 log.debug("Successfully wired action manager" + skill.getName());
             }
@@ -134,7 +135,7 @@ public final class GraphicEngine {
         }
         //Skills:
         location.setupSuperSkills(hero, hero.getCollectionOfSkills());
-        for (final AHero.Skill skill : hero.getCollectionOfSkills()){
+        for (final Skill skill : hero.getCollectionOfSkills()){
             final boolean levelReached = hero.getLevel() >= skill.getRequiredLevel();
             if (skill.isReady() && levelReached){
                 skill.getSprite().setVisible(true);

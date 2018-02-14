@@ -1,4 +1,4 @@
-package heroes.lv.hero;
+package heroes.orcBash.hero;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -10,60 +10,60 @@ import javafx.scene.media.Media;
 import java.util.Arrays;
 import java.util.List;
 
-public final class LV extends AHero {
+public final class OrcBash extends AHero {
 
     //Name:
     @Inject
-    @Named("LV_NAME")
+    @Named("ORC_NAME")
     private static String NAME;
 
     //Characteristics:
     @Inject
-    @Named("LV_START_ATTACK")
+    @Named("ORC_START_ATTACK")
     private static double START_ATTACK;
     @Inject
-    @Named("LV_START_TREATMENT")
+    @Named("ORC_START_TREATMENT")
     private static double START_TREATMENT;
     @Inject
-    @Named("LV_START_HIT_POINTS")
+    @Named("ORC_START_HIT_POINTS")
     private static double START_HIT_POINTS;
     @Inject
-    @Named("LV_START_SUPPLY_HEALTH")
+    @Named("ORC_START_SUPPLY_HEALTH")
     private static double START_SUPPLY_HEALTH;
     @Inject
-    @Named("LV_START_EXPERIENCE")
+    @Named("ORC_START_EXPERIENCE")
     private static double START_EXPERIENCE;
     @Inject
-    @Named("LV_START_LEVEL")
+    @Named("ORC_START_LEVEL")
     private static int START_LEVEL;
 
     //Required level list:
     @Inject
-    @Named("LV_EXP_LEVEL_2")
+    @Named("ORC_EXP_LEVEL_2")
     private static double EXP_LEVEL_2;
     @Inject
-    @Named("LV_EXP_LEVEL_3")
+    @Named("ORC_EXP_LEVEL_3")
     private static double EXP_LEVEL_3;
     @Inject
-    @Named("LV_EXP_LEVEL_4")
+    @Named("ORC_EXP_LEVEL_4")
     private static double EXP_LEVEL_4;
     @Inject
-    @Named("LV_EXP_LEVEL_5")
+    @Named("ORC_EXP_LEVEL_5")
     private static double EXP_LEVEL_5;
     @Inject
-    @Named("LV_EXP_LEVEL_6")
+    @Named("ORC_EXP_LEVEL_6")
     private static double EXP_LEVEL_6;
     @Inject
-    @Named("LV_EXP_LEVEL_7")
+    @Named("ORC_EXP_LEVEL_7")
     private static double EXP_LEVEL_7;
     @Inject
-    @Named("LV_EXP_LEVEL_8")
+    @Named("ORC_EXP_LEVEL_8")
     private static double EXP_LEVEL_8;
     @Inject
-    @Named("LV_EXP_LEVEL_9")
+    @Named("ORC_EXP_LEVEL_9")
     private static double EXP_LEVEL_9;
     @Inject
-    @Named("LV_EXP_LEVEL_10")
+    @Named("ORC_EXP_LEVEL_10")
     private static double EXP_LEVEL_10;
 
     private static final List<Double> REQUIRED_EXPERIENCE_LIST = Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
@@ -71,31 +71,31 @@ public final class LV extends AHero {
 
     //Attack level boost:
     @Inject
-    @Named("LV_DAMAGE_LEVEL_2")
+    @Named("ORC_DAMAGE_LEVEL_2")
     private static double DAMAGE_LEVEL_2;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_3")
+    @Named("ORC_DAMAGE_LEVEL_3")
     private static double DAMAGE_LEVEL_3;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_4")
+    @Named("ORC_DAMAGE_LEVEL_4")
     private static double DAMAGE_LEVEL_4;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_5")
+    @Named("ORC_DAMAGE_LEVEL_5")
     private static double DAMAGE_LEVEL_5;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_6")
+    @Named("ORC_DAMAGE_LEVEL_6")
     private static double DAMAGE_LEVEL_6;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_7")
+    @Named("ORC_DAMAGE_LEVEL_7")
     private static double DAMAGE_LEVEL_7;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_8")
+    @Named("ORC_DAMAGE_LEVEL_8")
     private static double DAMAGE_LEVEL_8;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_9")
+    @Named("ORC_DAMAGE_LEVEL_9")
     private static double DAMAGE_LEVEL_9;
     @Inject
-    @Named("LV_DAMAGE_LEVEL_10")
+    @Named("ORC_DAMAGE_LEVEL_10")
     private static double DAMAGE_LEVEL_10;
 
     private static final List<Double> DAMAGE_LIST = Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
@@ -103,31 +103,31 @@ public final class LV extends AHero {
 
     //Treatment level boost:
     @Inject
-    @Named("LV_TREAT_LEVEL_2")
+    @Named("ORC_TREAT_LEVEL_2")
     private static double TREAT_LEVEL_2;
     @Inject
-    @Named("LV_TREAT_LEVEL_3")
+    @Named("ORC_TREAT_LEVEL_3")
     private static double TREAT_LEVEL_3;
     @Inject
-    @Named("LV_TREAT_LEVEL_4")
+    @Named("ORC_TREAT_LEVEL_4")
     private static double TREAT_LEVEL_4;
     @Inject
-    @Named("LV_TREAT_LEVEL_5")
+    @Named("ORC_TREAT_LEVEL_5")
     private static double TREAT_LEVEL_5;
     @Inject
-    @Named("LV_TREAT_LEVEL_6")
+    @Named("ORC_TREAT_LEVEL_6")
     private static double TREAT_LEVEL_6;
     @Inject
-    @Named("LV_TREAT_LEVEL_7")
+    @Named("ORC_TREAT_LEVEL_7")
     private static double TREAT_LEVEL_7;
     @Inject
-    @Named("LV_TREAT_LEVEL_8")
+    @Named("ORC_TREAT_LEVEL_8")
     private static double TREAT_LEVEL_8;
     @Inject
-    @Named("LV_TREAT_LEVEL_9")
+    @Named("ORC_TREAT_LEVEL_9")
     private static double TREAT_LEVEL_9;
     @Inject
-    @Named("LV_TREAT_LEVEL_10")
+    @Named("ORC_TREAT_LEVEL_10")
     private static double TREAT_LEVEL_10;
 
     private static final List<Double> TREATMENT_LIST = Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
@@ -135,37 +135,37 @@ public final class LV extends AHero {
 
     //Healing level boost:
     @Inject
-    @Named("LV_HP_LEVEL_2")
+    @Named("ORC_HP_LEVEL_2")
     private static double HP_LEVEL_2;
     @Inject
-    @Named("LV_HP_LEVEL_3")
+    @Named("ORC_HP_LEVEL_3")
     private static double HP_LEVEL_3;
     @Inject
-    @Named("LV_HP_LEVEL_4")
+    @Named("ORC_HP_LEVEL_4")
     private static double HP_LEVEL_4;
     @Inject
-    @Named("LV_HP_LEVEL_5")
+    @Named("ORC_HP_LEVEL_5")
     private static double HP_LEVEL_5;
     @Inject
-    @Named("LV_HP_LEVEL_6")
+    @Named("ORC_HP_LEVEL_6")
     private static double HP_LEVEL_6;
     @Inject
-    @Named("LV_HP_LEVEL_7")
+    @Named("ORC_HP_LEVEL_7")
     private static double HP_LEVEL_7;
     @Inject
-    @Named("LV_HP_LEVEL_8")
+    @Named("ORC_HP_LEVEL_8")
     private static double HP_LEVEL_8;
     @Inject
-    @Named("LV_HP_LEVEL_9")
+    @Named("ORC_HP_LEVEL_9")
     private static double HP_LEVEL_9;
     @Inject
-    @Named("LV_HP_LEVEL_10")
+    @Named("ORC_HP_LEVEL_10")
     private static double HP_LEVEL_10;
 
     private static final List<Double> SUPPLY_HEATH_LIST = Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
             , HP_LEVEL_6, HP_LEVEL_7, HP_LEVEL_8, HP_LEVEL_9, HP_LEVEL_10);
 
-    public LV(final List<Skill> superSkills, final Skill swapSkill
+    public OrcBash(final List<Skill> superSkills, final Skill swapSkill
             , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices) {
         super(NAME, START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE, START_LEVEL
                 , REQUIRED_EXPERIENCE_LIST, DAMAGE_LIST, TREATMENT_LIST, SUPPLY_HEATH_LIST, superSkills, swapSkill, face

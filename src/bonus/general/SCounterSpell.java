@@ -3,6 +3,7 @@ package bonus.general;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
 import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -24,9 +25,9 @@ public final class SCounterSpell extends Bonus implements HandlerBonus {
     public final void use() {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
         final AHero opponentHero = opponentPlayer.getHero();
-        final List<AHero.Skill> opponentSkills = opponentHero.getCollectionOfSkills();
+        final List<Skill> opponentSkills = opponentHero.getCollectionOfSkills();
 
-        for (final AHero.Skill skill : opponentSkills) {
+        for (final Skill skill : opponentSkills) {
             skill.setSkillAccess(false);
         }
         log.info("COUNTER SPELL IS ACTIVATED");
@@ -57,8 +58,8 @@ public final class SCounterSpell extends Bonus implements HandlerBonus {
             public final void handle(ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.END_TURN
                         && (actionEvent.getPlayer() == opponent || actionEvent.getPlayer() == alternativeOpponent)) {
-                    final List<AHero.Skill> opponentSkills = opponent.getHero().getCollectionOfSkills();
-                    for (final AHero.Skill skill : opponentSkills) {
+                    final List<Skill> opponentSkills = opponent.getHero().getCollectionOfSkills();
+                    for (final Skill skill : opponentSkills) {
                         skill.setSkillAccess(true);
                     }
                     isWorking = false;

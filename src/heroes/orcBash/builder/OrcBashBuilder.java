@@ -1,23 +1,23 @@
-package heroes.devourer.builder;
+package heroes.orcBash.builder;
 
 import com.google.inject.Inject;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.factory.SkillFactory;
-import heroes.devourer.annotation.DevourerHeroService;
+import heroes.orcBash.annotation.OrcBashHeroService;
 
-public final class DevourerBuilder implements HeroBuilder {
+public final class OrcBashBuilder implements HeroBuilder {
 
     @Inject
-    @DevourerHeroService
+    @OrcBashHeroService
     private SkillFactory skillFactory;
 
     @Inject
-    @DevourerHeroService
+    @OrcBashHeroService
     private HeroResourceSupplier resourceSupplier;
 
     @Inject
-    @DevourerHeroService
+    @OrcBashHeroService
     private Class clazz;
 
     @Override

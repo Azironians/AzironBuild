@@ -118,7 +118,7 @@ public final class ALocation {
         final int shiftX = invert ? + 75 : -75;
         skillPane.getChildren().clear();
         for (final Skill skill : skills){
-            skill.install(skillPane, parentHero, startX, startY, invert);
+            skill.install(skillPane, parentHero, startX, startY, startX, -127, invert);
             startX += shiftX;
         }
     }

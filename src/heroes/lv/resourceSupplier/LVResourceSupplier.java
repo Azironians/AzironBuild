@@ -7,14 +7,7 @@ import javafx.scene.media.Media;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class LVResourceSupplier implements HeroResourceSupplier {
-
-    private final String heroPath = "file:src\\resources\\heroes\\lv\\";
-
-    @Override
-    public final ImageView getFaceImageInstance() {
-        return getImageView(heroPath + "face\\face.png");
-    }
+public final class LVResourceSupplier extends HeroResourceSupplier {
 
     @Override
     public List<Media> getAttackVoiceList() {
@@ -36,41 +29,41 @@ public final class LVResourceSupplier implements HeroResourceSupplier {
     }
 
     @Override
-    public GetSkill getSwapSkillResources() {
+    public final GetSkill getSwapSkillResources() {
         return null;
     }
 
     private ImageView getCannibalismSpriteInstance(){
-        return superSkillSpriteFormat(heroPath + "skills\\cannibalism\\sprite.png");
+        return superSkillSpriteFormat(getSkillPath() + "cannibalism" + sprite);
     }
 
     private ImageView getCannibalismDescriptionInstance(){
-        return skillDescriptionFormat(heroPath + "skills\\cannibalism\\description.png");
+        return skillDescriptionFormat(getSkillPath() + "cannibalism" + description);
     }
 
     private ImageView getNightBladesSpriteInstance(){
-        return superSkillSpriteFormat(heroPath + "skills\\nightBlades\\sprite.png");
+        return superSkillSpriteFormat(getSkillPath() + "nightBlades" + sprite);
     }
 
     private ImageView getNightBladesDescriptionInstance(){
-        return skillDescriptionFormat(heroPath + "skills\\nightBlades\\description.png");
+        return skillDescriptionFormat(getSkillPath() + "nightBlades" + description);
     }
 
     private ImageView getReincarnationSpriteInstance(){
-        return superSkillSpriteFormat(heroPath + "skills\\reincarnation\\sprite.png");
+        return superSkillSpriteFormat(getSkillPath() + "reincarnation" + sprite);
     }
 
     private ImageView getReincarnationDescriptionInstance(){
-        return skillDescriptionFormat(heroPath + "skills\\reincarnation\\description.png");
+        return skillDescriptionFormat(getSkillPath() + "reincarnation" + sprite);
     }
 
     @Override
-    public List<Media> getPresentationVoiceList() {
+    public final List<Media> getPresentationVoiceList() {
         return null;
     }
 
     @Override
     public final String getHeroPath() {
-        return heroPath;
+        return "file:src\\resources\\heroes\\lv\\";
     }
 }

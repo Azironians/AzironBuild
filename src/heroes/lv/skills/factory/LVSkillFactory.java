@@ -13,7 +13,7 @@ import heroes.lv.skills.swapSkills.FurySkill;
 import java.util.Arrays;
 import java.util.List;
 
-public class LVSkillFactory implements SkillFactory{
+public final class LVSkillFactory implements SkillFactory{
 
     @Inject
     @LVHeroService

@@ -7,9 +7,7 @@ import javafx.scene.media.Media;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DevourerResourceSupplier implements HeroResourceSupplier{
-
-    private final String heroPath = "file:src\\resources\\heroes\\devourer\\";
+public final class DevourerResourceSupplier extends HeroResourceSupplier{
 
     @Override
     public List<Media> getAttackVoiceList() {
@@ -36,11 +34,11 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     }
 
     private ImageView getDepletionSpriteInstance(){
-        return superSkillSpriteFormat(heroPath + "skills");
+        return superSkillSpriteFormat(getSkillPath());
     }
 
     private ImageView getDepletionDescriptionInstance(){
-        return skillDescriptionFormat(heroPath + "skills");
+        return skillDescriptionFormat(getSkillPath());
     }
 
     private ImageView getFlameSnakesSpriteInstance(){
@@ -74,7 +72,7 @@ public final class DevourerResourceSupplier implements HeroResourceSupplier{
     }
 
     @Override
-    public String getHeroPath() {
-        return heroPath;
+    public final String getHeroPath() {
+        return "file:src\\resources\\heroes\\devourer\\";
     }
 }
