@@ -1,10 +1,8 @@
 package heroes.abstractHero.skills.swapSkills;
 
 import heroes.abstractHero.hero.AHero;
-import heroes.abstractHero.skills.Skill;
-import heroes.abstractHero.skills.superSkills.AbstractSkill;
+import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;

@@ -8,10 +8,10 @@ import controllers.main.menu.ProfileRequest;
 import gui.sceneMover.SceneMover;
 import gui.windows.WindowType;
 import heroes.abstractHero.hero.AHero;
-import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
 import heroes.devourer.builder.DevourerBuilder;
-import heroes.lordVampire.LVBuilder;
+import heroes.lv.builder.LVBuilder;
 import heroes.orcBash.OrcBashBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -99,7 +99,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
     public final void installHeroes(){
         final List<AHero> heroes = new ArrayList<>();
         final List<AHero.Presentation> presentations = new ArrayList<>();
-        final List<AHeroBuilder> builders = Arrays.asList(new DevourerBuilder(), new LVBuilder(), new OrcBashBuilder());
+        final List<HeroBuilder> builders = Arrays.asList(new DevourerBuilder(), new LVBuilder(), new OrcBashBuilder());
         final Deck bestDeck = profileManager.getBestDeck();
         clearHeroSpotLights();
         for (int i = 0; i < builders.size(); i++){

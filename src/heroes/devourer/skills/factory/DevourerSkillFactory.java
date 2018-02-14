@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.factory.SkillFactory;
-import heroes.devourer.annotation.DevourerSource;
+import heroes.devourer.annotation.DevourerHeroService;
 import heroes.devourer.skills.superSkills.ConsumingSkill;
 import heroes.devourer.skills.superSkills.FlameSnakesSkill;
 import heroes.devourer.skills.superSkills.RegenerationSkill;
@@ -16,7 +16,7 @@ import java.util.List;
 public final class DevourerSkillFactory implements SkillFactory {
 
     @Inject
-    @DevourerSource
+    @DevourerHeroService
     private HeroResourceSupplier heroResourceSupplier;
 
     private static final int FLAME_SNAKES_INDEX = 0;

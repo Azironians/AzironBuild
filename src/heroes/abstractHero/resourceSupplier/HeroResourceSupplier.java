@@ -1,6 +1,7 @@
 package heroes.abstractHero.resourceSupplier;
 
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 
@@ -17,29 +18,49 @@ public interface HeroResourceSupplier {
 
     int SWAP_SKILL_HEIGHT = 0;
 
-    ImageView getFaceImageInstance();
+    //Paths:
+    String facePath = "face\\face.png";
+
+    String sprite = "\\sprite.png";
+
+    String description = "\\description.png";
+
+    default String getSkillPath(){
+        return getHeroPath() + "skills\\";
+    }
+
+    default ImageView getFaceImageInstance(){
+        return getImageView(getHeroPath() + facePath);
+    }
 
     List<Media> getAttackVoiceList();
 
     List<Media> getTreatmentVoiceList();
 
-
-
-    default ImageView swapSkillSpriteFormat(final ImageView imageView) {
+    default ImageView swapSkillSpriteFormat(final String path) {
+        final ImageView imageView = getImageView(path);
         imageView.setFitWidth(SWAP_SKILL_WIDTH);
         imageView.setFitHeight(SWAP_SKILL_HEIGHT);
         return imageView;
     }
 
-    default ImageView superSkillSpriteFormat(final ImageView imageView) {
+    default ImageView superSkillSpriteFormat(final String path) {
+        final ImageView imageView = getImageView(path);
         imageView.setFitWidth(SUPER_SKILL_WIDTH);
         imageView.setFitHeight(SUPER_SKILL_HEIGHT);
         return imageView;
     }
 
-    default ImageView skillDescriptionFormat(final ImageView imageView) {
+    default ImageView getImageView(final String path) {
+        return new ImageView(new Image(path));
+    }
+
+    default ImageView skillDescriptionFormat(final String path) {
+        final ImageView imageView = getImageView(path);
         return imageView;
     }
+
+    String getHeroPath();
 
     List<GetSkill> getSuperSkillResources();
 
@@ -71,9 +92,11 @@ public interface HeroResourceSupplier {
     }
 
     //Presentation:
+    String presentationPath = "presentation\\spotlight.png";
 
-    ImageView getPresentationBackground();
+    default ImageView getPresentationBackground() {
+        return getImageView(getHeroPath() + presentationPath);
+    }
 
     List<Media> getPresentationVoiceList();
-
 }

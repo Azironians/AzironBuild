@@ -1,7 +1,7 @@
 package heroes.orcBash;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.builder.AHeroBuilder;
+import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import javafx.scene.image.Image;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public final class OrcBashBuilder implements AHeroBuilder {
+public final class OrcBashBuilder implements HeroBuilder {
 
     private final HeroResourceSupplier resourceSupplier = new OrcBashResourceSupplier();
 

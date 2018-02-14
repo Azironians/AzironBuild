@@ -22,16 +22,16 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
     private static final String NAME = "Regeneration";
 
-    private static final int REGENERATION_RELOAD = 7;
+    private static final int RELOAD = 7;
 
-    private static final int REGENERATION_REQUIRED_LEVEL = 3;
+    private static final int REQUIRED_LEVEL = 3;
 
-    private static final double REGENERATION_SKILL_COEFFICIENT = 1.4;
+    private static final double HEALING_SKILL_COEFFICIENT = 1.4;
 
-    private static final List<Double> REGENERATION_SKILL_COEFFICIENTS = Collections.singletonList(REGENERATION_SKILL_COEFFICIENT);
+    private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(HEALING_SKILL_COEFFICIENT);
 
     public RegenerationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, REGENERATION_RELOAD, REGENERATION_REQUIRED_LEVEL, REGENERATION_SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
                 , sprite, description, voiceList);
     }
 
@@ -39,7 +39,20 @@ public final class RegenerationSkill extends AbstractSwapSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         getEffect(currentPlayer, coefficients.get(0));
-        actionManager.getBonusEventEngine().addHandler(new HandlerBonus.GetAHandler() { // FIXME: 14.02.2018 make skillEventEngine
+        actionManager.getBonusEventEngine().addHandler(getHandlerInstance(currentPlayer));
+        log.info("skill added");
+    }
+
+    private void getEffect(final Player currentPlayer, final double coefficient){
+        final double HEALING = getParent().getTreatment() * coefficient;
+        final AHero currentHero = currentPlayer.getHero();
+        if (currentHero.getHealing(HEALING)){
+            actionManager.getBonusEventEngine().handle();
+        }
+    }
+
+    private HandlerBonus.GetAHandler getHandlerInstance(final Player currentPlayer){
+        return new HandlerBonus.GetAHandler() { // FIXME: 14.02.2018 make skillEventEngine
 
             private Player player;
 
@@ -82,16 +95,7 @@ public final class RegenerationSkill extends AbstractSwapSkill {
             public final void setAble(boolean able) {
                 this.isWorking = false;
             }
-        });
-        log.info("skill added");
-    }
-
-    private void getEffect(final Player currentPlayer, final double coefficient){
-        final double HEALING = getParent().getTreatment() * coefficient;
-        final AHero currentHero = currentPlayer.getHero();
-        if (currentHero.getHealing(HEALING)){
-            actionManager.getBonusEventEngine().handle();
-        }
+        };
     }
 
     @Override

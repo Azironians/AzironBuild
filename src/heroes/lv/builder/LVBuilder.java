@@ -1,24 +1,20 @@
-package heroes.devourer.builder;
+package heroes.lv.builder;
 
 import com.google.inject.Inject;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.factory.SkillFactory;
-import heroes.devourer.annotation.DevourerHeroService;
-import heroes.devourer.hero.Devourer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import heroes.lv.annotation.LVHeroService;
+import heroes.lv.hero.LV;
 
-public final class DevourerBuilder implements HeroBuilder {
-
-    private static final Logger log = LoggerFactory.getLogger(DevourerBuilder.class);
+public final class LVBuilder implements HeroBuilder {
 
     @Inject
-    @DevourerHeroService
+    @LVHeroService
     private SkillFactory skillFactory;
 
     @Inject
-    @DevourerHeroService
+    @LVHeroService
     private HeroResourceSupplier resourceSupplier;
 
     @Override
@@ -33,6 +29,6 @@ public final class DevourerBuilder implements HeroBuilder {
 
     @Override
     public final Class getHeroClass() {
-        return Devourer.class;
+        return LV.class;
     }
 }

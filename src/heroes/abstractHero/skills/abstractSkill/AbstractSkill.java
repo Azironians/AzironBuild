@@ -1,8 +1,10 @@
-package heroes.abstractHero.skills.superSkills;
+package heroes.abstractHero.skills.abstractSkill;
 
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.skills.Skill;
 import javafx.animation.FadeTransition;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -30,8 +32,10 @@ public abstract class AbstractSkill implements Skill {
     protected int requiredLevel;
     protected List<Double> coefficients;
 
-    private ImageView pictureOfDescription;
+    private ImageView description;
     private ImageView sprite;
+
+    private Pane container;
     private Media animationSound;
     private final List<Media> listOfVoices;
 
@@ -48,7 +52,7 @@ public abstract class AbstractSkill implements Skill {
     protected ActionManager actionManager;
 
     protected AbstractSkill(final String name, final int reload, final int requiredLevel, final List<Double> coefficients
-            , final ImageView sprite, final ImageView pictureOfDescription, final List<Media> listOfVoices) {
+            , final ImageView sprite, final ImageView description, final List<Media> listOfVoices) {
         this.name = name;
         this.reload = reload;
         this.requiredLevel = requiredLevel;
@@ -59,7 +63,7 @@ public abstract class AbstractSkill implements Skill {
         sprite.setOnMouseExited(event -> hideDescription());
         sprite.setOnMouseClicked(event -> sendRequest());
         sprite.setVisible(false);
-        this.pictureOfDescription = pictureOfDescription;
+        this.description = description;
         this.sprite = sprite;
         this.listOfVoices = listOfVoices;
     }
@@ -93,14 +97,14 @@ public abstract class AbstractSkill implements Skill {
 
     private void showDescription() {
         log.info("show description");
-        final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), pictureOfDescription);
+        final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), description);
         fadeTransition.setToValue(1);
         fadeTransition.play();
     }
 
     private void hideDescription() {
         log.info("hide description");
-        final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), pictureOfDescription);
+        final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), description);
         fadeTransition.setToValue(0);
         fadeTransition.play();
     }
@@ -112,16 +116,20 @@ public abstract class AbstractSkill implements Skill {
         //the skill must match the parent!
         this.parent = parent;
         //init description:
-        pictureOfDescription.setLayoutX(descriptionX);
-        pictureOfDescription.setLayoutY(descriptionY); //-127
-        pictureOfDescription.setOpacity(START_OPACITY);
-        parentPane.getChildren().add(pictureOfDescription);
+        this.description.setLayoutX(descriptionX);
+        this.description.setLayoutY(descriptionY); //-127
+        this.description.setOpacity(START_OPACITY);
         //init sprite:
         final int inversion = invert ? -1 : 1;
-        sprite.setLayoutX(spriteX);
-        sprite.setLayoutY(spriteY);
-        sprite.setScaleX(inversion);
-        parentPane.getChildren().add(sprite);
+        this.sprite.setLayoutX(spriteX);
+        this.sprite.setLayoutY(spriteY);
+        this.sprite.setScaleX(inversion);
+        this.container = new Pane(){{
+            final ObservableList<Node> elements = getChildren();
+            elements.add(description);
+            elements.add(sprite);
+        }};
+        parentPane.getChildren().add(container);
     }
 
     public abstract void showAnimation();
@@ -188,5 +196,9 @@ public abstract class AbstractSkill implements Skill {
 
     public final void setRequiredLevel(final int requiredLevel) {
         this.requiredLevel = requiredLevel;
+    }
+
+    public Pane getContainer() {
+        return container;
     }
 }

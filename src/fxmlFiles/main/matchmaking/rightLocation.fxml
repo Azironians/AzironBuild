@@ -89,7 +89,7 @@
         </AnchorPane>
         <ImageView fx:id="face" fitHeight="250.0" fitWidth="250.0" layoutX="204.0" layoutY="128" onMouseClicked="#imageHeroOnClicked" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../resources/heroes/lordVampire/face/lordVampire.png" />
+                <Image url="@../../../resources/heroes/lv/face/face.png" />
             </image>
         </ImageView>
     </children>

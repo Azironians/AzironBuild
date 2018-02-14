@@ -22,19 +22,19 @@
                 <ImageView fx:id="devourer" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
                            visible="false">
                     <image>
-                        <Image url="@../../../resources/heroes/devourer/face/devourer.png"/>
+                        <Image url="@../../../resources/heroes/devourer/face/face.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="lordVamp" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
                            visible="false">
                     <image>
-                        <Image url="@../../../resources/heroes/lordVampire/face/lordVampire.png"/>
+                        <Image url="@../../../resources/heroes/lv/face/face.png"/>
                     </image>
                 </ImageView>
                 <ImageView fx:id="orcBash" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
                            visible="false">
                     <image>
-                        <Image url="@../../../resources/heroes/orcBash/face/orcBash.png"/>
+                        <Image url="@../../../resources/heroes/orcBash/face/face.png"/>
                     </image>
                 </ImageView>
             </children>

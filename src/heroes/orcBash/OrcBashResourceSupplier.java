@@ -12,7 +12,7 @@ public final class OrcBashResourceSupplier implements HeroResourceSupplier {
 
     @Override
     public final ImageView getFaceImageInstance() {
-        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "face\\orcBash.png")));
+        return superSkillSpriteFormat(new ImageView(new Image(heroPath + "face\\face.png")));
     }
 
     @Override
