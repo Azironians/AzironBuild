@@ -19,18 +19,6 @@ import java.util.Random;
 public final class PlayerManager {
 
     @Inject
-    @DevourerHeroService
-    private HeroBuilder devourerBuilder;
-
-    @Inject
-    @LVHeroService
-    private HeroBuilder lvBuilder;
-
-    @Inject
-    @OrcBashHeroService
-    private HeroBuilder orcBashBuilder;
-
-    @Inject
     private AGame aGame;
 
     @Inject

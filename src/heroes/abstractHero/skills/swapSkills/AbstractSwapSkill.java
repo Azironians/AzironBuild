@@ -32,8 +32,6 @@ public abstract class AbstractSwapSkill extends AbstractSkill{
     }
 
     //Swap skill:
-
-
     public abstract void use(final BattleManager battleManager, final PlayerManager playerManager);
 
     @Override

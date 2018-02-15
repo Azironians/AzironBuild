@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public final class BattleManager {
+
     private final static Logger log = LoggerFactory.getLogger(BattleManager.class);
 
     @Inject
@@ -173,5 +174,3 @@ public final class BattleManager {
         isStandardRandomBonus = standardRandomBonus;
     }
 }
-
-

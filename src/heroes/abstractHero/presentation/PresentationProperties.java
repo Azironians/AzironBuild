@@ -3,6 +3,7 @@ package heroes.abstractHero.presentation;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+
 @Singleton
 public final class PresentationProperties {
 

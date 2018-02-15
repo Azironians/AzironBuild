@@ -41,7 +41,7 @@ public final class BonusEventEngine {
         install(playerManager.getCurrentTeam().getAlternativePlayer());
         install(playerManager.getOpponentATeam().getCurrentPlayer());
         install(playerManager.getOpponentATeam().getCurrentPlayer());
-        log.info("BonusEventEngine install was successful!");
+        log.info("BonusEventEngine installing was successful!");
     }
 
     private void install(final Player player){
@@ -77,12 +77,12 @@ public final class BonusEventEngine {
 
     public synchronized final void handle(final ActionEvent actionEvent) {
         final List<HandlerBonus.GetAHandler> garbageHandlerList = new ArrayList<>();
-        for (int i = 0 ; i < bonusHandlers.size(); i++) {
-            if (bonusHandlers.get(i).isWorking()) {
-                bonusHandlers.get(i).handle(actionEvent);
+        for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
+            if (bonusHandler.isWorking()) {
+                bonusHandler.handle(actionEvent);
             } else {
-                garbageHandlerList.add(bonusHandlers.get(i));
-                log.debug(bonusHandlers.get(i).getName() + " successfully was removed");
+                garbageHandlerList.add(bonusHandler);
+                log.debug(bonusHandler.getName() + " successfully was removed");
             }
         }
         bonusHandlers.removeAll(garbageHandlerList);
