@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 //Finished:
 public final class ControllerInitialization implements Initializable, Controller {
-    //Meeting with slf4j:
+
     private final Logger logger = LoggerFactory.getLogger(ControllerInitialization.class);
 
     {
@@ -44,7 +44,6 @@ public final class ControllerInitialization implements Initializable, Controller
 
     @Override
     public final void appearance() {
-
         final Timeline timer = new Timeline(new KeyFrame(Duration.millis(9250)));
         timer.setOnFinished(animationEnd -> {
             animation.setVisible(false);

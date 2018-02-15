@@ -1,9 +1,8 @@
 package controllers.main.profile;
 
-import annotations.bindingAnnotations.ProfileService;
 import controllers.Controller;
 import controllers.main.ControllerChoiceBonus;
-import controllers.main.ControllerChoiceHero;
+import controllers.main.fastChoiceHero.ControllerFastChoiceHero;
 import gui.clock.AClock;
 import gui.sceneMover.SceneMover;
 import gui.windows.WindowType;
@@ -107,9 +106,9 @@ public final class ControllerProfile implements Initializable, Controller {
     //Style & gameInterface:
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public final void buttonOnChoiceHeroesClicked() {
-        final ControllerChoiceHero controllerChoiceHero = getControllerChoiceHero();
-        controllerChoiceHero.installHeroes();
-        sceneMover.moveToScene(WindowType.CHOICE_HERO);
+        final ControllerFastChoiceHero controllerFastChoiceHero = getControllerChoiceHero();
+        controllerFastChoiceHero.installHeroes();
+        sceneMover.moveToScene(WindowType.FAST_CHOICE_HERO);
     }
 
     public void buttonOffChoiceHeroesEntered() {
@@ -157,8 +156,8 @@ public final class ControllerProfile implements Initializable, Controller {
         return paneStatistics;
     }
 
-    private ControllerChoiceHero getControllerChoiceHero(){
-        return (ControllerChoiceHero) aGame.getWindowMap().get(WindowType.CHOICE_HERO).getController();
+    private ControllerFastChoiceHero getControllerChoiceHero(){
+        return (ControllerFastChoiceHero) aGame.getWindowMap().get(WindowType.FAST_CHOICE_HERO).getController();
     }
 
     private ControllerChoiceBonus getControllerChoiceBonus(){

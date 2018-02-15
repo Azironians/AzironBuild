@@ -5,10 +5,10 @@ import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.devourer.annotation.DevourerHeroService;
-import heroes.devourer.skills.superSkills.ConsumingSkill;
-import heroes.devourer.skills.superSkills.FlameSnakesSkill;
-import heroes.devourer.skills.superSkills.RegenerationSkill;
-import heroes.devourer.skills.swapSkills.DepletionSkill;
+import heroes.devourer.skills.superSkills.consuming.ConsumingSkill;
+import heroes.devourer.skills.superSkills.flameSnakes.FlameSnakesSkill;
+import heroes.devourer.skills.superSkills.regeneration.RegenerationSkill;
+import heroes.devourer.skills.swapSkills.depletion.DepletionSkill;
 
 import java.util.Arrays;
 import java.util.List;

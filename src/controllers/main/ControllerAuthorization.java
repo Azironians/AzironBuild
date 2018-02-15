@@ -29,34 +29,49 @@ public final class ControllerAuthorization implements Initializable, Controller 
 
     @FXML
     private Pane paneSignIn;
+
     @FXML
     private Pane paneSignUp;
+
     @FXML
     private Pane paneLuckSign;
+
     @FXML
     private Text textErrorSignUp;
+
     @FXML
     private Text textErrorSignIn;
+
     @FXML
     private TextField textFieldSignIn;
+
     @FXML
     private TextField textFieldNewName;
+
     @FXML
     private TextField textFieldNewNameRepeat;
+
     @FXML
     private PasswordField passwordFieldSignIn;
+
     @FXML
     private PasswordField passwordFieldNewPassword;
+
     @FXML
     private PasswordField passwordFieldNewPasswordRepeat;
+
     @FXML
     private ImageView buttonOffBackToMenu;
+
     @FXML
     private ImageView buttonOnBackToMenu;
+
     @FXML
     private Text time;
+
     @FXML
     private Text textLuck;
+
     @FXML
     private Button trigger;
 

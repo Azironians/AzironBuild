@@ -11,10 +11,10 @@ public final class MainModule extends AbstractModule {
 
     @Override
     protected final void configure() {
-        install(new MainManagerModule());
-        install(new LoadSupplierModule());
+//        install(new MainManagerModule());
+//        install(new LoadSupplierModule());
         install(new AGateModule());
         install(new BonusFactoryModule());
-        install(new MainHeroConstructModule());
+//        install(new MainHeroConstructModule());
     }
 }

@@ -1,7 +1,6 @@
 package security.loadSuppliers.bonusSupplier;
 
 import annotations.bindingAnnotations.BonusService;
-import annotations.bindingAnnotations.ProfileService;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.factory.BonusFactory;
 import bonus.deck.Deck;
@@ -24,7 +23,7 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-import static heroes.properties.HeroProperties.heroNames;
+import static heroes.propertyHero.HeroProperties.heroNames;
 
 public final class BonusLoadSupplier implements LoadSupplier<BonusData> {
 

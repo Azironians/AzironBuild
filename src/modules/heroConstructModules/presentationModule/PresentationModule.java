@@ -10,7 +10,7 @@ public final class PresentationModule extends AbstractModule {
     @Override
     protected final void configure() {
         Names.bindProperties(binder(), PropertyAssistant
-                .makeProperties("./src/heroes/presentation/properties/presentation.properties"));
+                .makeProperties("./src/heroes/abstractHero/presentation/properties/presentation.properties"));
         requestStaticInjection(Presentation.class);
     }
 }

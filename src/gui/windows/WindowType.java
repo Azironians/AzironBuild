@@ -12,7 +12,7 @@ public enum WindowType {
     , AUTHORIZATION(AGame.class.getResource("../fxmlFiles/main/WindowAuthorization.fxml"))
     , PROFILE(AGame.class.getResource("../fxmlFiles/main/profile/WindowProfile.fxml"))
     , CHOICE_BONUS(AGame.class.getResource("../fxmlFiles/main/WindowChoiceBonus.fxml"))
-    , CHOICE_HERO(AGame.class.getResource("../fxmlFiles/main/WindowChoiceHero.fxml"))
+    , FAST_CHOICE_HERO(AGame.class.getResource("../fxmlFiles/main/WindowFastChoiceHero.fxml"))
     , MATCHMAKING(AGame.class.getResource("../fxmlFiles/main/matchmaking/WindowMatchMaking.fxml"))
     , PLAYER(AGame.class.getResource("../fxmlFiles/subsidiary/WindowPlayer.fxml"))
     , RIGHT_TEAM(AGame.class.getResource("../fxmlFiles/main/matchmaking/rightLocation.fxml"))

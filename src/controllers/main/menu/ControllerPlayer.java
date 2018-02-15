@@ -1,9 +1,8 @@
 package controllers.main.menu;
 
-import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.Inject;
 import controllers.Controller;
-import controllers.main.ControllerChoiceHero;
+import controllers.main.fastChoiceHero.ControllerFastChoiceHero;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.locations.engine.GraphicEngine;
 import gui.sceneMover.SceneMover;
@@ -16,7 +15,6 @@ import javafx.scene.text.Text;
 import main.AGame;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
 import managment.playerManagement.PlayerManager;
-import managment.playerManagement.FictionalTeams;
 import managment.profileManagement.Profile;
 import managment.profileManagement.ProfileManager;
 import security.gate.AGate;
@@ -172,8 +170,8 @@ public final class ControllerPlayer implements Initializable, Controller {
         return (ControllerMenu) aGame.getWindowMap().get(WindowType.MENU).getController();
     }
 
-    private ControllerChoiceHero getControllerChoiceHero(){
-        return (ControllerChoiceHero) aGame.getWindowMap().get(WindowType.CHOICE_HERO).getController();
+    private ControllerFastChoiceHero getControllerChoiceHero(){
+        return (ControllerFastChoiceHero) aGame.getWindowMap().get(WindowType.FAST_CHOICE_HERO).getController();
     }
     //Style & interface:
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

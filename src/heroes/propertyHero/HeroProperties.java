@@ -1,4 +1,4 @@
-package heroes.properties;
+package heroes.propertyHero;
 
 import java.util.ArrayList;
 import java.util.List;

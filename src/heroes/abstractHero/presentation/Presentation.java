@@ -72,4 +72,8 @@ public final class Presentation {
     public final Text getDeckNameText() {
         return deckNameText;
     }
+
+    public final Pane getContainer() {
+        return container;
+    }
 }

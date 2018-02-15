@@ -3,9 +3,8 @@ package managment.profileManagement;
 import annotations.bindingAnnotations.ProfileService;
 import bonus.deck.Deck;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import controllers.main.ControllerChoiceBonus;
-import controllers.main.ControllerChoiceHero;
+import controllers.main.fastChoiceHero.ControllerFastChoiceHero;
 import controllers.main.menu.ControllerMenu;
 import controllers.main.menu.ProfileRequest;
 import gui.windows.WindowType;
@@ -56,8 +55,8 @@ public final class ProfileManager {
         return (ControllerMenu) aGame.getWindowMap().get(WindowType.MENU).getController();
     }
 
-    private ControllerChoiceHero getControllerChoiceHero(){
-        return (ControllerChoiceHero) aGame.getWindowMap().get(WindowType.CHOICE_HERO).getController();
+    private ControllerFastChoiceHero getControllerChoiceHero(){
+        return (ControllerFastChoiceHero) aGame.getWindowMap().get(WindowType.FAST_CHOICE_HERO).getController();
     }
 
     private ControllerChoiceBonus getControllerChoiceBonus(){

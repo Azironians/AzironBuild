@@ -1,8 +1,6 @@
 package controllers.main.menu;
 
-import annotations.bindingAnnotations.ProfileService;
 import controllers.Controller;
-import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.clock.AClock;
 import gui.windows.WindowType;
 import javafx.animation.KeyFrame;
@@ -24,7 +22,6 @@ import javafx.util.Duration;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.PlayerManager;
 import managment.profileManagement.ProfileManager;
-import org.jetbrains.annotations.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.net.URL;
@@ -40,32 +37,46 @@ public final class ControllerMenu implements Initializable, Controller {
 
     @FXML
     private Pane playerPane;
+
     @FXML
     private Pane paneInit;
+
     @FXML
     private ImageView buttonOnLocMch;
+
     @FXML
     private ImageView buttonOffLocMch;
+
     @FXML
     private ImageView buttonOffExitProgram;
+
     @FXML
     private ImageView buttonOnExitProgram;
-    @FXML
-    private ImageView buttonOffGameTwo;
-    @FXML
-    private ImageView buttonOnGameTwo;
+
+//    @FXML
+//    private ImageView buttonOffGameTwo;
+//
+//    @FXML
+//    private ImageView buttonOnGameTwo;
+
     @FXML
     private ImageView buttonOffBack;
+
     @FXML
     private ImageView buttonOnBack;
+
     @FXML
     private Pane panelLocMch;
+
     @FXML
     private Pane paneButtons;
+
     @FXML
     private Pane paneMessage;
+
     @FXML
     private Text time;
+
     @FXML
     private ProgressBar progressBar;
 
@@ -87,105 +98,6 @@ public final class ControllerMenu implements Initializable, Controller {
         AClock.launchTimer(time).start();
     }
 
-    //Style & interface:
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //Кнопка "Локальный матч":
-    public final void buttonOffLocMchEntered() {
-        buttonOffLocMch.setVisible(false);
-        buttonOnLocMch.setVisible(true);
-    }
-
-    public final void buttonOnLocMchExited() {
-        buttonOffLocMch.setVisible(true);
-        buttonOnLocMch.setVisible(false);
-    }
-
-    public final void buttonOnLocMchClicked() {
-        paneMessage.setVisible(false);
-        paneButtons.setVisible(false);
-        paneButtons.setDisable(true);
-        panelLocMch.setVisible(true);
-        panelLocMch.setDisable(false);
-    }
-
-    //Кнопка "Выход из игры":
-    public final void buttonOffExitProgramEntered() {
-        buttonOffExitProgram.setVisible(false);
-        buttonOnExitProgram.setVisible(true);
-    }
-
-    public final void buttonOnExitProgramExited() {
-        buttonOffExitProgram.setVisible(true);
-        buttonOnExitProgram.setVisible(false);
-    }
-
-    @Contract(" -> fail")
-    public final void buttonOnExitProgramClicked() {
-        System.exit(0);
-    }
-
-    //Кнопка "Назад":
-    public final void buttonOffBackEntered() {
-        buttonOffBack.setVisible(false);
-        buttonOnBack.setVisible(true);
-    }
-
-    public final void buttonOnBackExited() {
-        buttonOffBack.setVisible(true);
-        buttonOnBack.setVisible(false);
-    }
-
-    public final void buttonOnBackClicked() {
-        paneMessage.setVisible(true);
-        paneButtons.setVisible(true);
-        paneButtons.setDisable(false);
-        panelLocMch.setVisible(false);
-        panelLocMch.setDisable(true);
-    }
-
-    //Кнопка "1x1":
-    public final void buttonOffGame1x1Entered() {
-        buttonOffGameTwo.setVisible(false);
-        buttonOnGameTwo.setVisible(true);
-    }
-
-    public final void buttonOnGame1x1Exited() {
-        buttonOffGameTwo.setVisible(true);
-        buttonOnGameTwo.setVisible(false);
-    }
-
-    public final void buttonOnGame1x1Clicked() {
-        setGameMode(GameMode._1x1);
-        showLocMatchPanel();
-        playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
-        playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(false);
-    }
-
-    //Кнопка "2x2":
-    public final void buttonOffGame2x2Entered() {
-    }
-
-    public final void buttonOnGame2x2Exited() {
-
-    }
-
-    public final void buttonOnGame2x2Clicked() {
-        setGameMode(GameMode._2x2);
-        showLocMatchPanel();
-        playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
-        playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(true);
-    }
-
-    private void showLocMatchPanel() {
-        playerPane.setVisible(true);
-        playerPane.setDisable(false);
-        panelLocMch.setVisible(false);
-        panelLocMch.setDisable(true);
-        paneButtons.setDisable(true);
-        paneButtons.setVisible(false);
-    }
-
     @Override
     public final void appearance() {
         loadMenu();
@@ -202,9 +114,7 @@ public final class ControllerMenu implements Initializable, Controller {
             paneInit.setVisible(false);
             final FadeTransition fadeTransition = new FadeTransition(Duration.seconds(4), paneMessage);
             fadeTransition.setToValue(1);
-            fadeTransition.setOnFinished(event -> {
-                logger.info("Ready");
-            });
+            fadeTransition.setOnFinished(event -> logger.info("Ready"));
             fadeTransition.play();
         });
         delay.play();
@@ -282,18 +192,113 @@ public final class ControllerMenu implements Initializable, Controller {
         button.setText(profileName);
     }
 
+
+    //Style & interface:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Кнопка "Локальный матч":
+    public final void buttonOffLocMchEntered() {
+        buttonOffLocMch.setVisible(false);
+        buttonOnLocMch.setVisible(true);
+    }
+
+    public final void buttonOnLocMchExited() {
+        buttonOffLocMch.setVisible(true);
+        buttonOnLocMch.setVisible(false);
+    }
+
+    public final void buttonOnLocMchClicked() {
+        paneMessage.setVisible(false);
+        paneButtons.setVisible(false);
+        paneButtons.setDisable(true);
+        panelLocMch.setVisible(true);
+        panelLocMch.setDisable(false);
+    }
+
+    //Кнопка "Выход из игры":
+    public final void buttonOffExitProgramEntered() {
+        buttonOffExitProgram.setVisible(false);
+        buttonOnExitProgram.setVisible(true);
+    }
+
+    public final void buttonOnExitProgramExited() {
+        buttonOffExitProgram.setVisible(true);
+        buttonOnExitProgram.setVisible(false);
+    }
+
+    public final void buttonOnExitProgramClicked() {
+        System.exit(0);
+    }
+
+    //Кнопка "Назад":
+    public final void buttonOffBackEntered() {
+        buttonOffBack.setVisible(false);
+        buttonOnBack.setVisible(true);
+    }
+
+    public final void buttonOnBackExited() {
+        buttonOffBack.setVisible(true);
+        buttonOnBack.setVisible(false);
+    }
+
+    public final void buttonOnBackClicked() {
+        paneMessage.setVisible(true);
+        paneButtons.setVisible(true);
+        paneButtons.setDisable(false);
+        panelLocMch.setVisible(false);
+        panelLocMch.setDisable(true);
+    }
+
+//    //Кнопка "1x1":
+//    public final void buttonOffGame1x1Entered() {
+//        buttonOffGameTwo.setVisible(false);
+//        buttonOnGameTwo.setVisible(true);
+//    }
+//
+//    public final void buttonOnGame1x1Exited() {
+//        buttonOffGameTwo.setVisible(true);
+//        buttonOnGameTwo.setVisible(false);
+//    }
+
+    public final void buttonOnGame1x1Clicked() {
+        setGameMode(GameMode._1x1);
+        showLocMatchPanel();
+        playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
+        playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(false);
+    }
+
+//    //Кнопка "2x2":
+//    public final void buttonOffGame2x2Entered() {
+//    }
+//
+//    public final void buttonOnGame2x2Exited() {
+//
+//    }
+
+    public final void buttonOnGame2x2Clicked() {
+        setGameMode(GameMode._2x2);
+        showLocMatchPanel();
+        playerPane.getChildren().get(PRIMARY_PLAYER_INDEX).setVisible(true);
+        playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(true);
+    }
+
+    private void showLocMatchPanel() {
+        playerPane.setVisible(true);
+        playerPane.setDisable(false);
+        panelLocMch.setVisible(false);
+        panelLocMch.setDisable(true);
+        paneButtons.setDisable(true);
+        paneButtons.setVisible(false);
+    }
+
     //Getters:
-    @Contract(pure = true)
     final Pane getPanelLocMch() {
         return panelLocMch;
     }
 
-    @Contract(pure = true)
     final Pane getPaneButtons() {
         return paneButtons;
     }
 
-    @Contract(pure = true)
     final Pane getPaneMessage() {
         return paneMessage;
     }

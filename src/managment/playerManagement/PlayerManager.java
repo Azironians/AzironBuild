@@ -139,5 +139,4 @@ public final class PlayerManager {
         controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
         controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
     }
-
 }

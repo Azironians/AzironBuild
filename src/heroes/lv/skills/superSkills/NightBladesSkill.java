@@ -3,7 +3,7 @@ package heroes.lv.skills.superSkills;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
-import heroes.devourer.skills.superSkills.FlameSnakesSkill;
+import heroes.devourer.skills.superSkills.flameSnakes.FlameSnakesSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.battleManagement.BattleManager;

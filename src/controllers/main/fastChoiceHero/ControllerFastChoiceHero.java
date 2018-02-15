@@ -1,4 +1,4 @@
-package controllers.main;
+package controllers.main.fastChoiceHero;
 
 import bonus.deck.Deck;
 import com.google.inject.Inject;
@@ -10,9 +10,6 @@ import gui.windows.WindowType;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
-import heroes.devourer.builder.DevourerBuilder;
-import heroes.lv.builder.LVBuilder;
-import heroes.orcBash.builder.OrcBashBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -25,15 +22,12 @@ import managment.profileManagement.Profile;
 import managment.profileManagement.ProfileManager;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Logger;
 
-public final class ControllerChoiceHero implements Initializable, Controller {
+public final class ControllerFastChoiceHero implements Initializable, Controller {
 
-    private static Logger log = Logger.getLogger(ControllerChoiceHero.class.getName());
+    private static Logger log = Logger.getLogger(ControllerFastChoiceHero.class.getName());
 
     @FXML
     private Text nameOfBonusCollection;
@@ -82,6 +76,8 @@ public final class ControllerChoiceHero implements Initializable, Controller {
 
     private int pointer;
 
+    private Set<HeroBuilder> heroBuilders;
+
     private List<Hero> heroes;
 
     private List<Presentation> presentations;
@@ -99,39 +95,46 @@ public final class ControllerChoiceHero implements Initializable, Controller {
     public final void installHeroes(){
         final List<Hero> heroes = new ArrayList<>();
         final List<Presentation> presentations = new ArrayList<>();
-        final List<HeroBuilder> builders = Arrays.asList(new DevourerBuilder(), new LVBuilder(), new OrcBashBuilder());
         final Deck bestDeck = profileManager.getBestDeck();
-        clearHeroSpotLights();
-        for (int i = 0; i < builders.size(); i++){
-            final Hero hero = builders.get(i).buildHero();
-            final Presentation presentation = hero.getPresentation();
-            final Deck privilegedDeck = profileManager.getPrivilegedDecks().get(i);
-            presentation.setDeckInfo(privilegedDeck.getCollectionName(), privilegedDeck.getPriority());
+        this.clearHeroSpotLights();
+        int i = 0;
+        for (final HeroBuilder builder : heroBuilders){
+            final Hero hero = builder.buildHero();
+            final Presentation presentation = buildPresentation(builder, profileManager.getPrivilegedDecks().get(i));
             heroes.add(hero);
             presentations.add(presentation);
-            setGraphicSpotlight(presentation.getBackGround());
+            this.setGraphicSpotlight(presentation.getContainer());
             if (hero.getName().equals(bestDeck.getHero())){
-                presentation.getBackGround().setVisible(true);
-                setDeckHeadline(bestDeck.getCollectionName());
+                presentation.getContainer().setVisible(true);
+                this.setDeckHeadline(bestDeck.getCollectionName());
                 this.pointer = i;
             } else {
-                presentation.getBackGround().setVisible(false);
+                presentation.getContainer().setVisible(false);
             }
+            i++;
         }
         this.heroes = heroes;
         this.presentations = presentations;
+    }
+
+    private Presentation buildPresentation(final HeroBuilder builder, final Deck deck){
+        return builder.buildPresentation(deck.getCollectionName(), deck.getPriority());
     }
 
     private void clearHeroSpotLights(){
         this.heroSpotlights.getChildren().clear();
     }
 
-    private void setGraphicSpotlight(final ImageView imageView){
-        this.heroSpotlights.getChildren().add(imageView);
+    private void setGraphicSpotlight(final Pane container){
+        this.heroSpotlights.getChildren().add(container);
+    }
+
+    private void setDeckHeadline(final Text deckName){
+        this.nameOfBonusCollection = deckName;
     }
 
     private void setDeckHeadline(final String deckName){
-        nameOfBonusCollection.setText(deckName);
+        this.nameOfBonusCollection.setText(deckName);
     }
 
     //Style & interface
@@ -242,8 +245,6 @@ public final class ControllerChoiceHero implements Initializable, Controller {
     private Player convertToPlayer(final Profile profile, final Hero hero){
         return new Player(profile,  hero);
     }
-
-
 
     private ControllerMenu getControllerMenu(){
         return (ControllerMenu) aGame.getWindowMap().get(WindowType.MENU).getController();

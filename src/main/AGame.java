@@ -11,7 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import main.gameModule.AGameModule;
+import modules.gameModule.AGameModule;
 import modules.MainModule;
 import org.jetbrains.annotations.Contract;
 
@@ -52,7 +52,7 @@ public final class AGame extends Application {
             put(WindowType.AUTHORIZATION, new AWindow(makeFXMLLoader.apply(WindowType.AUTHORIZATION.URL())));
             put(WindowType.PROFILE, new AWindow(makeFXMLLoader.apply(WindowType.PROFILE.URL())));
             put(WindowType.CHOICE_BONUS, new AWindow(makeFXMLLoader.apply(WindowType.CHOICE_BONUS.URL())));
-            put(WindowType.CHOICE_HERO, new AWindow(makeFXMLLoader.apply(WindowType.CHOICE_HERO.URL())));
+            put(WindowType.FAST_CHOICE_HERO, new AWindow(makeFXMLLoader.apply(WindowType.FAST_CHOICE_HERO.URL())));
             put(WindowType.MATCHMAKING, new AWindow(makeFXMLLoader.apply(WindowType.MATCHMAKING.URL())));
         }};
     }
