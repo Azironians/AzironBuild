@@ -20,5 +20,6 @@
     <orderEntry type="library" name="Simple Logging Facade for Java:1.5.0" level="application" />
     <orderEntry type="library" name="org.slf4j:slf4j-log4j12:1.5.0" level="application" />
     <orderEntry type="library" name="org.projectlombok:lombok:1.16.20" level="application" />
+    <orderEntry type="library" name="com.google.inject.extensions:guice-multibindings:4.1.0" level="application" />
   </component>
 </module>

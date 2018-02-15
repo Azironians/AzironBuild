@@ -1,5 +1,7 @@
 package heroes.devourer.skills.superSkills;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
@@ -14,13 +16,21 @@ import java.util.List;
 
 public final class ConsumingSkill extends AbstractSkill {
 
-    private static final String NAME = "Consuming";
+    @Inject
+    @Named("CONSUMING_NAME")
+    private static String NAME;
 
-    private static final int RELOAD = 4;
+    @Inject
+    @Named("CONSUMING_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 6;
+    @Inject
+    @Named("CONSUMING_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double DAMAGE_SKILL_COEFFICIENT = 2.0;
+    @Inject
+    @Named("CONSUMING_DAMAGE_SKILL_COEFFICIENT")
+    private static double DAMAGE_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
 

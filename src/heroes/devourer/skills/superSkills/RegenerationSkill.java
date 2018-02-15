@@ -1,6 +1,8 @@
 package heroes.devourer.skills.superSkills;
 
 import bonus.bonuses.HandlerBonus;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
@@ -20,13 +22,21 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
     private static final Logger log = LoggerFactory.getLogger(RegenerationSkill.class);
 
+    @Inject
+    @Named("REGENERATION_NAME")
     private static final String NAME = "Regeneration";
 
-    private static final int RELOAD = 7;
+    @Inject
+    @Named("REGENERATION_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 3;
+    @Inject
+    @Named("REGENERATION_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double HEALING_SKILL_COEFFICIENT = 1.4;
+    @Inject
+    @Named("REGENERATION_HEALING_SKILL_COEFFICIENT")
+    private static double HEALING_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(HEALING_SKILL_COEFFICIENT);
 

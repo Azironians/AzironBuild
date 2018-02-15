@@ -5,6 +5,7 @@ import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.devourer.annotation.DevourerHeroService;
+import heroes.devourer.hero.Devourer;
 
 public final class DevourerBuilder implements HeroBuilder {
 
@@ -15,10 +16,6 @@ public final class DevourerBuilder implements HeroBuilder {
     @Inject
     @DevourerHeroService
     private HeroResourceSupplier resourceSupplier;
-
-    @Inject
-    @DevourerHeroService
-    private Class clazz;
 
     @Override
     public final SkillFactory getSkillFactory() {
@@ -32,6 +29,6 @@ public final class DevourerBuilder implements HeroBuilder {
 
     @Override
     public final Class getHeroClass() {
-        return clazz;
+        return Devourer.class;
     }
 }

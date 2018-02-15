@@ -2,7 +2,7 @@ package modules;
 
 import com.google.inject.AbstractModule;
 import modules.bonusModules.bonusFactoryModule.BonusFactoryModule;
-import modules.heroModules.MainHeroModule;
+import modules.heroConstructModules.MainHeroConstructModule;
 import modules.managerModules.MainManagerModule;
 import modules.securityModules.gate.AGateModule;
 import modules.securityModules.loadSuppliers.LoadSupplierModule;
@@ -15,6 +15,6 @@ public final class MainModule extends AbstractModule {
         install(new LoadSupplierModule());
         install(new AGateModule());
         install(new BonusFactoryModule());
-        install(new MainHeroModule());
+        install(new MainHeroConstructModule());
     }
 }

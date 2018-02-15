@@ -1,5 +1,7 @@
 package heroes.devourer.skills.swapSkills;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
@@ -13,13 +15,21 @@ import java.util.List;
 
 public final class DepletionSkill extends AbstractSwapSkill {
 
-    private static final String NAME = "Depletion";
+    @Inject
+    @Named("DEPLETION_NAME")
+    private static String NAME;
 
-    private static final int RELOAD = 5;
+    @Inject
+    @Named("DEPLETION_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 1;
+    @Inject
+    @Named("DEPLETION_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double SKILL_COEFFICIENT = 1.0;
+    @Inject
+    @Named("DEPLETION_SKILL_COEFFICIENT")
+    private static double SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(SKILL_COEFFICIENT);
 

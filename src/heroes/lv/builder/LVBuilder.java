@@ -5,6 +5,7 @@ import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.lv.annotation.LVHeroService;
+import heroes.lv.hero.LV;
 
 public final class LVBuilder implements HeroBuilder {
 
@@ -15,10 +16,6 @@ public final class LVBuilder implements HeroBuilder {
     @Inject
     @LVHeroService
     private HeroResourceSupplier resourceSupplier;
-
-    @Inject
-    @LVHeroService
-    private Class clazz;
 
     @Override
     public final SkillFactory getSkillFactory() {
@@ -32,6 +29,6 @@ public final class LVBuilder implements HeroBuilder {
 
     @Override
     public final Class getHeroClass() {
-        return clazz;
+        return LV.class;
     }
 }

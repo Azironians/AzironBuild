@@ -5,6 +5,7 @@ import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.orcBash.annotation.OrcBashHeroService;
+import heroes.orcBash.hero.OrcBash;
 
 public final class OrcBashBuilder implements HeroBuilder {
 
@@ -15,10 +16,6 @@ public final class OrcBashBuilder implements HeroBuilder {
     @Inject
     @OrcBashHeroService
     private HeroResourceSupplier resourceSupplier;
-
-    @Inject
-    @OrcBashHeroService
-    private Class clazz;
 
     @Override
     public final SkillFactory getSkillFactory() {
@@ -32,6 +29,6 @@ public final class OrcBashBuilder implements HeroBuilder {
 
     @Override
     public final Class getHeroClass() {
-        return clazz;
+        return OrcBash.class;
     }
 }

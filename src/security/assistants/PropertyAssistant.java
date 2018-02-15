@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public final class PropertiesAssistant {
+public final class PropertyAssistant {
 
     public static Properties makeProperties(final String propertiesPath) {
         final Properties properties = new Properties();

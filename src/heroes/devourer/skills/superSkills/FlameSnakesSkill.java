@@ -1,5 +1,7 @@
 package heroes.devourer.skills.superSkills;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.hero.AHero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
@@ -18,13 +20,21 @@ public final class FlameSnakesSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(FlameSnakesSkill.class);
 
-    private static final String NAME = "FlameSnakes";
+    @Inject
+    @Named("FLAME_SNAKES_NAME")
+    private static String NAME;
 
-    private static final int RELOAD = 5;
+    @Inject
+    @Named("FLAME_SNAKES_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 1;
+    @Inject
+    @Named("FLAME_SNAKES_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double DAMAGE_SKILL_COEFFICIENT = 5;
+    @Inject
+    @Named("FLAME_SNAKES_DAMAGE_SKILL_COEFFICIENT")
+    private static double DAMAGE_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
 
