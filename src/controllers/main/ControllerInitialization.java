@@ -39,7 +39,7 @@ public final class ControllerInitialization implements Initializable, Controller
 
     @Override
     public final void initialize(final URL location, final ResourceBundle resources) {
-        appearance();
+
     }
 
     @Override

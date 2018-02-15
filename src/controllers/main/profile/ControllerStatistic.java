@@ -6,22 +6,31 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public final class ControllerStatistic {
+
     @FXML
     private Pane paneStatistic;
+
     @FXML
     private ImageView panelStatistics;
+
     @FXML
     private Text textRank;
+
     @FXML
     private Text textRating;
+
     @FXML
     private Text textWins;
+
     @FXML
     private Text textLoses;
+
     @FXML
     private Text textWinsDevourer;
+
     @FXML
     private Text textWinsLV;
+
     @FXML
     private Text textWinsOrcBasher;
 
@@ -41,5 +50,4 @@ public final class ControllerStatistic {
     public final void buttonOnCloseStatisticsClicked(){
         paneStatistic.setVisible(false);
     }
-
 }

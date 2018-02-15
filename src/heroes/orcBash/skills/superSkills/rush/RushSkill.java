@@ -1,7 +1,5 @@
-package heroes.orcBash.skills.superSkills;
+package heroes.orcBash.skills.superSkills.rush;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
@@ -13,30 +11,13 @@ import managment.playerManagement.PlayerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collections;
 import java.util.List;
+
+import static heroes.orcBash.skills.superSkills.rush.RushPropertySkill.*;
 
 public final class RushSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(RushSkill.class);
-
-    @Inject
-    @Named("RUSH_NAME")
-    private static String NAME;
-
-    @Inject
-    @Named("RUSH_RELOAD")
-    private static int RELOAD;
-
-    @Inject
-    @Named("RUSH_REQUIRED_LEVEL")
-    private static int REQUIRED_LEVEL;
-
-    @Inject
-    @Named("RUSH_DAMAGE_SKILL_COEFFICIENT")
-    private static double DAMAGE_SKILL_COEFFICIENT;
-
-    private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
 
     public RushSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS

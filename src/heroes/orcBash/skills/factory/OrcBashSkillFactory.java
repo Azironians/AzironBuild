@@ -5,10 +5,10 @@ import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.orcBash.annotation.OrcBashHeroService;
-import heroes.orcBash.skills.superSkills.BashSkill;
-import heroes.orcBash.skills.superSkills.FavouriteBeaterSkill;
-import heroes.orcBash.skills.superSkills.RushSkill;
-import heroes.orcBash.skills.swapSkills.HealthGainSkill;
+import heroes.orcBash.skills.superSkills.bash.BashSkill;
+import heroes.orcBash.skills.superSkills.favouriteBeater.FavouriteBeaterSkill;
+import heroes.orcBash.skills.superSkills.rush.RushSkill;
+import heroes.orcBash.skills.swapSkills.healthGain.HealthGainSkill;
 
 import java.util.Arrays;
 import java.util.List;

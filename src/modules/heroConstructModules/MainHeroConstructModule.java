@@ -14,7 +14,7 @@ public final class MainHeroConstructModule extends AbstractModule{
         install(new HeroSpecificModule());
         install(new HeroResourceSupplierModule());
         install(new SkillFactoryModule());
-        install(new HeroBuilderModule());
         install(new PresentationModule());
+        install(new HeroBuilderModule());
     }
 }

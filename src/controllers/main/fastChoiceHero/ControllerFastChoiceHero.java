@@ -10,6 +10,9 @@ import gui.windows.WindowType;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
+import heroes.devourer.annotation.DevourerHeroService;
+import heroes.lv.annotation.LVHeroService;
+import heroes.orcBash.annotation.OrcBashHeroService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -76,7 +79,7 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
 
     private int pointer;
 
-    private Set<HeroBuilder> heroBuilders;
+    private Set<HeroBuilder> heroBuilders = new HashSet<>();
 
     private List<Hero> heroes;
 

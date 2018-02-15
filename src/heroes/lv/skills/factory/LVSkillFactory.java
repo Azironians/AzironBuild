@@ -5,10 +5,10 @@ import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.factory.SkillFactory;
 import heroes.lv.annotation.LVHeroService;
-import heroes.lv.skills.superSkills.CannibalismSkill;
-import heroes.lv.skills.superSkills.NightBladesSkill;
-import heroes.lv.skills.superSkills.ReincarnationSkill;
-import heroes.lv.skills.swapSkills.FurySkill;
+import heroes.lv.skills.superSkills.cannibalism.CannibalismSkill;
+import heroes.lv.skills.superSkills.nightBlades.NightBladesSkill;
+import heroes.lv.skills.superSkills.reincarnation.ReincarnationSkill;
+import heroes.lv.skills.swapSkills.fury.FurySkill;
 
 import java.util.Arrays;
 import java.util.List;

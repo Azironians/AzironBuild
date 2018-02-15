@@ -23,7 +23,7 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-import static heroes.propertyHero.HeroProperties.heroNames;
+import static heroes.heroUtils.HeroUtils.heroNames;
 
 public final class BonusLoadSupplier implements LoadSupplier<BonusData> {
 

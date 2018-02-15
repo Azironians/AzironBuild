@@ -13,15 +13,15 @@ public abstract class HeroResourceSupplier {
     //Paths:
     @Inject
     @Named("facePath")
-    private static String facePath = "face\\face.png";
+    private static String facePath;
 
     @Inject
     @Named("spritePath")
-    protected static String sprite = "\\sprite.png";
+    protected static String sprite;
 
     @Inject
     @Named("descriptionPath")
-    protected static String description = "\\description.png";
+    protected static String description;
 
     //Size:
     @Inject

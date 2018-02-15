@@ -266,13 +266,13 @@ public final class ControllerMenu implements Initializable, Controller {
         playerPane.getChildren().get(SECONDARY_PLAYER_INDEX).setVisible(false);
     }
 
-//    //Кнопка "2x2":
-//    public final void buttonOffGame2x2Entered() {
-//    }
-//
-//    public final void buttonOnGame2x2Exited() {
-//
-//    }
+    //Кнопка "2x2":
+    public final void buttonOffGame2x2Entered() {
+    }
+
+    public final void buttonOnGame2x2Exited() {
+
+    }
 
     public final void buttonOnGame2x2Clicked() {
         setGameMode(GameMode._2x2);

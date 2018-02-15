@@ -1,11 +1,13 @@
 package heroes.devourer.skills.superSkills.regeneration;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
 import java.util.Collections;
 import java.util.List;
 
+@Singleton
 public final class RegenerationPropertySkill {
 
     @Inject

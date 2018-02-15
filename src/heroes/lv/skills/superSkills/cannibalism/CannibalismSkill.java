@@ -1,7 +1,5 @@
-package heroes.lv.skills.superSkills;
+package heroes.lv.skills.superSkills.cannibalism;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
@@ -11,33 +9,13 @@ import managment.battleManagement.BattleManager;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static heroes.lv.skills.superSkills.cannibalism.CannibalismPropertySkill.*;
 
 public final class CannibalismSkill extends AbstractSwapSkill {
 
-    @Inject
-    @Named("CANNIBALISM_NAME")
-    private static String NAME;
 
-    @Inject
-    @Named("CANNIBALISM_RELOAD")
-    private static int RELOAD;
-
-    @Inject
-    @Named("CANNIBALISM_REQUIRED_LEVEL")
-    private static int REQUIRED_LEVEL;
-
-    @Inject
-    @Named("CANNIBALISM_DAMAGE_SKILL_COEFFICIENT")
-    private static double DAMAGE_SKILL_COEFFICIENT;
-
-    @Inject
-    @Named("CANNIBALISM_HEALING_SKILL_COEFFICIENT")
-    private static double HEALING_SKILL_COEFFICIENT;
-
-    private static final List<Double> SKILL_COEFFICIENTS = Arrays.asList
-            (DAMAGE_SKILL_COEFFICIENT, HEALING_SKILL_COEFFICIENT);
 
     public CannibalismSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS

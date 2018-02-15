@@ -107,6 +107,4 @@ public final class ProfileManager {
             currentProfile.setBonusData(bonusData);
         }
     }
-
-
 }

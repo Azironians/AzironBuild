@@ -18,9 +18,6 @@ public abstract class AbstractSwapSkill extends AbstractSkill{
 
     private final Logger log = LoggerFactory.getLogger(AbstractSwapSkill.class);
 
-    //Access:
-    private boolean skillAccess;
-
     //ActionEvents:
     protected final List<ActionEvent> actionEvents = new ArrayList<>();
 

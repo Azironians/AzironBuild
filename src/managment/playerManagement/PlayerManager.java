@@ -3,7 +3,11 @@ package managment.playerManagement;
 import com.google.inject.Inject;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.windows.WindowType;
+import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.hero.Hero;
+import heroes.devourer.annotation.DevourerHeroService;
+import heroes.lv.annotation.LVHeroService;
+import heroes.orcBash.annotation.OrcBashHeroService;
 import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
@@ -13,6 +17,18 @@ import java.util.Map;
 import java.util.Random;
 
 public final class PlayerManager {
+
+    @Inject
+    @DevourerHeroService
+    private HeroBuilder devourerBuilder;
+
+    @Inject
+    @LVHeroService
+    private HeroBuilder lvBuilder;
+
+    @Inject
+    @OrcBashHeroService
+    private HeroBuilder orcBashBuilder;
 
     @Inject
     private AGame aGame;

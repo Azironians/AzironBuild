@@ -1,4 +1,4 @@
-package heroes.devourer.skills.swapSkills.depletion;
+package heroes.lv.skills.superSkills.reincarnation;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -6,24 +6,23 @@ import com.google.inject.name.Named;
 
 import java.util.Collections;
 import java.util.List;
-
 @Singleton
-public final class DepletionPropertySkill {
+public final class ReincarnationPropertySkill {
 
     @Inject
-    @Named("DEPLETION_NAME")
-    static String NAME;
+    @Named("REINCARNATION_NAME")
+    static String NAME = "Reincarnation";
 
     @Inject
-    @Named("DEPLETION_RELOAD")
+    @Named("REINCARNATION_RELOAD")
     static int RELOAD;
 
     @Inject
-    @Named("DEPLETION_REQUIRED_LEVEL")
+    @Named("REINCARNATION_REQUIRED_LEVEL")
     static int REQUIRED_LEVEL;
 
     @Inject
-    @Named("DEPLETION_SKILL_COEFFICIENT")
+    @Named("REINCARNATION_SKILL_COEFFICIENT")
     private static double SKILL_COEFFICIENT;
 
     static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(SKILL_COEFFICIENT);

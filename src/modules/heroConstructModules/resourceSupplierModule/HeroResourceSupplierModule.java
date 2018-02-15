@@ -25,5 +25,6 @@ public final class HeroResourceSupplierModule extends AbstractModule {
     private void bindProperties(){
         final String path = "./src/heroes/abstractHero/resourceSupplier/properties/resource.properties";
         Names.bindProperties(binder(), PropertyAssistant.makeProperties(path));
+        requestStaticInjection(HeroResourceSupplier.class);
     }
 }

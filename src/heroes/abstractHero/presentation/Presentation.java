@@ -1,7 +1,5 @@
 package heroes.abstractHero.presentation;
 
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -13,19 +11,9 @@ import javafx.util.Duration;
 
 import java.util.List;
 
+import static heroes.abstractHero.presentation.PresentationProperties.*;
+
 public final class Presentation {
-
-    @Inject @Named("WIDTH")
-    private static int WIDTH;
-
-    @Inject @Named("HEIGHT")
-    private static int HEIGHT;
-
-    @Inject @Named("START_OPACITY")
-    private static int START_OPACITY;
-
-    @Inject @Named("ANIMATION_TIME")
-    private static int ANIMATION_TIME;
 
     //Info:
     private Text deckNameText;

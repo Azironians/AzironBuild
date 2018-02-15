@@ -1,4 +1,4 @@
-package heroes.devourer.hero;
+package heroes.lv.hero;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -7,72 +7,60 @@ import com.google.inject.name.Named;
 import java.util.Arrays;
 import java.util.List;
 @Singleton
-public final class DevourerProperties {
+public final class LVProperties {
+
     //Name:
     @Inject
-    @Named("DEVOURER_NAME")
+    @Named("LV_NAME")
     static String NAME;
 
     //Characteristics:
     @Inject
-    @Named("DEVOURER_START_ATTACK")
+    @Named("LV_START_ATTACK")
     static double START_ATTACK;
-
     @Inject
-    @Named("DEVOURER_START_TREATMENT")
+    @Named("LV_START_TREATMENT")
     static double START_TREATMENT;
-
     @Inject
-    @Named("DEVOURER_START_HIT_POINTS")
+    @Named("LV_START_HIT_POINTS")
     static double START_HIT_POINTS;
-
     @Inject
-    @Named("DEVOURER_START_SUPPLY_HEALTH")
+    @Named("LV_START_SUPPLY_HEALTH")
     static double START_SUPPLY_HEALTH;
-
     @Inject
-    @Named("DEVOURER_START_EXPERIENCE")
+    @Named("LV_START_EXPERIENCE")
     static double START_EXPERIENCE;
-
     @Inject
-    @Named("DEVOURER_START_LEVEL")
+    @Named("LV_START_LEVEL")
     static int START_LEVEL;
 
     //Required level list:
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_2")
+    @Named("LV_EXP_LEVEL_2")
     private static double EXP_LEVEL_2;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_3")
+    @Named("LV_EXP_LEVEL_3")
     private static double EXP_LEVEL_3;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_4")
+    @Named("LV_EXP_LEVEL_4")
     private static double EXP_LEVEL_4;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_5")
+    @Named("LV_EXP_LEVEL_5")
     private static double EXP_LEVEL_5;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_6")
+    @Named("LV_EXP_LEVEL_6")
     private static double EXP_LEVEL_6;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_7")
+    @Named("LV_EXP_LEVEL_7")
     private static double EXP_LEVEL_7;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_8")
+    @Named("LV_EXP_LEVEL_8")
     private static double EXP_LEVEL_8;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_9")
+    @Named("LV_EXP_LEVEL_9")
     private static double EXP_LEVEL_9;
-
     @Inject
-    @Named("DEVOURER_EXP_LEVEL_10")
+    @Named("LV_EXP_LEVEL_10")
     private static double EXP_LEVEL_10;
 
     static final List<Double> REQUIRED_EXPERIENCE_LIST = Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
@@ -80,39 +68,31 @@ public final class DevourerProperties {
 
     //Attack level boost:
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_2")
+    @Named("LV_DAMAGE_LEVEL_2")
     private static double DAMAGE_LEVEL_2;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_3")
+    @Named("LV_DAMAGE_LEVEL_3")
     private static double DAMAGE_LEVEL_3;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_4")
+    @Named("LV_DAMAGE_LEVEL_4")
     private static double DAMAGE_LEVEL_4;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_5")
+    @Named("LV_DAMAGE_LEVEL_5")
     private static double DAMAGE_LEVEL_5;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_6")
+    @Named("LV_DAMAGE_LEVEL_6")
     private static double DAMAGE_LEVEL_6;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_7")
+    @Named("LV_DAMAGE_LEVEL_7")
     private static double DAMAGE_LEVEL_7;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_8")
+    @Named("LV_DAMAGE_LEVEL_8")
     private static double DAMAGE_LEVEL_8;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_9")
+    @Named("LV_DAMAGE_LEVEL_9")
     private static double DAMAGE_LEVEL_9;
-
     @Inject
-    @Named("DEVOURER_DAMAGE_LEVEL_10")
+    @Named("LV_DAMAGE_LEVEL_10")
     private static double DAMAGE_LEVEL_10;
 
     static final List<Double> DAMAGE_LIST = Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
@@ -120,39 +100,31 @@ public final class DevourerProperties {
 
     //Treatment level boost:
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_2")
+    @Named("LV_TREAT_LEVEL_2")
     private static double TREAT_LEVEL_2;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_3")
+    @Named("LV_TREAT_LEVEL_3")
     private static double TREAT_LEVEL_3;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_4")
+    @Named("LV_TREAT_LEVEL_4")
     private static double TREAT_LEVEL_4;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_5")
+    @Named("LV_TREAT_LEVEL_5")
     private static double TREAT_LEVEL_5;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_6")
+    @Named("LV_TREAT_LEVEL_6")
     private static double TREAT_LEVEL_6;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_7")
+    @Named("LV_TREAT_LEVEL_7")
     private static double TREAT_LEVEL_7;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_8")
+    @Named("LV_TREAT_LEVEL_8")
     private static double TREAT_LEVEL_8;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_9")
+    @Named("LV_TREAT_LEVEL_9")
     private static double TREAT_LEVEL_9;
-
     @Inject
-    @Named("DEVOURER_TREAT_LEVEL_10")
+    @Named("LV_TREAT_LEVEL_10")
     private static double TREAT_LEVEL_10;
 
     static final List<Double> TREATMENT_LIST = Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
@@ -160,39 +132,31 @@ public final class DevourerProperties {
 
     //Healing level boost:
     @Inject
-    @Named("DEVOURER_HP_LEVEL_2")
+    @Named("LV_HP_LEVEL_2")
     private static double HP_LEVEL_2;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_3")
+    @Named("LV_HP_LEVEL_3")
     private static double HP_LEVEL_3;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_4")
+    @Named("LV_HP_LEVEL_4")
     private static double HP_LEVEL_4;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_5")
+    @Named("LV_HP_LEVEL_5")
     private static double HP_LEVEL_5;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_6")
+    @Named("LV_HP_LEVEL_6")
     private static double HP_LEVEL_6;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_7")
+    @Named("LV_HP_LEVEL_7")
     private static double HP_LEVEL_7;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_8")
+    @Named("LV_HP_LEVEL_8")
     private static double HP_LEVEL_8;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_9")
+    @Named("LV_HP_LEVEL_9")
     private static double HP_LEVEL_9;
-
     @Inject
-    @Named("DEVOURER_HP_LEVEL_10")
+    @Named("LV_HP_LEVEL_10")
     private static double HP_LEVEL_10;
 
     static final List<Double> SUPPLY_HEATH_LIST = Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
