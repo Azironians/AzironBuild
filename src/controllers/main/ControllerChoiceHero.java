@@ -7,7 +7,7 @@ import controllers.main.menu.ControllerMenu;
 import controllers.main.menu.ProfileRequest;
 import gui.sceneMover.SceneMover;
 import gui.windows.WindowType;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
 import heroes.devourer.builder.DevourerBuilder;
@@ -82,7 +82,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
 
     private int pointer;
 
-    private List<AHero> heroes;
+    private List<Hero> heroes;
 
     private List<Presentation> presentations;
 
@@ -97,13 +97,13 @@ public final class ControllerChoiceHero implements Initializable, Controller {
     }
 
     public final void installHeroes(){
-        final List<AHero> heroes = new ArrayList<>();
+        final List<Hero> heroes = new ArrayList<>();
         final List<Presentation> presentations = new ArrayList<>();
         final List<HeroBuilder> builders = Arrays.asList(new DevourerBuilder(), new LVBuilder(), new OrcBashBuilder());
         final Deck bestDeck = profileManager.getBestDeck();
         clearHeroSpotLights();
         for (int i = 0; i < builders.size(); i++){
-            final AHero hero = builders.get(i).buildHero();
+            final Hero hero = builders.get(i).buildHero();
             final Presentation presentation = hero.getPresentation();
             final Deck privilegedDeck = profileManager.getPrivilegedDecks().get(i);
             presentation.setDeckInfo(privilegedDeck.getCollectionName(), privilegedDeck.getPriority());
@@ -212,7 +212,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
     }
 
     public final void buttonOnChoiceHeroClicked(){
-        final AHero selectedHero = heroes.get(pointer);
+        final Hero selectedHero = heroes.get(pointer);
         selectedHero.putBonusCollection(profileManager.getPrivilegedDecks().get(pointer).getCollection());
         final Profile profile = profileManager.getCurrentProfile();
         final Player player = convertToPlayer(profile, selectedHero);
@@ -239,7 +239,7 @@ public final class ControllerChoiceHero implements Initializable, Controller {
         sceneMover.moveToScene(WindowType.MENU);
     }
 
-    private Player convertToPlayer(final Profile profile, final AHero hero){
+    private Player convertToPlayer(final Profile profile, final Hero hero){
         return new Player(profile,  hero);
     }
 

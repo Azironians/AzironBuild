@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
@@ -24,7 +24,7 @@ public final class SCounterSpell extends Bonus implements HandlerBonus {
     @Override
     public final void use() {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
         final List<Skill> opponentSkills = opponentHero.getCollectionOfSkills();
 
         for (final Skill skill : opponentSkills) {

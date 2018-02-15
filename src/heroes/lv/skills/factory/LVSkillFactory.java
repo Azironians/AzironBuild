@@ -8,6 +8,9 @@ import heroes.devourer.skills.superSkills.ConsumingSkill;
 import heroes.devourer.skills.superSkills.FlameSnakesSkill;
 import heroes.devourer.skills.superSkills.RegenerationSkill;
 import heroes.lv.annotation.LVHeroService;
+import heroes.lv.skills.superSkills.CannibalismSkill;
+import heroes.lv.skills.superSkills.NightBladesSkill;
+import heroes.lv.skills.superSkills.ReincarnationSkill;
 import heroes.lv.skills.swapSkills.FurySkill;
 
 import java.util.Arrays;
@@ -38,16 +41,16 @@ public final class LVSkillFactory implements SkillFactory{
 
     private Skill getCannibalismSkill(){
         final HeroResourceSupplier.GetSkill resource = heroResourceSupplier.getSuperSkillResources().get(CANNIBALISM_INDEX);
-        return new FlameSnakesSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
+        return new CannibalismSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
     }
 
     private Skill getNightBladesSkill(){
         final HeroResourceSupplier.GetSkill resource = heroResourceSupplier.getSuperSkillResources().get(NIGHT_BLADES_INDEX);
-        return new RegenerationSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
+        return new NightBladesSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
     }
 
     private Skill getReincarnationSkill(){
         final HeroResourceSupplier.GetSkill resource = heroResourceSupplier.getSuperSkillResources().get(REINCARNATION_INDEX);
-        return new ConsumingSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
+        return new ReincarnationSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
     }
 }

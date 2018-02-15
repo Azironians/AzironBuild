@@ -1,14 +1,10 @@
 package managment.playerManagement;
 
-import bonus.bonuses.Bonus;
-import bonus.deck.fictionalDecks.FictionalDecks;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.lv.builder.LVBuilder;
 import heroes.orcBash.builder.OrcBashBuilder;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 /**
  * Test factory imitates players in match.
@@ -25,8 +21,8 @@ public final class FictionalTeams {
         final Profile goresProfile = new Profile("Gore", 0, null, null, null
                 , null, null, 0, null);
 
-        final AHero joysDevourer = new OrcBashBuilder().buildHero();
-        final AHero goresOrcBash = new OrcBashBuilder().buildHero();
+        final Hero joysDevourer = new OrcBashBuilder().buildHero();
+        final Hero goresOrcBash = new OrcBashBuilder().buildHero();
 
         final Player joysPlayer = new Player(joysProfile, joysDevourer);
         final Player goresPlayer = new Player(goresProfile, goresOrcBash);
@@ -43,8 +39,8 @@ public final class FictionalTeams {
                 , null
                 , null, null, null);
 
-        final AHero mikesLordVampire = new LVBuilder().buildHero();
-        final AHero kevinOrcBash = new LVBuilder().buildHero();
+        final Hero mikesLordVampire = new LVBuilder().buildHero();
+        final Hero kevinOrcBash = new LVBuilder().buildHero();
 
         final Player mikesPlayer = new Player(mikesProfile, mikesLordVampire);
         final Player kevinPlayer = new Player(kevinProfile, kevinOrcBash);

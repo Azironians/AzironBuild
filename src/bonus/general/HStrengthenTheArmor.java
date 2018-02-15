@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -48,7 +48,7 @@ public final class HStrengthenTheArmor extends Bonus implements HandlerBonus {
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final AHero currentHero = player.getHero();
+                final Hero currentHero = player.getHero();
                 final double comparison = hitPoints - currentHero.getHitPoints();
                 if (comparison > 0) {
                     log.info("COMPARISON: " + comparison);

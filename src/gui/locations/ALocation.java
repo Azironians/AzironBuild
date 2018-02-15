@@ -1,6 +1,6 @@
 package gui.locations;
 
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -112,7 +112,7 @@ public final class ALocation {
         return skills;
     }
 
-    public final void setupSuperSkills(final AHero parentHero, final List<Skill> skills){
+    public final void setupSuperSkills(final Hero parentHero, final List<Skill> skills){
         final int startY = 0;
         int startX = invert ? 0 : 150;
         final int shiftX = invert ? + 75 : -75;

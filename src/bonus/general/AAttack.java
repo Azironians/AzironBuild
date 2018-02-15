@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -24,7 +24,7 @@ public final class AAttack extends Bonus implements HandlerBonus {
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final AHero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
 
         currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
         log.info("+10 ATTACK");
@@ -49,7 +49,7 @@ public final class AAttack extends Bonus implements HandlerBonus {
             public final void handle(final ActionEvent actionEvent) {
                 final ActionType actionType = actionEvent.getActionType();
                 if (actionType == ActionType.END_TURN) {
-                    final AHero currentHero = player.getHero();
+                    final Hero currentHero = player.getHero();
                     currentHero.setAttack(currentHero.getAttack() - ATTACK_BOOST);
                     isWorking = false;
                     log.info("-10 ATTACK");

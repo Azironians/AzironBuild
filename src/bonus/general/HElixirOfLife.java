@@ -1,7 +1,7 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public final class HElixirOfLife extends Bonus {
 
     @Override
     public final void use() {
-        final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         if (currentHero.getHealing(HEALING_BOOST)) {
             log.info("+50 HP");
             actionManager.getBonusEventEngine().handle();

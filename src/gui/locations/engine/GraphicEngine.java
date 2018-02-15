@@ -6,7 +6,7 @@ import com.google.inject.Singleton;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.locations.ALocation;
 import gui.windows.WindowType;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -89,13 +89,13 @@ public final class GraphicEngine {
     }
 
     private void wireActionManagerToSkills(final ActionManager actionManager, final ATeam leftATeam, final ATeam rightATeam){
-        final List<AHero> allHeroes = new ArrayList<>(){{
+        final List<Hero> allHeroes = new ArrayList<>(){{
             add(leftATeam.getCurrentPlayer().getHero());
             add(leftATeam.getAlternativePlayer().getHero());
             add(rightATeam.getCurrentPlayer().getHero());
             add(rightATeam.getAlternativePlayer().getHero());
         }};
-        for (final AHero hero: allHeroes){
+        for (final Hero hero: allHeroes){
             final List<Skill> skills = hero.getCollectionOfSkills();
             for (final Skill skill : skills){
                 skill.setActionManager(actionManager);
@@ -113,7 +113,7 @@ public final class GraphicEngine {
 
     private void showLocation(final ALocation location, final ATeam team){
         final Player currentPlayer = team.getCurrentPlayer();
-        final AHero hero = currentPlayer.getHero();
+        final Hero hero = currentPlayer.getHero();
         currentPlayer.setLocation(location);
         location.setFace(currentPlayer.getHero().getFace());
         //Profile:

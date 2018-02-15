@@ -8,7 +8,7 @@ import heroes.orcBash.annotation.OrcBashHeroService;
 import heroes.orcBash.skills.superSkills.BashSkill;
 import heroes.orcBash.skills.superSkills.FavouriteBeaterSkill;
 import heroes.orcBash.skills.superSkills.RushSkill;
-import heroes.orcBash.skills.swapSkills.HealthGain;
+import heroes.orcBash.skills.swapSkills.HealthGainSkill;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +28,7 @@ public final class OrcBashSkillFactory implements SkillFactory{
     @Override
     public final Skill getSwapSkill() {
         final HeroResourceSupplier.GetSkill resource = heroResourceSupplier.getSwapSkillResources();
-        return new HealthGain(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
+        return new HealthGainSkill(resource.getSprite(), resource.getDescription(), resource.getVoiceList());
     }
 
     @Override

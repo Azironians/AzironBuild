@@ -1,7 +1,7 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.playerManagement.Player;
@@ -21,9 +21,9 @@ public final class ABerserk extends Bonus {
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final AHero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
 
         opponentHero.getDamage(currentHero.getAttack());
         log.info("DEAL " + currentHero.getAttack() + " DAMAGE TO OPPONENT PLAYER");

@@ -1,5 +1,7 @@
 package heroes.lv.skills.superSkills;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -11,13 +13,21 @@ import java.util.List;
 
 public final class ReincarnationSkill extends AbstractSwapSkill {
 
-    private static final String NAME = "Reincarnation";
+    @Inject
+    @Named("REINCARNATION_NAME")
+    private static String NAME = "Reincarnation";
 
-    private static final int RELOAD = 9;
+    @Inject
+    @Named("REINCARNATION_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 5;
+    @Inject
+    @Named("REINCARNATION_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double SKILL_COEFFICIENT = 1.0;
+    @Inject
+    @Named("REINCARNATION_SKILL_COEFFICIENT")
+    private static double SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(SKILL_COEFFICIENT);
 

@@ -3,7 +3,7 @@ package bonus.general;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
 import bonus.bonuses.InstallerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
@@ -27,8 +27,8 @@ public final class XFeedBack extends Bonus implements InstallerBonus {
 
     @Override
     public final void use() {
-        final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-        final AHero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
 
         final double HEALING_BOOST = lastDamage * SKILL_HEALING_COEFFICIENT;
         final double OPPONENT_EXPERIENCE_BOOST = lastDamage * SKILL_EXPERIENCE_COEFFICIENT;

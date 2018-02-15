@@ -2,7 +2,7 @@ package heroes.devourer.hero;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -10,7 +10,7 @@ import javafx.scene.media.Media;
 import java.util.Arrays;
 import java.util.List;
 
-public final class Devourer extends AHero {
+public final class Devourer extends Hero {
 
     //Name:
     @Inject

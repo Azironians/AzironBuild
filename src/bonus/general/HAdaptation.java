@@ -1,7 +1,7 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ public final class HAdaptation extends Bonus {
 
     @Override
     public final void use() {
-        final AHero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         final double HEATH_SUPPLY_BOOST = currentHero.getAttack();
         currentHero.setHealthSupply(currentHero.getHealthSupply() + HEATH_SUPPLY_BOOST);
         log.info("HEALTH SUPPLY IS INCREASED");

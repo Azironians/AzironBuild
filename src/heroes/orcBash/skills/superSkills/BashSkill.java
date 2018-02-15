@@ -1,6 +1,8 @@
 package heroes.orcBash.skills.superSkills;
 
-import heroes.abstractHero.hero.AHero;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -14,17 +16,25 @@ import org.slf4j.LoggerFactory;
 import java.util.Collections;
 import java.util.List;
 
-public final class BashSkill extends AbstractSkill{
+public final class BashSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(BashSkill.class);
 
-    private static final String NAME = "Bash";
+    @Inject
+    @Named("BASH_NAME")
+    private static String NAME;
 
-    private static final int RELOAD = 7;
+    @Inject
+    @Named("BASH_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 3;
+    @Inject
+    @Named("BASH_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double DAMAGE_SKILL_COEFFICIENT = 5.0;
+    @Inject
+    @Named("BASH_DAMAGE_SKILL_COEFFICIENT")
+    private static double DAMAGE_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
 
@@ -38,7 +48,7 @@ public final class BashSkill extends AbstractSkill{
         final double damage = getParent().getAttack() * coefficients.get(0);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
         }

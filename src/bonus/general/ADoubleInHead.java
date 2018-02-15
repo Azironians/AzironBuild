@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
@@ -28,7 +28,7 @@ public final class ADoubleInHead extends Bonus implements HandlerBonus {
         final ATeam attackTeam = playerManager.getCurrentTeam();
         final ATeam victimTeam = playerManager.getOpponentATeam();
         final Player attackPlayer = attackTeam.getCurrentPlayer();
-        final AHero attackHero = attackPlayer.getHero();
+        final Hero attackHero = attackPlayer.getHero();
 
         final BonusEventEngine bonusEventEngine = actionManager.getBonusEventEngine();
 

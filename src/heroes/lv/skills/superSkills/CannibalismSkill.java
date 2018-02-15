@@ -1,33 +1,40 @@
 package heroes.lv.skills.superSkills;
 
-import heroes.abstractHero.hero.AHero;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
-import heroes.devourer.skills.superSkills.FlameSnakesSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
 
 public final class CannibalismSkill extends AbstractSwapSkill {
 
-    private static final Logger log = LoggerFactory.getLogger(FlameSnakesSkill.class);
+    @Inject
+    @Named("CANNIBALISM_NAME")
+    private static String NAME;
 
-    private static final String NAME = "Cannibalism";
+    @Inject
+    @Named("CANNIBALISM_RELOAD")
+    private static int RELOAD;
 
-    private static final int RELOAD = 5;
+    @Inject
+    @Named("CANNIBALISM_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final int REQUIRED_LEVEL = 1;
+    @Inject
+    @Named("CANNIBALISM_DAMAGE_SKILL_COEFFICIENT")
+    private static double DAMAGE_SKILL_COEFFICIENT;
 
-    private static final double DAMAGE_SKILL_COEFFICIENT = 2.5;
-
-    private static final double HEALING_SKILL_COEFFICIENT = 2.5;
+    @Inject
+    @Named("CANNIBALISM_HEALING_SKILL_COEFFICIENT")
+    private static double HEALING_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Arrays.asList
             (DAMAGE_SKILL_COEFFICIENT, HEALING_SKILL_COEFFICIENT);
@@ -43,8 +50,8 @@ public final class CannibalismSkill extends AbstractSwapSkill {
         final double HEALING = getParent().getAttack() * coefficients.get(1);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final AHero currentHero = currentPlayer.getHero();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
         if (opponentHero.getDamage(DAMAGE)) {
             actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
         }

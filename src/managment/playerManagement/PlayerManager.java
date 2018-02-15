@@ -3,7 +3,7 @@ package managment.playerManagement;
 import com.google.inject.Inject;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.windows.WindowType;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
@@ -60,7 +60,7 @@ public final class PlayerManager {
     }
 
     private void setAdditionalExperience(final ATeam team){
-        final AHero hero = team.getCurrentPlayer().getHero();
+        final Hero hero = team.getCurrentPlayer().getHero();
         final double equalsAttack =  hero.getAttack();
         hero.addExperience(equalsAttack);
     }

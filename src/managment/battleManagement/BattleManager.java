@@ -2,7 +2,7 @@ package managment.battleManagement;
 
 import bonus.bonuses.Bonus;
 import gui.locations.engine.GraphicEngine;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import managment.actionManagement.ActionManager;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -111,7 +111,7 @@ public final class BattleManager {
         loadRandomBonuses(currentPlayer.getHero());
     }
 
-    public void loadRandomBonuses(final AHero hero) {
+    public void loadRandomBonuses(final Hero hero) {
         if (isStandardRandomBonus){
             final List<Bonus> bonusList = hero.getBonusCollection();
             final Random random = new Random();

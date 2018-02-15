@@ -2,7 +2,7 @@ package heroes.devourer.skills.superSkills;
 
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -49,7 +49,7 @@ public final class FlameSnakesSkill extends AbstractSkill {
         log.info("FLAME_SNAKES_DAMAGE : " + damage);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
         }

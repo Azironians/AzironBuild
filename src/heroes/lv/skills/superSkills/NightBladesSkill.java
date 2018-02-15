@@ -1,5 +1,7 @@
 package heroes.lv.skills.superSkills;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import heroes.devourer.skills.superSkills.FlameSnakesSkill;
 import javafx.scene.image.ImageView;
@@ -16,13 +18,21 @@ public final class NightBladesSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(FlameSnakesSkill.class);
 
-    private static final String NAME = "NightBlades";
+    @Inject
+    @Named("NIGHT_BLADES_NAME")
+    private static String NAME;
 
-    private static final int RELOAD = 8;
+    @Inject
+    @Named("NIGHT_BLADES_RELOAD")
+    private static int RELOAD;
 
-    private static final int REQUIRED_LEVEL = 2;
+    @Inject
+    @Named("NIGHT_BLADES_REQUIRED_LEVEL")
+    private static int REQUIRED_LEVEL;
 
-    private static final double ATTACK_BOOST_SKILL_COEFFICIENT = 1.2;
+    @Inject
+    @Named("NIGHT_BLADES_ATTACK_BOOST_SKILL_COEFFICIENT")
+    private static double ATTACK_BOOST_SKILL_COEFFICIENT;
 
     private static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(ATTACK_BOOST_SKILL_COEFFICIENT);
 

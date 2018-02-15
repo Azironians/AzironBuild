@@ -1,6 +1,6 @@
 package heroes.abstractHero.builder;
 
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.presentation.Presentation;
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
 import heroes.abstractHero.skills.Skill;
@@ -15,7 +15,7 @@ import java.util.*;
 
 public interface HeroBuilder {
 
-    default AHero buildHero(){
+    default Hero buildHero(){
         final Class clazz = getHeroClass();
         final SkillFactory skillFactory = getSkillFactory();
         final HeroResourceSupplier resourceSupplier = getHeroResourceSupplier();
@@ -27,7 +27,7 @@ public interface HeroBuilder {
         return getHeroInstance(clazz, superSkills, swapSkill, face, attackVoiceList, treatmentVoiceList);
     }
 
-    private AHero getHeroInstance(final Class clazz, final List<Skill> superSkills, final Skill swapSkill
+    private Hero getHeroInstance(final Class clazz, final List<Skill> superSkills, final Skill swapSkill
             , final ImageView face, final List<Media> attackVoices, final List<Media> treatmentVoices){
         if (clazz.equals(Devourer.class)) {
             return new Devourer(superSkills, swapSkill, face, attackVoices, treatmentVoices);

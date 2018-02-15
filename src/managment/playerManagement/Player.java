@@ -2,13 +2,13 @@ package managment.playerManagement;
 
 import bonus.bonuses.Bonus;
 import gui.locations.ALocation;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.Contract;
 
 public final class Player {
     private final Profile profile;
-    private AHero hero;
+    private Hero hero;
 
     private boolean isCurrent;
 
@@ -25,7 +25,7 @@ public final class Player {
     private ALocation location;
 
 
-    public Player(final Profile profile, final AHero hero) {
+    public Player(final Profile profile, final Hero hero) {
         this.profile = profile;
         this.hero = hero;
         this.isAlive = true;
@@ -45,11 +45,11 @@ public final class Player {
     }
 
     @Contract(pure = true)
-    public AHero getHero() {
+    public Hero getHero() {
         return hero;
     }
 
-    public void setHero(AHero hero) {
+    public void setHero(Hero hero) {
         this.hero = hero;
     }
 

@@ -1,6 +1,6 @@
 package heroes.abstractHero.skills.swapSkills;
 
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -25,7 +25,7 @@ public abstract class AbstractSwapSkill extends AbstractSkill{
     protected final List<ActionEvent> actionEvents = new ArrayList<>();
 
     //Parent:
-    protected AHero parent;
+    protected Hero parent;
 
     //ActionManager:
     protected ActionManager actionManager;

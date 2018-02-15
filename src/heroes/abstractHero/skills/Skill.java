@@ -1,6 +1,6 @@
 package heroes.abstractHero.skills;
 
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -23,7 +23,7 @@ public interface Skill {
 
     void reset();
 
-    void install(final Pane parentPane, final AHero parent
+    void install(final Pane parentPane, final Hero parent
             , final double spriteX, final double spriteY
             , final double descriptionX, final double descriptionY
             , final boolean invert);
@@ -55,7 +55,7 @@ public interface Skill {
 
     void setReload(int reload);
 
-    AHero getParent();
+    Hero getParent();
 
     void setActionManager(final ActionManager actionManager);
 

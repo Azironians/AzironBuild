@@ -3,7 +3,7 @@ package heroes.devourer.skills.superSkills;
 import bonus.bonuses.HandlerBonus;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -55,7 +55,7 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
     private void getEffect(final Player currentPlayer, final double coefficient){
         final double HEALING = getParent().getTreatment() * coefficient;
-        final AHero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
         if (currentHero.getHealing(HEALING)){
             actionManager.getBonusEventEngine().handle();
         }

@@ -1,6 +1,8 @@
 package heroes.lv.skills.swapSkills;
 
-import heroes.abstractHero.hero.AHero;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -14,13 +16,21 @@ import java.util.List;
 
 public final class FurySkill extends AbstractSwapSkill {
 
-    private static final String NAME = "Fury";
+    @Inject
+    @Named("FURY_NAME")
+    private static String NAME;
 
-    private static final int SWAP_RELOAD = 5;
+    @Inject
+    @Named("FURY_SWAP_RELOAD")
+    private static int SWAP_RELOAD;
 
-    private static final int SWAP_REQUIRED_LEVEL = 1;
+    @Inject
+    @Named("FURY_SWAP_REQUIRED_LEVEL")
+    private static int SWAP_REQUIRED_LEVEL;
 
-    private static final double SWAP_SKILL_COEFFICIENT = 1.0;
+    @Inject
+    @Named("FURY_SWAP_SKILL_COEFFICIENT")
+    private static double SWAP_SKILL_COEFFICIENT;
 
     private static final List<Double> SWAP_SKILL_COEFFICIENTS = Collections.singletonList(SWAP_SKILL_COEFFICIENT);
 
@@ -32,8 +42,8 @@ public final class FurySkill extends AbstractSwapSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final AHero currentHero = currentPlayer.getHero();
-        final AHero opponentHero = opponentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getHero();
         final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();
         final double SKILL_COEFFICIENT = levelComparison > 0 ? (levelComparison + 1) * coefficients.get(0)
                 : coefficients.get(0);

@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -44,7 +44,7 @@ public final class HExorcism extends Bonus implements HandlerBonus {
                 final ActionType actionType = actionEvent.getActionType();
 
                 if (actionType == ActionType.END_TURN && player == actionEvent.getPlayer()) {
-                    final AHero currentHero = player.getHero();
+                    final Hero currentHero = player.getHero();
 
                     if (currentHero.getHealing(HEALING_BOOST)) {
                         log.info("+2 HP");

@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
@@ -26,7 +26,7 @@ public final class SGiveFire extends Bonus implements HandlerBonus {
 
     @Override
     public final void use() {
-        final AHero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         final List<Skill> skills = hero.getCollectionOfSkills();
         for (final Skill skill : skills) {
             final List<Double> coefficients = skill.getCoefficients();
@@ -57,7 +57,7 @@ public final class SGiveFire extends Bonus implements HandlerBonus {
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.END_TURN) {
-                    final AHero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+                    final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
                     final List<Skill> skills = hero.getCollectionOfSkills();
                     for (final Skill skill : skills) {
                         final List<Double> coefficients = skill.getCoefficients();

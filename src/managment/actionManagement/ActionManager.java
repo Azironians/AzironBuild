@@ -3,9 +3,8 @@ package managment.actionManagement;
 import bonus.bonuses.Bonus;
 import gui.locations.engine.GraphicEngine;
 import com.google.inject.Inject;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
-import main.AGame;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
 import managment.battleManagement.BattleManager;
@@ -18,9 +17,6 @@ import org.slf4j.LoggerFactory;
 
 public final class ActionManager {
     private static final Logger log = LoggerFactory.getLogger(ActionManager.class);
-
-    @Inject
-    private AGame aGame;
 
     @Inject
     private BattleManager battleManager;
@@ -51,7 +47,7 @@ public final class ActionManager {
     public final void setHeroRequest(final ATeam clickedTeam) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
-        final AHero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getHero();
 
         if (clickedTeam.equals(currentTeam)) {
             if (currentHero.isTreatmentAccess()) {
@@ -69,7 +65,7 @@ public final class ActionManager {
     private void healingProcess(final ATeam team) {
         if (isStandardTreatment) {
             final Player currentPlayer = team.getCurrentPlayer();
-            final AHero currentHero = currentPlayer.getHero();
+            final Hero currentHero = currentPlayer.getHero();
             final double treatmentValue = currentHero.getTreatment();
 
             if (currentHero.getHealing(treatmentValue)) {
@@ -87,7 +83,7 @@ public final class ActionManager {
     private void attackProcess(final ATeam victimTeam, final ATeam attackTeam) {
         if (isStandardAttack) {
             final Player attackPlayer = attackTeam.getCurrentPlayer();
-            final AHero attackHero = attackPlayer.getHero();
+            final Hero attackHero = attackPlayer.getHero();
             final double attackValue = attackHero.getAttack();
 
             if (attackHero.addExperience(attackValue)) {
@@ -105,7 +101,7 @@ public final class ActionManager {
         }
     }
 
-    public final void setSkillRequest(final AHero hero, final Skill skill) {
+    public final void setSkillRequest(final Hero hero, final Skill skill) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
 
@@ -140,9 +136,9 @@ public final class ActionManager {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         if (team.equals(currentTeam)) {
             if (isStandardSwap) {
-                final AHero alternativeHero = currentTeam.getAlternativePlayer().getHero();
+                final Hero alternativeHero = currentTeam.getAlternativePlayer().getHero();
                 if (alternativeHero.getSwapSkill().isReady() && team.swapPlayers()) {
-                    final AHero currentHero = currentTeam.getCurrentPlayer().getHero();
+                    final Hero currentHero = currentTeam.getCurrentPlayer().getHero();
                     final Skill swapSkill = currentHero.getSwapSkill();
                     bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
                     bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));

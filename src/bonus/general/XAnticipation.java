@@ -2,7 +2,7 @@ package bonus.general;
 
 import bonus.bonuses.Bonus;
 import bonus.bonuses.HandlerBonus;
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -53,7 +53,7 @@ public final class XAnticipation extends Bonus implements HandlerBonus {
 
                 if (actionEvent.getActionType() == ActionType.ATTACK && (attackPlayer == opponent
                         || attackPlayer == alternativeOpponent) && player == victimPlayer) {
-                    final AHero victimHero = player.getHero();
+                    final Hero victimHero = player.getHero();
                     victimHero.addExperience(EXPERIENCE_BOOST);
                     log.info("+3 XP");
                 }

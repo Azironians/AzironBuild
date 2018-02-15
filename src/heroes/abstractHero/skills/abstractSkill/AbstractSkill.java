@@ -1,6 +1,6 @@
 package heroes.abstractHero.skills.abstractSkill;
 
-import heroes.abstractHero.hero.AHero;
+import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.animation.FadeTransition;
 import javafx.collections.ObservableList;
@@ -46,7 +46,7 @@ public abstract class AbstractSkill implements Skill {
     protected final List<ActionEvent> actionEvents = new ArrayList<>();
 
     //Parent:
-    protected AHero parent;
+    protected Hero parent;
 
     //ActionManager:
     protected ActionManager actionManager;
@@ -109,7 +109,7 @@ public abstract class AbstractSkill implements Skill {
         fadeTransition.play();
     }
 
-    public final void install(final Pane parentPane, final AHero parent
+    public final void install(final Pane parentPane, final Hero parent
             , final double spriteX, final double spriteY
             , final double descriptionX, final double descriptionY
             , final boolean invert) {
@@ -182,7 +182,7 @@ public abstract class AbstractSkill implements Skill {
         this.reload = reload;
     }
 
-    public AHero getParent() {
+    public Hero getParent() {
         return parent;
     }
 
