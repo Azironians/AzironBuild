@@ -13,7 +13,7 @@ import static heroes.lv.skills.superSkills.reincarnation.ReincarnationPropertySk
 public final class ReincarnationSkill extends AbstractSwapSkill {
 
     public ReincarnationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);
     }
 

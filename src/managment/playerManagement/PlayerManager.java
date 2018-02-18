@@ -3,11 +3,7 @@ package managment.playerManagement;
 import com.google.inject.Inject;
 import controllers.main.matchmaking.ControllerMatchMaking;
 import gui.windows.WindowType;
-import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.hero.Hero;
-import heroes.devourer.annotation.DevourerHeroService;
-import heroes.lv.annotation.LVHeroService;
-import heroes.orcBash.annotation.OrcBashHeroService;
 import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
@@ -24,15 +20,18 @@ public final class PlayerManager {
     @Inject
     private BattleManager battleManager;
 
+    @Inject
+    private FictionalTeams fictionalTeams;
+
     private Map<String, Player> mapOfPlayers = null;
 
     private int countPlayers = 0;
 
     private GameMode gameMode;
 
-    private ATeam rightATeam = FictionalTeams.createRight();
+    private ATeam rightATeam;
 
-    private ATeam leftATeam = FictionalTeams.createLeft();
+    private ATeam leftATeam;
 
     private ATeam currentATeam;
 
@@ -136,8 +135,10 @@ public final class PlayerManager {
     }
 
     private void set2x2(boolean setter) {
-        rightATeam.getAlternativePlayer().setAlive(false);
-        leftATeam.getAlternativePlayer().setAlive(false);
+        this.rightATeam = fictionalTeams.createRight();
+        this.leftATeam = fictionalTeams.createLeft();
+        this.rightATeam.getAlternativePlayer().setAlive(false);
+        this.leftATeam.getAlternativePlayer().setAlive(false);
         final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
                 .get(WindowType.MATCHMAKING).getController();
         controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);

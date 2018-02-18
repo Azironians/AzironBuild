@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 @Singleton
@@ -25,5 +26,7 @@ public final class BashPropertySkill {
     @Named("BASH_DAMAGE_SKILL_COEFFICIENT")
     private static double DAMAGE_SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
+    }
 }

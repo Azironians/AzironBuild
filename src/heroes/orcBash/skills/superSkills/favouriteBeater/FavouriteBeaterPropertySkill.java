@@ -25,5 +25,7 @@ public final class FavouriteBeaterPropertySkill {
     @Named("BEATER_DAMAGE_SKILL_COEFFICIENT")
     private static double DAMAGE_SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(DAMAGE_SKILL_COEFFICIENT);
+    }
 }

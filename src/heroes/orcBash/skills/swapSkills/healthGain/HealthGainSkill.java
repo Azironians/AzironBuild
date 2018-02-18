@@ -14,7 +14,7 @@ import static heroes.orcBash.skills.swapSkills.healthGain.HealthGainPropertySkil
 public final class HealthGainSkill extends AbstractSwapSkill {
 
     public HealthGainSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, SWAP_SKILL_COEFFICIENTS, sprite, description, voiceList);
+        super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, getSkillCoefficients(), sprite, description, voiceList);
     }
 
     @Override

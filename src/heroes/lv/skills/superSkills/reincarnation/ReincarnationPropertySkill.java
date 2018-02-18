@@ -6,12 +6,13 @@ import com.google.inject.name.Named;
 
 import java.util.Collections;
 import java.util.List;
+
 @Singleton
 public final class ReincarnationPropertySkill {
 
     @Inject
     @Named("REINCARNATION_NAME")
-    static String NAME = "Reincarnation";
+    static String NAME;
 
     @Inject
     @Named("REINCARNATION_RELOAD")
@@ -25,5 +26,7 @@ public final class ReincarnationPropertySkill {
     @Named("REINCARNATION_SKILL_COEFFICIENT")
     private static double SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(SKILL_COEFFICIENT);
+    }
 }

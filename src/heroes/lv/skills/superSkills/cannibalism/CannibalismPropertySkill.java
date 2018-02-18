@@ -29,6 +29,7 @@ public final class CannibalismPropertySkill {
     @Named("CANNIBALISM_HEALING_SKILL_COEFFICIENT")
     private static double HEALING_SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Arrays.asList
-            (DAMAGE_SKILL_COEFFICIENT, HEALING_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Arrays.asList(DAMAGE_SKILL_COEFFICIENT, HEALING_SKILL_COEFFICIENT);
+    }
 }

@@ -5,7 +5,7 @@ import modules.heroConstructModules.heroSpecificModules.devourer.DevourerHeroMod
 import modules.heroConstructModules.heroSpecificModules.lv.LVHeroModule;
 import modules.heroConstructModules.heroSpecificModules.orcBash.OrcBashHeroModule;
 
-public final class HeroSpecificModule extends AbstractModule {
+public final class HeroComponentModule extends AbstractModule {
 
     @Override
     protected final void configure() {

@@ -63,8 +63,10 @@ public final class OrcBashProperties {
     @Named("ORC_EXP_LEVEL_10")
     private static double EXP_LEVEL_10;
 
-    static final List<Double> REQUIRED_EXPERIENCE_LIST = Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
-            , EXP_LEVEL_5, EXP_LEVEL_6, EXP_LEVEL_7, EXP_LEVEL_8, EXP_LEVEL_9, EXP_LEVEL_10);
+    static List<Double> getRequiredExperienceList(){
+        return Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
+                , EXP_LEVEL_5, EXP_LEVEL_6, EXP_LEVEL_7, EXP_LEVEL_8, EXP_LEVEL_9, EXP_LEVEL_10);
+    }
 
     //Attack level boost:
     @Inject
@@ -95,8 +97,10 @@ public final class OrcBashProperties {
     @Named("ORC_DAMAGE_LEVEL_10")
     private static double DAMAGE_LEVEL_10;
 
-    static final List<Double> DAMAGE_LIST = Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
-            , DAMAGE_LEVEL_5, DAMAGE_LEVEL_6, DAMAGE_LEVEL_7, DAMAGE_LEVEL_8, DAMAGE_LEVEL_9, DAMAGE_LEVEL_10);
+    static List<Double> getDamageList(){
+        return Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
+                , DAMAGE_LEVEL_5, DAMAGE_LEVEL_6, DAMAGE_LEVEL_7, DAMAGE_LEVEL_8, DAMAGE_LEVEL_9, DAMAGE_LEVEL_10);
+    }
 
     //Treatment level boost:
     @Inject
@@ -127,8 +131,10 @@ public final class OrcBashProperties {
     @Named("ORC_TREAT_LEVEL_10")
     private static double TREAT_LEVEL_10;
 
-    static final List<Double> TREATMENT_LIST = Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
-            , TREAT_LEVEL_5, TREAT_LEVEL_6, TREAT_LEVEL_7, TREAT_LEVEL_8, TREAT_LEVEL_9, TREAT_LEVEL_10);
+    static List<Double> getTreatmentList(){
+        return Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
+                , TREAT_LEVEL_5, TREAT_LEVEL_6, TREAT_LEVEL_7, TREAT_LEVEL_8, TREAT_LEVEL_9, TREAT_LEVEL_10);
+    }
 
     //Healing level boost:
     @Inject
@@ -159,6 +165,8 @@ public final class OrcBashProperties {
     @Named("ORC_HP_LEVEL_10")
     private static double HP_LEVEL_10;
 
-    static final List<Double> SUPPLY_HEATH_LIST = Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
-            , HP_LEVEL_6, HP_LEVEL_7, HP_LEVEL_8, HP_LEVEL_9, HP_LEVEL_10);
+    static List<Double> getSupplyHealthList(){
+        return Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
+                , HP_LEVEL_6, HP_LEVEL_7, HP_LEVEL_8, HP_LEVEL_9, HP_LEVEL_10);
+    }
 }

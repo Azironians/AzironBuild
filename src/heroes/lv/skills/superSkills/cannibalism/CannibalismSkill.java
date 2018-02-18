@@ -15,10 +15,8 @@ import static heroes.lv.skills.superSkills.cannibalism.CannibalismPropertySkill.
 
 public final class CannibalismSkill extends AbstractSwapSkill {
 
-
-
     public CannibalismSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);
     }
 

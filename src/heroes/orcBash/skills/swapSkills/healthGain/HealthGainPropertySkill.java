@@ -6,6 +6,7 @@ import com.google.inject.name.Named;
 
 import java.util.Collections;
 import java.util.List;
+
 @Singleton
 public final class HealthGainPropertySkill {
 
@@ -25,5 +26,7 @@ public final class HealthGainPropertySkill {
     @Named("HEALTH_GAIN_SWAP_SKILL_COEFFICIENT")
     private static double SWAP_SKILL_COEFFICIENT;
 
-    static final List<Double> SWAP_SKILL_COEFFICIENTS = Collections.singletonList(SWAP_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(SWAP_SKILL_COEFFICIENT);
+    }
 }

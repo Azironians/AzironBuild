@@ -16,7 +16,7 @@ import static heroes.devourer.skills.superSkills.consuming.ConsumingPropertySkil
 public final class ConsumingSkill extends AbstractSkill {
 
     public ConsumingSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);
     }
 

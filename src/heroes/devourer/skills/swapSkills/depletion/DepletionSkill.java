@@ -14,10 +14,9 @@ import static heroes.devourer.skills.swapSkills.depletion.DepletionPropertySkill
 
 public final class DepletionSkill extends AbstractSwapSkill {
 
-
-
     public DepletionSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS, sprite, description, voiceList);
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
+                , sprite, description, voiceList);
     }
 
     @Override

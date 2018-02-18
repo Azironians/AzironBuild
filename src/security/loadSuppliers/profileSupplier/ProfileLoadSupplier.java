@@ -1,6 +1,5 @@
 package security.loadSuppliers.profileSupplier;
 
-import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;

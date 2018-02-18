@@ -1,6 +1,6 @@
 package managment.profileManagement;
 
-import annotations.bindingAnnotations.ProfileService;
+import annotations.bindingAnnotations.ProfileServiceComponent;
 import bonus.deck.Deck;
 import com.google.inject.Inject;
 import controllers.main.ControllerChoiceBonus;
@@ -36,7 +36,7 @@ public final class ProfileManager {
     private ProfileRequest profileRequest;
 
     @Inject
-    @ProfileService
+    @ProfileServiceComponent
     private EnumMap<ProfileRequest, Player> profileEnumMap;
 
     public void removeAccountData() {

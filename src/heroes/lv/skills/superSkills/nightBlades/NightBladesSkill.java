@@ -16,10 +16,8 @@ public final class NightBladesSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(NightBladesSkill.class);
 
-
-
     public NightBladesSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);
     }
 

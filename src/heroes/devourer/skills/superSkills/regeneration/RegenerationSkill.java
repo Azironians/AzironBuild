@@ -24,7 +24,7 @@ public final class RegenerationSkill extends AbstractSwapSkill {
 
 
     public RegenerationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, RELOAD, REQUIRED_LEVEL, SKILL_COEFFICIENTS
+        super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);
     }
 

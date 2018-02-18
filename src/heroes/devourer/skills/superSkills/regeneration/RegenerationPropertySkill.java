@@ -12,7 +12,7 @@ public final class RegenerationPropertySkill {
 
     @Inject
     @Named("REGENERATION_NAME")
-    static final String NAME = "Regeneration";
+    static String NAME;
 
     @Inject
     @Named("REGENERATION_RELOAD")
@@ -26,5 +26,7 @@ public final class RegenerationPropertySkill {
     @Named("REGENERATION_HEALING_SKILL_COEFFICIENT")
     private static double HEALING_SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(HEALING_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(HEALING_SKILL_COEFFICIENT);
+    }
 }

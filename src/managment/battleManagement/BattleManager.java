@@ -1,6 +1,7 @@
 package managment.battleManagement;
 
 import bonus.bonuses.Bonus;
+import com.google.inject.Singleton;
 import gui.locations.engine.GraphicEngine;
 import heroes.abstractHero.hero.Hero;
 import managment.actionManagement.ActionManager;

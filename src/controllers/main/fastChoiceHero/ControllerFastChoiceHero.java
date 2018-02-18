@@ -10,6 +10,9 @@ import gui.windows.WindowType;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.builder.HeroBuilder;
 import heroes.abstractHero.presentation.Presentation;
+import heroes.devourer.annotation.DevourerHeroService;
+import heroes.lv.annotation.LVHeroService;
+import heroes.orcBash.annotation.OrcBashHeroService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -76,7 +79,20 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
 
     private int pointer;
 
-    private Set<HeroBuilder> heroBuilders;
+//    @Inject
+//    private Set<HeroBuilder> heroBuilders;
+
+    @Inject
+    @DevourerHeroService
+    private HeroBuilder devourerHeroBuilder;
+
+    @Inject
+    @LVHeroService
+    private HeroBuilder lvHeroBuilder;
+
+    @Inject
+    @OrcBashHeroService
+    private HeroBuilder orcBashHeroBuilder;
 
     private List<Hero> heroes;
 
@@ -93,6 +109,8 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
     }
 
     public final void installHeroes(){
+        final List<HeroBuilder> heroBuilders = Arrays.asList(devourerHeroBuilder, lvHeroBuilder, orcBashHeroBuilder);
+
         final List<Hero> heroes = new ArrayList<>();
         final List<Presentation> presentations = new ArrayList<>();
         final Deck bestDeck = profileManager.getBestDeck();
@@ -250,8 +268,8 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
         return (ControllerMenu) aGame.getWindowMap().get(WindowType.MENU).getController();
     }
 
-    @Inject
-    public void setHeroBuilders(final Set<HeroBuilder> heroBuilders) {
-        this.heroBuilders = heroBuilders;
-    }
+//    @Inject
+//    public void setHeroBuilders(final Set<HeroBuilder> heroBuilders) {
+//        this.heroBuilders = heroBuilders;
+//    }
 }

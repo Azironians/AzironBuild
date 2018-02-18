@@ -16,7 +16,7 @@ import static heroes.lv.skills.swapSkills.fury.FuryPropertySkill.*;
 public final class FurySkill extends AbstractSwapSkill {
 
     public FurySkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
-        super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, SWAP_SKILL_COEFFICIENTS, sprite, description, voiceList);
+        super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, getSkillCoefficients(), sprite, description, voiceList);
     }
 
     @Override

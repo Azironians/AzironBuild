@@ -115,8 +115,10 @@ public final class DevourerProperties {
     @Named("DEVOURER_DAMAGE_LEVEL_10")
     private static double DAMAGE_LEVEL_10;
 
-    static final List<Double> DAMAGE_LIST = Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
-            , DAMAGE_LEVEL_5, DAMAGE_LEVEL_6, DAMAGE_LEVEL_7, DAMAGE_LEVEL_8, DAMAGE_LEVEL_9, DAMAGE_LEVEL_10);
+    static List<Double> getDamageList(){
+        return Arrays.asList(DAMAGE_LEVEL_2, DAMAGE_LEVEL_3, DAMAGE_LEVEL_4
+                , DAMAGE_LEVEL_5, DAMAGE_LEVEL_6, DAMAGE_LEVEL_7, DAMAGE_LEVEL_8, DAMAGE_LEVEL_9, DAMAGE_LEVEL_10);
+    }
 
     //Treatment level boost:
     @Inject
@@ -155,8 +157,10 @@ public final class DevourerProperties {
     @Named("DEVOURER_TREAT_LEVEL_10")
     private static double TREAT_LEVEL_10;
 
-    static final List<Double> TREATMENT_LIST = Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
-            , TREAT_LEVEL_5, TREAT_LEVEL_6, TREAT_LEVEL_7, TREAT_LEVEL_8, TREAT_LEVEL_9, TREAT_LEVEL_10);
+    static List<Double> getTreatmentList(){
+        return Arrays.asList(TREAT_LEVEL_2, TREAT_LEVEL_3, TREAT_LEVEL_4
+                , TREAT_LEVEL_5, TREAT_LEVEL_6, TREAT_LEVEL_7, TREAT_LEVEL_8, TREAT_LEVEL_9, TREAT_LEVEL_10);
+    }
 
     //Healing level boost:
     @Inject
@@ -195,6 +199,8 @@ public final class DevourerProperties {
     @Named("DEVOURER_HP_LEVEL_10")
     private static double HP_LEVEL_10;
 
-    static final List<Double> SUPPLY_HEATH_LIST = Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
-            , HP_LEVEL_6, HP_LEVEL_7, HP_LEVEL_8, HP_LEVEL_9, HP_LEVEL_10);
+    static List<Double> getSupplyHealthList(){
+        return Arrays.asList(HP_LEVEL_2, HP_LEVEL_3, HP_LEVEL_4, HP_LEVEL_5
+                , HP_LEVEL_6, HP_LEVEL_7, HP_LEVEL_8, HP_LEVEL_9, HP_LEVEL_10);
+    }
 }

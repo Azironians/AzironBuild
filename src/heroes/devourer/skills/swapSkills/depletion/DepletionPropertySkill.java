@@ -26,5 +26,7 @@ public final class DepletionPropertySkill {
     @Named("DEPLETION_SKILL_COEFFICIENT")
     private static double SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(SKILL_COEFFICIENT);
+    }
 }

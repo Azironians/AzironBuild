@@ -6,6 +6,7 @@ import com.google.inject.name.Named;
 
 import java.util.Collections;
 import java.util.List;
+
 @Singleton
 public final class NightBladesPropertySkill {
 
@@ -25,5 +26,7 @@ public final class NightBladesPropertySkill {
     @Named("NIGHT_BLADES_ATTACK_BOOST_SKILL_COEFFICIENT")
     private static double ATTACK_BOOST_SKILL_COEFFICIENT;
 
-    static final List<Double> SKILL_COEFFICIENTS = Collections.singletonList(ATTACK_BOOST_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(ATTACK_BOOST_SKILL_COEFFICIENT);
+    }
 }

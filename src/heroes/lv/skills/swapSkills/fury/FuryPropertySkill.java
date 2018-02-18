@@ -25,5 +25,7 @@ public final class FuryPropertySkill {
     @Named("FURY_SWAP_SKILL_COEFFICIENT")
     private static double SWAP_SKILL_COEFFICIENT;
 
-    static final List<Double> SWAP_SKILL_COEFFICIENTS = Collections.singletonList(SWAP_SKILL_COEFFICIENT);
+    static List<Double> getSkillCoefficients(){
+        return Collections.singletonList(SWAP_SKILL_COEFFICIENT);
+    }
 }
