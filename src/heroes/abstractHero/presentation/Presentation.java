@@ -37,8 +37,7 @@ public final class Presentation {
             elements.add(backGround);
             elements.add(deckNameText);
             elements.add(deckPriorityText);
-            setVisible(false);
-            setOpacity(START_OPACITY);
+//            setOpacity(START_OPACITY);
         }};
     }
 

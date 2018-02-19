@@ -20,17 +20,21 @@ public final class OrcBashResourceSupplier extends HeroResourceSupplier {
     }
 
     @Override
-    public final GetSkill getSwapSkillResources() {
-        return null;
-    }
-
-    @Override
     public final List<GetSkill> getSuperSkillResources() {
         return new ArrayList<>(){{
             add(new GetSkill(getBashSpriteInstance(), getBashDescriptionInstance(), new ArrayList<>()));
             add(new GetSkill(getFavouriteBeaterSpriteInstance(), getFavouriteBeaterDescriptionInstance(), new ArrayList<>()));
             add(new GetSkill(getRushSpriteInstance(), getRushDescriptionInstance(), new ArrayList<>()));
         }};
+    }
+
+    @Override
+    public final GetSkill getSwapSkillResources() {
+        return new GetSkill(getHealthGainSpriteInstance(), new ImageView(), new ArrayList<>());
+    }
+
+    private ImageView getHealthGainSpriteInstance(){
+        return swapSkillSpriteFormat(getSwapSkillPath());
     }
 
     private ImageView getBashSpriteInstance(){

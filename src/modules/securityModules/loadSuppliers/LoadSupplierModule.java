@@ -1,7 +1,7 @@
 package modules.securityModules.loadSuppliers;
 
-import annotations.bindingAnnotations.BonusServiceComponent;
-import annotations.bindingAnnotations.ProfileServiceComponent;
+import annotations.bindingAnnotations.BonusService;
+import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import managment.profileManagement.Profile;
@@ -16,8 +16,8 @@ public final class LoadSupplierModule extends AbstractModule {
     protected final void configure() {
         final TypeLiteral<LoadSupplier<Profile>> profileLiteral = new TypeLiteral<>(){};
         final TypeLiteral<LoadSupplier<BonusData>> bonusDataLiteral = new TypeLiteral<>(){};
-        bind(profileLiteral).annotatedWith(ProfileServiceComponent.class).to(ProfileLoadSupplier.class);
-        bind(bonusDataLiteral).annotatedWith(BonusServiceComponent.class).to(BonusLoadSupplier.class);
+        bind(profileLiteral).annotatedWith(ProfileService.class).to(ProfileLoadSupplier.class);
+        bind(bonusDataLiteral).annotatedWith(BonusService.class).to(BonusLoadSupplier.class);
         install(new ProfileLoadSupplierModule());
         install(new BonusLoadSupplierModule());
     }

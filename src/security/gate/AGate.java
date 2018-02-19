@@ -1,7 +1,7 @@
 package security.gate;
 
-import annotations.bindingAnnotations.BonusServiceComponent;
-import annotations.bindingAnnotations.ProfileServiceComponent;
+import annotations.bindingAnnotations.BonusService;
+import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import managment.profileManagement.Profile;
@@ -35,11 +35,11 @@ public final class AGate {
     }
 
     @Inject
-    @ProfileServiceComponent
+    @ProfileService
     private LoadSupplier<Profile> profileLoadSupplier;
 
     @Inject
-    @BonusServiceComponent
+    @BonusService
     private LoadSupplier<BonusData> bonusLoadSupplier;
 
     @NotNull

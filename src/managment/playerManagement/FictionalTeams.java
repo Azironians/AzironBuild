@@ -1,6 +1,6 @@
 package managment.playerManagement;
 
-import annotations.bindingAnnotations.BonusServiceComponent;
+import annotations.bindingAnnotations.BonusService;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.factory.BonusFactory;
 import com.google.inject.Inject;
@@ -38,7 +38,7 @@ final class FictionalTeams {
     private HeroBuilder orcBashBuilder;
 
     @Inject
-    @BonusServiceComponent
+    @BonusService
     private Provider<BonusFactory> provider;
 
     private List<Bonus> getGeneralDeck(){

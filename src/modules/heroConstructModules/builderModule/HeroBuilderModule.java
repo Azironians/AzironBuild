@@ -20,7 +20,7 @@ public final class HeroBuilderModule extends AbstractModule {
     }
 }
 
-//MultiBinder:
+// MultiBinder:
 //    final Multibinder<HeroBuilder> multiBinder = Multibinder.newSetBinder(binder(), HeroBuilder.class);
 //        multiBinder.addBinding().to(DevourerBuilder.class).asEagerSingleton();
 //        multiBinder.addBinding().to(LVBuilder.class).asEagerSingleton();

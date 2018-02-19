@@ -36,7 +36,7 @@ public interface HeroBuilder {
             return new LV(superSkills, swapSkill, face, attackVoices, treatmentVoices);
         }
         if (clazz.equals(OrcBash.class)){
-            new OrcBash(superSkills, swapSkill, face, attackVoices, treatmentVoices);
+            return new OrcBash(superSkills, swapSkill, face, attackVoices, treatmentVoices);
         }
         return null;
     }

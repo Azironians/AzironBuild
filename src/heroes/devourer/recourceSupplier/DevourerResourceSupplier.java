@@ -30,15 +30,15 @@ public final class DevourerResourceSupplier extends HeroResourceSupplier{
 
     @Override
     public final GetSkill getSwapSkillResources() {
-        return new GetSkill(getDepletionSpriteInstance(), getDepletionDescriptionInstance(), new ArrayList<>());
+        return new GetSkill(getDepletionSpriteInstance(), new ImageView(), new ArrayList<>());
     }
 
     private ImageView getDepletionSpriteInstance(){
-        return superSkillSpriteFormat(getSkillPath());
+        return superSkillSpriteFormat(getSwapSkillPath());
     }
 
     private ImageView getDepletionDescriptionInstance(){
-        return skillDescriptionFormat(getSkillPath());
+        return skillDescriptionFormat(getSwapSkillPath());
     }
 
     private ImageView getFlameSnakesSpriteInstance(){

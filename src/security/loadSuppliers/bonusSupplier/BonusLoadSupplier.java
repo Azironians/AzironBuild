@@ -1,6 +1,6 @@
 package security.loadSuppliers.bonusSupplier;
 
-import annotations.bindingAnnotations.BonusServiceComponent;
+import annotations.bindingAnnotations.BonusService;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.factory.BonusFactory;
 import bonus.deck.Deck;
@@ -54,7 +54,7 @@ public final class BonusLoadSupplier implements LoadSupplier<BonusData> {
     private static int WITHOUT_FILE_FORMAT; //without ".hoa"
 
     @Inject
-    @BonusServiceComponent
+    @BonusService
     private Provider<BonusFactory> bonusFactoryProvider;
 
     @Inject

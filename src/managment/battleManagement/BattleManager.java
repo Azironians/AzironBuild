@@ -1,7 +1,6 @@
 package managment.battleManagement;
 
 import bonus.bonuses.Bonus;
-import com.google.inject.Singleton;
 import gui.locations.engine.GraphicEngine;
 import heroes.abstractHero.hero.Hero;
 import managment.actionManagement.ActionManager;
@@ -139,7 +138,7 @@ public final class BattleManager {
 
     private boolean isEndGame() {
         final Player alternativePlayer = playerManager.getCurrentTeam().getAlternativePlayer();
-        return !alternativePlayer.isAlive();
+        return !alternativePlayer.isAlive() || alternativePlayer == null;
     }
 
     public final void endGame() {

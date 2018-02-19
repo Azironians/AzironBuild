@@ -40,8 +40,12 @@ public abstract class HeroResourceSupplier {
     @Named("SWAP_SKILL_HEIGHT")
     private static int SWAP_SKILL_HEIGHT;
 
-    protected String getSkillPath() {
+    protected final String getSkillPath() {
         return getHeroPath() + "skills\\";
+    }
+
+    protected final String getSwapSkillPath(){
+        return getHeroPath() + "face\\swapFace.png";
     }
 
     public ImageView getFaceImageInstance() {
@@ -52,7 +56,7 @@ public abstract class HeroResourceSupplier {
 
     public abstract List<Media> getTreatmentVoiceList();
 
-    public ImageView swapSkillSpriteFormat(final String path) {
+    protected ImageView swapSkillSpriteFormat(final String path) {
         final ImageView imageView = getImageView(path);
         imageView.setFitWidth(SWAP_SKILL_WIDTH);
         imageView.setFitHeight(SWAP_SKILL_HEIGHT);
@@ -107,9 +111,9 @@ public abstract class HeroResourceSupplier {
     }
 
     //Presentation:
-    @Inject
-    @Named("presentationPath")
-    private static String presentationPath;
+//    @Inject
+//    @Named("presentationPath")
+    private static String presentationPath = "presentation\\spotlight.png";
 
     public ImageView getPresentationBackground() {
         return getImageView(getHeroPath() + presentationPath);

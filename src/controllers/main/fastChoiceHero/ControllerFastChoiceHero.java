@@ -79,9 +79,6 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
 
     private int pointer;
 
-//    @Inject
-//    private Set<HeroBuilder> heroBuilders;
-
     @Inject
     @DevourerHeroService
     private HeroBuilder devourerHeroBuilder;
@@ -94,7 +91,7 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
     @OrcBashHeroService
     private HeroBuilder orcBashHeroBuilder;
 
-    private List<Hero> heroes;
+    private List<HeroBuilder> heroBuilders;
 
     private List<Presentation> presentations;
 
@@ -109,29 +106,24 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
     }
 
     public final void installHeroes(){
-        final List<HeroBuilder> heroBuilders = Arrays.asList(devourerHeroBuilder, lvHeroBuilder, orcBashHeroBuilder);
-
-        final List<Hero> heroes = new ArrayList<>();
+        this.heroBuilders = Arrays.asList(devourerHeroBuilder, lvHeroBuilder, orcBashHeroBuilder);
         final List<Presentation> presentations = new ArrayList<>();
         final Deck bestDeck = profileManager.getBestDeck();
         this.clearHeroSpotLights();
-        int i = 0;
-        for (final HeroBuilder builder : heroBuilders){
-            final Hero hero = builder.buildHero();
-            final Presentation presentation = buildPresentation(builder, profileManager.getPrivilegedDecks().get(i));
-            heroes.add(hero);
+        for (int i = 0; i < heroBuilders.size(); i++){
+            final Deck privilegedDeck = profileManager.getPrivilegedDecks().get(i);
+            final Presentation presentation = buildPresentation(heroBuilders.get(i), privilegedDeck);
             presentations.add(presentation);
             this.setGraphicSpotlight(presentation.getContainer());
-            if (hero.getName().equals(bestDeck.getHero())){
+            if (privilegedDeck.getHero().equals(bestDeck.getHero())){
+                log.info("BEST DECK: " + bestDeck.getHero());
                 presentation.getContainer().setVisible(true);
                 this.setDeckHeadline(bestDeck.getCollectionName());
                 this.pointer = i;
             } else {
                 presentation.getContainer().setVisible(false);
             }
-            i++;
         }
-        this.heroes = heroes;
         this.presentations = presentations;
     }
 
@@ -233,7 +225,7 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
     }
 
     public final void buttonOnChoiceHeroClicked(){
-        final Hero selectedHero = heroes.get(pointer);
+        final Hero selectedHero = heroBuilders.get(pointer).buildHero();
         selectedHero.putBonusCollection(profileManager.getPrivilegedDecks().get(pointer).getCollection());
         final Profile profile = profileManager.getCurrentProfile();
         final Player player = convertToPlayer(profile, selectedHero);
@@ -267,9 +259,4 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
     private ControllerMenu getControllerMenu(){
         return (ControllerMenu) aGame.getWindowMap().get(WindowType.MENU).getController();
     }
-
-//    @Inject
-//    public void setHeroBuilders(final Set<HeroBuilder> heroBuilders) {
-//        this.heroBuilders = heroBuilders;
-//    }
 }

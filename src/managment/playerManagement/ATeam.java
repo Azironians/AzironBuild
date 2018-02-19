@@ -10,8 +10,10 @@ import org.slf4j.LoggerFactory;
 public final class ATeam {
     private static final Logger log = LoggerFactory.getLogger(ATeam.class);
 
+    private Player currentPlayer;
 
     private Player alternativePlayer;
+
     private int turn;
 
     private int time;
@@ -108,8 +110,6 @@ public final class ATeam {
         currentPlayer.setCurrent(true);
         this.currentPlayer = currentPlayer;
     }
-
-    private Player currentPlayer;
 
     public void setAlternativePlayer(Player alternativePlayer) {
         alternativePlayer.setCurrent(false);

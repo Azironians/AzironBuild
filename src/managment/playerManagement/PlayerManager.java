@@ -135,10 +135,10 @@ public final class PlayerManager {
     }
 
     private void set2x2(boolean setter) {
-        this.rightATeam = fictionalTeams.createRight();
-        this.leftATeam = fictionalTeams.createLeft();
-        this.rightATeam.getAlternativePlayer().setAlive(false);
-        this.leftATeam.getAlternativePlayer().setAlive(false);
+        this.rightATeam = new ATeam();
+        this.leftATeam = new ATeam();
+//        this.rightATeam.getAlternativePlayer().setAlive(false);
+//        this.leftATeam.getAlternativePlayer().setAlive(false);
         final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
                 .get(WindowType.MATCHMAKING).getController();
         controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);

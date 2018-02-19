@@ -1,6 +1,6 @@
 package modules.managerModules;
 
-import annotations.bindingAnnotations.ProfileServiceComponent;
+import annotations.bindingAnnotations.ProfileService;
 import com.google.inject.AbstractModule;
 import com.google.inject.TypeLiteral;
 import controllers.main.menu.ProfileRequest;
@@ -15,6 +15,6 @@ public final class ProfileManagerModule extends AbstractModule {
     protected final void configure() {
         bind(ProfileManager.class).asEagerSingleton();
         bind(new TypeLiteral<EnumMap<ProfileRequest, Player>>(){})
-                .annotatedWith(ProfileServiceComponent.class).toInstance(new EnumMap<>(ProfileRequest.class));
+                .annotatedWith(ProfileService.class).toInstance(new EnumMap<>(ProfileRequest.class));
     }
 }

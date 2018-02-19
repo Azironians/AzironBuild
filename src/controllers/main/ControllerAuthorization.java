@@ -109,6 +109,7 @@ public final class ControllerAuthorization implements Initializable, Controller 
                 paneLuckSign.setVisible(false);
                 paneSignIn.setVisible(true);
                 textErrorSignIn.setText("");
+                textFieldSignIn.setText("");
             });
             delay.play();
         } else {

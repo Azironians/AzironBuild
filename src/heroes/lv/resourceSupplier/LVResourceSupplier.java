@@ -30,7 +30,11 @@ public final class LVResourceSupplier extends HeroResourceSupplier {
 
     @Override
     public final GetSkill getSwapSkillResources() {
-        return null;
+        return new GetSkill(getFurySpriteInstance(), new ImageView(), new ArrayList<>());
+    }
+
+    private ImageView getFurySpriteInstance(){
+        return swapSkillSpriteFormat(getSwapSkillPath());
     }
 
     private ImageView getCannibalismSpriteInstance(){
