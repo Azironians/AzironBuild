@@ -4,17 +4,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="location" prefHeight="661.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerLeftLocation">
     <children>
-        <AnchorPane fx:id="heroes" layoutX="9.0" layoutY="-46.0" prefHeight="83.0" prefWidth="389.0">
-            <children>
-                <Button fx:id="currentHero" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="currentHero" visible="false"/>
-                <Button fx:id="backHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" onMouseClicked="#changeHeroOnClicked" visible="true"/>
-            </children>
-        </AnchorPane>
+      <Pane fx:id="swapSkill" layoutX="442.0" layoutY="93.0" onMouseClicked="#changeHeroOnClicked">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" scaleX="-1.0">
+               <image>
+                  <Image url="@../../../resources/heroes/devourer/face/swapFace.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
         <AnchorPane fx:id="bonusStack" layoutX="2.0" layoutY="136.0" prefHeight="251.0" prefWidth="50.0">
             <children>
                 <Button fx:id="bonus0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0" />
@@ -66,7 +70,7 @@
                         <Font size="28.0" />
                     </font>
                 </Text>
-                <Text fx:id="name" fill="WHITE" layoutX="415.0" layoutY="42.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" textAlignment="RIGHT" wrappingWidth="160.0">
+                <Text fx:id="name" fill="WHITE" layoutX="404.0" layoutY="42.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" textAlignment="RIGHT" wrappingWidth="160.0">
                     <font>
                         <Font size="28.0" />
                     </font>

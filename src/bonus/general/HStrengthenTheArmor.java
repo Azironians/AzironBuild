@@ -50,13 +50,14 @@ public final class HStrengthenTheArmor extends Bonus implements HandlerBonus {
             public final void handle(final ActionEvent actionEvent) {
                 final Hero currentHero = player.getHero();
                 final double comparison = hitPoints - currentHero.getHitPoints();
+                log.info("ARMOR HANDLE");
                 if (comparison > 0) {
                     log.info("COMPARISON: " + comparison);
                     final double ARMOR = comparison * ARMOR_COEFFICIENT;
                     currentHero.setHitPoints(currentHero.getHitPoints() + ARMOR);
-                    this.hitPoints = currentHero.getHitPoints();
                     log.info("ARMOR: " + ARMOR);
                 }
+                this.hitPoints = currentHero.getHitPoints();
                 if (actionEvent.getActionType() == ActionType.START_TURN
                         && (actionEvent.getPlayer() == player || actionEvent.getPlayer() == alternativePlayer)) {
                     isWorking = false;

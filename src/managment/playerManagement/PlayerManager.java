@@ -115,8 +115,8 @@ public final class PlayerManager {
 //        this.leftATeam.getAlternativePlayer().setAlive(false);
         final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
                 .get(WindowType.MATCHMAKING).getController();
-        controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
-        controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
+        controllerMatchMaking.getLeftLocation().getSwapSkillPane().setVisible(setter);
+        controllerMatchMaking.getRightLocation().getSwapSkillPane().setVisible(setter);
     }
 
     //Getters:

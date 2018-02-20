@@ -48,7 +48,7 @@ public final class HExorcism extends Bonus implements HandlerBonus {
 
                     if (currentHero.getHealing(HEALING_BOOST)) {
                         log.info("+2 HP");
-                        actionManager.getBonusEventEngine().handle();
+                        actionManager.getBonusEventEngine().setRepeatHandling(true);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 package heroes.lv.skills.swapSkills.fury;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
+import heroes.abstractHero.skills.swapSkill.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEventFactory;

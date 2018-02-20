@@ -99,11 +99,19 @@ public final class ATeam {
 
     @Override
     public final String toString() {
-        return "ATeam{" +
-                "currentPlayer=" + currentPlayer.getProfile().getName() +
-                ", alternativePlayer=" + alternativePlayer.getProfile().getName() +
-                ", turn=" + turn +
-                '}';
+        if (alternativePlayer != null){
+            return "ATeam{" +
+                    "currentPlayer=" + currentPlayer.getProfile().getName() +
+                    ", alternativePlayer=" + alternativePlayer.getProfile().getName() +
+                    ", turn=" + turn +
+                    '}';
+        } else {
+            return "ATeam{" +
+                    "currentPlayer=" + currentPlayer.getProfile().getName() +
+                    ", turn=" + turn +
+                    '}';
+        }
+
     }
 
     public void setCurrentPlayer(Player currentPlayer) {

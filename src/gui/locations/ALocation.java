@@ -2,7 +2,6 @@ package gui.locations;
 
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -45,11 +44,7 @@ public final class ALocation {
     private Text requiredExperience;
 
     //Swap heroes:
-    private AnchorPane heroes;
-
-    private Button currentHero;
-
-    private Button backHero;
+    private Pane swapSkillPane;
 
     //Profile:
     private Text name;
@@ -66,9 +61,7 @@ public final class ALocation {
         //root:
         this.location = location;
         //heroes control:
-        this.heroes = (AnchorPane) location.getChildren().get(HEROES_CONTROL_INDEX);
-        this.currentHero = (Button) this.heroes.getChildren().get(0);
-        this.backHero = (Button) this.heroes.getChildren().get(1);
+        this.swapSkillPane = (Pane) location.getChildren().get(HEROES_CONTROL_INDEX);
         //bonus stack:
         //...........
         //skill pane:
@@ -112,15 +105,21 @@ public final class ALocation {
         return skills;
     }
 
-    public final void setupSuperSkills(final Hero parentHero, final List<Skill> skills){
+    public final void setupSuperSkills(final Hero parentHero){
         final int startY = 0;
         int startX = invert ? 0 : 150;
         final int shiftX = invert ? + 75 : -75;
         skillPane.getChildren().clear();
-        for (final Skill skill : skills){
+        for (final Skill skill : parentHero.getCollectionOfSkills()){
             skill.install(skillPane, parentHero, startX, startY, startX, -127, invert);
             startX += shiftX;
         }
+    }
+
+    public final void setupSwapSkill(final Hero parentHero){
+        swapSkillPane.setVisible(true);
+        swapSkillPane.getChildren().clear();
+        parentHero.getSwapSkill().install(swapSkillPane, parentHero, 0, 0, 0, 0, invert);
     }
 
     @Contract(pure = true)
@@ -253,18 +252,8 @@ public final class ALocation {
     }
 
     @Contract(pure = true)
-    public AnchorPane getHeroes() {
-        return heroes;
-    }
-
-    @Contract(pure = true)
-    public Button getCurrentHero() {
-        return currentHero;
-    }
-
-    @Contract(pure = true)
-    public Button getBackHero() {
-        return backHero;
+    public Pane getSwapSkillPane() {
+        return swapSkillPane;
     }
 
     public void setName(final String name) {

@@ -23,7 +23,7 @@ public abstract class AbstractSkill implements Skill {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractSkill.class);
 
-    private static final int START_OPACITY = 0;
+    protected static final int START_OPACITY = 0;
 
     private final String name;
 
@@ -32,10 +32,10 @@ public abstract class AbstractSkill implements Skill {
     protected int requiredLevel;
     protected List<Double> coefficients;
 
-    private ImageView description;
-    private ImageView sprite;
+    protected ImageView description;
+    protected ImageView sprite;
 
-    private Pane container;
+    protected Pane container;
     private Media animationSound;
     private final List<Media> listOfVoices;
 
@@ -68,7 +68,7 @@ public abstract class AbstractSkill implements Skill {
         this.listOfVoices = listOfVoices;
     }
 
-    private void sendRequest() {
+    public void sendRequest() {
         if (parent != null) {
             log.info(" skill request");
             actionManager.setSkillRequest(parent, this);
@@ -90,6 +90,7 @@ public abstract class AbstractSkill implements Skill {
     public void reset() {
         temp = temp % reload;
         if (sprite != null) {
+            log.info("RESET_SKILL!!!!!!!!!");
             sprite.setVisible(false);
         }
     }
@@ -108,11 +109,10 @@ public abstract class AbstractSkill implements Skill {
         fadeTransition.play();
     }
 
-    public final void install(final Pane parentPane, final Hero parent
+    public void install(final Pane parentPane, final Hero parent
             , final double spriteX, final double spriteY
             , final double descriptionX, final double descriptionY
             , final boolean invert) {
-        //the skill must match the parent!
         this.parent = parent;
         //init description:
 //        this.description.setLayoutX(descriptionX);
@@ -120,9 +120,6 @@ public abstract class AbstractSkill implements Skill {
         this.description.setOpacity(START_OPACITY);
         //init sprite:
         final int inversion = invert ? -1 : 1;
-//        this.sprite.setLayoutX(spriteX);
-//        this.sprite.setLayoutY(spriteY);
-//        this.sprite.setScaleX(inversion);
         this.container = new Pane(){{
             setLayoutX(spriteX);
             setLayoutY(spriteY);

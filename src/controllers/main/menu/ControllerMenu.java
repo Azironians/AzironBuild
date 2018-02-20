@@ -179,7 +179,11 @@ public final class ControllerMenu implements Initializable, Controller {
         if (profileManager.getProfileRequest().isAuthorized()){
             setReadyProfileGraphic(profileButton, profileManager.getCurrentProfile().getName());
             if (PRIMARY_LEFT.isAuthorized() && PRIMARY_RIGHT.isAuthorized()
-                    && SECONDARY_LEFT.isAuthorized() && SECONDARY_RIGHT.isAuthorized()){
+                    && SECONDARY_LEFT.isAuthorized() && SECONDARY_RIGHT.isAuthorized() && playerManager.getGameMode() == GameMode._2x2){
+                final int BUTTON_START_INDEX = 1;
+                playerPane.getChildren().get(BUTTON_START_INDEX).setVisible(true);
+            }
+            if (PRIMARY_LEFT.isAuthorized() && PRIMARY_RIGHT.isAuthorized() && playerManager.getGameMode() == GameMode._1x1){
                 final int BUTTON_START_INDEX = 1;
                 playerPane.getChildren().get(BUTTON_START_INDEX).setVisible(true);
             }

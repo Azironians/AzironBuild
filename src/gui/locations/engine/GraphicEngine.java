@@ -85,7 +85,7 @@ public final class GraphicEngine {
         keyFrames.add(new KeyFrame(Duration.seconds(1), event -> showLocation(location, team)));
         keyFrames.add(new KeyFrame(Duration.seconds(1), event -> {
             final ActionEvent frameEvent = ActionEventFactory.getFrame(team.getCurrentPlayer());
-            bonusEventEngine.handle(frameEvent);
+//            bonusEventEngine.handle(frameEvent);
         }));
     }
 
@@ -137,24 +137,26 @@ public final class GraphicEngine {
             location.setRequiredExperience("");
         }
         //Skills:
-        location.setupSuperSkills(hero, hero.getCollectionOfSkills());
+        location.setupSuperSkills(hero);
         for (final Skill skill : hero.getCollectionOfSkills()){
             final boolean levelReached = hero.getLevel() >= skill.getRequiredLevel();
             if (skill.isReady() && levelReached){
                 skill.getSprite().setVisible(true);
             }
         }
+        final Player alternativePlayer = team.getAlternativePlayer();
+        if (alternativePlayer != null){
+            location.setupSwapSkill(alternativePlayer.getHero());
 //        log.debug("SWAP_TEMP:" + team.getAlternativePlayer().getHero().getSwapSkill().getTemp());
 //        log.debug("ALIVE: " + team.getAlternativePlayer().isAlive());
 //        log.debug("READY_SWAP: " + team.getAlternativePlayer().getHero().getSwapSkill().isReady());
-        final Player alternativePlayer = team.getAlternativePlayer();
-        if (alternativePlayer != null && alternativePlayer.isAlive()
-                && alternativePlayer.getHero().getSwapSkill().isReady()){
-            log.debug("SWAP_SKILL_IS_VISIBLE");
-            location.getBackHero().setVisible(true);
-        } else {
-            log.debug("SWAP_SKILL_IS_INVISIBLE");
-            location.getBackHero().setVisible(false);
+            if (alternativePlayer.isAlive() && alternativePlayer.getHero().getSwapSkill().isReady()){
+                log.debug("SWAP_SKILL_IS_VISIBLE");
+                location.getSwapSkillPane().setVisible(true);
+            } else {
+                log.debug("SWAP_SKILL_IS_INVISIBLE");
+                location.getSwapSkillPane().setVisible(false);
+            }
         }
         //Time:
         location.setTime(team.getTime());

@@ -123,7 +123,7 @@ public final class ActionManager {
             skill.getActionEvents().clear();
             skill.use(battleManager, playerManager);
             skill.reset();
-            bonusEventEngine.handle();
+            skill.getActionEvents().forEach(bonusEventEngine::handle);
             refreshScreen();
             if (battleManager.isEndTurn()) {
                 endTurn(currentTeam);

@@ -25,7 +25,7 @@ public final class ConsumingSkill extends AbstractSkill {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getHero();
-        final double damage = opponentHero.getHitPoints() / coefficients.get(0);
+        final double damage = opponentHero.getHitPoints() * coefficients.get(0);
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
         }

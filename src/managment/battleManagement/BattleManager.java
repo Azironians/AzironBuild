@@ -111,7 +111,9 @@ public final class BattleManager {
         }
         //handling:
         bonusEventEngine.handle(ActionEventFactory.getStartTurn(currentPlayer));
-        bonusEventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
+        if (playerManager.getGameMode() == GameMode._2x2){
+            bonusEventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
+        }
         loadRandomBonuses(currentPlayer.getHero());
     }
 

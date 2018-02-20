@@ -1,7 +1,7 @@
 package heroes.lv.skills.superSkills.cannibalism;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
+import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEventFactory;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static heroes.lv.skills.superSkills.cannibalism.CannibalismPropertySkill.*;
 
-public final class CannibalismSkill extends AbstractSwapSkill {
+public final class CannibalismSkill extends AbstractSkill {
 
     public CannibalismSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()

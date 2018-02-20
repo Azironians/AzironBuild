@@ -2,7 +2,7 @@ package heroes.devourer.skills.superSkills.regeneration;
 
 import bonus.bonuses.HandlerBonus;
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
+import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEvent;
@@ -17,7 +17,7 @@ import java.util.List;
 
 import static heroes.devourer.skills.superSkills.regeneration.RegenerationPropertySkill.*;
 
-public final class RegenerationSkill extends AbstractSwapSkill {
+public final class RegenerationSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(RegenerationSkill.class);
 

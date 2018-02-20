@@ -1,6 +1,7 @@
 package heroes.devourer.recourceSupplier;
 
 import heroes.abstractHero.resourceSupplier.HeroResourceSupplier;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 
@@ -30,11 +31,14 @@ public final class DevourerResourceSupplier extends HeroResourceSupplier{
 
     @Override
     public final GetSkill getSwapSkillResources() {
-        return new GetSkill(getDepletionSpriteInstance(), new ImageView(), new ArrayList<>());
+        return new GetSkill(getDepletionSpriteInstance(), getFlameSnakesSpriteInstance(), new ArrayList<>());
     }
 
     private ImageView getDepletionSpriteInstance(){
-        return superSkillSpriteFormat(getSwapSkillPath());
+//        final ImageView testSprite = new ImageView(new Image("file:src\\resources\\heroes\\devourer\\face\\swapFace.png"));
+//        testSprite.setFitHeight(65);
+//        testSprite.setFitWidth(188);
+        return swapSkillSpriteFormat(getSwapSkillPath());
     }
 
     private ImageView getDepletionDescriptionInstance(){

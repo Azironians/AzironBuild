@@ -98,7 +98,7 @@ public abstract class Hero {
     public final boolean getDamage(final double damage) {
         if (damageAccess && damage - armor > 0) {
             hitPoints -= (damage - armor);
-            log.info(hitPoints.toString());
+            log.info("WAS DAMAGE: " + damage);
             return true;
         }
         return false;

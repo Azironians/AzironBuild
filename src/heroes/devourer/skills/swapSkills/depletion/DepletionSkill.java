@@ -1,7 +1,7 @@
 package heroes.devourer.skills.swapSkills.depletion;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkills.AbstractSwapSkill;
+import heroes.abstractHero.skills.swapSkill.AbstractSwapSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.battleManagement.BattleManager;

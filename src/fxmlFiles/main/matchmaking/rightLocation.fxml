@@ -4,17 +4,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="location" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerRightLocation">
     <children>
-        <AnchorPane fx:id="heroes" layoutX="163.0" layoutY="-61.0" prefHeight="111.0" prefWidth="383.0">
-            <children>
-                <Button fx:id="currentHero" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="currentHero" visible="false"/>
-                <Button fx:id="backHero" layoutX="200.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="188.0" text="backHero" onMouseClicked="#changeHeroOnClicked" visible="true"/>
-            </children>
-        </AnchorPane>
+      <Pane fx:id="swapSkill" layoutX="-62.0" layoutY="80.0" onMouseClicked="#changeHeroOnClicked">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resources/heroes/lv/face/swapFace.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
         <AnchorPane fx:id="bonusStack" layoutX="507.0" layoutY="133.21484375">
             <children>
                 <Button fx:id="bonus0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0" />

@@ -32,6 +32,7 @@ public final class XFeedBack extends Bonus implements InstallerBonus {
 
         final double HEALING_BOOST = lastDamage * SKILL_HEALING_COEFFICIENT;
         final double OPPONENT_EXPERIENCE_BOOST = lastDamage * SKILL_EXPERIENCE_COEFFICIENT;
+        log.info("LAST_DAMAGE: " + lastDamage);
         log.info("HEALING_BOOST: " + HEALING_BOOST);
         log.info("OPPONENT_XP_BOOST: " + OPPONENT_EXPERIENCE_BOOST);
 
@@ -58,13 +59,20 @@ public final class XFeedBack extends Bonus implements InstallerBonus {
 
             @Override
             public synchronized final void handle(final ActionEvent actionEvent) {
+//                log.info("FEEDBACK HANDLE");
                 final double newHitPoints = player.getHero().getHitPoints();
                 final double comparison = hitPoints - newHitPoints;
+//                if (player == playerManager.getCurrentTeam().getCurrentPlayer()){
+//                    log.info("PLAYER: " + player.getProfile().getName());
+//                    log.info("LAST_DAMAGE: " + lastDamage);
+//                    log.info("OLD HP: " + hitPoints);
+//                    log.info("NEW HP: " + newHitPoints);
+//                }
                 if (comparison > 0) {
                     lastDamage = comparison;
-                    log.info("WAS DAMAGE: " + lastDamage);
-                    this.hitPoints = newHitPoints;
+                    log.info("FEEDBACK: WAS DAMAGE: " + lastDamage + "FOR PLAYER: " + player.getProfile().getName());
                 }
+                this.hitPoints = newHitPoints;
             }
 
             @Override

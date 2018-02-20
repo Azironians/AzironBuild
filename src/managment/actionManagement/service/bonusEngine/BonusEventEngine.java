@@ -36,22 +36,24 @@ public final class BonusEventEngine {
 
     private List<HandlerBonus.GetAHandler> bonusHandlers;
 
-    public final void install(){
+    private boolean repeatHandling = false;
+
+    public final void install() {
         this.bonusHandlers = Collections.synchronizedList(new ArrayList<>());
-        install(playerManager.getCurrentTeam().getCurrentPlayer());
-        install(playerManager.getOpponentATeam().getCurrentPlayer());
-        if (playerManager.getGameMode() == GameMode._2x2){
-            install(playerManager.getCurrentTeam().getAlternativePlayer());
-            install(playerManager.getOpponentATeam().getAlternativePlayer());
+        install(playerManager.getLeftATeam().getCurrentPlayer());
+        install(playerManager.getRightATeam().getCurrentPlayer());
+        if (playerManager.getGameMode() == GameMode._2x2) {
+            install(playerManager.getLeftATeam().getAlternativePlayer());
+            install(playerManager.getRightATeam().getAlternativePlayer());
         }
         log.info("BonusEventEngine installing was successful!");
     }
 
-    private void install(final Player player){
+    private void install(final Player player) {
         final List<Bonus> collection = player.getHero().getBonusCollection();
-        for (final Bonus bonus : collection){
+        for (final Bonus bonus : collection) {
             wireManagersToBonus(bonus, actionManager, battleManager, playerManager);
-            if (implementsInstallerBonus(bonus)){
+            if (implementsInstallerBonus(bonus)) {
                 final InstallerBonus installerBonus = (InstallerBonus) bonus;
                 addHandler(installerBonus.getInstallHandlerInstance(player));
             }
@@ -61,16 +63,16 @@ public final class BonusEventEngine {
     private void wireManagersToBonus(final Bonus bonus
             , final ActionManager actionManager
             , final BattleManager battleManager
-            , final PlayerManager playerManager){
+            , final PlayerManager playerManager) {
         bonus.setActionManager(actionManager);
         bonus.setBattleManager(battleManager);
         bonus.setPlayerManager(playerManager);
     }
 
-    private boolean implementsInstallerBonus(final Bonus bonus){
+    private boolean implementsInstallerBonus(final Bonus bonus) {
         final Class<?>[] interfaces = bonus.getClass().getInterfaces();
-        for (final Class clazz : interfaces){
-            if (clazz.equals(InstallerBonus.class)){
+        for (final Class clazz : interfaces) {
+            if (clazz.equals(InstallerBonus.class)) {
                 log.info(bonus.getName() + " implements InstallerBonus");
                 return true;
             }
@@ -79,21 +81,19 @@ public final class BonusEventEngine {
     }
 
     public synchronized final void handle(final ActionEvent actionEvent) {
+        this.repeatHandling = false;
         final List<HandlerBonus.GetAHandler> garbageHandlerList = new ArrayList<>();
-        synchronized (this){
-            for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
-                if (bonusHandler.isWorking()) {
-                    bonusHandler.handle(actionEvent);
-                } else {
-                    synchronized (this){
-                        garbageHandlerList.add(bonusHandler);
-                        log.debug(bonusHandler.getName() + " successfully was removed");
-                    }
-                }
+        for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
+            if (bonusHandler.isWorking()) {
+                bonusHandler.handle(actionEvent);
+            } else {
+                garbageHandlerList.add(bonusHandler);
+                log.debug(bonusHandler.getName() + " successfully was removed");
             }
         }
-        synchronized (this){
-            bonusHandlers.removeAll(garbageHandlerList);
+        bonusHandlers.removeAll(garbageHandlerList);
+        if (repeatHandling){
+            handle();
         }
     }
 
@@ -104,5 +104,13 @@ public final class BonusEventEngine {
     public final void addHandler(final HandlerBonus.GetAHandler handler) {
         handler.setup();
         bonusHandlers.add(handler);
+    }
+
+    public boolean isRepeatHandling() {
+        return repeatHandling;
+    }
+
+    public void setRepeatHandling(boolean repeatHandling) {
+        this.repeatHandling = repeatHandling;
     }
 }

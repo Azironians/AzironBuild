@@ -86,6 +86,7 @@ public final class ControllerPlayer implements Initializable, Controller {
             System.out.println("OK");
             buttonStartClicked();
         });
+        buttonStart.setVisible(false);
     }
 
     @Override

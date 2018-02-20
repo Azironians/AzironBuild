@@ -249,6 +249,7 @@ public final class ControllerFastChoiceHero implements Initializable, Controller
 
         final ControllerMenu controllerMenu = getControllerMenu();
         controllerMenu.setReadyProfile();
+
         sceneMover.moveToScene(WindowType.MENU);
     }
 
