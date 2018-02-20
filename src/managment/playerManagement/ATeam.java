@@ -115,5 +115,4 @@ public final class ATeam {
         alternativePlayer.setCurrent(false);
         this.alternativePlayer = alternativePlayer;
     }
-
 }

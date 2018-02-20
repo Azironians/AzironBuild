@@ -10,10 +10,13 @@ import heroes.lv.hero.LV;
 import heroes.orcBash.hero.OrcBash;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.*;
 
 public interface HeroBuilder {
+
+    Logger log = LoggerFactory.getLogger(HeroBuilder.class);
 
     default Hero buildHero(){
         final Class clazz = getHeroClass();
@@ -29,16 +32,20 @@ public interface HeroBuilder {
 
     private Hero getHeroInstance(final Class clazz, final List<Skill> superSkills, final Skill swapSkill
             , final ImageView face, final List<Media> attackVoices, final List<Media> treatmentVoices){
+        Hero hero = null;
         if (clazz.equals(Devourer.class)) {
-            return new Devourer(superSkills, swapSkill, face, attackVoices, treatmentVoices);
+            hero = new Devourer(superSkills, swapSkill, face, attackVoices, treatmentVoices);
         }
         if (clazz.equals(LV.class)){
-            return new LV(superSkills, swapSkill, face, attackVoices, treatmentVoices);
+            hero = new LV(superSkills, swapSkill, face, attackVoices, treatmentVoices);
         }
         if (clazz.equals(OrcBash.class)){
-            return new OrcBash(superSkills, swapSkill, face, attackVoices, treatmentVoices);
+            hero = new OrcBash(superSkills, swapSkill, face, attackVoices, treatmentVoices);
         }
-        return null;
+        if (hero != null){
+            log.info(hero.toString());
+        }
+        return hero;
     }
 
     default Presentation buildPresentation(final String deckName, final int deckPriority){

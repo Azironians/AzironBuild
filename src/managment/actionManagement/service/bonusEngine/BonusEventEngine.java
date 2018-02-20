@@ -8,6 +8,7 @@ import com.google.inject.Singleton;
 import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;
 import managment.battleManagement.BattleManager;
+import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;
 import org.slf4j.Logger;
@@ -38,9 +39,11 @@ public final class BonusEventEngine {
     public final void install(){
         this.bonusHandlers = Collections.synchronizedList(new ArrayList<>());
         install(playerManager.getCurrentTeam().getCurrentPlayer());
-        install(playerManager.getCurrentTeam().getAlternativePlayer());
         install(playerManager.getOpponentATeam().getCurrentPlayer());
-        install(playerManager.getOpponentATeam().getCurrentPlayer());
+        if (playerManager.getGameMode() == GameMode._2x2){
+            install(playerManager.getCurrentTeam().getAlternativePlayer());
+            install(playerManager.getOpponentATeam().getAlternativePlayer());
+        }
         log.info("BonusEventEngine installing was successful!");
     }
 
@@ -77,15 +80,21 @@ public final class BonusEventEngine {
 
     public synchronized final void handle(final ActionEvent actionEvent) {
         final List<HandlerBonus.GetAHandler> garbageHandlerList = new ArrayList<>();
-        for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
-            if (bonusHandler.isWorking()) {
-                bonusHandler.handle(actionEvent);
-            } else {
-                garbageHandlerList.add(bonusHandler);
-                log.debug(bonusHandler.getName() + " successfully was removed");
+        synchronized (this){
+            for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
+                if (bonusHandler.isWorking()) {
+                    bonusHandler.handle(actionEvent);
+                } else {
+                    synchronized (this){
+                        garbageHandlerList.add(bonusHandler);
+                        log.debug(bonusHandler.getName() + " successfully was removed");
+                    }
+                }
             }
         }
-        bonusHandlers.removeAll(garbageHandlerList);
+        synchronized (this){
+            bonusHandlers.removeAll(garbageHandlerList);
+        }
     }
 
     public final void handle() {

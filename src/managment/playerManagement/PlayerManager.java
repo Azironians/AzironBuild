@@ -7,12 +7,16 @@ import heroes.abstractHero.hero.Hero;
 import main.AGame;
 import managment.battleManagement.BattleManager;
 import org.jetbrains.annotations.Contract;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 public final class PlayerManager {
+
+    private static final Logger log = LoggerFactory.getLogger(PlayerManager.class);
 
     @Inject
     private AGame aGame;
@@ -65,7 +69,54 @@ public final class PlayerManager {
     private void setAdditionalExperience(final ATeam team){
         final Hero hero = team.getCurrentPlayer().getHero();
         final double equalsAttack =  hero.getAttack();
+        log.info("Adding XP: +" + equalsAttack);
         hero.addExperience(equalsAttack);
+    }
+
+    public final void setCurrentATeam(ATeam currentATeam) {
+        currentATeam.launchTimer();
+        this.currentATeam = currentATeam;
+    }
+
+    public final void setOpponentATeam(ATeam opponentATeam) {
+        opponentATeam.pauseTimer();
+        this.opponentATeam = opponentATeam;
+    }
+
+    public final void setRightATeam(final ATeam rightATeam) {
+        this.rightATeam = rightATeam;
+    }
+
+    public final void setLeftATeam(final ATeam leftATeam) {
+        this.leftATeam = leftATeam;
+    }
+
+    public GameMode getGameMode() {
+        return gameMode;
+    }
+
+    public void setGameMode(GameMode gameMode) {
+        this.gameMode = gameMode;
+        this.rightATeam = new ATeam();
+        this.leftATeam = new ATeam();
+        switch (gameMode){
+            case _1x1:
+                setPlayerCount(2);
+                set2x2(false);
+                break;
+            case _2x2:
+                setPlayerCount(4);
+                set2x2(true);
+        }
+    }
+
+    private void set2x2(boolean setter) {
+//        this.rightATeam.getAlternativePlayer().setAlive(false);
+//        this.leftATeam.getAlternativePlayer().setAlive(false);
+        final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
+                .get(WindowType.MATCHMAKING).getController();
+        controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
+        controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
     }
 
     //Getters:
@@ -97,51 +148,5 @@ public final class PlayerManager {
     @Contract(pure = true)
     public final ATeam getOpponentATeam() {
         return opponentATeam;
-    }
-
-    public final void setCurrentATeam(ATeam currentATeam) {
-        currentATeam.launchTimer();
-        this.currentATeam = currentATeam;
-    }
-
-    public final void setOpponentATeam(ATeam opponentATeam) {
-        opponentATeam.pauseTimer();
-        this.opponentATeam = opponentATeam;
-    }
-
-    public final void setRightATeam(final ATeam rightATeam) {
-        this.rightATeam = rightATeam;
-    }
-
-    public final void setLeftATeam(final ATeam leftATeam) {
-        this.leftATeam = leftATeam;
-    }
-
-    public GameMode getGameMode() {
-        return gameMode;
-    }
-
-    public void setGameMode(GameMode gameMode) {
-        this.gameMode = gameMode;
-        switch (gameMode){
-            case _1x1:
-                setPlayerCount(2);
-                set2x2(false);
-                break;
-            case _2x2:
-                setPlayerCount(4);
-                set2x2(true);
-        }
-    }
-
-    private void set2x2(boolean setter) {
-        this.rightATeam = new ATeam();
-        this.leftATeam = new ATeam();
-//        this.rightATeam.getAlternativePlayer().setAlive(false);
-//        this.leftATeam.getAlternativePlayer().setAlive(false);
-        final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
-                .get(WindowType.MATCHMAKING).getController();
-        controllerMatchMaking.getLeftLocation().getHeroes().setVisible(setter);
-        controllerMatchMaking.getRightLocation().getHeroes().setVisible(setter);
     }
 }

@@ -14,7 +14,7 @@ public final class Devourer extends Hero {
     public Devourer(final List<Skill> superSkills, final Skill swapSkill
             , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices) {
         super(NAME, START_ATTACK, START_TREATMENT, START_HIT_POINTS, START_SUPPLY_HEALTH, START_EXPERIENCE, START_LEVEL
-                , REQUIRED_EXPERIENCE_LIST, getDamageList(), getTreatmentList(), getSupplyHealthList(), superSkills, swapSkill, face
+                , getRequiredExperienceList(), getDamageList(), getTreatmentList(), getSupplyHealthList(), superSkills, swapSkill, face
                 , listOfAttackVoices, listOfTreatmentVoices);
     }
 

@@ -176,6 +176,7 @@ public abstract class Hero {
     @Override
     public final String toString() {
         return "Hero{" +
+                "\n" + name +
                 "\nattack=" + attack +
                 "\ntreatment=" + treatment +
                 "\nhitPoints=" + hitPoints +

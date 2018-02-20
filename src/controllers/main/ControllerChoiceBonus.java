@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class ControllerChoiceBonus implements Initializable, Controller {
+public final class ControllerChoiceBonus implements Initializable, Controller {
+
     private Map<String, List<Deck>> bonusData = null;
 
     private List<Deck> privilegedCollections = null;
@@ -17,14 +18,13 @@ public class ControllerChoiceBonus implements Initializable, Controller {
     private Deck defaultPrimaryDeck;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public final void initialize(final URL location, final ResourceBundle resources) {
         appearance();
         //загрузка бонусов
     }
 
-
     @Override
-    public void appearance() {
+    public final void appearance() {
 
     }
 
@@ -32,12 +32,11 @@ public class ControllerChoiceBonus implements Initializable, Controller {
 
     }
 
-
-    public Map<String, List<Deck>> getBonusData() {
+    public final Map<String, List<Deck>> getBonusData() {
         return bonusData;
     }
 
-    public void setBonusData(Map<String, List<Deck>> bonusData) {
+    public final void setBonusData(Map<String, List<Deck>> bonusData) {
         this.bonusData = bonusData;
     }
 

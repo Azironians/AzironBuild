@@ -72,7 +72,6 @@ public abstract class AbstractSkill implements Skill {
         if (parent != null) {
             log.info(" skill request");
             actionManager.setSkillRequest(parent, this);
-
         }
     }
 
@@ -116,17 +115,20 @@ public abstract class AbstractSkill implements Skill {
         //the skill must match the parent!
         this.parent = parent;
         //init description:
-        this.description.setLayoutX(descriptionX);
+//        this.description.setLayoutX(descriptionX);
         this.description.setLayoutY(descriptionY); //-127
         this.description.setOpacity(START_OPACITY);
         //init sprite:
         final int inversion = invert ? -1 : 1;
-        this.sprite.setLayoutX(spriteX);
-        this.sprite.setLayoutY(spriteY);
-        this.sprite.setScaleX(inversion);
+//        this.sprite.setLayoutX(spriteX);
+//        this.sprite.setLayoutY(spriteY);
+//        this.sprite.setScaleX(inversion);
         this.container = new Pane(){{
+            setLayoutX(spriteX);
+            setLayoutY(spriteY);
+            setScaleX(inversion);
             final ObservableList<Node> elements = getChildren();
-            elements.add(description);
+//            elements.add(description);
             elements.add(sprite);
         }};
         parentPane.getChildren().add(container);

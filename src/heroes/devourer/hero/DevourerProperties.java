@@ -75,8 +75,10 @@ public final class DevourerProperties {
     @Named("DEVOURER_EXP_LEVEL_10")
     private static double EXP_LEVEL_10;
 
-    static final List<Double> REQUIRED_EXPERIENCE_LIST = Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
-            , EXP_LEVEL_5, EXP_LEVEL_6, EXP_LEVEL_7, EXP_LEVEL_8, EXP_LEVEL_9, EXP_LEVEL_10);
+    static List<Double> getRequiredExperienceList(){
+        return  Arrays.asList(EXP_LEVEL_2, EXP_LEVEL_3, EXP_LEVEL_4
+                , EXP_LEVEL_5, EXP_LEVEL_6, EXP_LEVEL_7, EXP_LEVEL_8, EXP_LEVEL_9, EXP_LEVEL_10);
+    }
 
     //Attack level boost:
     @Inject

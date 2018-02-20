@@ -9,6 +9,7 @@ import com.google.inject.name.Named;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.bonusEngine.BonusEventEngine;
 import managment.playerManagement.ATeam;
+import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;
 import managment.processors.Processor;
@@ -104,8 +105,10 @@ public final class BattleManager {
         final Player alternativePlayer = currentTeam.getAlternativePlayer();
 
         currentPlayer.getHero().reloadSkills();
-        alternativePlayer.getHero().reloadSkills();
-        alternativePlayer.getHero().getSwapSkill().reload();
+        if (playerManager.getGameMode() == GameMode._2x2){
+            alternativePlayer.getHero().reloadSkills();
+            alternativePlayer.getHero().getSwapSkill().reload();
+        }
         //handling:
         bonusEventEngine.handle(ActionEventFactory.getStartTurn(currentPlayer));
         bonusEventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
@@ -138,7 +141,7 @@ public final class BattleManager {
 
     private boolean isEndGame() {
         final Player alternativePlayer = playerManager.getCurrentTeam().getAlternativePlayer();
-        return !alternativePlayer.isAlive() || alternativePlayer == null;
+        return alternativePlayer == null || !alternativePlayer.isAlive();
     }
 
     public final void endGame() {
