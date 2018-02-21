@@ -1,7 +1,8 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
+import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.engine.DynamicHandleService;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
@@ -9,11 +10,13 @@ import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class XStepByStep extends Bonus implements HandlerBonus {
+public final class XStepByStep extends Bonus implements DynamicHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(XStepByStep.class);
 
     private static final double EXPERIENCE_COEFFICIENT = 0.1;
+
+    private static final int TURNS = 3;
 
     public XStepByStep(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
@@ -21,16 +24,16 @@ public final class XStepByStep extends Bonus implements HandlerBonus {
 
     @Override
     public final void use() {
-        final GetAHandler handler = getHandlerInstance();
-        actionManager.getBonusEventEngine().addHandler(handler);
+        final HandleComponent handler = getHandlerInstance();
+        actionManager.getEventEngine().addHandler(handler);
         log.info("EXPERIENCE IS INCREASED BY 10% IN DURING 3 TURNS");
     }
 
     @Override
-    public final GetAHandler getHandlerInstance() {
-        return new GetAHandler() {
+    public final HandleComponent getHandlerInstance() {
+        return new HandleComponent() {
 
-            private int count = 3;
+            private int count = TURNS;
 
             private Player player;
 
@@ -52,7 +55,7 @@ public final class XStepByStep extends Bonus implements HandlerBonus {
                     if (player.getHero().addExperience(EXPERIENCE_BOOST)) {
                         log.info("EXPERIENCE WAS ADDED BY 10%");
                         this.experience = player.getHero().getCurrentExperience();
-                        actionManager.getBonusEventEngine().handle();
+                        actionManager.getEventEngine().handle();
                     }
                 }
                 if (actionEvent.getActionType() == ActionType.END_TURN && actionEvent.getPlayer() == player) {

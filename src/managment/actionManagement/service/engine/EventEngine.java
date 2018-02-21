@@ -1,8 +1,7 @@
-package managment.actionManagement.service.bonusEngine;
+package managment.actionManagement.service.engine;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
-import bonus.bonuses.InstallerBonus;
+import managment.actionManagement.service.components.HandleComponent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import managment.actionManagement.ActionManager;
@@ -19,9 +18,9 @@ import java.util.Collections;
 import java.util.List;
 
 @Singleton
-public final class BonusEventEngine {
+public final class EventEngine {
 
-    private static final Logger log = LoggerFactory.getLogger(BonusEventEngine.class);
+    private static final Logger log = LoggerFactory.getLogger(EventEngine.class);
 
     private static final ActionEvent EMPTY_EVENT = new ActionEvent(null, null, null);
 
@@ -34,7 +33,7 @@ public final class BonusEventEngine {
     @Inject
     private PlayerManager playerManager;
 
-    private List<HandlerBonus.GetAHandler> bonusHandlers;
+    private List<HandleComponent> bonusHandlers;
 
     private boolean repeatHandling = false;
 
@@ -46,16 +45,16 @@ public final class BonusEventEngine {
             install(playerManager.getLeftATeam().getAlternativePlayer());
             install(playerManager.getRightATeam().getAlternativePlayer());
         }
-        log.info("BonusEventEngine installing was successful!");
+        log.info("EventEngine installing was successful!");
     }
 
     private void install(final Player player) {
         final List<Bonus> collection = player.getHero().getBonusCollection();
         for (final Bonus bonus : collection) {
             wireManagersToBonus(bonus, actionManager, battleManager, playerManager);
-            if (implementsInstallerBonus(bonus)) {
-                final InstallerBonus installerBonus = (InstallerBonus) bonus;
-                addHandler(installerBonus.getInstallHandlerInstance(player));
+            if (implementsRegularHandleService(bonus)) {
+                final RegularHandleService regularHandleService = (RegularHandleService) bonus;
+                addHandler(regularHandleService.getInstallHandlerInstance(player));
             }
         }
     }
@@ -69,11 +68,11 @@ public final class BonusEventEngine {
         bonus.setPlayerManager(playerManager);
     }
 
-    private boolean implementsInstallerBonus(final Bonus bonus) {
+    private boolean implementsRegularHandleService(final Bonus bonus) {
         final Class<?>[] interfaces = bonus.getClass().getInterfaces();
         for (final Class clazz : interfaces) {
-            if (clazz.equals(InstallerBonus.class)) {
-                log.info(bonus.getName() + " implements InstallerBonus");
+            if (clazz.equals(RegularHandleService.class)) {
+                log.info(bonus.getName() + " implements RegularHandleService");
                 return true;
             }
         }
@@ -82,8 +81,8 @@ public final class BonusEventEngine {
 
     public synchronized final void handle(final ActionEvent actionEvent) {
         this.repeatHandling = false;
-        final List<HandlerBonus.GetAHandler> garbageHandlerList = new ArrayList<>();
-        for (HandlerBonus.GetAHandler bonusHandler : bonusHandlers) {
+        final List<HandleComponent> garbageHandlerList = new ArrayList<>();
+        for (HandleComponent bonusHandler : bonusHandlers) {
             if (bonusHandler.isWorking()) {
                 bonusHandler.handle(actionEvent);
             } else {
@@ -101,7 +100,7 @@ public final class BonusEventEngine {
         handle(EMPTY_EVENT);
     }
 
-    public final void addHandler(final HandlerBonus.GetAHandler handler) {
+    public final void addHandler(final HandleComponent handler) {
         handler.setup();
         bonusHandlers.add(handler);
     }

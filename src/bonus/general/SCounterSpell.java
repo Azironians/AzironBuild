@@ -1,7 +1,8 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
+import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.engine.DynamicHandleService;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
@@ -13,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public final class SCounterSpell extends Bonus implements HandlerBonus {
+public final class SCounterSpell extends Bonus implements DynamicHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(SCounterSpell.class);
 
@@ -31,13 +32,13 @@ public final class SCounterSpell extends Bonus implements HandlerBonus {
             skill.setSkillAccess(false);
         }
         log.info("COUNTER SPELL IS ACTIVATED");
-        final GetAHandler handler = getHandlerInstance();
-        actionManager.getBonusEventEngine().addHandler(handler);
+        final HandleComponent handler = getHandlerInstance();
+        actionManager.getEventEngine().addHandler(handler);
     }
 
     @Override
-    public final GetAHandler getHandlerInstance() {
-        return new GetAHandler() {
+    public final HandleComponent getHandlerInstance() {
+        return new HandleComponent() {
 
             private boolean isWorking = true;
 

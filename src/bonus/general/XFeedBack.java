@@ -1,17 +1,17 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
-import bonus.bonuses.InstallerBonus;
+import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.engine.RegularHandleService;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class XFeedBack extends Bonus implements InstallerBonus {
+public final class XFeedBack extends Bonus implements RegularHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(XFeedBack.class);
 
@@ -36,7 +36,7 @@ public final class XFeedBack extends Bonus implements InstallerBonus {
         log.info("HEALING_BOOST: " + HEALING_BOOST);
         log.info("OPPONENT_XP_BOOST: " + OPPONENT_EXPERIENCE_BOOST);
 
-        final BonusEventEngine engine = actionManager.getBonusEventEngine();
+        final EventEngine engine = actionManager.getEventEngine();
         if (currentHero.getHealing(HEALING_BOOST) | opponentHero.addExperience(OPPONENT_EXPERIENCE_BOOST)) {
             log.info("FEEDBACK WAS SUCCESSFUL");
             engine.handle();
@@ -44,8 +44,8 @@ public final class XFeedBack extends Bonus implements InstallerBonus {
     }
 
     @Override
-    public final HandlerBonus.GetAHandler getInstallHandlerInstance(final Player inputPlayer) {
-        return new HandlerBonus.GetAHandler() {
+    public final HandleComponent getInstallHandlerInstance(final Player inputPlayer) {
+        return new HandleComponent() {
 
             private Player player;
 

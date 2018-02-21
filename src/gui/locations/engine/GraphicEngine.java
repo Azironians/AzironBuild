@@ -19,7 +19,7 @@ import main.AGame;
 import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
@@ -46,7 +46,7 @@ public final class GraphicEngine {
     private PlayerManager playerManager;
 
     @Inject
-    private BonusEventEngine bonusEventEngine;
+    private EventEngine eventEngine;
 
     private ATeam leftTeam;
 
@@ -85,7 +85,7 @@ public final class GraphicEngine {
         keyFrames.add(new KeyFrame(Duration.seconds(1), event -> showLocation(location, team)));
         keyFrames.add(new KeyFrame(Duration.seconds(1), event -> {
             final ActionEvent frameEvent = ActionEventFactory.getFrame(team.getCurrentPlayer());
-//            bonusEventEngine.handle(frameEvent);
+//            eventEngine.handle(frameEvent);
         }));
     }
 

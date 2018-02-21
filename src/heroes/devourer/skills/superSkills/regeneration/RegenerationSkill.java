@@ -1,6 +1,6 @@
 package heroes.devourer.skills.superSkills.regeneration;
 
-import bonus.bonuses.HandlerBonus;
+import managment.actionManagement.service.components.HandleComponent;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
@@ -32,7 +32,7 @@ public final class RegenerationSkill extends AbstractSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         getEffect(currentPlayer, coefficients.get(0));
-        actionManager.getBonusEventEngine().addHandler(getHandlerInstance(currentPlayer));
+        actionManager.getEventEngine().addHandler(getHandlerInstance(currentPlayer));
         log.info("skill added");
     }
 
@@ -40,12 +40,12 @@ public final class RegenerationSkill extends AbstractSkill {
         final double HEALING = getParent().getTreatment() * coefficient;
         final Hero currentHero = currentPlayer.getHero();
         if (currentHero.getHealing(HEALING)){
-            actionManager.getBonusEventEngine().handle();
+            actionManager.getEventEngine().handle();
         }
     }
 
-    private HandlerBonus.GetAHandler getHandlerInstance(final Player currentPlayer){
-        return new HandlerBonus.GetAHandler() { // FIXME: 14.02.2018 make skillEventEngine
+    private HandleComponent getHandlerInstance(final Player currentPlayer){
+        return new HandleComponent() { // FIXME: 14.02.2018 make skillEventEngine
 
             private Player player;
 

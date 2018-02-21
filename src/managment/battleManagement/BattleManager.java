@@ -7,7 +7,7 @@ import managment.actionManagement.ActionManager;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import managment.actionManagement.actions.ActionEventFactory;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
@@ -33,7 +33,7 @@ public final class BattleManager {
     private GraphicEngine graphicEngine;
 
     @Inject
-    private BonusEventEngine bonusEventEngine;
+    private EventEngine eventEngine;
 
     @Inject
     @Named("start time")
@@ -65,11 +65,11 @@ public final class BattleManager {
         if (isDestroyed) {
             currentPlayer.setAlive(false);
             if (isEndGame()) {
-                bonusEventEngine.handle(ActionEventFactory.getEndGame(currentPlayer));
+                eventEngine.handle(ActionEventFactory.getEndGame(currentPlayer));
                 log.info("GAME_OVER");
                 endGame();
             } else {
-                bonusEventEngine.handle(ActionEventFactory.getPlayerOut(currentPlayer));
+                eventEngine.handle(ActionEventFactory.getPlayerOut(currentPlayer));
                 makeEagerPlayerSwapRequest();
                 log.info("PLAYER_OUT");
             }
@@ -78,7 +78,7 @@ public final class BattleManager {
             if (skipTurn) {
                 graphicEngine.hideBonuses();
                 final Player newCurrentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-                bonusEventEngine.handle(ActionEventFactory.getSkipTurn(newCurrentPlayer));
+                eventEngine.handle(ActionEventFactory.getSkipTurn(newCurrentPlayer));
                 skipTurn = false;
                 nextTurn();
             }
@@ -110,9 +110,9 @@ public final class BattleManager {
             alternativePlayer.getHero().getSwapSkill().reload();
         }
         //handling:
-        bonusEventEngine.handle(ActionEventFactory.getStartTurn(currentPlayer));
+        eventEngine.handle(ActionEventFactory.getStartTurn(currentPlayer));
         if (playerManager.getGameMode() == GameMode._2x2){
-            bonusEventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
+            eventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
         }
         loadRandomBonuses(currentPlayer.getHero());
     }

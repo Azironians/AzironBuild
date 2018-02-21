@@ -33,7 +33,7 @@ public final class XNerf extends Bonus {
             if (skill.isReady() && levelReached) {
                 if (currentHero.addExperience(EXPERIENCE_BOOST)) {
                     log.info("+" + EXPERIENCE_BOOST + " XP");
-                    actionManager.getBonusEventEngine().handle();
+                    actionManager.getEventEngine().handle();
                 }
                 skill.reset();
             }

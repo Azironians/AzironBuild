@@ -33,7 +33,7 @@ public final class OrcBashSkillFactory implements SkillFactory{
 
     @Override
     public final List<Skill> getSuperSkills() {
-        return Arrays.asList(getBashSkill(), getFavouriteBeaterSkill(), getRushSkill());
+        return Arrays.asList(getFavouriteBeaterSkill(), getBashSkill(), getRushSkill());
     }
 
     private Skill getBashSkill(){

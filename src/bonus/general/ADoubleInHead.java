@@ -1,20 +1,21 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
+import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.engine.DynamicHandleService;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
 import managment.processors.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class ADoubleInHead extends Bonus implements HandlerBonus {
+public final class ADoubleInHead extends Bonus implements DynamicHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(ADoubleInHead.class);
 
@@ -30,13 +31,13 @@ public final class ADoubleInHead extends Bonus implements HandlerBonus {
         final Player attackPlayer = attackTeam.getCurrentPlayer();
         final Hero attackHero = attackPlayer.getHero();
 
-        final BonusEventEngine bonusEventEngine = actionManager.getBonusEventEngine();
+        final EventEngine eventEngine = actionManager.getEventEngine();
 
         final double attackValue = attackHero.getAttack() * ATTACK_COEFFICIENT;
         log.info("ATTACK IS DUPLICATED");
 
         if (victimTeam.getCurrentPlayer().getHero().getDamage(attackValue)) {
-            bonusEventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer));
+            eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer));
         }
 
         actionManager.refreshScreen();
@@ -48,7 +49,7 @@ public final class ADoubleInHead extends Bonus implements HandlerBonus {
     @Override
     public final void use() {
         installCustomAttack();
-        actionManager.getBonusEventEngine().addHandler(getHandlerInstance());
+        actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 
     private void installCustomAttack() {
@@ -64,8 +65,8 @@ public final class ADoubleInHead extends Bonus implements HandlerBonus {
     }
 
     @Override
-    public final GetAHandler getHandlerInstance() {
-        return new GetAHandler() {
+    public final HandleComponent getHandlerInstance() {
+        return new HandleComponent() {
 
             private boolean isWorking = true;
 

@@ -1,7 +1,8 @@
 package bonus.general;
 
 import bonus.bonuses.Bonus;
-import bonus.bonuses.HandlerBonus;
+import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.engine.DynamicHandleService;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
@@ -14,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class SMagicTotem extends Bonus implements HandlerBonus {
+public final class SMagicTotem extends Bonus implements DynamicHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(SMagicTotem.class);
 
@@ -37,13 +38,13 @@ public final class SMagicTotem extends Bonus implements HandlerBonus {
             skill.setCoefficients(newCoefficients);
         }
         log.info("SKILL POWER INCREASED BY 10%");
-        final GetAHandler handler = getHandlerInstance();
-        actionManager.getBonusEventEngine().addHandler(handler);
+        final HandleComponent handler = getHandlerInstance();
+        actionManager.getEventEngine().addHandler(handler);
     }
 
     @Override
-    public final GetAHandler getHandlerInstance() {
-        return new GetAHandler() {
+    public final HandleComponent getHandlerInstance() {
+        return new HandleComponent() {
 
             private Player player;
 

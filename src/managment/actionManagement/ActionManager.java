@@ -1,13 +1,12 @@
 package managment.actionManagement;
 
 import bonus.bonuses.Bonus;
-import com.google.inject.Singleton;
 import gui.locations.engine.GraphicEngine;
 import com.google.inject.Inject;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import managment.actionManagement.actions.ActionEventFactory;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
@@ -26,7 +25,7 @@ public final class ActionManager {
     private PlayerManager playerManager;
 
     @Inject
-    private BonusEventEngine bonusEventEngine;
+    private EventEngine eventEngine;
 
     @Inject
     private GraphicEngine graphicEngine;
@@ -52,12 +51,12 @@ public final class ActionManager {
 
         if (clickedTeam.equals(currentTeam)) {
             if (currentHero.isTreatmentAccess()) {
-                bonusEventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
+                eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
                 healingProcess(clickedTeam);
             }
         } else {
             if (currentHero.isAttackAccess()) {
-                bonusEventEngine.handle(ActionEventFactory.getAttack(currentPlayer));
+                eventEngine.handle(ActionEventFactory.getAttack(currentPlayer));
                 attackProcess(clickedTeam, currentTeam);
             }
         }
@@ -70,7 +69,7 @@ public final class ActionManager {
             final double treatmentValue = currentHero.getTreatment();
 
             if (currentHero.getHealing(treatmentValue)) {
-                bonusEventEngine.handle();
+                eventEngine.handle();
             }
             refreshScreen();
             if (battleManager.isEndTurn()) {
@@ -88,10 +87,10 @@ public final class ActionManager {
             final double attackValue = attackHero.getAttack();
 
             if (attackHero.addExperience(attackValue)) {
-                bonusEventEngine.handle();
+                eventEngine.handle();
             }
             if (victimTeam.getCurrentPlayer().getHero().getDamage(attackValue)) {
-                bonusEventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer));
+                eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer));
             }
             refreshScreen();
             if (battleManager.isEndTurn()) {
@@ -112,7 +111,7 @@ public final class ActionManager {
             final boolean access = skill.isSkillAccess();
             log.info("skill access:" + access);
             if (access) {
-                bonusEventEngine.handle(ActionEventFactory.getUsedSkill(currentPlayer, skill.getName()));
+                eventEngine.handle(ActionEventFactory.getUsedSkill(currentPlayer, skill.getName()));
                 skillProcess(currentTeam, skill);
             }
         }
@@ -123,7 +122,7 @@ public final class ActionManager {
             skill.getActionEvents().clear();
             skill.use(battleManager, playerManager);
             skill.reset();
-            skill.getActionEvents().forEach(bonusEventEngine::handle);
+            skill.getActionEvents().forEach(eventEngine::handle);
             refreshScreen();
             if (battleManager.isEndTurn()) {
                 endTurn(currentTeam);
@@ -141,8 +140,8 @@ public final class ActionManager {
                 if (alternativeHero.getSwapSkill().isReady() && team.swapPlayers()) {
                     final Hero currentHero = currentTeam.getCurrentPlayer().getHero();
                     final Skill swapSkill = currentHero.getSwapSkill();
-                    bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
-                    bonusEventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));
+                    eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
+                    eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));
                     if (swapSkill.isSkillAccess()) {
                         battleManager.setEndTurn(false);
                         skillProcess(currentTeam, swapSkill);
@@ -163,7 +162,7 @@ public final class ActionManager {
         graphicEngine.hideBonuses();
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
-        bonusEventEngine.handle(ActionEventFactory.getUsedBonus(currentPlayer, bonus.getName()));
+        eventEngine.handle(ActionEventFactory.getUsedBonus(currentPlayer, bonus.getName()));
         bonusProcess(bonus);
     }
 
@@ -172,7 +171,7 @@ public final class ActionManager {
             bonus.getActionEvents().clear();
             bonus.use();
             refreshScreen();
-            bonusEventEngine.handle();
+            eventEngine.handle();
             refreshScreen();
         } else {
             processor.process();
@@ -189,14 +188,14 @@ public final class ActionManager {
     }
 
     public final void endTurn(final ATeam team) {
-        bonusEventEngine.handle(ActionEventFactory.getEndTurn(team.getCurrentPlayer()));
-        bonusEventEngine.handle(ActionEventFactory.getEndTurn(team.getAlternativePlayer()));
+        eventEngine.handle(ActionEventFactory.getEndTurn(team.getCurrentPlayer()));
+        eventEngine.handle(ActionEventFactory.getEndTurn(team.getAlternativePlayer()));
         refreshScreen();
         battleManager.nextTurn();
     }
 
-    public final BonusEventEngine getBonusEventEngine() {
-        return bonusEventEngine;
+    public final EventEngine getEventEngine() {
+        return eventEngine;
     }
 
     public final Processor getProcessor() {

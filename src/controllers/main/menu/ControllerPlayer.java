@@ -13,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.AGame;
-import managment.actionManagement.service.bonusEngine.BonusEventEngine;
+import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.PlayerManager;
 import managment.profileManagement.Profile;
 import managment.profileManagement.ProfileManager;
@@ -59,7 +59,7 @@ public final class ControllerPlayer implements Initializable, Controller {
 
     //EventEngines:
     @Inject
-    private BonusEventEngine bonusEventEngine;
+    private EventEngine eventEngine;
 
     //Managers:
     @Inject
@@ -151,7 +151,7 @@ public final class ControllerPlayer implements Initializable, Controller {
     }
 
     private void installEngines(){
-        bonusEventEngine.install();
+        eventEngine.install();
     }
 
     private void start(){
