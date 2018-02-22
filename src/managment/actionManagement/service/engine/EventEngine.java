@@ -82,7 +82,7 @@ public final class EventEngine {
     public synchronized final void handle(final ActionEvent actionEvent) {
         this.repeatHandling = false;
         final List<HandleComponent> garbageHandlerList = new ArrayList<>();
-        for (HandleComponent bonusHandler : bonusHandlers) {
+        for (final HandleComponent bonusHandler : bonusHandlers) {
             if (bonusHandler.isWorking()) {
                 bonusHandler.handle(actionEvent);
             } else {

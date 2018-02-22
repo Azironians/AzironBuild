@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import controllers.Controller;
 import controllers.main.fastChoiceHero.ControllerFastChoiceHero;
 import controllers.main.matchmaking.ControllerMatchMaking;
-import gui.locations.engine.GraphicEngine;
+import gui.service.graphicEngine.GraphicEngine;
 import gui.sceneMover.SceneMover;
 import gui.windows.WindowType;
 import javafx.fxml.FXML;

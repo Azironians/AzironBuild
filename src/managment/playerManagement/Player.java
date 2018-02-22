@@ -1,7 +1,7 @@
 package managment.playerManagement;
 
 import bonus.bonuses.Bonus;
-import gui.locations.ALocation;
+import gui.service.locations.ALocation;
 import heroes.abstractHero.hero.Hero;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.Contract;

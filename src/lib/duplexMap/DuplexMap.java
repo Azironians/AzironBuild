@@ -19,11 +19,15 @@ public final class DuplexMap<O, P> {
         this.proxyVsObjectMap.put(proxy, object);
     }
     
-    final void remove(final Object o){
+    public final void remove(final Object o){
         final P proxy = objectVsProxyMap.get(o);
         final O object = proxyVsObjectMap.get(o);
         this.removeByObject(object);
         this.removeByProxy(proxy);
+    }
+
+    public final P getProxy(final Object o){
+        return objectVsProxyMap.get(o);
     }
     
     private void removeByObject(final O object) {

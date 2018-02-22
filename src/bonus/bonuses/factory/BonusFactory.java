@@ -1,8 +1,8 @@
 package bonus.bonuses.factory;
 
 import bonus.bonuses.Bonus;
-import bonus.general.*;
-import bonus.general.supplier.BonusGeneralResourceSupplier;
+import bonus.generalBonuses.bonuses.*;
+import bonus.generalBonuses.supplier.BonusGeneralResourceSupplier;
 
 import java.util.HashMap;
 import java.util.Map;

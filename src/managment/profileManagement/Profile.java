@@ -76,7 +76,7 @@ public final class Profile {
 //                            bufferedWriter.debug(this.getWinForDevourer() + "");
 //                            bufferedWriter.newLine();
 //                        } else
-//                            bufferedWriter.debug(lines.get(i) + "\n");
+//                            bufferedWriter.debug(lines.getProxy(i) + "\n");
 //                        break;
                     case 6:
 //                        if (player.getHero().getClass().equals(HeroLordVamp.class)) {
@@ -84,7 +84,7 @@ public final class Profile {
 //                            bufferedWriter.debug(this.getWinForLV() + "");
 //                            bufferedWriter.newLine();
 //                        } else
-//                            bufferedWriter.debug(lines.get(i) + "\n");
+//                            bufferedWriter.debug(lines.getProxy(i) + "\n");
 //                        break;
                     case 7:
 //                        if (player.getHero().getClass().equals(HeroOrcBasher.class)) {
@@ -92,7 +92,7 @@ public final class Profile {
 //                            bufferedWriter.debug(this.getWinForOrcBash() + "");
 //                            bufferedWriter.newLine();
 //                        } else
-//                            bufferedWriter.debug(lines.get(i) + "\n");
+//                            bufferedWriter.debug(lines.getProxy(i) + "\n");
 //                        break;
                     default:
                         bufferedWriter.write(lines.get(i) + "\n");

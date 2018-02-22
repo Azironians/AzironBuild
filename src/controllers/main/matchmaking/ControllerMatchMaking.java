@@ -2,7 +2,7 @@ package controllers.main.matchmaking;
 
 import com.google.inject.Inject;
 import controllers.Controller;
-import gui.locations.ALocation;
+import gui.service.locations.ALocation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;

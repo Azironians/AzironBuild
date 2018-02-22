@@ -75,7 +75,7 @@ public final class RegenerationSkill extends AbstractSkill {
             }
 
             @Override
-            public final Player getPlayer() {
+            public final Player getCurrentPlayer() {
                 return player;
             }
 

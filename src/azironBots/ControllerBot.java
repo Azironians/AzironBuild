@@ -170,8 +170,8 @@ public class ControllerBot {
 //        List<String> lines = bufferedReader.lines().collect(Collectors.toList());
 //        String[] parts = lines.get(2).split("/");
 //        profile1 = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
-//                Integer.parseInt(lines.get(3)), Integer.parseInt(lines.get(4)), Integer.parseInt(lines.get(5)),
-//                Integer.parseInt(lines.get(6)), Integer.parseInt(lines.get(7)));
+//                Integer.parseInt(lines.getProxy(3)), Integer.parseInt(lines.getProxy(4)), Integer.parseInt(lines.getProxy(5)),
+//                Integer.parseInt(lines.getProxy(6)), Integer.parseInt(lines.getProxy(7)));
 //        double variant = Math.random() * 90;
 //        if (variant > 60) profile1.setPlayer(new Player(namePC, new HeroOrcBasher(true)));
 //        else if (variant > 30) profile1.setPlayer(new Player(namePC, new HeroLordVamp(true)));

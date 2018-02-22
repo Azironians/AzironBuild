@@ -11,7 +11,7 @@ public interface HandleComponent {
 
     String getName();
 
-    Player getPlayer();
+    Player getCurrentPlayer();
 
     boolean isWorking();
 

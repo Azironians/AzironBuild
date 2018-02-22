@@ -1,9 +1,9 @@
-package gui.locations.binder.provider;
+package gui.service.locations.binder.provider;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import controllers.main.matchmaking.ControllerMatchMaking;
-import gui.locations.binder.AGraphicBinder;
+import gui.service.locations.binder.AGraphicBinder;
 import gui.windows.WindowType;
 import main.AGame;
 import managment.playerManagement.ATeam;
