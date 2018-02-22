@@ -16,7 +16,7 @@ public interface Skill {
     void use(final BattleManager battleManager, final PlayerManager playerManager);
 
     default boolean isReady(){
-        return getTemp() >= getReload();
+        return getTemp() >= getReload() && getParent().getLevel() >= getRequiredLevel();
     }
 
     void reload();

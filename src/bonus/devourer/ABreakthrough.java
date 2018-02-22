@@ -10,13 +10,13 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public final class SBreakthrough extends Bonus{
+public final class ABreakthrough extends Bonus{
 
-    private static final Logger log = LoggerFactory.getLogger(SBreakthrough.class);
+    private static final Logger log = LoggerFactory.getLogger(ABreakthrough.class);
 
     private static final double DAMAGE = 350.0;
 
-    public SBreakthrough(String name, int id, ImageView sprite) {
+    public ABreakthrough(String name, int id, ImageView sprite) {
         super(name, id, sprite);
     }
 

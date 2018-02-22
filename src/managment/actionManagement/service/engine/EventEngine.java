@@ -102,7 +102,7 @@ public final class EventEngine {
 
     public final void addHandler(final HandleComponent handler) {
         handler.setup();
-        bonusHandlers.add(handler);
+        this.bonusHandlers.add(handler);
     }
 
     public boolean isRepeatHandling() {

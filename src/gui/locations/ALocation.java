@@ -22,8 +22,6 @@ public final class ALocation {
 
     private AnchorPane skillPane;
 
-    private final List<Pane> skills = new ArrayList<>();
-
     //Characteristics:
     private AnchorPane characteristics;
 
@@ -99,10 +97,6 @@ public final class ALocation {
     @Contract(pure = true)
     public AnchorPane getSkillPane() {
         return skillPane;
-    }
-
-    public final List<Pane> getSkills() {
-        return skills;
     }
 
     public final void setupSuperSkills(final Hero parentHero){
