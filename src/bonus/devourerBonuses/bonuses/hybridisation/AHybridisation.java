@@ -23,9 +23,7 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
     @Override
     public final void use() {
         if (hybridisationSkillProxyComponent.packSkill()) {
-            wireActionManager(hybridisationSkillProxyComponent.getJustInTimeFireBlastSkill());
-        } else {
-            hybridisationSkillProxyComponent.invokeSkill(actionManager.getEventEngine(), playerManager);
+            wireActionManager(hybridisationSkillProxyComponent.getJustInTimeHybridisationSkill());
         }
     }
 
@@ -34,7 +32,7 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
     }
 
     @Override
-    public final HandleComponent getInstallHandlerInstance(final Player player) {
+    public final HandleComponent getRegularHandlerInstance(final Player player) {
         return new HandleComponent() {
 
             private Player currentPlayer;
@@ -42,7 +40,7 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
             @Override
             public final void setup() {
                 this.currentPlayer = player;
-                hybridisationSkillProxyComponent = new FireBlastSkillProxyComponent(currentPlayer);
+                hybridisationSkillProxyComponent = new HybridisationSkillProxyComponent(currentPlayer);
             }
 
             @Override
@@ -52,9 +50,9 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
                     if (skill.isReady()){
                         final DuplexMap<Skill, Skill> skillVsProxyMap
                                 = hybridisationSkillProxyComponent.getSkillVsProxyMap();
-                        final Skill fireBlast = skillVsProxyMap.getProxy(skill);
-                        if (fireBlast != null){
-                            garbageList.add(fireBlast);
+                        final Skill hybridisation = skillVsProxyMap.getProxy(skill);
+                        if (hybridisation != null){
+                            garbageList.add(hybridisation);
                         }
                     }
                 }

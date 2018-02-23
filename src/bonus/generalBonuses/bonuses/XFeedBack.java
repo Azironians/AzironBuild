@@ -44,7 +44,7 @@ public final class XFeedBack extends Bonus implements RegularHandleService {
     }
 
     @Override
-    public final HandleComponent getInstallHandlerInstance(final Player inputPlayer) {
+    public final HandleComponent getRegularHandlerInstance(final Player inputPlayer) {
         return new HandleComponent() {
 
             private Player player;

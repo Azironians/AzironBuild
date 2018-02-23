@@ -13,9 +13,10 @@ import java.util.List;
 
 public abstract class Bonus {
     protected final String name;
+
     private final int id;
 
-    private ImageView sprite;
+    protected ImageView sprite;
 
     protected ActionManager actionManager;
 

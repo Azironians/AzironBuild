@@ -83,15 +83,6 @@ final class FireBlastSkillProxyComponent {
         return null;
     }
 
-    final void destroy(final Skill skill) {
-        final Pair<Integer, Integer> indexPair = hashVsPairMap.get(skill.hashCode());
-        final int heroSkillCollectionIndex = indexPair.getKey();
-        final int proxySkillContainerIndex = indexPair.getValue();
-        this.player.getHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
-        this.proxyFireBlastPane.getChildren().remove(proxySkillContainerIndex);
-        this.skillVsProxyMap.remove(skill);
-    }
-
     final void invokeSkill(final EventEngine eventEngine, final PlayerManager playerManager) {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
@@ -105,6 +96,15 @@ final class FireBlastSkillProxyComponent {
         final Skill fireBlastSkill = this.justInTimeFireBlastSkill;
         this.justInTimeFireBlastSkill = null;
         return fireBlastSkill;
+    }
+
+    final void destroy(final Skill skill) {
+        final Pair<Integer, Integer> indexPair = hashVsPairMap.get(skill.hashCode());
+        final int heroSkillCollectionIndex = indexPair.getKey();
+        final int proxySkillContainerIndex = indexPair.getValue();
+        this.player.getHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
+        this.proxyFireBlastPane.getChildren().remove(proxySkillContainerIndex);
+        this.skillVsProxyMap.remove(skill);
     }
 
     final DuplexMap<Skill, Skill> getSkillVsProxyMap() {

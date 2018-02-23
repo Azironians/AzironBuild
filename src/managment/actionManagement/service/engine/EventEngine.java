@@ -54,7 +54,7 @@ public final class EventEngine {
             wireManagersToBonus(bonus, actionManager, battleManager, playerManager);
             if (implementsRegularHandleService(bonus)) {
                 final RegularHandleService regularHandleService = (RegularHandleService) bonus;
-                addHandler(regularHandleService.getInstallHandlerInstance(player));
+                addHandler(regularHandleService.getRegularHandlerInstance(player));
             }
         }
     }

@@ -4,6 +4,7 @@ import bonus.bonuses.Bonus;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

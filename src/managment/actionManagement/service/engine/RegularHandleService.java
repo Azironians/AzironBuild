@@ -5,6 +5,6 @@ import managment.playerManagement.Player;
 
 public interface RegularHandleService {
 
-    HandleComponent getInstallHandlerInstance(Player player);
+    HandleComponent getRegularHandlerInstance(Player player);
 
 }

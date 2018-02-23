@@ -34,7 +34,7 @@ public final class AFireBlast extends Bonus implements RegularHandleService {
     }
 
     @Override
-    public final HandleComponent getInstallHandlerInstance(final Player player) {
+    public final HandleComponent getRegularHandlerInstance(final Player player) {
         return new HandleComponent() {
 
             private Player currentPlayer;
