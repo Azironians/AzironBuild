@@ -3,10 +3,12 @@ package managment.battleManagement;
 import bonus.bonuses.Bonus;
 import gui.service.graphicEngine.GraphicEngine;
 import heroes.abstractHero.hero.Hero;
+import javafx.util.Pair;
 import managment.actionManagement.ActionManager;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import managment.actionManagement.actions.ActionEventFactory;
+import managment.actionManagement.service.components.ProviderComponent;
 import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.GameMode;
@@ -16,6 +18,8 @@ import managment.processors.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -52,7 +56,18 @@ public final class BattleManager {
     @Named("skip turn condition")
     private boolean skipTurn;
 
-    private boolean isStandardRandomBonus = true;
+    private boolean isStandardRandomBonusEngine = true;
+
+    private List<Pair> standardRandomBonuses = Arrays
+            .asList(new Pair<>(true, 1), new Pair<>(true, 2), new Pair<>(true, 3));
+
+    private List<ProviderComponent<Integer>> bonusGetterList = new ArrayList<>(){{
+        final Random random = new Random();
+        final int bound = 16; //16 cards;
+        add(() -> random.nextInt(bound));
+        add(() -> random.nextInt(bound));
+        add(() -> random.nextInt(bound));
+    }};
 
     private Processor processor = () -> {
         //Empty
@@ -118,19 +133,16 @@ public final class BattleManager {
     }
 
     public void loadRandomBonuses(final Hero hero) {
-        if (isStandardRandomBonus){
+        if (isStandardRandomBonusEngine){
             final List<Bonus> bonusList = hero.getBonusCollection();
-            final Random random = new Random();
-            final int bound = 16; //16 cards;
-
-            final int firstBonus = random.nextInt(bound);
-            int secondBonus = random.nextInt(bound);
-            int thirdBonus = random.nextInt(bound);
+            final int firstBonus = bonusGetterList.get(0).getValue();
+            int secondBonus = bonusGetterList.get(1).getValue();
+            int thirdBonus = bonusGetterList.get(2).getValue();
             while (secondBonus == firstBonus){
-                secondBonus = random.nextInt(bound);
+                secondBonus = bonusGetterList.get(1).getValue();
             }
             while (thirdBonus == firstBonus || thirdBonus == secondBonus){
-                thirdBonus = random.nextInt(bound);
+                thirdBonus = bonusGetterList.get(2).getValue();
             }
             graphicEngine.showBonuses(bonusList, firstBonus, secondBonus, thirdBonus);
             log.info("BONUS ID: " + firstBonus);
@@ -171,11 +183,37 @@ public final class BattleManager {
         this.skipTurn = skipTurn;
     }
 
-    public final boolean isStandardRandomBonus() {
-        return isStandardRandomBonus;
+    public final boolean isStandardRandomBonusEngine() {
+        return isStandardRandomBonusEngine;
     }
 
-    public final void setStandardRandomBonus(boolean standardRandomBonus) {
-        isStandardRandomBonus = standardRandomBonus;
+    public final void setStandardRandomBonusEngine(boolean standardRandomBonusEngine) {
+        isStandardRandomBonusEngine = standardRandomBonusEngine;
+    }
+
+    public final Processor getProcessor() {
+        return processor;
+    }
+
+    public final void setProcessor(final Processor processor) {
+        this.processor = processor;
+    }
+
+    public final void setDefaultProcessor() {
+        this.processor = () -> {
+            //Empty
+        };
+    }
+
+    public List<Pair> getStandardRandomBonuses() {
+        return standardRandomBonuses;
+    }
+
+    public void setStandardRandomBonuses(final List<Pair> standardRandomBonuses) {
+        this.standardRandomBonuses = standardRandomBonuses;
+    }
+
+    public final List<ProviderComponent<Integer>> getBonusGetterList() {
+        return bonusGetterList;
     }
 }

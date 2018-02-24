@@ -198,6 +198,11 @@ public final class ActionManager {
         return eventEngine;
     }
 
+    public final GraphicEngine getGraphicEngine() {
+        return graphicEngine;
+    }
+
+
     public final Processor getProcessor() {
         return processor;
     }
