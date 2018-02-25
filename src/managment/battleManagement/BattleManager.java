@@ -1,15 +1,15 @@
 package managment.battleManagement;
 
 import bonus.bonuses.Bonus;
-import gui.service.graphicEngine.GraphicEngine;
-import heroes.abstractHero.hero.Hero;
-import javafx.util.Pair;
-import managment.actionManagement.ActionManager;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import gui.service.graphicEngine.GraphicEngine;
+import heroes.abstractHero.hero.Hero;
+import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.components.ProviderComponent;
 import managment.actionManagement.service.engine.EventEngine;
+import managment.bonusManagment.BonusManager;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
@@ -18,10 +18,7 @@ import managment.processors.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public final class BattleManager {
 
@@ -38,6 +35,8 @@ public final class BattleManager {
 
     @Inject
     private EventEngine eventEngine;
+
+    private BonusManager bonusManager = new BonusManager();
 
     @Inject
     @Named("start time")
@@ -57,17 +56,6 @@ public final class BattleManager {
     private boolean skipTurn;
 
     private boolean isStandardRandomBonusEngine = true;
-
-    private List<Pair> standardRandomBonuses = Arrays
-            .asList(new Pair<>(true, 1), new Pair<>(true, 2), new Pair<>(true, 3));
-
-    private List<ProviderComponent<Integer>> bonusGetterList = new ArrayList<>(){{
-        final Random random = new Random();
-        final int bound = 16; //16 cards;
-        add(() -> random.nextInt(bound));
-        add(() -> random.nextInt(bound));
-        add(() -> random.nextInt(bound));
-    }};
 
     private Processor processor = () -> {
         //Empty
@@ -135,16 +123,17 @@ public final class BattleManager {
     public void loadRandomBonuses(final Hero hero) {
         if (isStandardRandomBonusEngine){
             final List<Bonus> bonusList = hero.getBonusCollection();
-            final int firstBonus = bonusGetterList.get(0).getValue();
-            int secondBonus = bonusGetterList.get(1).getValue();
-            int thirdBonus = bonusGetterList.get(2).getValue();
+            final List<ProviderComponent<Integer>> providerComponents = bonusManager.getProviderComponentList();
+            final int firstBonus = providerComponents.get(0).getValue();
+            int secondBonus = providerComponents.get(1).getValue();
+            int thirdBonus = providerComponents.get(2).getValue();
             while (secondBonus == firstBonus){
-                secondBonus = bonusGetterList.get(1).getValue();
+                secondBonus = providerComponents.get(1).getValue();
             }
             while (thirdBonus == firstBonus || thirdBonus == secondBonus){
-                thirdBonus = bonusGetterList.get(2).getValue();
+                thirdBonus = providerComponents.get(2).getValue();
             }
-            graphicEngine.showBonuses(bonusList, firstBonus, secondBonus, thirdBonus);
+            graphicEngine.show3Bonuses(bonusList, firstBonus, secondBonus, thirdBonus);
             log.info("BONUS ID: " + firstBonus);
             log.info("BONUS ID: " + secondBonus);
             log.info("BONUS ID: " + thirdBonus);
@@ -183,12 +172,8 @@ public final class BattleManager {
         this.skipTurn = skipTurn;
     }
 
-    public final boolean isStandardRandomBonusEngine() {
-        return isStandardRandomBonusEngine;
-    }
-
     public final void setStandardRandomBonusEngine(boolean standardRandomBonusEngine) {
-        isStandardRandomBonusEngine = standardRandomBonusEngine;
+        this.isStandardRandomBonusEngine = standardRandomBonusEngine;
     }
 
     public final Processor getProcessor() {
@@ -205,15 +190,7 @@ public final class BattleManager {
         };
     }
 
-    public List<Pair> getStandardRandomBonuses() {
-        return standardRandomBonuses;
-    }
-
-    public void setStandardRandomBonuses(final List<Pair> standardRandomBonuses) {
-        this.standardRandomBonuses = standardRandomBonuses;
-    }
-
-    public final List<ProviderComponent<Integer>> getBonusGetterList() {
-        return bonusGetterList;
+    public BonusManager getBonusManager() {
+        return bonusManager;
     }
 }

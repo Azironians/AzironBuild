@@ -162,7 +162,7 @@ public final class GraphicEngine {
         location.setTime(team.getTime());
     }
 
-    public void showBonuses(final List<Bonus> bonusList
+    public void show3Bonuses(final List<Bonus> bonusList
             , final int firstBonus, final int secondBonus, final int thirdBonus){
         final ControllerMatchMaking controllerMatchMaking = (ControllerMatchMaking) aGame.getWindowMap()
                 .get(WindowType.MATCHMAKING).getController();
