@@ -173,6 +173,10 @@ public abstract class AbstractSkill implements Skill {
         return temp;
     }
 
+    public final void setTemp(final int temp){
+        this.temp = temp;
+    }
+
     public int getReload() {
         return reload;
     }

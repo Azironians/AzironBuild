@@ -3,23 +3,18 @@ package bonus.devourerBonuses.bonuses.growTentacle;
 import bonus.bonuses.Bonus;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
-import javafx.util.Pair;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.HandleComponent;
 import managment.actionManagement.service.components.ProviderComponent;
 import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.bonusManagment.BonusManager;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
-import managment.processors.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-public final class AGrowTentacle extends Bonus implements DynamicHandleService{
+public final class AGrowTentacle extends Bonus implements DynamicHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(AGrowTentacle.class);
 
@@ -39,70 +34,6 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService{
         actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 
-//    private final class CustomProcessor implements Processor{
-//
-//        private Hero opponentHero;
-
-//        private CustomProcessor(final Hero hero){
-//            this.opponentHero = hero;
-//        }
-//
-//        @Override
-//        public final void process() {
-//            final List<Bonus> bonusList = opponentHero.getBonusCollection();
-//            final Random random = new Random();
-//            final int bound = 16; //16 cards;
-//
-//            final int firstBonus = battleManager.getBonusGetterList().get(0).getValue();
-//            int secondBonus = battleManager.getBonusGetterList().get(1).getValue();
-//            int thirdBonus = battleManager.getBonusGetterList().get(2).getValue();
-//            while (secondBonus == firstBonus){
-//                secondBonus = random.nextInt(bound);
-//            }
-//            while (thirdBonus == firstBonus || thirdBonus == secondBonus){
-//                thirdBonus = random.nextInt(bound);
-//            }
-//
-//            final List<Integer> bonusIDList = new ArrayList<>();
-//            bonusIDList.add(firstBonus);
-//            bonusIDList.add(secondBonus);
-//            bonusIDList.add(thirdBonus);
-//            bonusIDList.set(getEarlierModifiedBonusIndex(), CUT_TENTACLE_ID);
-//
-//            actionManager.getGraphicEngine().show3Bonuses(bonusList
-//                    , bonusIDList.get(0), bonusIDList.get(1), bonusIDList.get(2));
-//            for (final int i: bonusIDList){
-//                log.info("BONUS ID: " + i);
-//            }
-//        }
-//
-//        private int getEarlierModifiedBonusIndex(){
-//            final List<Pair> standardRandomBonuses = battleManager.getStandardRandomBonuses();
-//            int index = 0;
-//            standardRandomBonuses.sort((o1, o2) -> {
-//                final Integer priority_1 = (Integer) o1.getKey();
-//                final Integer priority_2 = (Integer) o2.getKey();
-//                return priority_2 - priority_1;
-//            });
-//            for (int i = 0; i < standardRandomBonuses.size(); i++){
-//                if ((Boolean) standardRandomBonuses.get(i).getKey()){
-//                    standardRandomBonuses.set(i, new Pair(false, standardRandomBonuses.get(i).getValue()));
-//                    index = i;
-//                    break;
-//                }
-//            }
-//            final List<Pair> newStandardRandomBonuses = new ArrayList<>(){{
-//                for (final Pair standardRandomBonuses : standardRandomBonuses) {
-//                    Pair<Boolean, Integer> pair = standardRandomBonuses;
-//                    pair = new Pair<>(pair.getKey(), (pair.getValue() + 2) % 4);
-//                    add(pair);
-//                }
-//            }};
-//            battleManager.setStandardRandomBonuses(newStandardRandomBonuses);
-//            return index;
-//        }
-//    }
-
     @Override
     public final HandleComponent getHandlerInstance() {
         return new HandleComponent() {
@@ -111,34 +42,36 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService{
 
             private ATeam opponentTeam;
 
+            private int index;
+
             private boolean isWorking;
 
-            private ProviderComponent<Integer> customProviderComponent;
-
-            private
+            private ProviderComponent<Integer> previousProviderComponent;
 
             @Override
-            public void setup() {
+            public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
                 this.opponentTeam = playerManager.getOpponentATeam();
                 this.isWorking = true;
             }
 
             @Override
-            public void handle(final ActionEvent actionEvent) {
+            public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.START_TURN
                         && (actionEvent.getPlayer() == opponentTeam.getCurrentPlayer()
-                        || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())){
-                    battleManager.setStandardRandomBonusEngine(false);
-                    battleManager.setProcessor(new CustomProcessor(opponentTeam.getCurrentPlayer().getHero()));
+                        || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())) {
+                    final BonusManager bonusManager = battleManager.getBonusManager();
+                    this.index = bonusManager.getAvailableProviderComponent();
+                    final ProviderComponent<Integer> customProviderComponent = getCustomProviderComponent();
+                    this.previousProviderComponent = bonusManager.getProviderComponentList().get(index);
+                    bonusManager.setCustomProviderComponent(index, customProviderComponent);
                 }
                 if ((actionEvent.getActionType() == ActionType.END_TURN
                         || actionEvent.getActionType() == ActionType.SKIP_TURN
                         || actionEvent.getActionType() == ActionType.USED_BONUS)
                         && (actionEvent.getPlayer() == opponentTeam.getCurrentPlayer()
-                        || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())){
-                    battleManager.setStandardRandomBonusEngine(true);
-                    battleManager.setDefaultProcessor();
+                        || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())) {
+                    battleManager.getBonusManager().returnPreviousProviderComponent(index, previousProviderComponent);
                     this.isWorking = false;
                 }
             }
@@ -163,23 +96,26 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService{
                 throw new UnsupportedOperationException();
             }
 
-            private ProviderComponent<Integer> getCustomProviderComponent(){
+            private ProviderComponent<Integer> getCustomProviderComponent() {
                 return new ProviderComponent<>() {
+
+                    private int priority = 0;
+
                     @Override
-                    public Integer getValue() {
-                        return null;
+                    public final Integer getValue() {
+                        return CUT_TENTACLE_ID;
                     }
 
                     @Override
                     public int getPriority() {
-                        return 0;
+                        return priority;
                     }
 
                     @Override
                     public void setPriority(int priority) {
-
+                        this.priority = priority;
                     }
-                }
+                };
             }
         };
     }

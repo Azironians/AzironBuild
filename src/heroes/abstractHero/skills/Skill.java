@@ -51,6 +51,8 @@ public interface Skill {
 
     int getTemp();
 
+    void setTemp(final int temp);
+
     int getReload();
 
     void setReload(int reload);

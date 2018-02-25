@@ -9,6 +9,8 @@ import java.util.Random;
 
 public final class BonusManager {
 
+    public int anInt;
+
     private ProviderComponent<Integer> firstProviderComponent = new ProviderComponent<>() {
 
         private int priority = 1;
@@ -82,6 +84,11 @@ public final class BonusManager {
     public final void setDefaultProviderComponent(final int index){
         final ProviderComponent<Integer> providerComponent = getDefaultProviderComponent(providerComponentList.get(index)
                 .getPriority());
+        this.providerComponentList.set(index, providerComponent);
+    }
+
+    public final void returnPreviousProviderComponent(final int index, final ProviderComponent<Integer> providerComponent){
+        providerComponent.setPriority(providerComponentList.get(index).getPriority());
         this.providerComponentList.set(index, providerComponent);
     }
 

@@ -21,8 +21,6 @@ public final class RegenerationSkill extends AbstractSkill {
 
     private static final Logger log = LoggerFactory.getLogger(RegenerationSkill.class);
 
-
-
     public RegenerationSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()
                 , sprite, description, voiceList);

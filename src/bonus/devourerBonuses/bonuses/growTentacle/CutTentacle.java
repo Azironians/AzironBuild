@@ -15,14 +15,14 @@ final class CutTentacle extends Bonus{
 
     private Player usedGrowTentaclePlayer;
 
-    public CutTentacle(String name, int id, ImageView sprite, Player usedGrowTentaclePlayer) {
+    public CutTentacle(String name, int id, ImageView sprite, final Player usedGrowTentaclePlayer) {
         super(name, id, sprite);
         this.usedGrowTentaclePlayer = usedGrowTentaclePlayer;
     }
 
     @Override
     public void use() {
-        final Hero hero = this.usedGrowTentaclePlayer.getHero();
+        final Hero hero = usedGrowTentaclePlayer.getHero();
         hero.setAttack(hero.getAttack() - ATTACK_FIX);
         log.info("-4 ATTACK");
     }
