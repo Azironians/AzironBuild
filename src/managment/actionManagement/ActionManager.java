@@ -111,7 +111,8 @@ public final class ActionManager {
             final boolean access = skill.isSkillAccess();
             log.info("skill access:" + access);
             if (access) {
-                eventEngine.handle(ActionEventFactory.getUsedSkill(currentPlayer, skill.getName()));
+                eventEngine.handle(ActionEventFactory.getUsedSkill(currentPlayer
+                        , skill.getName()));
                 skillProcess(currentTeam, skill);
             }
         }
