@@ -4,6 +4,7 @@ import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
+import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.Player;
@@ -28,6 +29,8 @@ public final class ConsumingSkill extends AbstractSkill {
         final double damage = opponentHero.getHitPoints() / coefficients.get(0);
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
+            actionEvents.add(new ActionEvent(null, currentPlayer
+                    , "Consuming: " + damage));
         }
     }
 

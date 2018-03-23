@@ -58,7 +58,9 @@ public final class SCounterSpell extends Bonus implements DynamicHandleService {
             @Override
             public final void handle(ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.END_TURN
-                        && (actionEvent.getPlayer() == opponent || actionEvent.getPlayer() == alternativeOpponent)) {
+                        && (actionEvent.getPlayer() == opponent
+                        || (actionEvent.getPlayer() == alternativeOpponent
+                        && alternativeOpponent != null))) {
                     final List<Skill> opponentSkills = opponent.getHero().getCollectionOfSkills();
                     for (final Skill skill : opponentSkills) {
                         skill.setSkillAccess(true);

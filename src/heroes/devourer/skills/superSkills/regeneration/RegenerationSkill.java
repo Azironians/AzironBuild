@@ -38,7 +38,9 @@ public final class RegenerationSkill extends AbstractSkill {
         final double HEALING = getParent().getTreatment() * coefficient;
         final Hero currentHero = currentPlayer.getHero();
         if (currentHero.getHealing(HEALING)){
-            actionManager.getEventEngine().handle();
+            final ActionEvent actionEvent = new ActionEvent(null
+                    , currentPlayer, "Regeneration: " + HEALING);
+            actionEvents.add(actionEvent);
         }
     }
 
@@ -69,7 +71,7 @@ public final class RegenerationSkill extends AbstractSkill {
 
             @Override
             public final String getName() {
-                return "Regeneration skill";
+                return NAME;
             }
 
             @Override

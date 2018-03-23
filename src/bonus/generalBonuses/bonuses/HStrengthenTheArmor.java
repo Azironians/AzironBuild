@@ -38,6 +38,8 @@ public final class HStrengthenTheArmor extends Bonus implements DynamicHandleSer
 
             private double hitPoints;
 
+            private double healthSupply;
+
             private boolean isWorking = true;
 
             @Override
@@ -50,14 +52,23 @@ public final class HStrengthenTheArmor extends Bonus implements DynamicHandleSer
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 final Hero currentHero = player.getHero();
-                final double comparison = hitPoints - currentHero.getHitPoints();
+                final double hitPointsComparison = hitPoints - currentHero.getHitPoints();
+                final double healthSupplyComparison = healthSupply - currentHero
+                        .getHitPoints();
                 log.info("ARMOR HANDLE");
-                if (comparison > 0) {
-                    log.info("COMPARISON: " + comparison);
-                    final double ARMOR = comparison * ARMOR_COEFFICIENT;
+                if (hitPointsComparison > 0) {
+                    log.info("COMPARISON: " + hitPointsComparison);
+                    final double ARMOR = hitPointsComparison * ARMOR_COEFFICIENT;
                     currentHero.setHitPoints(currentHero.getHitPoints() + ARMOR);
                     log.info("ARMOR: " + ARMOR);
+                    if (healthSupplyComparison > 0) {
+                        final double supplyArmor = healthSupplyComparison
+                                * ARMOR_COEFFICIENT;
+                        currentHero.setHealthSupply(currentHero.getHealthSupply()
+                                + supplyArmor);
+                    }
                 }
+                this.healthSupply = currentHero.getHealthSupply();
                 this.hitPoints = currentHero.getHitPoints();
                 if (actionEvent.getActionType() == ActionType.START_TURN
                         && (actionEvent.getPlayer() == player || actionEvent.getPlayer() == alternativePlayer)) {

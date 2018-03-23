@@ -29,6 +29,7 @@ public final class AUpgradeHooks extends ExtendedBonus{
         if (count + 1 == END_COUNT){
             final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
             currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
+            count = START_COUNT;
         } else {
             this.count++;
             text.setText(count + "/" + END_COUNT);

@@ -2,64 +2,63 @@ package bonus.devourerBonuses.bonuses;
 
 import bonus.bonuses.Bonus;
 import heroes.abstractHero.hero.Hero;
-import heroes.devourer.skills.superSkills.regeneration.utilities.RegenerationMessageParser;
+import heroes.devourer.skills.superSkills.consuming.utilities.ConsumingMessageParser;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
+import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.HandleComponent;
 import managment.actionManagement.service.engine.DynamicHandleService;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class HEvolution extends Bonus implements DynamicHandleService {
+public final class HMutation extends Bonus implements DynamicHandleService {
 
-    private static final Logger log = LoggerFactory.getLogger(HEvolution.class);
+    private static final Logger log = LoggerFactory.getLogger(HMutation.class);
 
-    private static final double BOOST_COEFFICIENT = 1.03;
-
-    public HEvolution(final String name, final int id, final ImageView sprite) {
+    public HMutation(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
     @Override
     public final void use() {
-        final HandleComponent handleComponent = getHandlerInstance();
-        actionManager.getEventEngine().addHandler(handleComponent);
-        log.info("Evolution is activated!");
+        actionManager.getEventEngine().addHandler(getHandlerInstance());
+        log.info("Mutation is activated");
     }
 
     @Override
     public final HandleComponent getHandlerInstance() {
         return new HandleComponent() {
 
-            private Player player;
+            private boolean isWorking = true;
 
-            private boolean isWorking;
+            private Player player;
 
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.isWorking = true;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (player == actionEvent.getPlayer()) {
+                final ActionType actionType = actionEvent.getActionType();
+                final String message = actionEvent.getMessage();
+                if (ConsumingMessageParser.isConsumingMessage(message)){
+                    final double damage = ConsumingMessageParser
+                            .parseMessageGetHealing(message);
                     final Hero hero = player.getHero();
-                    final String message = actionEvent.getMessage();
-                    if (RegenerationMessageParser.isRegenerationMessage(message)) {
-                        final double healthSupplyBoost = RegenerationMessageParser
-                                .parseMessageGetHealing(message) * BOOST_COEFFICIENT;
-                        hero.setHealthSupply(hero.getHealthSupply() + healthSupplyBoost);
-                        actionManager.getEventEngine().handle();
-                        log.info("Used regeneration");
-                    }
+                    hero.setHealthSupply(hero.getHealthSupply() + damage);
+                    log.info("+" + damage + "to supply health");
+                    actionManager.getEventEngine().handle();
+                }
+                if (actionType == ActionType.END_TURN) {
+                    isWorking = false;
                 }
             }
 
             @Override
             public final String getName() {
-                return "Evolution";
+                return "Mutation";
             }
 
             @Override
