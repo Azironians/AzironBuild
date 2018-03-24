@@ -50,7 +50,7 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
 
     private void installDefaultTreatment() {
         actionManager.setDefaultProcessor();
-        actionManager.setStandardAttack(true);
+        actionManager.setStandardTreatment(true);
         log.info("INSTALLED DEFAULT TREATMENT PROCESSOR");
     }
 
@@ -78,7 +78,7 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
 
             @Override
             public final String getName() {
-                return "AFromFireIntoTheFire";
+                return "FromFireIntoTheFire";
             }
 
             @Override

@@ -6,16 +6,21 @@ import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
-import managment.actionManagement.service.engine.services.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.IllegalSwitchOffHandleComponentException;
+import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class HRegeneratedTissues extends Bonus implements DynamicHandleService{
+import java.util.List;
+
+public final class HRegeneratedTissues extends Bonus implements RegularHandleService {
 
     private static final Logger log = LoggerFactory.getLogger(HStrengthenTheArmor.class);
 
     private static final double HEALING = 10.0;
+
+    private HandleComponent handleComponent;
 
     public HRegeneratedTissues(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
@@ -23,49 +28,47 @@ public final class HRegeneratedTissues extends Bonus implements DynamicHandleSer
 
     @Override
     public final void use() {
-        final HandleComponent handler = getHandlerInstance();
-        actionManager.getEventEngine().addHandler(handler);
-        log.info("Regenerated tissues are activated");
+        try {
+            handleComponent.setWorking(true);
+            log.info("Regenerated tissues are activated");
+        } catch (final IllegalSwitchOffHandleComponentException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public final HandleComponent getHandlerInstance() {
+    public HandleComponent getRegularHandlerInstance(final Player player) {
         return new HandleComponent() {
 
-            private Player player;
+            private Player currentPlayer;
 
             private double hitPoints;
 
-            private boolean isWorking = true;
-
-            private boolean isAbleToHealing;
+            private double healing;
 
             @Override
             public final void setup() {
-                this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.hitPoints = player.getHero().getHitPoints();
-                this.isAbleToHealing = false;
+                this.currentPlayer = player;
+                this.hitPoints = currentPlayer.getHero().getHitPoints();
+                this.healing = 0;
+                handleComponent = this;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Hero currentHero = player.getHero();
-                final double hitPointsComparison = hitPoints - currentHero.getHitPoints();
-                log.info("TISSUES HANDLE");
-                if (!isAbleToHealing){
-                    if (hitPointsComparison > 0 && currentHero.getHitPoints() <= 0) {
-                        this.isAbleToHealing = true;
-                        actionManager.getEventEngine().setRepeatHandling(true);
+                final Hero hero = currentPlayer.getHero();
+                if (this.healing > 0) {
+                    log.info("TISSUES HANDLE");
+                    final double hitPointsComparison = hitPoints - hero.getHitPoints();
+                    if (hitPointsComparison > 0 && hero.getHitPoints() <= 0) {
+                        if (hero.getHealing(this.healing)) {
+                            actionManager.getEventEngine().setRepeatHandling(true);
+                        }
                         log.info("COMPARISON: " + hitPointsComparison);
-                        log.info("HP: " + currentHero.getHitPoints());
-                    }
-                } else {
-                    final Hero hero = player.getHero();
-                    if (hero.getHealing(HEALING)){
-                        actionManager.getEventEngine().setRepeatHandling(true);
+                        log.info("HP: " + hero.getHitPoints());
                     }
                 }
-                this.hitPoints = currentHero.getHitPoints();
+                this.hitPoints = hero.getHitPoints();
             }
 
             @Override
@@ -75,17 +78,21 @@ public final class HRegeneratedTissues extends Bonus implements DynamicHandleSer
 
             @Override
             public final Player getCurrentPlayer() {
-                return player;
+                return currentPlayer;
             }
 
             @Override
             public final boolean isWorking() {
-                return isWorking;
+                return true;
             }
 
             @Override
             public final void setWorking(final boolean able) {
-                this.isWorking = able;
+                if (able) {
+                    this.healing += HEALING;
+                } else {
+                    this.healing -= HEALING;
+                }
             }
         };
     }
