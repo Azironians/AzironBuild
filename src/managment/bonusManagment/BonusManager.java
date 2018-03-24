@@ -1,6 +1,6 @@
 package managment.bonusManagment;
 
-import managment.actionManagement.service.components.ProviderComponent;
+import managment.actionManagement.service.components.providerComponent.ProviderComponent;
 
 import java.util.ArrayList;
 import java.util.Arrays;

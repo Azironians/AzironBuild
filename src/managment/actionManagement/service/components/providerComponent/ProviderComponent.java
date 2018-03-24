@@ -1,4 +1,4 @@
-package managment.actionManagement.service.components;
+package managment.actionManagement.service.components.providerComponent;
 
 public interface ProviderComponent<T> {
 

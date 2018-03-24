@@ -1,6 +1,6 @@
 package heroes.devourer.skills.superSkills.regeneration;
 
-import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
 import javafx.scene.image.ImageView;
@@ -64,7 +64,7 @@ public final class RegenerationSkill extends AbstractSkill {
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer() == player){
                     getEffect(player, coefficient);
-                    setAble(false);
+                    setWorking(false);
                     log.info("Second healing");
                 }
             }
@@ -85,7 +85,7 @@ public final class RegenerationSkill extends AbstractSkill {
             }
 
             @Override
-            public final void setAble(boolean able) {
+            public final void setWorking(boolean able) {
                 this.isWorking = false;
             }
         };

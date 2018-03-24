@@ -2,8 +2,8 @@ package bonus.devourerBonuses.bonuses;
 
 import bonus.bonuses.Bonus;
 import javafx.scene.image.ImageView;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.DynamicHandleService;
 
 public final class HKronArmor extends Bonus implements DynamicHandleService{
 

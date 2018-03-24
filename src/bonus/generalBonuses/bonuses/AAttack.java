@@ -1,8 +1,8 @@
 package bonus.generalBonuses.bonuses;
 
 import bonus.bonuses.Bonus;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.DynamicHandleService;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
@@ -74,7 +74,7 @@ public final class AAttack extends Bonus implements DynamicHandleService {
             }
 
             @Override
-            public final void setAble(final boolean able) {
+            public final void setWorking(final boolean able) {
                 this.isWorking = able;
             }
         };

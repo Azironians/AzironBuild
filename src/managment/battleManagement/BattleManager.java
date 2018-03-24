@@ -7,7 +7,7 @@ import gui.service.graphicEngine.GraphicEngine;
 import heroes.abstractHero.hero.Hero;
 import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEventFactory;
-import managment.actionManagement.service.components.ProviderComponent;
+import managment.actionManagement.service.components.providerComponent.ProviderComponent;
 import managment.actionManagement.service.engine.EventEngine;
 import managment.bonusManagment.BonusManager;
 import managment.playerManagement.ATeam;

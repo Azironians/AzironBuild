@@ -1,4 +1,4 @@
-package managment.actionManagement.service.components;
+package managment.actionManagement.service.components.handleComponet;
 
 import managment.actionManagement.actions.ActionEvent;
 import managment.playerManagement.Player;
@@ -15,5 +15,5 @@ public interface HandleComponent {
 
     boolean isWorking();
 
-    void setAble(final boolean able);
+    void setWorking(final boolean able);
 }

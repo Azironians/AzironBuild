@@ -5,8 +5,8 @@ import heroes.abstractHero.hero.Hero;
 import heroes.devourer.skills.superSkills.regeneration.utilities.RegenerationMessageParser;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,7 +73,7 @@ public final class HEvolution extends Bonus implements DynamicHandleService {
             }
 
             @Override
-            public final void setAble(final boolean able) {
+            public final void setWorking(final boolean able) {
                 throw new UnsupportedOperationException();
             }
         };

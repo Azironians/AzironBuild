@@ -5,8 +5,8 @@ import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
 
@@ -72,7 +72,7 @@ public final class HArhawrath extends Bonus implements DynamicHandleService {
             }
 
             @Override
-            public final void setAble(boolean able) {
+            public final void setWorking(boolean able) {
                 throw new UnsupportedOperationException("Stub");
             }
         };

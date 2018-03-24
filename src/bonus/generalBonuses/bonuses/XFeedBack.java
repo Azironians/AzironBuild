@@ -1,8 +1,8 @@
 package bonus.generalBonuses.bonuses;
 
 import bonus.bonuses.Bonus;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.RegularHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.RegularHandleService;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
@@ -91,8 +91,8 @@ public final class XFeedBack extends Bonus implements RegularHandleService {
             }
 
             @Override
-            public final void setAble(boolean able) {
-                throw new UnsupportedOperationException();
+            public final void setWorking(boolean able) {
+                //You can not disable the built-in handler
             }
         };
     }

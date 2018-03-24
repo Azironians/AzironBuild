@@ -5,8 +5,8 @@ import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.DynamicHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,7 +75,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
             }
 
             @Override
-            public final void setAble(final boolean able) {
+            public final void setWorking(final boolean able) {
                 this.isWorking = able;
             }
         };

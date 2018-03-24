@@ -1,11 +1,12 @@
 package managment.actionManagement.service.engine;
 
 import bonus.bonuses.Bonus;
-import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;
+import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;

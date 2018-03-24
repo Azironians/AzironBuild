@@ -5,8 +5,8 @@ import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import lib.duplexMap.DuplexMap;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.service.components.HandleComponent;
-import managment.actionManagement.service.engine.RegularHandleService;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 
 import java.util.ArrayList;
@@ -77,7 +77,7 @@ public final class AFireBlast extends Bonus implements RegularHandleService {
             }
 
             @Override
-            public final void setAble(boolean able) {
+            public final void setWorking(boolean able) {
                 throw new UnsupportedOperationException();
             }
         };

@@ -6,7 +6,7 @@ import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
-import managment.actionManagement.service.components.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import managment.battleManagement.BattleManager;
 import managment.playerManagement.Player;
 import managment.playerManagement.PlayerManager;
@@ -108,7 +108,7 @@ public final class HybridisationSkill extends AbstractSkill {
             }
 
             @Override
-            public final void setAble(final boolean able) {
+            public final void setWorking(final boolean able) {
                 throw new UnsupportedOperationException();
             }
         };
