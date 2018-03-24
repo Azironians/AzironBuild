@@ -21,7 +21,7 @@ public final class HElixirOfLife extends Bonus {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         if (currentHero.getHealing(HEALING_BOOST)) {
             log.info("+50 HP");
-            actionManager.getEventEngine().handle();
+            actionManager.getEventEngine().setRepeatHandling(true);
         }
     }
 }

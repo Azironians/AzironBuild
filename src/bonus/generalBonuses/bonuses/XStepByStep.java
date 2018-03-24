@@ -55,7 +55,7 @@ public final class XStepByStep extends Bonus implements DynamicHandleService {
                     if (player.getHero().addExperience(EXPERIENCE_BOOST)) {
                         log.info("EXPERIENCE WAS ADDED BY 10%");
                         this.experience = player.getHero().getCurrentExperience();
-                        actionManager.getEventEngine().handle();
+                        actionManager.getEventEngine().setRepeatHandling(true);
                     }
                 }
                 if (actionEvent.getActionType() == ActionType.END_TURN && actionEvent.getPlayer() == player) {
@@ -83,7 +83,11 @@ public final class XStepByStep extends Bonus implements DynamicHandleService {
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+                if (able){
+                    count++;
+                } else {
+                    count = 0;
+                }
             }
         };
     }

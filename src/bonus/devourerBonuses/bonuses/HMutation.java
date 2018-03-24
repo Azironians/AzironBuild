@@ -73,7 +73,7 @@ public final class HMutation extends Bonus implements DynamicHandleService {
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+                this.isWorking = false;
             }
         };
     }

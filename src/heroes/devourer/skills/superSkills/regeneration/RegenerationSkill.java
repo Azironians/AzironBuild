@@ -64,7 +64,7 @@ public final class RegenerationSkill extends AbstractSkill {
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer() == player){
                     getEffect(player, coefficient);
-                    setWorking(false);
+                    isWorking = false;
                     log.info("Second healing");
                 }
             }

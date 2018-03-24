@@ -15,5 +15,5 @@ public interface HandleComponent {
 
     boolean isWorking();
 
-    void setWorking(final boolean able);
+    void setWorking(final boolean able) throws IllegalSwitchOffHandleComponentException;
 }

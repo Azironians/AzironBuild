@@ -19,7 +19,7 @@ public final class AFusedFromBowel extends Bonus {
 
     private static final int LEVEL_REVERT = 3;
 
-    private FusedFromBowelSkillComponent fusedFromBowelSkillComponent;
+    private FusedFromBowelSkillProxyComponent fusedFromBowelSkillProxyComponent;
 
     public AFusedFromBowel(String name, int id, ImageView sprite) {
         super(name, id, sprite);
@@ -61,6 +61,6 @@ public final class AFusedFromBowel extends Bonus {
                 indexes.add(i);
             }
         }
-        fusedFromBowelSkillComponent.packSkills(indexes, actionManager);
+        fusedFromBowelSkillProxyComponent.packSkills(indexes, actionManager);
     }
 }

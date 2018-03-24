@@ -2,6 +2,7 @@ package bonus.generalBonuses.bonuses;
 
 import bonus.bonuses.Bonus;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.IllegalSwitchOffHandleComponentException;
 import managment.actionManagement.service.engine.services.RegularHandleService;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
@@ -91,8 +92,10 @@ public final class XFeedBack extends Bonus implements RegularHandleService {
             }
 
             @Override
-            public final void setWorking(boolean able) {
-                //You can not disable the built-in handler
+            public final void setWorking(final boolean able)
+                    throws IllegalSwitchOffHandleComponentException {
+                throw new IllegalSwitchOffHandleComponentException("FeedBack handler " +
+                        "component always must work in EventEngine");
             }
         };
     }

@@ -6,13 +6,14 @@ import javafx.scene.image.ImageView;
 import lib.duplexMap.DuplexMap;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.IllegalSwitchOffHandleComponentException;
 import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class AHybridisation extends Bonus implements RegularHandleService{
+public final class AHybridisation extends Bonus implements RegularHandleService {
 
     private HybridisationSkillProxyComponent hybridisationSkillProxyComponent;
 
@@ -27,7 +28,7 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
         }
     }
 
-    private void wireActionManager(final Skill skill){
+    private void wireActionManager(final Skill skill) {
         skill.setActionManager(actionManager);
     }
 
@@ -46,12 +47,12 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 final List<Skill> garbageList = new ArrayList<>();
-                for (final Skill skill: currentPlayer.getHero().getCollectionOfSkills()){
-                    if (skill.isReady()){
+                for (final Skill skill : currentPlayer.getHero().getCollectionOfSkills()) {
+                    if (skill.isReady()) {
                         final DuplexMap<Skill, Skill> skillVsProxyMap
                                 = hybridisationSkillProxyComponent.getSkillVsProxyMap();
                         final Skill hybridisation = skillVsProxyMap.getProxy(skill);
-                        if (hybridisation != null){
+                        if (hybridisation != null) {
                             garbageList.add(hybridisation);
                         }
                     }
@@ -75,8 +76,11 @@ public final class AHybridisation extends Bonus implements RegularHandleService{
             }
 
             @Override
-            public final void setWorking(boolean able) {
-                throw new UnsupportedOperationException();
+            public final void setWorking(boolean able)
+                    throws IllegalSwitchOffHandleComponentException {
+                throw new IllegalSwitchOffHandleComponentException("Hybridisation " +
+                        "handler " +
+                        "component always must work in EventEngine");
             }
         };
     }

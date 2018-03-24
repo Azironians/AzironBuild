@@ -54,25 +54,23 @@ public final class HRegeneratedTissues extends Bonus implements DynamicHandleSer
                 log.info("TISSUES HANDLE");
                 if (!isAbleToHealing){
                     if (hitPointsComparison > 0 && currentHero.getHitPoints() <= 0) {
+                        this.isAbleToHealing = true;
                         actionManager.getEventEngine().setRepeatHandling(true);
+                        log.info("COMPARISON: " + hitPointsComparison);
+                        log.info("HP: " + currentHero.getHitPoints());
                     }
                 } else {
-
+                    final Hero hero = player.getHero();
+                    if (hero.getHealing(HEALING)){
+                        actionManager.getEventEngine().setRepeatHandling(true);
+                    }
                 }
-
-
-                log.info("COMPARISON: " + hitPointsComparison);
-                currentHero.setHitPoints(currentHero.getHitPoints() + HEALING);
-                log.info("ARMOR: " + ARMOR);
-
-
-
                 this.hitPoints = currentHero.getHitPoints();
             }
 
             @Override
             public final String getName() {
-                return "StrengthenTheArmor";
+                return "RegeneratedTissues";
             }
 
             @Override
@@ -87,7 +85,7 @@ public final class HRegeneratedTissues extends Bonus implements DynamicHandleSer
 
             @Override
             public final void setWorking(final boolean able) {
-
+                this.isWorking = able;
             }
         };
     }

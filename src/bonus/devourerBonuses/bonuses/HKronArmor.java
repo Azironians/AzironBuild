@@ -7,17 +7,17 @@ import managment.actionManagement.service.engine.services.DynamicHandleService;
 
 public final class HKronArmor extends Bonus implements DynamicHandleService{
 
-    public HKronArmor(String name, int id, ImageView sprite) {
+    public HKronArmor(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
     @Override
-    public void use() {
+    public final void use() {
 
     }
 
     @Override
-    public HandleComponent getHandlerInstance() {
+    public final HandleComponent getHandlerInstance() {
         return null;
     }
 }

@@ -16,7 +16,7 @@ public final class ABreakthrough extends Bonus{
 
     private static final double DAMAGE = 350.0;
 
-    public ABreakthrough(String name, int id, ImageView sprite) {
+    public ABreakthrough(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
@@ -32,7 +32,7 @@ public final class ABreakthrough extends Bonus{
             if (skill.isReady() && levelReached){
                 if (currentPlayer.getHero().getDamage(DAMAGE)){
                     log.info("-" + DAMAGE + " HP");
-                    actionManager.getEventEngine().handle();
+                    actionManager.getEventEngine().setRepeatHandling(true);
                 }
                 skill.reset();
             }

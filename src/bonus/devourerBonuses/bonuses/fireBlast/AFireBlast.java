@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import lib.duplexMap.DuplexMap;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
+import managment.actionManagement.service.components.handleComponet.IllegalSwitchOffHandleComponentException;
 import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 
@@ -77,8 +78,9 @@ public final class AFireBlast extends Bonus implements RegularHandleService {
             }
 
             @Override
-            public final void setWorking(boolean able) {
-                throw new UnsupportedOperationException();
+            public final void setWorking(boolean able) throws IllegalSwitchOffHandleComponentException {
+                throw new IllegalSwitchOffHandleComponentException("FireBlast handler " +
+                        "component always must work in EventEngine");
             }
         };
     }

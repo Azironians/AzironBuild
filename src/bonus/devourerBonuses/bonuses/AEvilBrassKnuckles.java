@@ -55,6 +55,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
                     currentHero.setAttack(currentHero.getAttack() - delta);
                     isWorking = false;
                     log.info("-15% ATTACK");
+                    actionManager.getEventEngine().setRepeatHandling(true);
                 }
             }
 

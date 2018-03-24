@@ -17,7 +17,7 @@ public final class AUpgradeHooks extends ExtendedBonus{
 
     private Text text;
 
-    public AUpgradeHooks(String name, int id, ImageView sprite) {
+    public AUpgradeHooks(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
         this.count = START_COUNT;
         this.text = new Text(START_COUNT + "/" + END_COUNT);

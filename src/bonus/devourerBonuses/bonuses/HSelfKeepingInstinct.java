@@ -53,7 +53,7 @@ public final class HSelfKeepingInstinct extends Bonus implements DynamicHandleSe
                         && actionType == ActionType.USED_SKILL){
                     if (player.getHero().getHealing(HEALING)){
                         log.info("+10 HP");
-                        actionManager.getEventEngine().handle();
+                        actionManager.getEventEngine().setRepeatHandling(true);
                     }
                 }
             }
@@ -75,7 +75,7 @@ public final class HSelfKeepingInstinct extends Bonus implements DynamicHandleSe
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+                this.isWorking = able;
             }
         };
     }

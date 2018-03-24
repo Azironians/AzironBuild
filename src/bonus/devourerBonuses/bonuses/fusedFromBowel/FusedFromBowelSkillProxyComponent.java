@@ -12,11 +12,11 @@ import managment.playerManagement.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-final class FusedFromBowelSkillComponent {
+final class FusedFromBowelSkillProxyComponent {
 
     private Player player;
 
-    FusedFromBowelSkillComponent(final Player player) {
+    FusedFromBowelSkillProxyComponent(final Player player) {
         this.player = player;
     }
 

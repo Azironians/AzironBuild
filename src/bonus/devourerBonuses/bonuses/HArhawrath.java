@@ -12,7 +12,7 @@ import managment.playerManagement.Player;
 
 public final class HArhawrath extends Bonus implements DynamicHandleService {
 
-    public HArhawrath(String name, int id, ImageView sprite) {
+    public HArhawrath(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
@@ -72,8 +72,8 @@ public final class HArhawrath extends Bonus implements DynamicHandleService {
             }
 
             @Override
-            public final void setWorking(boolean able) {
-                throw new UnsupportedOperationException("Stub");
+            public final void setWorking(final boolean able) {
+                this.isWorking = able;
             }
         };
     }

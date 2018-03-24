@@ -8,7 +8,7 @@ public final class ASpark extends Bonus{
 
     private static final double EXPERIENCE_COEFFICIENT = 0.05;
 
-    public ASpark(String name, int id, ImageView sprite) {
+    public ASpark(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
@@ -17,10 +17,10 @@ public final class ASpark extends Bonus{
         final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
         final double fixExperience = opponentHero.getCurrentExperience() * EXPERIENCE_COEFFICIENT;
         if (opponentHero.removeExperience(fixExperience)) {
-            actionManager.getEventEngine().handle();
+            actionManager.getEventEngine().setRepeatHandling(true);
         }
         if (opponentHero.getDamage(fixExperience)){
-            actionManager.getEventEngine().handle();
+            actionManager.getEventEngine().setRepeatHandling(true);
         }
     }
 }

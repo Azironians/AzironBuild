@@ -93,7 +93,7 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+               this.isWorking = able;
             }
 
             private ProviderComponent<Integer> getCustomProviderComponent() {
@@ -112,7 +112,7 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
                     }
 
                     @Override
-                    public void setPriority(int priority) {
+                    public void setPriority(final int priority) {
                         this.priority = priority;
                     }
                 };

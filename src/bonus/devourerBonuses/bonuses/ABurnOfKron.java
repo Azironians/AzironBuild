@@ -18,7 +18,7 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
 
     private static final int TURNS = 5;
 
-    public ABurnOfKron(String name, int id, ImageView sprite) {
+    public ABurnOfKron(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
@@ -26,7 +26,6 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
     public final void use() {
         final HandleComponent handler = getHandlerInstance();
         actionManager.getEventEngine().addHandler(handler);
-//        log.info("EXPERIENCE IS INCREASED BY 10% IN DURING 3 TURNS");
     }
 
     @Override
@@ -53,7 +52,7 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer()
                         .equals(opponentPlayer)){
                     if (opponentPlayer.getHero().getDamage(damage)) {
-                        actionManager.getEventEngine().handle();
+                        actionManager.getEventEngine().setRepeatHandling(true);
                     }
                 }
                 if (actionEvent.getActionType() == ActionType.END_TURN && actionEvent.getPlayer() == player) {
@@ -81,7 +80,11 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+                if (able){
+                    count++;
+                } else {
+                    count = 0;
+                }
             }
         };
     }

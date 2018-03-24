@@ -16,7 +16,7 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
 
     private static final Logger log = LoggerFactory.getLogger(AFromFireIntoTheFire.class);
 
-    public AFromFireIntoTheFire(String name, int id, ImageView sprite) {
+    public AFromFireIntoTheFire(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 

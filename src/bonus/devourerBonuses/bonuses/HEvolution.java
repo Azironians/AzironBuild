@@ -51,7 +51,7 @@ public final class HEvolution extends Bonus implements DynamicHandleService {
                         final double healthSupplyBoost = RegenerationMessageParser
                                 .parseMessageGetHealing(message) * BOOST_COEFFICIENT;
                         hero.setHealthSupply(hero.getHealthSupply() + healthSupplyBoost);
-                        actionManager.getEventEngine().handle();
+                        actionManager.getEventEngine().setRepeatHandling(true);
                         log.info("Used regeneration");
                     }
                 }
@@ -74,7 +74,7 @@ public final class HEvolution extends Bonus implements DynamicHandleService {
 
             @Override
             public final void setWorking(final boolean able) {
-                throw new UnsupportedOperationException();
+                this.isWorking = able;
             }
         };
     }

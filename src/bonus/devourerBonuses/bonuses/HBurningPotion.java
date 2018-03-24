@@ -23,11 +23,11 @@ public final class HBurningPotion extends Bonus{
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer()
                 .getHero();
         if (currentHero.getDamage(DAMAGE)){
-            actionManager.getEventEngine().handle();
+            actionManager.getEventEngine().setRepeatHandling(true);
             log.info("-100 damage");
         }
         if (currentHero.getHealing(HEALING)){
-            actionManager.getEventEngine().handle();
+            actionManager.getEventEngine().setRepeatHandling(true);
             log.info("+120 damage");
         }
     }
