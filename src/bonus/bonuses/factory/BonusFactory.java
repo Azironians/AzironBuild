@@ -1,7 +1,22 @@
 package bonus.bonuses.factory;
 
 import bonus.bonuses.Bonus;
-import bonus.generalBonuses.bonuses.*;
+import bonus.generalBonuses.bonuses.attack.AAttack;
+import bonus.generalBonuses.bonuses.attack.AAxeUp;
+import bonus.generalBonuses.bonuses.attack.ABerserk;
+import bonus.generalBonuses.bonuses.attack.ADoubleInHead;
+import bonus.generalBonuses.bonuses.experience.XAnticipation;
+import bonus.generalBonuses.bonuses.experience.XFeedBack;
+import bonus.generalBonuses.bonuses.experience.XNerf;
+import bonus.generalBonuses.bonuses.experience.XStepByStep;
+import bonus.generalBonuses.bonuses.health.HAdaptation;
+import bonus.generalBonuses.bonuses.health.HElixirOfLife;
+import bonus.generalBonuses.bonuses.health.HExorcism;
+import bonus.generalBonuses.bonuses.health.HStrengthenTheArmor;
+import bonus.generalBonuses.bonuses.special.SCounterSpell;
+import bonus.generalBonuses.bonuses.special.SGiveFire;
+import bonus.generalBonuses.bonuses.special.SMagicTotem;
+import bonus.generalBonuses.bonuses.special.SWayOfWizard;
 import bonus.generalBonuses.supplier.BonusGeneralResourceSupplier;
 
 import java.util.HashMap;
