@@ -46,6 +46,10 @@ public final class ActionEventFactory {
         return new ActionEvent(ActionType.DEAL_DAMAGE, player);
     }
 
+    public static ActionEvent getDealDamage(final Player player, final String message){
+        return new ActionEvent(ActionType.DEAL_DAMAGE, player, message);
+    }
+
     public static ActionEvent getUsedSkill(final Player player, String skillName){
         return new ActionEvent(ActionType.USED_SKILL, player, skillName);
     }
