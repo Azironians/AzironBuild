@@ -80,6 +80,10 @@ public final class ATeam {
         return time;
     }
 
+    public void changeTimeBy(final int time){
+        this.time += time;
+    }
+
     public void setTime(final int time) {
         this.time = time;
         this.timeline.setCycleCount(time);
