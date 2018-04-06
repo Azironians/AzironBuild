@@ -46,7 +46,7 @@ public final class HEvolution extends Bonus implements DynamicHandleService {
             public final void handle(final ActionEvent actionEvent) {
                 if (player == actionEvent.getPlayer()) {
                     final Hero hero = player.getHero();
-                    final String message = actionEvent.getMessage();
+                    final Object message = actionEvent.getData();
                     if (RegenerationMessageParser.isRegenerationMessage(message)) {
                         final double healthSupplyBoost = RegenerationMessageParser
                                 .parseMessageGetHealing(message) * BOOST_COEFFICIENT;

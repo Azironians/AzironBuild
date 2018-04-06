@@ -1,14 +1,22 @@
 package managment.playerManagement;
 
+import annotations.sourceAnnotations.Transcendental;
 import bonus.bonuses.Bonus;
 import gui.service.locations.ALocation;
 import heroes.abstractHero.hero.Hero;
 import managment.profileManagement.Profile;
 import org.jetbrains.annotations.Contract;
 
+import java.util.List;
+
 public final class Player {
+
     private final Profile profile;
+
     private Hero hero;
+
+    @Transcendental
+    private List<Hero> otherHeroes;
 
     private boolean isCurrent;
 
@@ -132,6 +140,10 @@ public final class Player {
         isCurrent = current;
     }
 
+    @Transcendental
+    public List<Hero> getOtherHeroes() {
+        return otherHeroes;
+    }
 }
 
 

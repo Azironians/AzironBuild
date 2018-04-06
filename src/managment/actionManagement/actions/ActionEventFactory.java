@@ -1,6 +1,8 @@
 package managment.actionManagement.actions;
 
 import com.google.inject.Singleton;
+import heroes.abstractHero.hero.Hero;
+import javafx.util.Pair;
 import managment.playerManagement.Player;
 
 @Singleton
@@ -42,12 +44,15 @@ public final class ActionEventFactory {
         return new ActionEvent(ActionType.ATTACK, player);
     }
 
-    public static ActionEvent getDealDamage(final Player player){
-        return new ActionEvent(ActionType.DEAL_DAMAGE, player);
-    }
 
-    public static ActionEvent getDealDamage(final Player player, final String message){
-        return new ActionEvent(ActionType.DEAL_DAMAGE, player, message);
+    /**
+     * @param player who made damage
+     * @param victim has special format about who was damaged: "damage playerID heroID"
+     * @param damage
+     * @return event
+     */
+    public static ActionEvent getDealDamage(final Player player, final Hero victim, final double damage){
+        return new ActionEvent(ActionType.DEAL_DAMAGE, player, new Pair<>(victim, damage));
     }
 
     public static ActionEvent getUsedSkill(final Player player, String skillName){

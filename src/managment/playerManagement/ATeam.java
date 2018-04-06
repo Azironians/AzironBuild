@@ -1,5 +1,6 @@
 package managment.playerManagement;
 
+import annotations.sourceAnnotations.Transcendental;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
@@ -7,12 +8,18 @@ import org.jetbrains.annotations.Contract;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+import java.util.Set;
+
 public final class ATeam {
     private static final Logger log = LoggerFactory.getLogger(ATeam.class);
 
     private Player currentPlayer;
 
     private Player alternativePlayer;
+
+    @Transcendental
+    private List<Player> otherPlayers;
 
     private int turn;
 
@@ -126,5 +133,10 @@ public final class ATeam {
     public void setAlternativePlayer(Player alternativePlayer) {
         alternativePlayer.setCurrent(false);
         this.alternativePlayer = alternativePlayer;
+    }
+
+    @Transcendental
+    public final List<Player> getOtherPlayers() {
+        return otherPlayers;
     }
 }

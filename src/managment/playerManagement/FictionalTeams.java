@@ -1,6 +1,7 @@
 package managment.playerManagement;
 
 import annotations.bindingAnnotations.BonusService;
+import annotations.sourceAnnotations.Transcendental;
 import bonus.bonuses.Bonus;
 import bonus.bonuses.factory.BonusFactory;
 import com.google.inject.Inject;
@@ -23,6 +24,7 @@ import java.util.List;
  */
 
 @Singleton
+@Transcendental
 final class FictionalTeams {
 
     @Inject

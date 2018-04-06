@@ -45,7 +45,7 @@ public final class ADarts  extends Bonus implements RegularHandleService {
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.DEAL_DAMAGE && actionEvent.getPlayer() == currentPlayer){
-                    final double damage = Double.parseDouble(actionEvent.getMessage()); //FIXME: ADD IN ALL DEAL_DAMAGE
+                    final double damage = Double.parseDouble(actionEvent.getData()); //FIXME: ADD IN ALL DEAL_DAMAGE
                     allDamage += damage;
                 }
             }

@@ -8,7 +8,7 @@ public abstract class ExtendedBonus extends Bonus{
 
     private Pane container;
 
-    public ExtendedBonus(String name, int id, ImageView sprite) {
+    public ExtendedBonus(final String name, final int id, ImageView sprite) {
         super(name, id, sprite);
     }
 

@@ -6,12 +6,12 @@ public final class ActionEvent {
 
     private final ActionType actionType;
     private final Player player;
-    private String message;
+    private Object data; //everything
 
-    public ActionEvent(final ActionType actionType, final Player player, final String message) {
+    public ActionEvent(final ActionType actionType, final Player player, final Object data) {
         this.actionType = actionType;
         this.player = player;
-        this.message = message;
+        this.data = data;
     }
 
     public ActionEvent(final ActionType actionType, final Player player) {
@@ -23,11 +23,11 @@ public final class ActionEvent {
         return actionType;
     }
 
-    public Player getPlayer() {
+    public final Player getPlayer() {
         return player;
     }
 
-    public String getMessage() {
-        return message;
+    public final Object getData() {
+        return data;
     }
 }

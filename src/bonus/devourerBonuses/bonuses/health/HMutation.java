@@ -42,7 +42,7 @@ public final class HMutation extends Bonus implements DynamicHandleService {
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 final ActionType actionType = actionEvent.getActionType();
-                final String message = actionEvent.getMessage();
+                final Object message = actionEvent.getData();
                 if (ConsumingMessageParser.isConsumingMessage(message)){
                     final double damage = ConsumingMessageParser
                             .parseMessageGetHealing(message);
