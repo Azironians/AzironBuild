@@ -80,18 +80,7 @@ public abstract class Hero {
 
     //ActionEvents:
 
-    public final boolean getHealing(final double healing) {
-        if (hitPoints < supplyHealth) {
-            if (hitPoints + healing > supplyHealth) {
-                hitPoints = supplyHealth;
-            } else {
-                hitPoints += healing;
-            }
-            log.info(hitPoints.toString());
-            return true;
-        }
-        return false;
-    }
+    private double damageCoefficient = 1;
 
     private double armor = 0;
 
@@ -99,6 +88,21 @@ public abstract class Hero {
         if (damageAccess && damage - armor > 0) {
             hitPoints -= (damage - armor);
             log.info("WAS DAMAGE: " + damage);
+            return true;
+        }
+        return false;
+    }
+
+    private double healingCoefficient = 1;
+
+    public final boolean getHealing(final double healing) {
+        if (hitPoints < supplyHealth) {
+            if (hitPoints + healing > supplyHealth) {
+                hitPoints = supplyHealth;
+            } else {
+                hitPoints += healing * healingCoefficient;
+            }
+            log.info(hitPoints.toString());
             return true;
         }
         return false;
@@ -326,5 +330,22 @@ public abstract class Hero {
 
     public void setTreatmentAccess(boolean treatmentAccess) {
         this.treatmentAccess = treatmentAccess;
+    }
+
+    //Coefficients:
+    public final double getDamageCoefficient() {
+        return damageCoefficient;
+    }
+
+    public final void setDamageCoefficient(double damageCoefficient) {
+        this.damageCoefficient = damageCoefficient;
+    }
+
+    public final double getHealingCoefficient() {
+        return healingCoefficient;
+    }
+
+    public final void setHealingCoefficient(double healingCoefficient) {
+        this.healingCoefficient = healingCoefficient;
     }
 }

@@ -88,7 +88,7 @@ final class FireBlastSkillProxyComponent {
         final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
         final double damage = FireBlastAssistant.formDamage(player.getHero().getCollectionOfSkills());
         if (opponent.getHero().getDamage(damage)) {
-            eventEngine.handle(ActionEventFactory.getDealDamage(player));
+            eventEngine.handle(ActionEventFactory.getDealDamage(player, opponent.getHero(), damage));
         }
     }
 

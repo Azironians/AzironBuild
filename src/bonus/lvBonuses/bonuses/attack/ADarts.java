@@ -3,6 +3,7 @@ package bonus.lvBonuses.bonuses.attack;
 import bonus.bonuses.Bonus;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
+import javafx.util.Pair;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
@@ -11,7 +12,7 @@ import managment.actionManagement.service.components.handleComponet.IllegalSwitc
 import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 
-public final class ADarts  extends Bonus implements RegularHandleService {
+public final class ADarts extends Bonus implements RegularHandleService {
 
     private double allDamage;
 
@@ -24,8 +25,9 @@ public final class ADarts  extends Bonus implements RegularHandleService {
     @Override
     public final void use() {
         final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
-        if (opponentHero.getDamage(allDamage)){
-            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(thisPlayer, allDamage + ""));
+        if (opponentHero.getDamage(allDamage)) {
+            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(thisPlayer, opponentHero
+                    , allDamage));
         }
     }
 
@@ -44,8 +46,9 @@ public final class ADarts  extends Bonus implements RegularHandleService {
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.DEAL_DAMAGE && actionEvent.getPlayer() == currentPlayer){
-                    final double damage = Double.parseDouble(actionEvent.getData()); //FIXME: ADD IN ALL DEAL_DAMAGE
+                if (actionEvent.getActionType() == ActionType.AFTER_DEAL_DAMAGE && actionEvent.getPlayer() == currentPlayer) {
+                    final Pair<Hero, Double> heroVsDamage = (Pair) actionEvent.getData();
+                    final double damage = heroVsDamage.getValue();
                     allDamage += damage;
                 }
             }

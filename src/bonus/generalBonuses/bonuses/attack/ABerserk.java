@@ -30,7 +30,7 @@ public final class ABerserk extends Bonus {
         currentHero.getDamage(opponentHero.getAttack());
         log.info("DEAL " + opponentHero.getAttack() + " DAMAGE TO CURRENT PLAYER");
         actionEvents.addAll(Arrays.asList
-                (ActionEventFactory.getDealDamage(currentPlayer)
-                        , ActionEventFactory.getDealDamage(opponentPlayer)));
+                (ActionEventFactory.getDealDamage(currentPlayer, opponentHero, currentHero.getAttack())
+                        , ActionEventFactory.getDealDamage(opponentPlayer, currentHero, opponentHero.getAttack())));
     }
 }

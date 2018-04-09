@@ -31,7 +31,7 @@ public final class RushSkill extends AbstractSkill {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getHero();
         if (opponentHero.getDamage(damage)) {
-            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
+            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer, opponentHero, damage));
         }
     }
 

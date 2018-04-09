@@ -9,12 +9,12 @@ public final class ConsumingMessageParser {
 
     private ConsumingMessageParser (){}
 
-    public static boolean isConsumingMessage(final Object message) {
+    public static boolean isConsumingMessage(final String message) {
         final Matcher matcher = PATTERN.matcher(message);
         return matcher.matches();
     }
 
-    public static double parseMessageGetHealing(final Object message) {
+    public static double parseMessageGetHealing(final String message) {
         final String[] strings = message.split(" ");
         final int healingIndex = 1;
         return Double.parseDouble(strings[healingIndex]);

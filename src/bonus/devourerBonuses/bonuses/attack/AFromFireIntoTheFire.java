@@ -32,7 +32,7 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
         if (opponentHero.getDamage(damage)) {
             final EventEngine eventEngine = actionManager.getEventEngine();
             eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
-            eventEngine.handle(ActionEventFactory.getDealDamage(opponentPlayer));
+            eventEngine.handle(ActionEventFactory.getDealDamage(currentPlayer, opponentHero, damage));
         }
         actionManager.refreshScreen();
         if (battleManager.isEndTurn()) {

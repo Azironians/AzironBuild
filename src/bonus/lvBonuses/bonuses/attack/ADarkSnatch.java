@@ -1,11 +1,13 @@
 package bonus.lvBonuses.bonuses.attack;
 
 import bonus.bonuses.ExtendedBonus;
+import heroes.abstractHero.hero.Hero;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import javafx.util.Pair;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
@@ -13,6 +15,9 @@ import managment.actionManagement.service.components.handleComponet.IllegalSwitc
 import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public final class ADarkSnatch extends ExtendedBonus implements RegularHandleService, DynamicHandleService {
 
@@ -50,7 +55,7 @@ public final class ADarkSnatch extends ExtendedBonus implements RegularHandleSer
 
     @Override
     public final void use() {
-        actionManager.getEventEngine().handle();
+        actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 
     @Override
@@ -66,12 +71,12 @@ public final class ADarkSnatch extends ExtendedBonus implements RegularHandleSer
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.SHOWED_BONUS
+                if (actionEvent.getActionType() == ActionType.BEFORE_USED_BONUS
                         && actionEvent.getData().equals("UnstableMight")
                         && actionEvent.getPlayer() == currentPlayer) {
                     timeline.play();
                 }
-                if (actionEvent.getActionType() == ActionType.USED_BONUS
+                if (actionEvent.getActionType() == ActionType.AFTER_USED_BONUS
                         && actionEvent.getPlayer() == currentPlayer) {
                     attackBoostCoefficient = ATTACK_BOOST_COEFFICIENT;
                     timeline.pause();
@@ -102,53 +107,43 @@ public final class ADarkSnatch extends ExtendedBonus implements RegularHandleSer
     }
 
     @Override
-    public HandleComponent getHandlerInstance() {
+    public final HandleComponent getHandlerInstance() {
         return new HandleComponent() {
 
             private Player player;
 
+            private Set<Hero> victims;
+
+            private boolean isWorking;
+
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
+                this.victims = new HashSet<>();
+                this.isWorking = true;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.DEAL_DAMAGE) {
-                    final Object message = actionEvent.getData();
-                    final String[] params = message.split(" ");
-                    final double damage = Double.parseDouble(params[0]);
-                    final String playerID = params[1];
-                    final String heroID = params[2];
+                switch (actionEvent.getActionType()){
+                    case BEFORE_DEAL_DAMAGE:
+                        final Pair<Hero, Double> heroVsDamage = (Pair) actionEvent.getData();
+                        final Hero victim = heroVsDamage.getKey();
+                        double damageCoefficientBoost = victim.getDamageCoefficient() * ATTACK_BOOST_COEFFICIENT;
+                        victim.setDamageCoefficient(damageCoefficientBoost);
+                        this.victims.add(victim);
+                        break;
+                    case AFTER_DEAL_DAMAGE:
+                        this.victims.forEach(hero -> {
+                            final double damageCoefficient = hero.getDamageCoefficient();
+                            hero.setDamageCoefficient(damageCoefficient / ATTACK_BOOST_COEFFICIENT);
+                        });
+                        this.victims.clear();
+                        break;
+                    case END_TURN:
+                        this.isWorking = false;
                 }
             }
-
-//            private Hero findVictim(final String playerID, final String heroID) {
-//                //find in current team scope:
-//                final ATeam currentTeam = playerManager.getCurrentTeam();
-//                final Player player = currentTeam.getCurrentPlayer();
-//                if (player.getProfile().getName().equals(playerID)) {
-//
-//                }
-//
-//
-//            }
-//
-//            private Hero findHero(final Player player, final String heroID) {
-//                final Hero mainHero = player.getHero();
-//                if (mainHero.getName().equals(heroID)) {
-//                    return mainHero;
-//                }
-//                final List<Hero> otherHeroes = player.getOtherHeroes();
-//                for (final Hero hero : otherHeroes) {
-//                    if (hero.getName().equals(heroID)){
-//                        return mainHero;
-//                    }
-//                }
-//
-//            }
-
-
 
             @Override
             public final String getName() {
@@ -157,17 +152,17 @@ public final class ADarkSnatch extends ExtendedBonus implements RegularHandleSer
 
             @Override
             public final Player getCurrentPlayer() {
-                return;
+                return player;
             }
 
             @Override
-            public boolean isWorking() {
-                return false;
+            public final boolean isWorking() {
+                return isWorking;
             }
 
             @Override
-            public void setWorking(final boolean able) {
-
+            public final void setWorking(final boolean able) {
+                this.isWorking = able;
             }
         };
     }

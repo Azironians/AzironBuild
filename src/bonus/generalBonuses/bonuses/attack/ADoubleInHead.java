@@ -36,8 +36,9 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
         final double attackValue = attackHero.getAttack() * ATTACK_COEFFICIENT;
         log.info("ATTACK IS DUPLICATED");
 
-        if (victimTeam.getCurrentPlayer().getHero().getDamage(attackValue)) {
-            eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer));
+        final Hero opponentHero = victimTeam.getCurrentPlayer().getHero();
+        if (opponentHero.getDamage(attackValue)) {
+            eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer, opponentHero, attackValue));
         }
 
         actionManager.refreshScreen();

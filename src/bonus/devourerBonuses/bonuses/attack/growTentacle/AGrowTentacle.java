@@ -68,7 +68,7 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
                 }
                 if ((actionEvent.getActionType() == ActionType.END_TURN
                         || actionEvent.getActionType() == ActionType.SKIP_TURN
-                        || actionEvent.getActionType() == ActionType.USED_BONUS)
+                        || actionEvent.getActionType() == ActionType.AFTER_USED_BONUS)
                         && (actionEvent.getPlayer() == opponentTeam.getCurrentPlayer()
                         || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())) {
                     battleManager.getBonusManager().returnPreviousProviderComponent(index, previousProviderComponent);

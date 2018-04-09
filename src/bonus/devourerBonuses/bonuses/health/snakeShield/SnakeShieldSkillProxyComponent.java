@@ -6,6 +6,7 @@ import javafx.util.Pair;
 import lib.duplexMap.DuplexMap;
 import managment.playerManagement.Player;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public final class SnakeShieldSkillProxyComponent {
@@ -23,6 +24,8 @@ public final class SnakeShieldSkillProxyComponent {
 
     SnakeShieldSkillProxyComponent(final Player player){
         this.player = player;
+        this.hashVsPairMap = new HashMap<>();
+        this.skillVsProxyMap = new DuplexMap<>();
 
     }
 

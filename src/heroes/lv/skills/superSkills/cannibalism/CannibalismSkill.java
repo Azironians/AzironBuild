@@ -29,7 +29,7 @@ public final class CannibalismSkill extends AbstractSkill {
         final Hero currentHero = currentPlayer.getHero();
         final Hero opponentHero = opponentPlayer.getHero();
         if (opponentHero.getDamage(DAMAGE)) {
-            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
+            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer, opponentHero, DAMAGE));
         }
         currentHero.getHealing(HEALING);
     }

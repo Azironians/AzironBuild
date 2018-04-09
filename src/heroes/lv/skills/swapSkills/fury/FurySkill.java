@@ -30,7 +30,7 @@ public final class FurySkill extends AbstractSwapSkill {
                 : coefficients.get(0);
         final double DAMAGE = currentHero.getAttack() * SKILL_COEFFICIENT;
         if (opponentHero.getDamage(DAMAGE)){
-            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer));
+            actionEvents.add(ActionEventFactory.getDealDamage(currentPlayer, opponentHero, DAMAGE));
         }
     }
 

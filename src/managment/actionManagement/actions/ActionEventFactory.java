@@ -52,14 +52,14 @@ public final class ActionEventFactory {
      * @return event
      */
     public static ActionEvent getDealDamage(final Player player, final Hero victim, final double damage){
-        return new ActionEvent(ActionType.DEAL_DAMAGE, player, new Pair<>(victim, damage));
+        return new ActionEvent(ActionType.AFTER_DEAL_DAMAGE, player, new Pair<>(victim, damage));
     }
 
     public static ActionEvent getUsedSkill(final Player player, String skillName){
-        return new ActionEvent(ActionType.USED_SKILL, player, skillName);
+        return new ActionEvent(ActionType.BEFORE_USED_SKILL, player, skillName);
     }
 
     public static ActionEvent getUsedBonus(final Player player, String bonusName){
-        return new ActionEvent(ActionType.USED_BONUS, player, bonusName);
+        return new ActionEvent(ActionType.AFTER_USED_BONUS, player, bonusName);
     }
 }

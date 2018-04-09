@@ -73,7 +73,7 @@ public final class SMagicTotem extends Bonus implements DynamicHandleService {
                     isWorking = false;
                     log.info("SKILL POWER DECREASED BY 10%");
                 }
-                if (actionEvent.getActionType() == ActionType.USED_SKILL && actionEvent.getPlayer() == player) {
+                if (actionEvent.getActionType() == ActionType.BEFORE_USED_SKILL && actionEvent.getPlayer() == player) {
                     log.info("MAGIC TOTEM");
                     skillPassed = true;
                 }

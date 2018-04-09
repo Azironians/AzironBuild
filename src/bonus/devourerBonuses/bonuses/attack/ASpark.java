@@ -23,7 +23,9 @@ public final class ASpark extends Bonus{
             actionManager.getEventEngine().setRepeatHandling(true);
         }
         if (opponentHero.getDamage(fixExperience)){
-            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(opponentPlayer));
+            final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
+            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(currentPlayer, opponentHero
+                    , fixExperience));
         }
     }
 }

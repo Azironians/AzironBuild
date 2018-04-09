@@ -6,7 +6,7 @@ public final class ActionEvent {
 
     private final ActionType actionType;
     private final Player player;
-    private Object data; //everything
+    private Object data; //everything type of data
 
     public ActionEvent(final ActionType actionType, final Player player, final Object data) {
         this.actionType = actionType;

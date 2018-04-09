@@ -50,7 +50,7 @@ public final class HSelfKeepingInstinct extends Bonus implements DynamicHandleSe
                 final ActionType actionType = actionEvent.getActionType();
                 final Player opponent = actionEvent.getPlayer();
                 if (opponent == opponentTeam.getCurrentPlayer()
-                        && actionType == ActionType.USED_SKILL){
+                        && actionType == ActionType.BEFORE_USED_SKILL){
                     if (player.getHero().getHealing(HEALING)){
                         log.info("+10 HP");
                         actionManager.getEventEngine().setRepeatHandling(true);

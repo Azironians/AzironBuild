@@ -38,7 +38,7 @@ public final class XVoidChannel extends Bonus implements DynamicHandleService {
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.DEAL_DAMAGE && actionEvent.getPlayer() == player){
+                if (actionEvent.getActionType() == ActionType.AFTER_DEAL_DAMAGE && actionEvent.getPlayer() == player){
                     final Hero hero = player.getHero();
                     hero.addExperience(EXPERIENCE_BOOST);
                     actionManager.getEventEngine().setRepeatHandling(true);
