@@ -91,7 +91,7 @@ public final class ActionManager {
             }
             final Hero victimHero = victimTeam.getCurrentPlayer().getHero();
             if (victimHero.getDamage(attackValue)) {
-                eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer, victimHero, attackValue));
+                eventEngine.handle(ActionEventFactory.getAfterDealDamage(attackPlayer, victimHero, attackValue));
             }
             refreshScreen();
             if (battleManager.isEndTurn()) {

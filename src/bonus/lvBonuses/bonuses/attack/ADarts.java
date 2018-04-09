@@ -26,7 +26,7 @@ public final class ADarts extends Bonus implements RegularHandleService {
     public final void use() {
         final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
         if (opponentHero.getDamage(allDamage)) {
-            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(thisPlayer, opponentHero
+            actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(thisPlayer, opponentHero
                     , allDamage));
         }
     }

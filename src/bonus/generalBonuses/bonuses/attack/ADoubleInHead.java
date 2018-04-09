@@ -34,11 +34,11 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
         final EventEngine eventEngine = actionManager.getEventEngine();
 
         final double attackValue = attackHero.getAttack() * ATTACK_COEFFICIENT;
-        log.info("ATTACK IS DUPLICATED");
+        log.info("BEFORE_ATTACK IS DUPLICATED");
 
         final Hero opponentHero = victimTeam.getCurrentPlayer().getHero();
         if (opponentHero.getDamage(attackValue)) {
-            eventEngine.handle(ActionEventFactory.getDealDamage(attackPlayer, opponentHero, attackValue));
+            eventEngine.handle(ActionEventFactory.getAfterDealDamage(attackPlayer, opponentHero, attackValue));
         }
 
         actionManager.refreshScreen();
@@ -56,13 +56,13 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
     private void installCustomAttack() {
         actionManager.setStandardAttack(false);
         actionManager.setProcessor(attackProcessor);
-        log.info("INSTALLED CUSTOM ATTACK PROCESSOR");
+        log.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
     }
 
     private void installDefaultAttack() {
         actionManager.setDefaultProcessor();
         actionManager.setStandardAttack(true);
-        log.info("INSTALLED DEFAULT ATTACK PROCESSOR");
+        log.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
     }
 
     @Override

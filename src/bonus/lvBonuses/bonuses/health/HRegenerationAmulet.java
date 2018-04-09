@@ -1,19 +1,17 @@
-package bonus.lvBonuses.bonuses.attack;
+package bonus.lvBonuses.bonuses.health;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.playerManagement.Player;
 
-public final class ADarkMight extends Bonus implements DynamicHandleService {
+public final class HRegenerationAmulet extends Bonus implements DynamicHandleService {
 
-    private static final double ATTACK_BOOST = 1;
+    private static final double HEALING_BOOST = 75;
 
-    public ADarkMight(final String name, final int id, final ImageView sprite) {
+    public HRegenerationAmulet(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
@@ -30,40 +28,42 @@ public final class ADarkMight extends Bonus implements DynamicHandleService {
 
             private boolean isWorking;
 
-            private double temporaryAttackBoost;
+            private boolean isUpgradedHealing;
 
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
                 this.isWorking = true;
-                this.temporaryAttackBoost = 0;
+                this.isUpgradedHealing = true;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final ActionType actionType = actionEvent.getActionType();
-                final Player player = actionEvent.getPlayer();
-                if (actionType == ActionType.START_TURN && (this.player == player)){
-                    final Hero hero = player.getHero();
-                    hero.setAttack(hero.getAttack() + ATTACK_BOOST);
-                    temporaryAttackBoost++;
-                    actionManager.getEventEngine().setRepeatHandling(true);
-                }
-                if (actionType == ActionType.BEFORE_TREATMENT && (this.player == player)){
-                    final Hero hero = player.getHero();
-                    double previousAttack = hero.getAttack() - temporaryAttackBoost;
-                    if (previousAttack < 0){
-                        previousAttack = 0;
+                if (actionEvent.getPlayer() == player) {
+                    final var hero = player.getHero();
+                    switch (actionEvent.getActionType()) {
+                        case START_TURN:
+                            this.isUpgradedHealing = false;
+                            break;
+                        case BEFORE_TREATMENT:
+                            hero.setTreatment(hero.getTreatment() + HEALING_BOOST);
+                            this.isUpgradedHealing = true;
+                            break;
+                        case AFTER_TREATMENT:
+                            hero.setTreatment(hero.getTreatment() - HEALING_BOOST);
+                            break;
+                        case END_TURN:
+                        case SKIP_TURN:
+                            if (!isUpgradedHealing) {
+                                this.isWorking = false;
+                            }
                     }
-                    hero.setAttack(previousAttack);
-                    this.isWorking = false;
-                    actionManager.getEventEngine().setRepeatHandling(true);
                 }
             }
 
             @Override
             public final String getName() {
-                return "DarkMight";
+                return "RegenerationAmulet";
             }
 
             @Override

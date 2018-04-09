@@ -47,13 +47,13 @@ public final class HRegenerationRoot extends Bonus implements DynamicHandleServi
     private void installCustomAttack() {
         actionManager.setStandardAttack(false);
         actionManager.setProcessor(attackProcessor);
-        log.info("INSTALLED CUSTOM ATTACK PROCESSOR");
+        log.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
     }
 
     private void installDefaultAttack() {
         actionManager.setDefaultProcessor();
         actionManager.setStandardAttack(true);
-        log.info("INSTALLED DEFAULT ATTACK PROCESSOR");
+        log.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
     }
 
     @Override

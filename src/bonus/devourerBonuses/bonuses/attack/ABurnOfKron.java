@@ -53,7 +53,7 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer()
                         .equals(opponentPlayer)){
                     if (opponentPlayer.getHero().getDamage(damage)) {
-                        actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(player
+                        actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player
                                 , opponentPlayer.getHero(), damage));
                     }
                 }

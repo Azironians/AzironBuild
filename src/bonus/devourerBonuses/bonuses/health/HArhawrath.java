@@ -39,7 +39,7 @@ public final class HArhawrath extends Bonus implements DynamicHandleService {
 
             @Override
             public final void handle(ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.ATTACK
+                if (actionEvent.getActionType() == ActionType.BEFORE_ATTACK
                         && (actionEvent.getPlayer() == getCurrentPlayer()
                         || actionEvent.getPlayer() == team.getAlternativePlayer())
                         && player == playerManager.getOpponentATeam().getCurrentPlayer()){

@@ -32,7 +32,7 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
         if (opponentHero.getDamage(damage)) {
             final EventEngine eventEngine = actionManager.getEventEngine();
             eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
-            eventEngine.handle(ActionEventFactory.getDealDamage(currentPlayer, opponentHero, damage));
+            eventEngine.handle(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage));
         }
         actionManager.refreshScreen();
         if (battleManager.isEndTurn()) {
@@ -49,13 +49,13 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
     private void installCustomTreatment() {
         actionManager.setStandardTreatment(false);
         actionManager.setProcessor(treatmentProcessor);
-        log.info("INSTALLED CUSTOM TREATMENT PROCESSOR");
+        log.info("INSTALLED CUSTOM BEFORE_TREATMENT PROCESSOR");
     }
 
     private void installDefaultTreatment() {
         actionManager.setDefaultProcessor();
         actionManager.setStandardTreatment(true);
-        log.info("INSTALLED DEFAULT TREATMENT PROCESSOR");
+        log.info("INSTALLED DEFAULT BEFORE_TREATMENT PROCESSOR");
     }
 
     @Override

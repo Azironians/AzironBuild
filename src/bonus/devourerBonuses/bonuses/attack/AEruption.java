@@ -56,7 +56,7 @@ public final class AEruption extends Bonus implements DynamicHandleService{
                     log.info("COMPARISON: " + comparison);
                     final Player opponentPlayer = opponentTeam.getCurrentPlayer();
                     if (opponentPlayer.getHero().getDamage(DAMAGE)){
-                        actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(player
+                        actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player
                                 , opponentPlayer.getHero(), DAMAGE));
                     }
                 }

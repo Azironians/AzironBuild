@@ -37,7 +37,7 @@ public final class MorphingSkill extends AbstractSkill {
             , final PlayerManager playerManager) {
         final double treatmentValue = parent.getTreatment() * coefficients.get(0);
         parent.setTreatment(treatmentValue);
-        log.info("+10% TREATMENT");
+        log.info("+10% BEFORE_TREATMENT");
     }
 
     @Override

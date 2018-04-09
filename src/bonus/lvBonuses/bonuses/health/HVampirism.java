@@ -38,7 +38,7 @@ public final class HVampirism extends Bonus implements DynamicHandleService {
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.ATTACK && actionEvent.getPlayer() == player) {
+                if (actionEvent.getActionType() == ActionType.BEFORE_ATTACK && actionEvent.getPlayer() == player) {
                     final Hero hero = player.getHero();
                     if (hero.getHealing(HEALING_BOOST)) {
                         actionManager.getEventEngine().setRepeatHandling(true);

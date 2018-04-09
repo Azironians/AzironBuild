@@ -30,7 +30,7 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
     public final void use() {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
-        log.info("+4 ATTACK");
+        log.info("+4 BEFORE_ATTACK");
         actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 

@@ -37,21 +37,26 @@ public final class ActionEventFactory {
     }
 
     public static ActionEvent getTreatment(final Player player){
-        return new ActionEvent(ActionType.TREATMENT, player);
+        return new ActionEvent(ActionType.BEFORE_TREATMENT, player);
     }
 
     public static ActionEvent getAttack(final Player player){
-        return new ActionEvent(ActionType.ATTACK, player);
+        return new ActionEvent(ActionType.BEFORE_ATTACK, player);
     }
 
 
     /**
      * @param player who made damage
      * @param victim has special format about who was damaged: "damage playerID heroID"
-     * @param damage
+     * @param damage is understand
      * @return event
      */
-    public static ActionEvent getDealDamage(final Player player, final Hero victim, final double damage){
+
+    public static ActionEvent getBeforeDealDamage(final Player player, final Hero victim, final double damage){
+        return new ActionEvent(ActionType.BEFORE_DEAL_DAMAGE, player, new Pair<>(victim, damage));
+    }
+
+    public static ActionEvent getAfterDealDamage(final Player player, final Hero victim, final double damage){
         return new ActionEvent(ActionType.AFTER_DEAL_DAMAGE, player, new Pair<>(victim, damage));
     }
 

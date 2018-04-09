@@ -28,7 +28,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
 
         actionManager.getEventEngine().addHandler(getHandlerInstance());
         currentHero.setAttack(currentHero.getAttack() * (1 + ATTACK_BOOST_COEFFICIENT));
-        log.info("+15% ATTACK");
+        log.info("+15% BEFORE_ATTACK");
     }
 
     @Override
@@ -54,7 +54,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
                     final Hero currentHero = player.getHero();
                     currentHero.setAttack(currentHero.getAttack() - delta);
                     isWorking = false;
-                    log.info("-15% ATTACK");
+                    log.info("-15% BEFORE_ATTACK");
                     actionManager.getEventEngine().setRepeatHandling(true);
                 }
             }
@@ -71,7 +71,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
 
             @Override
             public final boolean isWorking() {
-                log.info("ATTACK BONUS: " + isWorking);
+                log.info("BEFORE_ATTACK BONUS: " + isWorking);
                 return isWorking;
             }
 

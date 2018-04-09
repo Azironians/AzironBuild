@@ -45,7 +45,7 @@ public final class ArmageddonSkill extends AbstractSkill {
             actionManager.getEventEngine().setRepeatHandling(true);
         }
         if (opponent.getHero().getDamage(damage)) {
-            actionManager.getEventEngine().handle(ActionEventFactory.getDealDamage(player, opponent.getHero(), damage));
+            actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player, opponent.getHero(), damage));
         }
     }
 

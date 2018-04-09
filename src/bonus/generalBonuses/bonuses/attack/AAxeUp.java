@@ -20,6 +20,6 @@ public final class AAxeUp extends Bonus {
     public final void use() {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
         currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
-        log.info("+2 ATTACK");
+        log.info("+2 BEFORE_ATTACK");
     }
 }
