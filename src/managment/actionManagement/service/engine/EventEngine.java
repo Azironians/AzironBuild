@@ -50,7 +50,7 @@ public final class EventEngine {
     }
 
     private void install(final Player player) {
-        final List<Bonus> collection = player.getHero().getBonusCollection();
+        final List<Bonus> collection = player.getCurrentHero().getBonusCollection();
         for (final Bonus bonus : collection) {
             wireManagersToBonus(bonus, actionManager, battleManager, playerManager);
             if (implementsRegularHandleService(bonus)) {

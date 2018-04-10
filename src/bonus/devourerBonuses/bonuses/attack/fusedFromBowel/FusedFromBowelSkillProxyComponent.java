@@ -21,7 +21,7 @@ final class FusedFromBowelSkillProxyComponent {
     }
 
     final void packSkills(final List<Integer> indexes, final ActionManager actionManager) {
-        final Hero currentHero = player.getHero();
+        final Hero currentHero = player.getCurrentHero();
         final List<Skill> skills = currentHero.getCollectionOfSkills();
         final ObservableList<Node> mainSkillContainers = player.getLocation().getSkillPane().getChildren();
 

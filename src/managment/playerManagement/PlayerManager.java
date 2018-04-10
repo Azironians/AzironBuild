@@ -63,11 +63,11 @@ public final class PlayerManager {
 
     public final void start(){
         currentATeam.launchTimer();
-        battleManager.loadRandomBonuses(currentATeam.getCurrentPlayer().getHero());
+        battleManager.loadRandomBonuses(currentATeam.getCurrentPlayer().getCurrentHero());
     }
 
     private void setAdditionalExperience(final ATeam team){
-        final Hero hero = team.getCurrentPlayer().getHero();
+        final Hero hero = team.getCurrentPlayer().getCurrentHero();
         final double equalsAttack =  hero.getAttack();
         log.info("Adding XP: +" + equalsAttack);
         hero.addExperience(equalsAttack);

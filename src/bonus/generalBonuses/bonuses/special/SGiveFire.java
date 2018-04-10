@@ -27,7 +27,7 @@ public final class SGiveFire extends Bonus implements DynamicHandleService {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final List<Skill> skills = hero.getCollectionOfSkills();
         for (final Skill skill : skills) {
             final List<Double> coefficients = skill.getCoefficients();
@@ -58,7 +58,7 @@ public final class SGiveFire extends Bonus implements DynamicHandleService {
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.END_TURN) {
-                    final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+                    final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
                     final List<Skill> skills = hero.getCollectionOfSkills();
                     for (final Skill skill : skills) {
                         final List<Double> coefficients = skill.getCoefficients();

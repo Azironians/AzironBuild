@@ -21,7 +21,7 @@ public final class HBurningPotion extends Bonus{
     @Override
     public final void use() {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer()
-                .getHero();
+                .getCurrentHero();
         if (currentHero.getDamage(DAMAGE)){
             actionManager.getEventEngine().setRepeatHandling(true);
             log.info("-100 damage");

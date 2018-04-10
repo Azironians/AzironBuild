@@ -40,12 +40,12 @@ public final class ArmageddonSkill extends AbstractSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
-        final double damage = player.getHero().getAttack() * coefficients.get(0);
-        if (player.getHero().getDamage(damage)) {
+        final double damage = player.getCurrentHero().getAttack() * coefficients.get(0);
+        if (player.getCurrentHero().getDamage(damage)) {
             actionManager.getEventEngine().setRepeatHandling(true);
         }
-        if (opponent.getHero().getDamage(damage)) {
-            actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player, opponent.getHero(), damage));
+        if (opponent.getCurrentHero().getDamage(damage)) {
+            actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player, opponent.getCurrentHero(), damage));
         }
     }
 

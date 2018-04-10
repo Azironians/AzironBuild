@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Set;
 
 public final class ATeam {
     private static final Logger log = LoggerFactory.getLogger(ATeam.class);
@@ -39,7 +38,7 @@ public final class ATeam {
     private boolean swapAccess = true;
 
     public final boolean swapPlayers(){
-        if (swapAccess && currentPlayer.getHero().getHitPoints() > 0){
+        if (swapAccess && currentPlayer.getCurrentHero().getHitPoints() > 0){
             eagerSwapPlayers();
             return true;
         }

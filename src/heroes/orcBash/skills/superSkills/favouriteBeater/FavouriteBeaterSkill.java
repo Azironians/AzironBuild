@@ -30,7 +30,7 @@ public final class FavouriteBeaterSkill extends AbstractSkill {
         final double fixHealthSupply = getParent().getAttack() * coefficients.get(1);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage));
         }

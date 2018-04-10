@@ -17,7 +17,7 @@ public final class XBraxador extends Bonus {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final double treatment = hero.getTreatment();
         final EventEngine eventEngine = actionManager.getEventEngine();
         if (hero.getHealing(treatment * HEALING_COEFFICIENT)){

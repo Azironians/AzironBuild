@@ -36,7 +36,7 @@ public final class RegenerationSkill extends AbstractSkill {
 
     private void getEffect(final Player currentPlayer, final double coefficient){
         final double HEALING = getParent().getTreatment() * coefficient;
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
         if (currentHero.getHealing(HEALING)){
             final ActionEvent actionEvent = new ActionEvent(null
                     , currentPlayer, "Regeneration: " + HEALING);

@@ -18,7 +18,7 @@ public final class AAxeUp extends Bonus {
 
     @Override
     public final void use() {
-        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
         log.info("+2 BEFORE_ATTACK");
     }

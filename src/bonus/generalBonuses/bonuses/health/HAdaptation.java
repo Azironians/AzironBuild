@@ -16,7 +16,7 @@ public final class HAdaptation extends Bonus {
 
     @Override
     public final void use() {
-        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final double HEATH_SUPPLY_BOOST = currentHero.getAttack();
         currentHero.setHealthSupply(currentHero.getHealthSupply() + HEATH_SUPPLY_BOOST);
         log.info("HEALTH SUPPLY IS INCREASED");

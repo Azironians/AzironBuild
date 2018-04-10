@@ -23,7 +23,7 @@ public final class XNerf extends Bonus {
     @Override
     public final void use() {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = player.getHero();
+        final Hero currentHero = player.getCurrentHero();
 
         final double EXPERIENCE_BOOST = currentHero.getAttack() * BONUS_COEFFICIENT;
 

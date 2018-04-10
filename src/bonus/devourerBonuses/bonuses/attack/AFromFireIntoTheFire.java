@@ -25,8 +25,8 @@ public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleSe
     private final Processor treatmentProcessor = () -> {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
         final double damage = currentHero.getTreatment();
 
         if (opponentHero.getDamage(damage)) {

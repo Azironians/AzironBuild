@@ -49,7 +49,7 @@ public final class AFireBlast extends Bonus implements RegularHandleService {
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 final List<Skill> garbageList = new ArrayList<>();
-                for (final Skill skill: currentPlayer.getHero().getCollectionOfSkills()){
+                for (final Skill skill: currentPlayer.getCurrentHero().getCollectionOfSkills()){
                     if (skill.isReady()){
                         final DuplexMap<Skill, Skill> skillVsProxyMap
                                 = fireBlastSkillProxyComponent.getSkillVsProxyMap();

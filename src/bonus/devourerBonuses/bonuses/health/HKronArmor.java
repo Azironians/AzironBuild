@@ -46,13 +46,13 @@ public final class HKronArmor extends Bonus implements DynamicHandleService{
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.hitPoints = player.getHero().getHitPoints();
+                this.hitPoints = player.getCurrentHero().getHitPoints();
                 this.alternativePlayer = playerManager.getCurrentTeam().getAlternativePlayer();
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Hero currentHero = player.getHero();
+                final Hero currentHero = player.getCurrentHero();
                 final double hitPointsComparison = hitPoints - currentHero.getHitPoints();
                 log.info("ARMOR HANDLE");
                 final boolean isNecessaryHealing = hitPointsComparison > BIG_DAMAGE;

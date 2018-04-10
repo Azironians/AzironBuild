@@ -44,7 +44,7 @@ final class HybridisationSkillProxyComponent {
     }
 
     final boolean packSkill() {
-        final Hero currentHero = player.getHero();
+        final Hero currentHero = player.getCurrentHero();
         final List<Skill> skills = currentHero.getCollectionOfSkills();
         final Pair<Skill, Integer> availableSkill = isAvailableSkill(skills);
         if (availableSkill != null){
@@ -84,7 +84,7 @@ final class HybridisationSkillProxyComponent {
         final Pair<Integer, Integer> indexPair = hashVsPairMap.remove(skill.hashCode());
         final int heroSkillCollectionIndex = indexPair.getKey();
         final int proxySkillContainerIndex = indexPair.getValue();
-        this.player.getHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
+        this.player.getCurrentHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
         this.proxyHybridisationPane.getChildren().remove(proxySkillContainerIndex);
         this.skillVsProxyMap.remove(skill);
     }

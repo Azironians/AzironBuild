@@ -22,7 +22,7 @@ final class CutTentacle extends Bonus{
 
     @Override
     public void use() {
-        final Hero hero = usedGrowTentaclePlayer.getHero();
+        final Hero hero = usedGrowTentaclePlayer.getCurrentHero();
         hero.setAttack(hero.getAttack() - ATTACK_FIX);
         log.info("-4 BEFORE_ATTACK");
     }

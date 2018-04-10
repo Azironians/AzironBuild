@@ -91,11 +91,11 @@ public final class GraphicEngine {
 
     private void wireActionManagerToSkills(final ActionManager actionManager, final ATeam leftATeam, final ATeam rightATeam){
         final List<Hero> allHeroes = new ArrayList<>(){{
-            add(leftATeam.getCurrentPlayer().getHero());
-            add(rightATeam.getCurrentPlayer().getHero());
+            add(leftATeam.getCurrentPlayer().getCurrentHero());
+            add(rightATeam.getCurrentPlayer().getCurrentHero());
             if (playerManager.getGameMode() == GameMode._2x2){
-                add(leftATeam.getAlternativePlayer().getHero());
-                add(rightATeam.getAlternativePlayer().getHero());
+                add(leftATeam.getAlternativePlayer().getCurrentHero());
+                add(rightATeam.getAlternativePlayer().getCurrentHero());
             }
         }};
         for (final Hero hero: allHeroes){
@@ -116,9 +116,9 @@ public final class GraphicEngine {
 
     private void showLocation(final ALocation location, final ATeam team){
         final Player currentPlayer = team.getCurrentPlayer();
-        final Hero hero = currentPlayer.getHero();
+        final Hero hero = currentPlayer.getCurrentHero();
         currentPlayer.setLocation(location);
-        location.setFace(currentPlayer.getHero().getFace());
+        location.setFace(currentPlayer.getCurrentHero().getFace());
         //Profile:
         location.setName(currentPlayer.getProfile().getName());
         //Attack:
@@ -146,11 +146,11 @@ public final class GraphicEngine {
         }
         final Player alternativePlayer = team.getAlternativePlayer();
         if (alternativePlayer != null){
-            location.setupSwapSkill(alternativePlayer.getHero());
-//        log.debug("SWAP_TEMP:" + team.getAlternativePlayer().getHero().getSwapSkill().getTemp());
+            location.setupSwapSkill(alternativePlayer.getCurrentHero());
+//        log.debug("SWAP_TEMP:" + team.getAlternativePlayer().getCurrentHero().getSwapSkill().getTemp());
 //        log.debug("ALIVE: " + team.getAlternativePlayer().isAlive());
-//        log.debug("READY_SWAP: " + team.getAlternativePlayer().getHero().getSwapSkill().isReady());
-            if (alternativePlayer.isAlive() && alternativePlayer.getHero().getSwapSkill().isReady()){
+//        log.debug("READY_SWAP: " + team.getAlternativePlayer().getCurrentHero().getSwapSkill().isReady());
+            if (alternativePlayer.isAlive() && alternativePlayer.getCurrentHero().getSwapSkill().isReady()){
                 log.debug("SWAP_SKILL_IS_VISIBLE");
                 location.getSwapSkillPane().setVisible(true);
             } else {

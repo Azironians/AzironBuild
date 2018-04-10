@@ -1,6 +1,7 @@
 package bonus.lvBonuses.bonuses.attack.suffocation;
 
 import bonus.bonuses.Bonus;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import javafx.util.Pair;
 import managment.actionManagement.actions.ActionEvent;
@@ -12,7 +13,6 @@ import managment.actionManagement.service.engine.services.RegularHandleService;
 import managment.playerManagement.Player;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
@@ -20,23 +20,27 @@ public final class ASuffocation extends Bonus implements RegularHandleService {
 
     private static final int TURN = 1;
 
-    private Set<Pair<Player, Stack<Integer>>> setPlayerVsDamage;
+    private Set<Pair<Hero, Stack<Integer>>> setHeroVsDamage;
+
+    private Bonus destroySnatchBonus;
 
     public ASuffocation(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
-        this.setPlayerVsDamage = new HashSet<>();
+        this.setHeroVsDamage = new HashSet<>();
+        this.destroySnatchBonus = new DestroySnatch();
     }
 
     @Override
     public final void use() {
-        final var opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        for (final Pair<Player, Stack<Integer>> playerVsDamage : setPlayerVsDamage){
-            if (playerVsDamage.getKey() == opponentPlayer){
-                final Stack<Integer> damageStack = playerVsDamage.getValue();
+        final var opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        for (final Pair<Hero, Stack<Integer>> heroVsDamage : setHeroVsDamage){
+            if (heroVsDamage.getKey() == opponentHero){
+                final Stack<Integer> damageStack = heroVsDamage.getValue();
                 damageStack.push(TURN);
+                return; //stop
             }
-            return;
         }
+        this.setHeroVsDamage.add(new Pair<>(opponentHero, new Stack<>()));
     }
 
     @Override
@@ -48,25 +52,27 @@ public final class ASuffocation extends Bonus implements RegularHandleService {
             @Override
             public final void setup() {
                 this.currentPlayer = player;
-                opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getPlayer() == currentPlayer && actionEvent.getActionType() == ActionType.END_TURN) {
-                    for (int i = 0; i < turnDamageStack.size(); i++) {
-                        final int damage = turnDamageStack.get(i);
-                        final var opponent = opponentPlayer.getHero();
-                        final var engine = actionManager.getEventEngine();
-                        final var opponentHero = opponentPlayer.getHero();
-                        engine.handle(ActionEventFactory.getBeforeDealDamage(currentPlayer, opponentHero, damage));
-                        if (opponent.getDamage(damage)) {
-                            engine.handle(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentPlayer.getHero()
-                                    , damage));
+                    setHeroVsDamage.forEach(heroVsStackPair -> {
+                        final Hero opponentHero = heroVsStackPair.getKey();
+                        final Stack<Integer> turnDamageStack = heroVsStackPair.getValue();
+                        for (int i = 0; i < turnDamageStack.size(); i++) {
+                            final int damage = turnDamageStack.get(i);
+                            final var engine = actionManager.getEventEngine();
+                            engine.handle(ActionEventFactory.getBeforeDealDamage(currentPlayer, opponentHero, damage));
+                            if (opponentHero.getDamage(damage)) {
+                                engine.handle(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero
+                                        , damage));
+                            }
+                            turnDamageStack.setElementAt(damage + TURN, i);
                         }
-                        turnDamageStack.setElementAt(damage + TURN, i);
-                    }
+                    });
                 }
+                if ()
             }
 
             @Override

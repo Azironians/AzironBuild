@@ -28,7 +28,7 @@ public final class AFusedFromBowel extends Bonus {
     @Override
     public final void use() {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero hero = player.getHero();
+        final Hero hero = player.getCurrentHero();
         if (levelReached(hero)) {
             revertLevel(hero);
             changeSkill(hero);

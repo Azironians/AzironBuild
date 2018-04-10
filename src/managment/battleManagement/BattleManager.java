@@ -64,7 +64,7 @@ public final class BattleManager {
     //Next turn:
     public final void nextTurn() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final boolean isDestroyed = currentPlayer.getHero().getHitPoints() <= 0;
+        final boolean isDestroyed = currentPlayer.getCurrentHero().getHitPoints() <= 0;
         if (isDestroyed) {
             currentPlayer.setAlive(false);
             if (isEndGame()) {
@@ -107,17 +107,17 @@ public final class BattleManager {
         final Player currentPlayer = currentTeam.getCurrentPlayer();
         final Player alternativePlayer = currentTeam.getAlternativePlayer();
 
-        currentPlayer.getHero().reloadSkills();
+        currentPlayer.getCurrentHero().reloadSkills();
         if (playerManager.getGameMode() == GameMode._2x2){
-            alternativePlayer.getHero().reloadSkills();
-            alternativePlayer.getHero().getSwapSkill().reload();
+            alternativePlayer.getCurrentHero().reloadSkills();
+            alternativePlayer.getCurrentHero().getSwapSkill().reload();
         }
         //handling:
         eventEngine.handle(ActionEventFactory.getStartTurn(currentPlayer));
         if (playerManager.getGameMode() == GameMode._2x2){
             eventEngine.handle(ActionEventFactory.getStartTurn(alternativePlayer));
         }
-        loadRandomBonuses(currentPlayer.getHero());
+        loadRandomBonuses(currentPlayer.getCurrentHero());
     }
 
     public void loadRandomBonuses(final Hero hero) {

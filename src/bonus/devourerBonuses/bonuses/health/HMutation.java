@@ -46,7 +46,7 @@ public final class HMutation extends Bonus implements DynamicHandleService {
                 if (ConsumingMessageParser.isConsumingMessage((String) message)){
                     final double damage = ConsumingMessageParser
                             .parseMessageGetHealing((String) message);
-                    final Hero hero = player.getHero();
+                    final Hero hero = player.getCurrentHero();
                     hero.setHealthSupply(hero.getHealthSupply() + damage);
                     log.info("+" + damage + "to supply health");
                     actionManager.getEventEngine().handle();

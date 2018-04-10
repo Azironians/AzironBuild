@@ -44,13 +44,13 @@ public final class ADarkMight extends Bonus implements DynamicHandleService {
                 final ActionType actionType = actionEvent.getActionType();
                 final Player player = actionEvent.getPlayer();
                 if (actionType == ActionType.START_TURN && (this.player == player)){
-                    final Hero hero = player.getHero();
+                    final Hero hero = player.getCurrentHero();
                     hero.setAttack(hero.getAttack() + ATTACK_BOOST);
                     temporaryAttackBoost++;
                     actionManager.getEventEngine().setRepeatHandling(true);
                 }
                 if (actionType == ActionType.BEFORE_TREATMENT && (this.player == player)){
-                    final Hero hero = player.getHero();
+                    final Hero hero = player.getCurrentHero();
                     double previousAttack = hero.getAttack() - temporaryAttackBoost;
                     if (previousAttack < 0){
                         previousAttack = 0;

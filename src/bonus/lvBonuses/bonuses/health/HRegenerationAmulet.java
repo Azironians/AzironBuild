@@ -40,7 +40,7 @@ public final class HRegenerationAmulet extends Bonus implements DynamicHandleSer
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getPlayer() == player) {
-                    final var hero = player.getHero();
+                    final var hero = player.getCurrentHero();
                     switch (actionEvent.getActionType()) {
                         case START_TURN:
                             this.isUpgradedHealing = false;

@@ -44,20 +44,20 @@ public final class AEruption extends Bonus implements DynamicHandleService{
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.hitPoints = player.getHero().getHitPoints();
+                this.hitPoints = player.getCurrentHero().getHitPoints();
                 this.opponentTeam = playerManager.getOpponentATeam();
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Hero currentHero = player.getHero();
+                final Hero currentHero = player.getCurrentHero();
                 final double comparison = hitPoints - currentHero.getHitPoints();
                 if (comparison > 0 && currentHero.getHitPoints() < 0) {
                     log.info("COMPARISON: " + comparison);
                     final Player opponentPlayer = opponentTeam.getCurrentPlayer();
-                    if (opponentPlayer.getHero().getDamage(DAMAGE)){
+                    if (opponentPlayer.getCurrentHero().getDamage(DAMAGE)){
                         actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player
-                                , opponentPlayer.getHero(), DAMAGE));
+                                , opponentPlayer.getCurrentHero(), DAMAGE));
                     }
                 }
                 this.hitPoints = currentHero.getHitPoints();

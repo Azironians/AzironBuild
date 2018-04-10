@@ -22,8 +22,8 @@ public final class DepletionSkill extends AbstractSwapSkill {
     @Override
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
         final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();
         final double experienceConsuming = levelComparison > 0 ? (levelComparison + 1) * coefficients.get(0)
                 : coefficients.get(0);

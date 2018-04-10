@@ -25,7 +25,7 @@ public final class AAttack extends Bonus implements DynamicHandleService {
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
 
         currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
         log.info("+10 BEFORE_ATTACK");
@@ -50,7 +50,7 @@ public final class AAttack extends Bonus implements DynamicHandleService {
             public final void handle(final ActionEvent actionEvent) {
                 final ActionType actionType = actionEvent.getActionType();
                 if (actionType == ActionType.END_TURN) {
-                    final Hero currentHero = player.getHero();
+                    final Hero currentHero = player.getCurrentHero();
                     currentHero.setAttack(currentHero.getAttack() - ATTACK_BOOST);
                     isWorking = false;
                     log.info("-10 BEFORE_ATTACK");

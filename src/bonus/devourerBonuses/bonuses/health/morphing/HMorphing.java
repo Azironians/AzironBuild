@@ -38,7 +38,7 @@ public final class HMorphing extends ExtendedBonus {
     }
 
     private void changeRegenerationSkills(){
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final List<Skill> skills = hero.getCollectionOfSkills();
         for (int i = 0; i < skills.size(); i++){
             if (skills.get(i).getName().equals("Regeneration")){

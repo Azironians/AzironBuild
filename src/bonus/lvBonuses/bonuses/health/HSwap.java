@@ -16,7 +16,7 @@ public final class HSwap extends Bonus {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         double comparison = hero.getAttack() - ATTACK_LOST;
         if (comparison < 0){
             comparison = 0;

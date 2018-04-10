@@ -47,14 +47,14 @@ public final class HRegeneratedTissues extends Bonus implements RegularHandleSer
             @Override
             public final void setup() {
                 this.currentPlayer = player;
-                this.hitPoints = currentPlayer.getHero().getHitPoints();
+                this.hitPoints = currentPlayer.getCurrentHero().getHitPoints();
                 this.healing = 0;
                 handleComponent = this;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Hero hero = currentPlayer.getHero();
+                final Hero hero = currentPlayer.getCurrentHero();
                 if (this.healing > 0) {
                     log.info("TISSUES HANDLE");
                     final double hitPointsComparison = hitPoints - hero.getHitPoints();

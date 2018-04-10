@@ -43,7 +43,7 @@ public final class HArhawrath extends Bonus implements DynamicHandleService {
                         && (actionEvent.getPlayer() == getCurrentPlayer()
                         || actionEvent.getPlayer() == team.getAlternativePlayer())
                         && player == playerManager.getOpponentATeam().getCurrentPlayer()){
-                    for (final Skill skill : player.getHero().getCollectionOfSkills()){
+                    for (final Skill skill : player.getCurrentHero().getCollectionOfSkills()){
                         if (skill.getName().equals("FlameSnakes")){
                             skill.setTemp(skill.getReload());
                         }

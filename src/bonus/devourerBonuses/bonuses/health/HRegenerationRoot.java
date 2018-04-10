@@ -23,7 +23,7 @@ public final class HRegenerationRoot extends Bonus implements DynamicHandleServi
 
     private final Processor attackProcessor = () -> {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
         final double treatmentValue = currentHero.getAttack();
 
         if (currentHero.getHealing(treatmentValue)) {

@@ -47,7 +47,7 @@ final class FireBlastSkillProxyComponent {
     }
 
     final boolean packSkill() {
-        final Hero currentHero = player.getHero();
+        final Hero currentHero = player.getCurrentHero();
         final List<Skill> skills = currentHero.getCollectionOfSkills();
         final Pair<Skill, Integer> availableSkill = getFirstAvailableSkill(skills);
         if (availableSkill != null){
@@ -86,9 +86,9 @@ final class FireBlastSkillProxyComponent {
     final void invokeSkill(final EventEngine eventEngine, final PlayerManager playerManager) {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
-        final double damage = FireBlastAssistant.formDamage(player.getHero().getCollectionOfSkills());
-        if (opponent.getHero().getDamage(damage)) {
-            eventEngine.handle(ActionEventFactory.getAfterDealDamage(player, opponent.getHero(), damage));
+        final double damage = FireBlastAssistant.formDamage(player.getCurrentHero().getCollectionOfSkills());
+        if (opponent.getCurrentHero().getDamage(damage)) {
+            eventEngine.handle(ActionEventFactory.getAfterDealDamage(player, opponent.getCurrentHero(), damage));
         }
     }
 
@@ -102,7 +102,7 @@ final class FireBlastSkillProxyComponent {
         final Pair<Integer, Integer> indexPair = hashVsPairMap.get(skill.hashCode());
         final int heroSkillCollectionIndex = indexPair.getKey();
         final int proxySkillContainerIndex = indexPair.getValue();
-        this.player.getHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
+        this.player.getCurrentHero().getCollectionOfSkills().remove(heroSkillCollectionIndex);
         this.proxyFireBlastPane.getChildren().remove(proxySkillContainerIndex);
         this.skillVsProxyMap.remove(skill);
     }

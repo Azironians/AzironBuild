@@ -22,7 +22,7 @@ public final class HMagmaShell extends Bonus {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final double healingBoost;
         if (hero.getLevel() == FIRST_LEVEL){
             healingBoost = BIG_HEALING_BOOST;

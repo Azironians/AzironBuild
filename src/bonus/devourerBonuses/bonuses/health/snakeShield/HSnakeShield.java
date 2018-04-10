@@ -15,7 +15,7 @@ public final class HSnakeShield extends Bonus {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final List<Skill> skills = hero.getCollectionOfSkills();
         for (final Skill skill : skills){
             if (skill.getName().equals("FlamesSnakes")){

@@ -13,7 +13,7 @@ public final class Player {
 
     private final Profile profile;
 
-    private Hero hero;
+    private Hero currentHero;
 
     @Transcendental
     private List<Hero> otherHeroes;
@@ -33,9 +33,9 @@ public final class Player {
     private ALocation location;
 
 
-    public Player(final Profile profile, final Hero hero) {
+    public Player(final Profile profile, final Hero currentHero) {
         this.profile = profile;
-        this.hero = hero;
+        this.currentHero = currentHero;
         this.isAlive = true;
     }
 
@@ -53,12 +53,12 @@ public final class Player {
     }
 
     @Contract(pure = true)
-    public Hero getHero() {
-        return hero;
+    public Hero getCurrentHero() {
+        return currentHero;
     }
 
-    public void setHero(Hero hero) {
-        this.hero = hero;
+    public void setCurrentHero(Hero currentHero) {
+        this.currentHero = currentHero;
     }
 
     @Contract(pure = true)

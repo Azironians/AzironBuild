@@ -16,7 +16,7 @@ public final class ALossOfControl extends Bonus {
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         if (hero.getDamage(SELF_DAMAGE)){
             actionManager.getEventEngine().handle();
         }

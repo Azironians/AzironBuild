@@ -21,9 +21,9 @@ public final class ABerserk extends Bonus {
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
 
         opponentHero.getDamage(currentHero.getAttack());
         log.info("DEAL " + currentHero.getAttack() + " DAMAGE TO OPPONENT PLAYER");

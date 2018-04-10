@@ -18,8 +18,8 @@ public final class AHarpoonUnderworlds extends Bonus {
     public final void use() {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero opponentHero = opponentPlayer.getHero();
-        final double damage = player.getHero().getLevel() * DAMAGE;
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
+        final double damage = player.getCurrentHero().getLevel() * DAMAGE;
         if (opponentHero.getDamage(damage)){
             actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player, opponentHero, damage));
         }

@@ -28,8 +28,8 @@ public final class XFeedBack extends Bonus implements RegularHandleService {
 
     @Override
     public final void use() {
-        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
 
         final double HEALING_BOOST = lastDamage * SKILL_HEALING_COEFFICIENT;
         final double OPPONENT_EXPERIENCE_BOOST = lastDamage * SKILL_EXPERIENCE_COEFFICIENT;
@@ -55,13 +55,13 @@ public final class XFeedBack extends Bonus implements RegularHandleService {
             @Override
             public final void setup() {
                 this.player = inputPlayer;
-                this.hitPoints = player.getHero().getHitPoints();
+                this.hitPoints = player.getCurrentHero().getHitPoints();
             }
 
             @Override
             public synchronized final void handle(final ActionEvent actionEvent) {
 //                log.info("FEEDBACK HANDLE");
-                final double newHitPoints = player.getHero().getHitPoints();
+                final double newHitPoints = player.getCurrentHero().getHitPoints();
                 final double comparison = hitPoints - newHitPoints;
 //                if (player == playerManager.getCurrentTeam().getCurrentPlayer()){
 //                    log.info("PLAYER: " + player.getProfile().getName());

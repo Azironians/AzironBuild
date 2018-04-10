@@ -22,7 +22,7 @@ public final class SWayOfWizard extends Bonus {
 
     @Override
     public final void use() {
-        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final List<Skill> skills = currentHero.getCollectionOfSkills();
         for (final Skill skill : skills) {
             final List<Double> coefficients = skill.getCoefficients();

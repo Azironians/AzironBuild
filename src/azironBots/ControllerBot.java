@@ -10,64 +10,64 @@ public class ControllerBot {
     private Boolean gameWithPC = false;
     public void playingEasyBot() {
 //        //Бот "Лорд Вамп"
-//        if (player1.getHero().getClass() == HeroLordVamp.class) {
-//            if (player1.getHero().getSkills().isThreeOpen()) {
+//        if (player1.getCurrentHero().getClass() == HeroLordVamp.class) {
+//            if (player1.getCurrentHero().getSkills().isThreeOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().threeUlt();
-//            } else if (player1.getHero().getSkills().isFirstOpen()) {
+//                player1.getCurrentHero().getSkills().threeUlt();
+//            } else if (player1.getCurrentHero().getSkills().isFirstOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
-//            } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 0.5) {
+//                player1.getCurrentHero().getSkills().firstUlt();
+//            } else if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 0.5) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-//            } else if (player1.getHero().getSkills().isTwoOpen()) {
+//            } else if (player1.getCurrentHero().getSkills().isTwoOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
+//                player1.getCurrentHero().getSkills().twoUlt();
 //            } else {
 //                battle.damage(player1, player2);
 //            }
 //        }
 //        //Бот "Пожиратель"
-//        else if (player1.getHero().getClass() == HeroDevourer.class) {
-//            if (player1.getHero().getSkills().isThreeOpen()) {
+//        else if (player1.getCurrentHero().getClass() == HeroDevourer.class) {
+//            if (player1.getCurrentHero().getSkills().isThreeOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().threeUlt();
-//            } else if (player1.getHero().getSkills().isTwoOpen()) {
+//                player1.getCurrentHero().getSkills().threeUlt();
+//            } else if (player1.getCurrentHero().getSkills().isTwoOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
-//            } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 1) {
+//                player1.getCurrentHero().getSkills().twoUlt();
+//            } else if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 1) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-//            } else if (player1.getHero().getSkills().isFirstOpen()) {
+//            } else if (player1.getCurrentHero().getSkills().isFirstOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
+//                player1.getCurrentHero().getSkills().firstUlt();
 //            } else {
 //                battle.damage(player1, player2);
 //            }
 //        }
 //        //Бот "Оглушитель"
 //        else {
-//            if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+//            if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 2.5) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-//            } else if (player1.getHero().getSkills().isThreeOpen()) {
+//            } else if (player1.getCurrentHero().getSkills().isThreeOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().threeUlt();
-//            } else if (player1.getHero().getSkills().isTwoOpen()) {
+//                player1.getCurrentHero().getSkills().threeUlt();
+//            } else if (player1.getCurrentHero().getSkills().isTwoOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
-//            } else if (player1.getHero().getSkills().isFirstOpen()) {
+//                player1.getCurrentHero().getSkills().twoUlt();
+//            } else if (player1.getCurrentHero().getSkills().isFirstOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
+//                player1.getCurrentHero().getSkills().firstUlt();
 //            } else {
 //                battle.damage(player1, player2);
 //            }
@@ -76,22 +76,22 @@ public class ControllerBot {
 //
 //    public void playingNormalBot() {
 //        //Бот "Лорд Вамп"
-//        if (player1.getHero().getClass() == HeroLordVamp.class) {
+//        if (player1.getCurrentHero().getClass() == HeroLordVamp.class) {
 //            // "Использование реинкорнации"
-//            if (player1.getHero().getSkills().isThreeOpen() && player1.getHero().getHitPoints() * (-1) > player2.getHero().getAttack()) {
+//            if (player1.getCurrentHero().getSkills().isThreeOpen() && player1.getCurrentHero().getHitPoints() * (-1) > player2.getCurrentHero().getAttack()) {
 //                    turn *= -1;
-//                    player1.getHero().getSkills().threeUlt();
+//                    player1.getCurrentHero().getSkills().threeUlt();
 //            }
 //            // Использование "Каннибализма"
-//            else if (player1.getHero().getSkills().isFirstOpen() && (player1.getHero().getLevel() >=
-//                    player2.getHero().getLevel() || player1.getHero().getHitPoints() <=
-//                    player1.getHero().getHealthSupply() * 0.3)) {
+//            else if (player1.getCurrentHero().getSkills().isFirstOpen() && (player1.getCurrentHero().getLevel() >=
+//                    player2.getCurrentHero().getLevel() || player1.getCurrentHero().getHitPoints() <=
+//                    player1.getCurrentHero().getHealthSupply() * 0.3)) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
+//                player1.getCurrentHero().getSkills().firstUlt();
 //            }
 //            //Использование "Лечения"
-//            else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 0.5 ||
-//                    (player1.getHero().getHitPoints() <= player1.getHero().getHealthSupply() * 0.3 && turns % 8 == 0)) {
+//            else if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 0.5 ||
+//                    (player1.getCurrentHero().getHitPoints() <= player1.getCurrentHero().getHealthSupply() * 0.3 && turns % 8 == 0)) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
@@ -99,11 +99,11 @@ public class ControllerBot {
 //                }
 //            }
 //            //Использование "Клинков"
-//            else if (player1.getHero().getSkills().isTwoOpen() &&
-//                    player1.getHero().getExperienceList()[player1.getHero().getLevel() - 1] -
-//                            player1.getHero().getExperience() > player1.getHero().getAttack() * 2){
+//            else if (player1.getCurrentHero().getSkills().isTwoOpen() &&
+//                    player1.getCurrentHero().getExperienceList()[player1.getCurrentHero().getLevel() - 1] -
+//                            player1.getCurrentHero().getExperience() > player1.getCurrentHero().getAttack() * 2){
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
+//                player1.getCurrentHero().getSkills().twoUlt();
 //            }
 //            //Использование атаки
 //            else {
@@ -111,43 +111,43 @@ public class ControllerBot {
 //            }
 //        }
 //        //Бот "Пожиратель"
-//        else if (player1.getHero().getClass() == HeroDevourer.class) {
-//            if (player1.getHero().getSkills().isThreeOpen()) {
+//        else if (player1.getCurrentHero().getClass() == HeroDevourer.class) {
+//            if (player1.getCurrentHero().getSkills().isThreeOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().threeUlt();
-//            } else if (player1.getHero().getSkills().isTwoOpen()) {
+//                player1.getCurrentHero().getSkills().threeUlt();
+//            } else if (player1.getCurrentHero().getSkills().isTwoOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
-//            } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 1) {
+//                player1.getCurrentHero().getSkills().twoUlt();
+//            } else if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 1) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-//            } else if (player1.getHero().getSkills().isFirstOpen()) {
+//            } else if (player1.getCurrentHero().getSkills().isFirstOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
+//                player1.getCurrentHero().getSkills().firstUlt();
 //            } else {
 //                battle.damage(player1, player2);
 //            }
 //        }
 //        //Бот "Оглушитель"
 //        else {
-//            if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+//            if (player1.getCurrentHero().getHitPoints() < player2.getCurrentHero().getAttack() * 2.5) {
 //                try {
 //                    battle.treatment(player1, player2);
 //                } catch (InterruptedException e) {
 //                    e.printStackTrace();
 //                }
-//            } else if (player1.getHero().getSkills().isThreeOpen()) {
+//            } else if (player1.getCurrentHero().getSkills().isThreeOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().threeUlt();
-//            } else if (player1.getHero().getSkills().isTwoOpen()) {
+//                player1.getCurrentHero().getSkills().threeUlt();
+//            } else if (player1.getCurrentHero().getSkills().isTwoOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().twoUlt();
-//            } else if (player1.getHero().getSkills().isFirstOpen()) {
+//                player1.getCurrentHero().getSkills().twoUlt();
+//            } else if (player1.getCurrentHero().getSkills().isFirstOpen()) {
 //                turn *= -1;
-//                player1.getHero().getSkills().firstUlt();
+//                player1.getCurrentHero().getSkills().firstUlt();
 //            } else {
 //                battle.damage(player1, player2);
 //            }

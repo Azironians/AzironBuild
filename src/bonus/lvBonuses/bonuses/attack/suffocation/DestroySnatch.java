@@ -1,8 +1,11 @@
 package bonus.lvBonuses.bonuses.attack.suffocation;
 
 import bonus.bonuses.Bonus;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
+import javafx.util.Pair;
 
+import java.util.Set;
 import java.util.Stack;
 
 public final class DestroySnatch extends Bonus {
@@ -13,15 +16,16 @@ public final class DestroySnatch extends Bonus {
 
     private static final ImageView imageView = new ImageView();
 
-    private final Stack<Integer> turnDamageStack;
+    private final Pair<Hero, Stack<Integer>> heroStackPair;
 
-    public DestroySnatch(final Stack<Integer> turnDamageStack) {
+    DestroySnatch(final Pair<Hero, Stack<Integer>> heroStackPair) {
         super(NAME, ID, imageView);
-        this.turnDamageStack = turnDamageStack;
+        this.heroStackPair = heroStackPair;
     }
 
     @Override
     public final void use() {
-        this.turnDamageStack.pop();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
+
     }
 }

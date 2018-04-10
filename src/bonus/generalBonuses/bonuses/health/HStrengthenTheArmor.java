@@ -45,13 +45,13 @@ public final class HStrengthenTheArmor extends Bonus implements DynamicHandleSer
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.hitPoints = player.getHero().getHitPoints();
+                this.hitPoints = player.getCurrentHero().getHitPoints();
                 this.alternativePlayer = playerManager.getCurrentTeam().getAlternativePlayer();
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Hero currentHero = player.getHero();
+                final Hero currentHero = player.getCurrentHero();
                 final double hitPointsComparison = hitPoints - currentHero.getHitPoints();
                 final double healthSupplyComparison = healthSupply - currentHero
                         .getHitPoints();

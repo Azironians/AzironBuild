@@ -54,7 +54,7 @@ public final class XAnticipation extends Bonus implements DynamicHandleService {
 
                 if (actionEvent.getActionType() == ActionType.BEFORE_ATTACK && (attackPlayer == opponent
                         || attackPlayer == alternativeOpponent) && player == victimPlayer) {
-                    final Hero victimHero = player.getHero();
+                    final Hero victimHero = player.getCurrentHero();
                     victimHero.addExperience(EXPERIENCE_BOOST);
                     log.info("+3 XP");
                 }

@@ -23,8 +23,8 @@ public final class FurySkill extends AbstractSwapSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
         final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();
         final double SKILL_COEFFICIENT = levelComparison > 0 ? (levelComparison + 1) * coefficients.get(0)
                 : coefficients.get(0);

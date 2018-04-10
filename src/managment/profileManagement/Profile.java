@@ -71,7 +71,7 @@ public final class Profile {
                         bufferedWriter.newLine();
                         break;
                     case 5: //Коррекция побед за выбранного героя:
-//                        if (player.getHero().getClass().equals(HeroDevourer.class)) {
+//                        if (player.getCurrentHero().getClass().equals(HeroDevourer.class)) {
 //                            this.setWinForDevourer(this.getWinForDevourer() + 1);
 //                            bufferedWriter.debug(this.getWinForDevourer() + "");
 //                            bufferedWriter.newLine();
@@ -79,7 +79,7 @@ public final class Profile {
 //                            bufferedWriter.debug(lines.getProxy(i) + "\n");
 //                        break;
                     case 6:
-//                        if (player.getHero().getClass().equals(HeroLordVamp.class)) {
+//                        if (player.getCurrentHero().getClass().equals(HeroLordVamp.class)) {
 //                            this.setWinForLV(this.getWinForLV() + 1);
 //                            bufferedWriter.debug(this.getWinForLV() + "");
 //                            bufferedWriter.newLine();
@@ -87,7 +87,7 @@ public final class Profile {
 //                            bufferedWriter.debug(lines.getProxy(i) + "\n");
 //                        break;
                     case 7:
-//                        if (player.getHero().getClass().equals(HeroOrcBasher.class)) {
+//                        if (player.getCurrentHero().getClass().equals(HeroOrcBasher.class)) {
 //                            this.setWinForOrcBash(this.getWinForOrcBash() + 1);
 //                            bufferedWriter.debug(this.getWinForOrcBash() + "");
 //                            bufferedWriter.newLine();

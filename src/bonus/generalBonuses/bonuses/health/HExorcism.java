@@ -45,7 +45,7 @@ public final class HExorcism extends Bonus implements DynamicHandleService {
                 final ActionType actionType = actionEvent.getActionType();
 
                 if (actionType == ActionType.END_TURN && player == actionEvent.getPlayer()) {
-                    final Hero currentHero = player.getHero();
+                    final Hero currentHero = player.getCurrentHero();
 
                     if (currentHero.getHealing(HEALING_BOOST)) {
                         log.info("+2 HP");

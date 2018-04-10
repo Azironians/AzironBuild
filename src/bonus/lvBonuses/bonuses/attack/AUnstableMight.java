@@ -49,7 +49,7 @@ public final class AUnstableMight extends ExtendedBonus implements RegularHandle
 
     @Override
     public final void use() {
-        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getHero();
+        final Hero hero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         hero.setAttack(hero.getAttack());
     }
 

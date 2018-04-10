@@ -16,7 +16,7 @@ public final class EAwareness extends Bonus {
     @Override
     public final void use() {
         final ATeam team = playerManager.getCurrentTeam();
-        final Hero hero = team.getCurrentPlayer().getHero();
+        final Hero hero = team.getCurrentPlayer().getCurrentHero();
         final double currentHitPoints = hero.getHitPoints();
         final double healthSupply = hero.getHealthSupply();
         final double experienceBoost = (healthSupply - currentHitPoints) * EXPERIENCE_BOOST_COEFFICIENT;

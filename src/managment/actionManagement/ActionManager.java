@@ -47,7 +47,7 @@ public final class ActionManager {
     public final void setHeroRequest(final ATeam clickedTeam) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
 
         if (clickedTeam.equals(currentTeam)) {
             if (currentHero.isTreatmentAccess()) {
@@ -65,7 +65,7 @@ public final class ActionManager {
     private void healingProcess(final ATeam team) {
         if (isStandardTreatment) {
             final Player currentPlayer = team.getCurrentPlayer();
-            final Hero currentHero = currentPlayer.getHero();
+            final Hero currentHero = currentPlayer.getCurrentHero();
             final double treatmentValue = currentHero.getTreatment();
 
             if (currentHero.getHealing(treatmentValue)) {
@@ -83,13 +83,13 @@ public final class ActionManager {
     private void attackProcess(final ATeam victimTeam, final ATeam attackTeam) {
         if (isStandardAttack) {
             final Player attackPlayer = attackTeam.getCurrentPlayer();
-            final Hero attackHero = attackPlayer.getHero();
+            final Hero attackHero = attackPlayer.getCurrentHero();
             final double attackValue = attackHero.getAttack();
 
             if (attackHero.addExperience(attackValue)) {
                 eventEngine.handle();
             }
-            final Hero victimHero = victimTeam.getCurrentPlayer().getHero();
+            final Hero victimHero = victimTeam.getCurrentPlayer().getCurrentHero();
             if (victimHero.getDamage(attackValue)) {
                 eventEngine.handle(ActionEventFactory.getAfterDealDamage(attackPlayer, victimHero, attackValue));
             }
@@ -106,7 +106,7 @@ public final class ActionManager {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
 
-        final boolean heroAuthentication = hero.equals(currentPlayer.getHero());
+        final boolean heroAuthentication = hero.equals(currentPlayer.getCurrentHero());
         log.info("hero authentication: " + heroAuthentication);
         if (heroAuthentication) {
             final boolean access = skill.isSkillAccess();
@@ -138,9 +138,9 @@ public final class ActionManager {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         if (team.equals(currentTeam)) {
             if (isStandardSwap) {
-                final Hero alternativeHero = currentTeam.getAlternativePlayer().getHero();
+                final Hero alternativeHero = currentTeam.getAlternativePlayer().getCurrentHero();
                 if (alternativeHero.getSwapSkill().isReady() && team.swapPlayers()) {
-                    final Hero currentHero = currentTeam.getCurrentPlayer().getHero();
+                    final Hero currentHero = currentTeam.getCurrentPlayer().getCurrentHero();
                     final Skill swapSkill = currentHero.getSwapSkill();
                     eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
                     eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));

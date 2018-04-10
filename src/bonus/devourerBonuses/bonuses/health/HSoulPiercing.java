@@ -15,9 +15,9 @@ public final class HSoulPiercing extends Bonus {
     @Override
     public final void use() {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer()
-                .getHero();
+                .getCurrentHero();
         final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer()
-                .getHero();
+                .getCurrentHero();
         final double treatmentDecreasing = currentHero.getAttack()
                 * DESTROY_TREATMENT_COEFFICIENT;
         opponentHero.setTreatment(treatmentDecreasing);

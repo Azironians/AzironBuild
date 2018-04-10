@@ -25,12 +25,12 @@ public final class ABreakthrough extends Bonus{
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
 
-        final Hero opponentHero = opponentPlayer.getHero();
+        final Hero opponentHero = opponentPlayer.getCurrentHero();
         final List<Skill> opponentSkills = opponentHero.getCollectionOfSkills();
         for (final Skill skill: opponentSkills){
             final boolean levelReached = opponentHero.getLevel() >= skill.getRequiredLevel();
             if (skill.isReady() && levelReached){
-                if (currentPlayer.getHero().getDamage(DAMAGE)){
+                if (currentPlayer.getCurrentHero().getDamage(DAMAGE)){
                     log.info("-" + DAMAGE + " HP");
                     actionManager.getEventEngine().setRepeatHandling(true);
                 }

@@ -24,7 +24,7 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getHero();
+        final Hero currentHero = currentPlayer.getCurrentHero();
 
         actionManager.getEventEngine().addHandler(getHandlerInstance());
         currentHero.setAttack(currentHero.getAttack() * (1 + ATTACK_BOOST_COEFFICIENT));
@@ -44,14 +44,14 @@ public final class AEvilBrassKnuckles extends Bonus implements DynamicHandleServ
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.delta = player.getHero().getAttack() * ATTACK_BOOST_COEFFICIENT;
+                this.delta = player.getCurrentHero().getAttack() * ATTACK_BOOST_COEFFICIENT;
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 final ActionType actionType = actionEvent.getActionType();
                 if (actionType == ActionType.END_TURN) {
-                    final Hero currentHero = player.getHero();
+                    final Hero currentHero = player.getCurrentHero();
                     currentHero.setAttack(currentHero.getAttack() - delta);
                     isWorking = false;
                     log.info("-15% BEFORE_ATTACK");
