@@ -1,6 +1,7 @@
 package heroes.abstractHero.hero;
 
 import bonus.bonuses.Bonus;
+import heroes.abstractHero.bonusManagement.BonusManager;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
@@ -347,5 +348,12 @@ public abstract class Hero {
 
     public final void setHealingCoefficient(double healingCoefficient) {
         this.healingCoefficient = healingCoefficient;
+    }
+
+    //Bonus management:
+    private final BonusManager bonusManager = new BonusManager();
+
+    public final BonusManager getBonusManager() {
+        return bonusManager;
     }
 }

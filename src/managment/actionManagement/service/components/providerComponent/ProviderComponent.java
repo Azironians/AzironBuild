@@ -7,6 +7,4 @@ public interface ProviderComponent<T> {
     int getPriority();
 
     void setPriority(final int priority);
-
-
 }

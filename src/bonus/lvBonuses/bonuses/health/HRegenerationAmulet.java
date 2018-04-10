@@ -1,6 +1,7 @@
 package bonus.lvBonuses.bonuses.health;
 
 import bonus.bonuses.Bonus;
+import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
@@ -40,7 +41,7 @@ public final class HRegenerationAmulet extends Bonus implements DynamicHandleSer
             @Override
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getPlayer() == player) {
-                    final var hero = player.getCurrentHero();
+                    final Hero hero = player.getCurrentHero();
                     switch (actionEvent.getActionType()) {
                         case START_TURN:
                             this.isUpgradedHealing = false;

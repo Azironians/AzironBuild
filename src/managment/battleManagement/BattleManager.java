@@ -9,7 +9,7 @@ import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.components.providerComponent.ProviderComponent;
 import managment.actionManagement.service.engine.EventEngine;
-import managment.bonusManagment.BonusManager;
+import heroes.abstractHero.bonusManagement.BonusManager;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.GameMode;
 import managment.playerManagement.Player;
@@ -35,8 +35,6 @@ public final class BattleManager {
 
     @Inject
     private EventEngine eventEngine;
-
-    private BonusManager bonusManager = new BonusManager();
 
     @Inject
     @Named("start time")
@@ -123,7 +121,8 @@ public final class BattleManager {
     public void loadRandomBonuses(final Hero hero) {
         if (isStandardRandomBonusEngine){
             final List<Bonus> bonusList = hero.getBonusCollection();
-            final List<ProviderComponent<Integer>> providerComponents = bonusManager.getProviderComponentList();
+            final List<ProviderComponent<Integer>> providerComponents = hero.getBonusManager()
+                    .getProviderComponentList();
             final int firstBonus = providerComponents.get(0).getValue();
             int secondBonus = providerComponents.get(1).getValue();
             int thirdBonus = providerComponents.get(2).getValue();
@@ -188,9 +187,5 @@ public final class BattleManager {
         this.processor = () -> {
             //Empty
         };
-    }
-
-    public BonusManager getBonusManager() {
-        return bonusManager;
     }
 }

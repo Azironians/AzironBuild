@@ -8,7 +8,7 @@ import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import managment.actionManagement.service.components.providerComponent.ProviderComponent;
 import managment.actionManagement.service.engine.services.DynamicHandleService;
-import managment.bonusManagment.BonusManager;
+import heroes.abstractHero.bonusManagement.BonusManager;
 import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
 import org.slf4j.Logger;
@@ -57,13 +57,16 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
+                final Player player = actionEvent.getPlayer();
+                final Hero hero = actionEvent.getPlayer().getCurrentHero();
                 if (actionEvent.getActionType() == ActionType.START_TURN
-                        && (actionEvent.getPlayer() == opponentTeam.getCurrentPlayer()
-                        || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())) {
-                    final BonusManager bonusManager = battleManager.getBonusManager();
+                        && (player == opponentTeam.getCurrentPlayer()
+                        || player == opponentTeam.getAlternativePlayer())) {
+                    final BonusManager bonusManager = hero.getBonusManager();
                     this.index = bonusManager.getAvailableProviderComponent();
-                    final ProviderComponent<Integer> customProviderComponent = getCustomProviderComponent();
                     this.previousProviderComponent = bonusManager.getProviderComponentList().get(index);
+                    final ProviderComponent<Integer> customProviderComponent
+                            = getCustomProviderComponent(previousProviderComponent.getPriority());
                     bonusManager.setCustomProviderComponent(index, customProviderComponent);
                 }
                 if ((actionEvent.getActionType() == ActionType.END_TURN
@@ -71,7 +74,7 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
                         || actionEvent.getActionType() == ActionType.AFTER_USED_BONUS)
                         && (actionEvent.getPlayer() == opponentTeam.getCurrentPlayer()
                         || actionEvent.getPlayer() == opponentTeam.getAlternativePlayer())) {
-                    battleManager.getBonusManager().returnPreviousProviderComponent(index, previousProviderComponent);
+                    hero.getBonusManager().returnPreviousProviderComponent(index, previousProviderComponent);
                     this.isWorking = false;
                 }
             }
@@ -96,10 +99,10 @@ public final class AGrowTentacle extends Bonus implements DynamicHandleService {
                this.isWorking = able;
             }
 
-            private ProviderComponent<Integer> getCustomProviderComponent() {
+            private ProviderComponent<Integer> getCustomProviderComponent(final int inputPriority) {
                 return new ProviderComponent<>() {
 
-                    private int priority = 0;
+                    private int priority = inputPriority;
 
                     @Override
                     public final Integer getValue() {

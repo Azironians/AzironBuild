@@ -1,4 +1,4 @@
-package managment.bonusManagment;
+package heroes.abstractHero.bonusManagement;
 
 import managment.actionManagement.service.components.providerComponent.ProviderComponent;
 
@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Random;
 
 public final class BonusManager {
-
-    public int anInt;
 
     private ProviderComponent<Integer> firstProviderComponent = new ProviderComponent<>() {
 
@@ -82,12 +80,13 @@ public final class BonusManager {
     }};
 
     public final void setDefaultProviderComponent(final int index){
-        final ProviderComponent<Integer> providerComponent = getDefaultProviderComponent(providerComponentList.get(index)
-                .getPriority());
+        final ProviderComponent<Integer> providerComponent = getDefaultProviderComponent(providerComponentList
+                .get(index).getPriority());
         this.providerComponentList.set(index, providerComponent);
     }
 
-    public final void returnPreviousProviderComponent(final int index, final ProviderComponent<Integer> providerComponent){
+    public final void returnPreviousProviderComponent(final int index
+            , final ProviderComponent<Integer> providerComponent){
         providerComponent.setPriority(providerComponentList.get(index).getPriority());
         this.providerComponentList.set(index, providerComponent);
     }
@@ -102,7 +101,7 @@ public final class BonusManager {
         int i = 0;
         ProviderComponent<Integer> minPriorityProviderComponent = providerComponentList.get(0);
         for (final ProviderComponent<Integer> providerComponent: providerComponentList){
-            if (providerComponent.getPriority() < minPriorityProviderComponent.getPriority()){
+            if (providerComponent.getPriority() <= minPriorityProviderComponent.getPriority()){
                 minPriorityProviderComponent = providerComponent;
                 index = i;
             }
@@ -111,8 +110,11 @@ public final class BonusManager {
         return index;
     }
 
-
+    //Interesting getter:
     public final List<ProviderComponent<Integer>> getProviderComponentList() {
+        for (final ProviderComponent<Integer> providerComponent :providerComponentList){
+            providerComponent.setPriority(providerComponent.getPriority() + 1);
+        }
         return providerComponentList;
     }
 
