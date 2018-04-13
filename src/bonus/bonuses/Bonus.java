@@ -31,9 +31,7 @@ public abstract class Bonus {
 
         sprite.setFitHeight(353.0);
         sprite.setFitWidth(309.0);
-        sprite.setOnMouseClicked(event -> {
-            actionManager.setBonusRequest(this);
-        });
+        sprite.setOnMouseClicked(event -> actionManager.setBonusRequest(this));
         sprite.setOnMouseEntered(event -> increaseBonusEntered());
         sprite.setOnMouseExited(event -> decreaseBonusExited());
         this.sprite = sprite;
@@ -79,11 +77,11 @@ public abstract class Bonus {
         return actionEvents;
     }
 
-    public final String getName() {
+    public String getName() {
         return name;
     }
 
-    public final ImageView getSprite() {
+    public ImageView getSprite() {
         return sprite;
     }
 

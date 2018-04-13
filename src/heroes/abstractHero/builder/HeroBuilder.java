@@ -30,7 +30,7 @@ public interface HeroBuilder {
         return getHeroInstance(clazz, superSkills, swapSkill, face, attackVoiceList, treatmentVoiceList);
     }
 
-    private Hero getHeroInstance(final Class clazz, final List<Skill> superSkills, final Skill swapSkill
+    default Hero getHeroInstance(final Class clazz, final List<Skill> superSkills, final Skill swapSkill
             , final ImageView face, final List<Media> attackVoices, final List<Media> treatmentVoices){
         Hero hero = null;
         if (clazz.equals(Devourer.class)) {

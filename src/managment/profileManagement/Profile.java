@@ -125,7 +125,7 @@ public final class Profile {
     }
 
 
-    private void correctRank(Profile this) {
+    private void correctRank() {
         if (this.getMMR() < 50) {
             this.setRank((byte) 1);
         } else if (this.getMMR() >= 50 && this.getMMR() < 100) {
