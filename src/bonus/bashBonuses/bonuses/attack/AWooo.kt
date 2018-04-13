@@ -1,4 +1,4 @@
-package bonus.bashBonuses.bonuses
+package bonus.bashBonuses.bonuses.attack
 
 import bonus.bonuses.Bonus
 import javafx.scene.image.ImageView
@@ -10,7 +10,7 @@ class AWooo(name: String, id: Int, sprite: ImageView) : Bonus(name, id, sprite){
 
     private val START_POSITION: Int = 1
 
-    var counter: Int  = START_POSITION
+    private var counter: Int  = START_POSITION
 
     override fun use() {
         val player = playerManager.currentTeam.currentPlayer
