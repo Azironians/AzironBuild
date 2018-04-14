@@ -10,21 +10,30 @@ import managment.battleManagement.BattleManager
 import managment.playerManagement.PlayerManager
 
 final class SnakeShieldSkill(val proxyComponent: SnakeShieldSkillProxyComponent
-                       , name: String = "", reload: Int = 0, requiredLevel: Int = 1
-                       , coefficients: util.List[java.lang.Double] = util.List.of[java.lang.Double](1.0)
-                       , sprite: ImageView = new ImageView(), description: ImageView = new ImageView()
-                       , listOfVoices: util.List[Media] = util.List.of())
+                             , name: String = ""
+                             , reload: Int = 0
+                             , requiredLevel: Int = 1
+                             , coefficients: util.List[java.lang.Double] = util.List.of[java.lang.Double](1.0)
+                             , sprite: ImageView = new ImageView()
+                             , description: ImageView = new ImageView()
+                             , listOfVoices: util.List[Media] = util.List.of())
   extends AbstractSkill(name, reload, requiredLevel, coefficients, sprite, description: ImageView
-    , listOfVoices: util.List[Media]){
+    , listOfVoices: util.List[Media]) {
 
   override def use(battleManager: BattleManager, playerManager: PlayerManager): Unit = {
-    val player = playerManager.getCurrentTeam.getCurrentPlayer
-    val opponentHero = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero
-    val eventEngine = actionManager.getEventEngine
-//    eventEngine.handle(ActionEventFactory.getBeforeDealDamage(player, opponentHero, armor))
-//    if (opponentHero.getDamage(armor)){
-//
-//    }
+    val damage: Double = coefficients.get(0) * proxyComponent.proxySkillVsDamageMap(this) // something not correct a little bit
+    val currentPlayer = playerManager.getCurrentTeam.getCurrentPlayer
+    val opponentPlayer = playerManager.getOpponentATeam.getCurrentPlayer
+    val opponentHero = opponentPlayer.getCurrentHero
+    actionEvents.add(ActionEventFactory.getBeforeDealDamage(currentPlayer, opponentHero, damage))
+    if (opponentHero.getDamage(damage)) {
+      actionEvents.add(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage))
+    }
+    destroy()
+  }
+
+  private def destroy(): Unit = {
+    proxyComponent.destroy(this)
   }
 
   override def showAnimation(): Unit = {}
