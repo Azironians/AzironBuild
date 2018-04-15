@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.main.ControllerTotalMatch">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Windows/WindowTotalMatch.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="btnPlayAgain" defaultButton="true" layoutX="860.0" layoutY="598.0" mnemonicParsing="false"
+                prefHeight="62.0" prefWidth="276.0" text="Играть ещё раз" textFill="#175a6b"
+                onMouseClicked="#buttonPlayAgainClicked">
+            <font>
+                <Font size="27.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btnBackToMenu" cancelButton="true" layoutX="113.0" layoutY="598.0" mnemonicParsing="false"
+                prefHeight="62.0" prefWidth="276.0" text="Меню" textFill="#175a6b"
+                onMouseClicked="#buttonBackToMenuClicked">
+            <font>
+                <Font size="27.0"/>
+            </font>
+        </Button>
+        <Pane fx:id="paneStatistics" layoutX="47.0" layoutY="252.0" prefHeight="198.0" prefWidth="1177.0">
+            <children>
+                <Text fx:id="textPlayer1Name" layoutX="55.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="StarKRE" textAlignment="CENTER" wrappingWidth="161.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2Name" layoutX="55.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="KosTeT" textAlignment="CENTER" wrappingWidth="161.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2DealDamage" layoutX="247.0" layoutY="172.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="68720" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2RestoreHitPoints" layoutX="376.0" layoutY="173.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="32432" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1ReachedLevel" layoutX="509.0" layoutY="40.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2UsedSkills" layoutX="645.0" layoutY="173.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="923" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2FavouriteBonus" layoutX="781.0" layoutY="161.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="Необъятная сущность" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2RemainingTime" layoutX="914.0" layoutY="172.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="7 секунд" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2Result" layoutX="1052.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Победа!" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1DealDamage" layoutX="247.0" layoutY="39.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="36654" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1RestoreHitPoints" layoutX="376.0" layoutY="39.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="63456" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer2ReachedLevel" layoutX="509.0" layoutY="172.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="10" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1UsedSkills" layoutX="645.0" layoutY="40.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="1521" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1FavouriteBonus" layoutX="781.0" layoutY="38.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="Книга заговора" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1RemainingTime" layoutX="914.0" layoutY="40.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="0 секунд" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textPlayer1Result" layoutX="1052.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Поражение!" textAlignment="CENTER" wrappingWidth="116.13671875">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

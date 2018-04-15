@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="location" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerRightLocation">
+    <children>
+      <Pane fx:id="swapSkill" layoutX="-62.0" layoutY="80.0" onMouseClicked="#changeHeroOnClicked">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resources/heroes/lv/face/swapFace.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+        <AnchorPane fx:id="bonusStack" layoutX="507.0" layoutY="133.21484375">
+            <children>
+                <Button fx:id="bonus0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0" />
+                <Button fx:id="bonus2" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2" />
+                <Button fx:id="bonus3" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3" />
+                <Button fx:id="bonus1" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="1" />
+                <Button fx:id="bonus4" layoutY="200.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" text="4" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="characteristics" layoutY="21.0" prefWidth="552.0">
+            <children>
+                <Text fx:id="attack" fill="WHITE" layoutX="232.0" layoutY="454.9208984375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="1100" wrappingWidth="95.13671875">
+                    <font>
+                        <Font size="38.0" />
+                    </font>
+                </Text>
+                <Text fx:id="hitPoints" fill="WHITE" layoutX="356.0" layoutY="63.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="20000" wrappingWidth="88.13671875">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Text>
+                <Text fx:id="supplyHealth" fill="WHITE" layoutX="456.0" layoutY="63.107421875" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="70000" wrappingWidth="95.13671875">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Text>
+                <Text fx:id="treatment" fill="WHITE" layoutX="402.0" layoutY="453.9208984375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="5000" wrappingWidth="95.13671875">
+                    <font>
+                        <Font size="38.0" />
+                    </font>
+                </Text>
+                <Text fx:id="level" fill="#070707" layoutX="213.0" layoutY="12.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="60.13671875">
+                    <font>
+                        <Font size="37.0" />
+                    </font>
+                </Text>
+                <Text fx:id="experience" layoutX="305.0" layoutY="9.474609375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10000" wrappingWidth="95.13671875">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Text>
+                <Text fx:id="requiredExperience" layoutX="416.0" layoutY="9.474609375" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="50000" wrappingWidth="95.13671875">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Text>
+                <Text fx:id="time" fill="WHITE" layoutX="-2.0" layoutY="45.7119140625" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" wrappingWidth="60.13671875">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Text>
+                <Text fx:id="name" fill="WHITE" layoutX="-2.0" layoutY="8.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="480" wrappingWidth="160.0">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="441.0" layoutY="61.107421875" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="\\" wrappingWidth="13.13671875">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Text>
+                <Text layoutX="400.0" layoutY="7.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="\\" wrappingWidth="13.13671875">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="skillPane" layoutX="262.0" layoutY="537">
+            <children>
+            </children>
+        </AnchorPane>
+        <ImageView fx:id="face" fitHeight="250.0" fitWidth="250.0" layoutX="204.0" layoutY="128" onMouseClicked="#imageHeroOnClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/heroes/lv/face/face.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

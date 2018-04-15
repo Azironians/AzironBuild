@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../resources/css/azirona.css"
+            xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.main.menu.ControllerMenu">
+    <children>
+        <ImageView fx:id="windowMenu" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Windows/WindowMenu.jpg"/>
+            </image>
+        </ImageView>
+        <Pane fx:id="paneMessage" layoutX="7.0" layoutY="174.0" opacity="0.0" prefHeight="500.0" prefWidth="400.0">
+            <children>
+                <ImageView fx:id="panelMessage" fitHeight="500.0" fitWidth="414.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/PaneMessage.png"/>
+                    </image>
+                </ImageView>
+                <Text fill="#74efff" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Обновление 1.0.0.0.0.0.8" textAlignment="CENTER" wrappingWidth="382.0">
+                    <font>
+                        <Font size="27.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="120.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="1.) Удалена старая механика игры;" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="148.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="2.) Игра 2х2" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="176.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="3.) Лечение оглушителя теперь 150;" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="204.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="4.) Добавлены бонусы" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="232.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="5.) Добавлена панель &quot;Параметры&quot;;" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="260.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="6.)Добавлена панель &quot;Справка&quot;;" wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+                <Text fill="#74efff" layoutX="17.0" layoutY="294.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="7.) Изменено полностью окно боя." wrappingWidth="367.0">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Pane fx:id="panelLocMch" disable="true" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="668.0"
+              visible="false">
+            <children>
+                <ImageView fx:id="panel" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="headline" fitHeight="116.0" fitWidth="421.0" layoutX="161.0" layoutY="14.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/TriggerLocMchHeadline.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOffBack" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0"
+                           onMouseEntered="#buttonOffBackEntered" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonExitOffWindowLocMatchOnTwo.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOnBack" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0"
+                           onMouseClicked="#buttonOnBackClicked" onMouseExited="#buttonOnBackExited" pickOnBounds="true"
+                           preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonExitOnWindowLocMatchOnTwo.png"/>
+                    </image>
+                </ImageView>
+                <Button fx:id="button1x1" layoutX="220.0" layoutY="153.0" mnemonicParsing="false" prefHeight="55.0"
+                        prefWidth="227.0" text="1x1" onMouseClicked="#buttonOnGame1x1Clicked">
+                    <font>
+                        <Font size="30.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="button2x2" layoutX="220.0" layoutY="239.0" mnemonicParsing="false" prefHeight="55.0"
+                        prefWidth="227.0" text="2x2" onMouseClicked="#buttonOnGame2x2Clicked">
+                    <font>
+                        <Font size="30.0"/>
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <Pane fx:id="paneButtons" layoutY="-6.0">
+            <children>
+                <ImageView fx:id="buttonOffExitProgram" fitHeight="83.0" fitWidth="175.0" layoutX="1093.0" layoutY="6.0"
+                           onMouseEntered="#buttonOffExitProgramEntered" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonMenuExitProgrammOff.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOnExitProgram" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="6.0"
+                           onMouseClicked="#buttonOnExitProgramClicked" onMouseExited="#buttonOnExitProgramExited"
+                           pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonMenuExitProgrammOn.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOffLocMch" fitHeight="72.0" fitWidth="342.0" layoutX="821.0" layoutY="7.0"
+                           onMouseEntered="#buttonOffLocMchEntered" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonOffMenuLocMatch.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOnLocMch" fitHeight="72.0" fitWidth="342.0" layoutX="821.0" layoutY="7.0"
+                           onMouseClicked="#buttonOnLocMchClicked" onMouseExited="#buttonOnLocMchExited"
+                           pickOnBounds="true" preserveRatio="true" visible="false">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonOnMenuLocMatch.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+
+        <Text fx:id="time" fill="WHITE" layoutX="1160.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="114.13671875">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Text>
+        <Button fx:id="buttonVersusComputerKey" layoutX="113.0" layoutY="-54.0" mnemonicParsing="false" text="TestII"/>
+        <Pane fx:id="paneInit">
+            <children>
+                <ImageView fx:id="labelOfA" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Windows/WindowInitialization.jpg"/>
+                    </image>
+                </ImageView>
+                <ProgressBar fx:id="progressBar" layoutX="540.0" layoutY="641.0" prefWidth="200.0" progress="0.0"/>
+            </children>
+        </Pane>
+        <fx:include fx:id="playerPane" layoutX="290" layoutY="170" source="../subsidiary/WindowPlayer.fxml"/>
+    </children>
+</AnchorPane>

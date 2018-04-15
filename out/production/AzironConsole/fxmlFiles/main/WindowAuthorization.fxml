@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.ControllerAuthorization">
+    <children>
+        <Button fx:id="trigger" layoutX="-10" layoutY="-10"/>
+        <ImageView fx:id="background" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/Windows/WindowAuthorization.png"/>
+            </image>
+        </ImageView>
+        <Pane fx:id="paneSignUp" layoutX="300.0" layoutY="210.0" prefHeight="500.0" prefWidth="750.0" visible="false">
+            <children>
+                <ImageView fx:id="panelSignUp" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <PasswordField fx:id="passwordFieldNewPassword" layoutX="348.0" layoutY="135.0" prefHeight="25.0"
+                               prefWidth="267.0"/>
+                <TextField fx:id="textFieldNewName" layoutX="348.0" layoutY="51.0" prefHeight="25.0" prefWidth="267.0"/>
+                <TextField fx:id="textFieldNewNameRepeat" layoutX="348.0" layoutY="93.0" prefHeight="25.0"
+                           prefWidth="267.0"/>
+                <PasswordField fx:id="passwordFieldNewPasswordRepeat" layoutX="348.0" layoutY="177.0" prefHeight="25.0"
+                               prefWidth="267.0"/>
+                <Text layoutX="65.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Введите новое имя пользователя:" wrappingWidth="219.0">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="#69a9b2"/>
+                                <Stop color="#53cff2" offset="1.0"/>
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Text>
+                <Text fill="#3abadd" layoutX="65.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Повторите имя пользователя:" textAlignment="CENTER">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Text fill="#54d5e1" layoutX="65.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Введите новый пароль:" wrappingWidth="199.5556640625">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Text fill="#58ddf5" layoutX="65.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Повторите пароль:" wrappingWidth="199.5556640625">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Button fx:id="buttonSignUpOK" layoutX="482.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0"
+                        prefWidth="114.0" text="OK" onMouseClicked="#buttonSignUpOkClicked"/>
+                <Button fx:id="buttonSignUpToSignIn" layoutX="39.0" layoutY="300.0" mnemonicParsing="false"
+                        prefHeight="25.0" prefWidth="114.0" text="Отмена"
+                        onMouseClicked="#buttonFromSignUpToSignInClicked"/>
+                <Text fx:id="textErrorSignUp" fill="RED" layoutX="200.0" layoutY="250.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="267.0">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Pane fx:id="paneLuckSign" layoutX="300.0" layoutY="210.0" prefHeight="500.0" prefWidth="750.0" visible="false">
+            <children>
+                <ImageView fx:id="panelLuckSignIn" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="210.0" fitWidth="220.0" layoutX="230.0" layoutY="65.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Icon.png"/>
+                    </image>
+                </ImageView>
+                <Text fx:id="textLuck" fill="#3ae8eb" layoutX="50.0" layoutY="320.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="563.458984375">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Pane fx:id="paneSignIn" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="730.0">
+            <children>
+                <ImageView fx:id="panelSignIn" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <TextField fx:id="textFieldSignIn" layoutX="206.0" layoutY="149.0" prefHeight="25.0" prefWidth="267.0"
+                           promptText="Имя пользователя"/>
+                <PasswordField fx:id="passwordFieldSignIn" layoutX="206.0" layoutY="196.0" prefHeight="25.0"
+                               prefWidth="267.0" promptText="Пароль"/>
+                <Text fx:id="textSignInMessage" fill="#99d9eb" layoutX="206.0" layoutY="127.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" text="Введите имя пользователя и пароль:" textAlignment="CENTER"
+                      wrappingWidth="267.0">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+                <Button fx:id="buttonSignIn" layoutX="402.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0"
+                        prefWidth="71.0" text="Войти" onMouseClicked="#buttonSignInClicked"/>
+                <ImageView fx:id="buttonOffBackToMenu" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0"
+                           pickOnBounds="true" preserveRatio="true" onMouseEntered="#buttonOffBackToMenuEntered">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonExitOffWindowLocMatchOnTwo.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="buttonOnBackToMenu" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0"
+                           pickOnBounds="true" preserveRatio="true" visible="false"
+                           onMouseExited="#buttonOnBackToMenuExited" onMouseClicked="#buttonOnBackClicked">
+                    <image>
+                        <Image url="@../../resources/Buttons/ButtonExitOnWindowLocMatchOnTwo.png"/>
+                    </image>
+                </ImageView>
+                <Button fx:id="buttonSignUp" layoutX="206.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0"
+                        prefWidth="97.0" text="Регистрация" onMouseClicked="#buttonSignUpClicked"/>
+                <Text fx:id="textErrorSignIn" fill="RED" layoutX="206.0" layoutY="304.0" strokeType="OUTSIDE"
+                      strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="267.0">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <Text fx:id="time" fill="WHITE" layoutX="1160.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="114.13671875">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

@@ -1,0 +1,146 @@
+.background {
+    -fx-background-color: #2894E6;
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.table-view {
+    -fx-base: #2894E6;
+    -fx-control-inner-background: #2894E6;
+    -fx-background-color:#2894E6;
+    -fx-table-cell-border-color: #28AFE6;
+    -fx-table-header-border-color: #28AFE6;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #28AFE6;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #28AFE6;
+    -fx-border-color:
+            #28AFE6
+            #28AFE6
+            derive(-fx-base, 80%)
+            #28AFE6;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "System";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color:#28AFE6 #2894E6 #28AFE6 #2894E6;
+    -fx-background-color: #28AFE6, derive(#2894E6,20%);
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
+.menu-bar {
+    -fx-background-color: derive(#2894E6,20%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#2894E6,50%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "System";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: #2894E6;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "System";
+}
+
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(
+            from 0px .75em to .75em 0px,
+            repeat,
+            -fx-accent 0%,
+            -fx-accent 49%,
+            derive(-fx-accent, 30%) 50%,
+            derive(-fx-accent, 30%) 99%
+    );
+}
+
+.button {
+    -fx-padding: 5 22 5 22;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #2894E6;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #28AFE6;
+
+}
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #199CF0;
+    -fx-text-fill: white;
+}
+
+.button:focused {
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #2894E6;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #2894E6;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}

@@ -1,7 +1,7 @@
 package heroes.devourer.skills.swapSkills.depletion;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkill.AbstractSwapSkill;
+import heroes.abstractHero.skills.swapSkill.AbstractSimplifiedSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.battleManagement.BattleManager;
@@ -12,7 +12,7 @@ import java.util.List;
 
 import static heroes.devourer.skills.swapSkills.depletion.DepletionPropertySkill.*;
 
-public final class DepletionSkill extends AbstractSwapSkill {
+public final class DepletionSkill extends AbstractSimplifiedSkill {
 
     public DepletionSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, RELOAD, REQUIRED_LEVEL, getSkillCoefficients()

@@ -1,7 +1,7 @@
 package heroes.lv.skills.swapSkills.fury;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkill.AbstractSwapSkill;
+import heroes.abstractHero.skills.swapSkill.AbstractSimplifiedSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.actionManagement.actions.ActionEventFactory;
@@ -13,7 +13,7 @@ import java.util.List;
 
 import static heroes.lv.skills.swapSkills.fury.FuryPropertySkill.*;
 
-public final class FurySkill extends AbstractSwapSkill {
+public final class FurySkill extends AbstractSimplifiedSkill {
 
     public FurySkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, getSkillCoefficients(), sprite, description, voiceList);

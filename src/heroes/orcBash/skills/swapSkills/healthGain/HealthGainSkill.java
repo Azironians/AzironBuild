@@ -1,7 +1,7 @@
 package heroes.orcBash.skills.swapSkills.healthGain;
 
 import heroes.abstractHero.hero.Hero;
-import heroes.abstractHero.skills.swapSkill.AbstractSwapSkill;
+import heroes.abstractHero.skills.swapSkill.AbstractSimplifiedSkill;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import managment.battleManagement.BattleManager;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import static heroes.orcBash.skills.swapSkills.healthGain.HealthGainPropertySkill.*;
 
-public final class HealthGainSkill extends AbstractSwapSkill {
+public final class HealthGainSkill extends AbstractSimplifiedSkill {
 
     public HealthGainSkill(final ImageView sprite, final ImageView description, final List<Media> voiceList) {
         super(NAME, SWAP_RELOAD, SWAP_REQUIRED_LEVEL, getSkillCoefficients(), sprite, description, voiceList);

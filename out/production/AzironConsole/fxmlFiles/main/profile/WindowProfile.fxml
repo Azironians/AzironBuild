@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.profile.ControllerProfile">
+    <children>
+        <ImageView fx:id="background" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Windows/WindowProfile.png"/>
+            </image>
+        </ImageView>
+
+        <Pane fx:id="paneHeroes" layoutX="525.0" layoutY="202.0" prefHeight="246.0" prefWidth="229.0">
+            <children>
+                <ImageView fx:id="devourer" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
+                           visible="false">
+                    <image>
+                        <Image url="@../../../resources/heroes/devourer/face/face.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="lordVamp" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
+                           visible="false">
+                    <image>
+                        <Image url="@../../../resources/heroes/lv/face/face.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fx:id="orcBash" fitHeight="246.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"
+                           visible="false">
+                    <image>
+                        <Image url="@../../../resources/heroes/orcBash/face/face.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <ImageView fx:id="buttonOnChoiceHeroes" fitHeight="84.0" fitWidth="387.0" layoutX="423.0" layoutY="561.0"
+                   onMouseClicked="#buttonOnChoiceHeroesClicked" onMouseExited="#buttonOnChoiceHeroesExited"
+                   pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOnChoiceHero.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOffShowStatistics" fitHeight="71.0" fitWidth="304.0" layoutX="854.0" layoutY="16.0"
+                   onMouseEntered="#buttonOffShowStatisticsEntered" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOffStatistics.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOnLogOut" fitHeight="71.0" fitWidth="156.0" layoutX="1110.0" layoutY="17.0"
+                   onMouseClicked="#buttonOnLogOutClicked" onMouseExited="#buttonOnLogOutExited" pickOnBounds="true"
+                   preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOnLogOut.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOffChoiceHeroes" fitHeight="84.0" fitWidth="387.0" layoutX="423.0" layoutY="561.0"
+                   onMouseEntered="#buttonOffChoiceHeroesEntered" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOffChoiceHero.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOnShowStatistics" fitHeight="71.0" fitWidth="304.0" layoutX="854.0" layoutY="16.0"
+                   onMouseClicked="#buttonOnShowStatisticsClicked" onMouseExited="#buttonOnShowStatisticsExited"
+                   pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOnStatistics.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="buttonOffLogOut" fitHeight="71.0" fitWidth="156.0" layoutX="1110.0" layoutY="17.0"
+                   onMouseEntered="#buttonOffLogOutEntered" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Buttons/ButtonOffLogOut.png"/>
+            </image>
+        </ImageView>
+        <Text fx:id="textFavouriteHero" fill="#24c6eb" layoutX="364.0" layoutY="173.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="Любимый герой " textAlignment="CENTER" wrappingWidth="551.3330078125">
+            <font>
+                <Font size="34.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textProfileName" fill="#24c6eb" layoutX="531.0" layoutY="62.0" strokeType="OUTSIDE"
+              strokeWidth="0.0" text="KosTeT" textAlignment="CENTER" wrappingWidth="214.3330078125">
+            <font>
+                <Font size="34.0"/>
+            </font>
+        </Text>
+        <Text fx:id="textPlayer" fill="#24c6eb" layoutX="124.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Player 1" textAlignment="CENTER" wrappingWidth="214.3330078125">
+            <font>
+                <Font size="34.0"/>
+            </font>
+        </Text>
+        <Text fx:id="time" fill="WHITE" layoutX="1160.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="114.13671875">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Text>
+        <Button fx:id="buttonWindowOfBonusChoice" layoutX="117.0" layoutY="25.0" prefHeight="53.0" prefWidth="231.0"
+                stylesheets="@../../../resources/css/azirona.css" text="Редактировать заклинания" visible="false">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+        <fx:include fx:id="paneStatistics" layoutX="348.0" layoutY="210.0" source="WindowStatistic.fxml"/>
+    </children>
+</AnchorPane>

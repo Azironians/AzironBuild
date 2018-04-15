@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0"
+            prefWidth="1280.0" stylesheets="@../../../resources/css/azirona.css" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.main.matchmaking.ControllerMatchMaking">
+    <children>
+        <ImageView fitHeight="720.0" fitWidth="1280.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../resources/Windows/battleProcess.jpg"/>
+            </image>
+        </ImageView>
+        <fx:include fx:id="leftLocationPane" layoutY="59.0" source="leftLocation.fxml"/>
+        <fx:include fx:id="rightLocationPane" layoutX="720.0" layoutY="72" source="rightLocation.fxml"/>
+        <fx:include fx:id="bonusLocationPane" layoutX="0" layoutY="0" source="bonusLocation.fxml"/>
+        <Button fx:id="menuButton" layoutX="560.0" layoutY="13.0" mnemonicParsing="false"
+                onMouseClicked="#buttonMenuClicked" prefHeight="40.0" prefWidth="160.0" text="Меню"/>
+        <AnchorPane fx:id="pausePane" layoutX="-212.0" layoutY="-62.0" visible="false">
+            <children>
+                <ImageView fitHeight="866.0" fitWidth="1592.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../resources/Triggers/Pane.png"/>
+                    </image>
+                </ImageView>
+                <AnchorPane fx:id="menuPane" layoutX="646.0" layoutY="252.0" prefHeight="504.0" prefWidth="403.0">
+                    <children>
+                        <ImageView fitHeight="504.0" fitWidth="422.0" layoutX="8.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../../../resources/Triggers/PaneMessage.png"/>
+                            </image>
+                        </ImageView>
+                        <Button fx:id="buttonResumeGame" focusTraversable="false" layoutX="93.0" layoutY="109.0"
+                                onMouseClicked="#buttonResumeGameClicked" opacity="0.9" prefHeight="54.0"
+                                prefWidth="250.0" text="Продолжить игру" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                        </Button>
+                        <Text fill="#b9e3ff" layoutX="151.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Меню:">
+                            <font>
+                                <Font size="44.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="buttonParams" focusTraversable="false" layoutX="93.0" layoutY="186.0"
+                                mnemonicParsing="false" onMouseClicked="#buttonParamsClicked" opacity="0.9"
+                                prefHeight="54.0" prefWidth="250.0" text="Параметры" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonEndMatch" focusTraversable="false" layoutX="93.0" layoutY="334.0"
+                                mnemonicParsing="false" opacity="0.9" prefHeight="54.0" prefWidth="250.0"
+                                text="Завершить матч" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonExit" focusTraversable="false" layoutX="93.0" layoutY="404.0"
+                                onMouseClicked="#buttonExitClicked" opacity="0.9" prefHeight="54.0" prefWidth="250.0"
+                                text="Выйти из игры" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Button>
+                        <Button fx:id="buttonInfo" focusTraversable="false" layoutX="93.0" layoutY="261.0"
+                                mnemonicParsing="false" onMouseClicked="#buttonInfoClicked" opacity="0.9"
+                                prefHeight="54.0" prefWidth="250.0" text="Справка" textAlignment="CENTER">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <fx:include fx:id="infoPane" layoutX="500" layoutY="250" source="../../subsidiary/WindowInfo.fxml" />
+                <fx:include fx:id="paramPane" layoutX="500" layoutY="250" source="../../subsidiary/WindowParams.fxml"/>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
