@@ -114,8 +114,6 @@ public abstract class AbstractSkill implements Skill {
             , final double descriptionX, final double descriptionY
             , final boolean invert) {
         this.parent = parent;
-        //init description:
-//        this.description.setLayoutX(descriptionX);
         this.description.setLayoutY(descriptionY); //-127
         this.description.setOpacity(START_OPACITY);
         //init sprite:

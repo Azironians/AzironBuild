@@ -8,7 +8,9 @@ import javafx.scene.media.Media;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Hero {
 
@@ -34,6 +36,9 @@ public abstract class Hero {
     private Skill swapSkill; //Способность при выходе на поле боя
     private List<Bonus> bonusCollection;
 
+    //Other abilities:
+    private final Map<String, Object> additionalAbilityMap;
+
     //Outer:
     private final ImageView face; //Картинка героя
     private final List<Media> listOfAttackVoices;
@@ -50,7 +55,7 @@ public abstract class Hero {
             , final List<Skill> collectionOfSkills, final Skill swapSkill
                 //Outer:
             , final ImageView face, final List<Media> listOfAttackVoices, final List<Media> listOfTreatmentVoices) {
-
+        //Main characteristics:
         this.name = name;
         this.attack = attack;
         this.treatment = treatment;
@@ -64,7 +69,9 @@ public abstract class Hero {
         this.listOfSupplyHealth = listOfSupplyHealth;
         this.collectionOfSkills = collectionOfSkills;
         this.swapSkill = swapSkill;
-
+        //Other ability map:
+        this.additionalAbilityMap = new HashMap<String, Object>();
+        //Outer:
         this.face = face;
         this.listOfAttackVoices = listOfAttackVoices;
         this.listOfTreatmentVoices = listOfTreatmentVoices;
@@ -288,7 +295,7 @@ public abstract class Hero {
         return bonusCollection;
     }
 
-    public void putBonusCollection(List<Bonus> bonusCollection) {
+    public final void putBonusCollection(final List<Bonus> bonusCollection) {
         this.bonusCollection = bonusCollection;
     }
 
@@ -356,4 +363,9 @@ public abstract class Hero {
     public final BonusManager getBonusManager() {
         return bonusManager;
     }
+
+    public final Map<String, Object> getAdditionalAbilityMap() {
+        return additionalAbilityMap;
+    }
+
 }

@@ -25,7 +25,7 @@ final class SnakeShieldSkillProxyComponent (var player: Player) {
   def packSkill(index: Int, skills: java.util.List[Skill]): Unit ={
     val mainSkillContainers: ObservableList[Node] = player.getLocation.getSkillPane.getChildren
     val skillNode: Node = mainSkillContainers.get(index)
-    //Creating custom skill
+    //Creating custom skill:
     val snakeShieldSkill: AbstractSkill = new SnakeShieldSkill(this)
     val snakeShieldContainer: Pane = snakeShieldSkill.getContainer
     snakeShieldContainer.setLayoutX(skillNode.getLayoutX)
@@ -38,6 +38,12 @@ final class SnakeShieldSkillProxyComponent (var player: Player) {
     proxySkillVsDamageMap.put(snakeShieldSkill, hero.getAttack
       * hero.getCollectionOfSkills.get(index).getCoefficients.get(0))
     justInTimeSnakeShieldSkill = snakeShieldSkill
+  }
+
+  def pullSkill(): Skill ={
+    val outputSkill = justInTimeSnakeShieldSkill
+    justInTimeSnakeShieldSkill = null
+    outputSkill
   }
 
   def destroy(skill: Skill){

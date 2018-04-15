@@ -21,7 +21,7 @@ final class SnakeShieldSkill(val proxyComponent: SnakeShieldSkillProxyComponent
     , listOfVoices: util.List[Media]) {
 
   override def use(battleManager: BattleManager, playerManager: PlayerManager): Unit = {
-    val damage: Double = coefficients.get(0) * proxyComponent.proxySkillVsDamageMap(this) // something not correct a little bit
+    val damage: Double = proxyComponent.proxySkillVsDamageMap.get(this)
     val currentPlayer = playerManager.getCurrentTeam.getCurrentPlayer
     val opponentPlayer = playerManager.getOpponentATeam.getCurrentPlayer
     val opponentHero = opponentPlayer.getCurrentHero
@@ -29,7 +29,7 @@ final class SnakeShieldSkill(val proxyComponent: SnakeShieldSkillProxyComponent
     if (opponentHero.getDamage(damage)) {
       actionEvents.add(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage))
     }
-    destroy()
+    this.destroy()
   }
 
   private def destroy(): Unit = {
