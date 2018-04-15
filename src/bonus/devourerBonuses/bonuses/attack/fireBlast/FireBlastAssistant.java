@@ -13,7 +13,7 @@ final class FireBlastAssistant {
     static double formDamage(List<Skill> skills){
         double damage = MAIN_DAMAGE;
         for (final Skill skill: skills){
-            if (skill.getName().equals("fireBlast")){
+            if (skill.getName().equals("FireBlast")){
                 damage += ADDITIONAL_DAMAGE;
             }
         }

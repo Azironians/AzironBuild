@@ -17,10 +17,18 @@ private final class ConcentrationAbility(name: String = "Concentration"
                                  , mediaList: java.util.List[Media] = Collections.emptyList()
                                 ) extends AbstractSimplifiedSkill(name, reload, requiredLevel, coefficients, sprite
   , description, mediaList){
+
   var concentration = 0
 
   override def use(battleManager: BattleManager, playerManager: PlayerManager): Unit = {
-    //I'll tomorrow =)
+    val team = playerManager.getCurrentTeam
+    val player = team.getCurrentPlayer
+    val hero = player.getCurrentHero
+    hero.addExperience(concentration)
+    actionManager.refreshScreen()
+    if (battleManager.isEndTurn){
+      actionManager.endTurn(team)
+    }
   }
 
   override def showAnimation(): Unit = ???
