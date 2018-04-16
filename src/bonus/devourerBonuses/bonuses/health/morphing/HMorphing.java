@@ -1,6 +1,7 @@
 package bonus.devourerBonuses.bonuses.health.morphing;
 
 import bonus.bonuses.ExtendedBonus;
+import bonus.bonuses.subInterfaces.QuestBonus;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
@@ -9,7 +10,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class HMorphing extends ExtendedBonus {
+public final class HMorphing extends ExtendedBonus implements QuestBonus {
 
     private static final int START_COUNT = 0;
 
@@ -28,7 +29,7 @@ public final class HMorphing extends ExtendedBonus {
 
     @Override
     public final void use() {
-        if (count + 1 == END_COUNT) {
+        if (count + 1 >= END_COUNT) {
             changeRegenerationSkills();
             count = START_COUNT;
         } else {
@@ -49,5 +50,15 @@ public final class HMorphing extends ExtendedBonus {
 
     private Skill getMorphingSkillInstance(){
         return new MorphingSkill(new ImageView(), new ImageView(), new ArrayList<>());
+    }
+
+    @Override
+    public final int getProgress() {
+        return count;
+    }
+
+    @Override
+    public final void setProgress(final int progress) {
+        this.count = progress;
     }
 }

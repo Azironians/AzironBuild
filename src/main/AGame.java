@@ -46,7 +46,7 @@ public final class AGame extends Application {
             return result;
         };
 
-        windowMap = new EnumMap<WindowType, AWindow>(WindowType.class) {{
+        windowMap = new EnumMap<>(WindowType.class) {{
             put(WindowType.INITIALIZATION, new AWindow(makeFXMLLoader.apply(WindowType.INITIALIZATION.URL())));
             put(WindowType.MENU, new AWindow(makeFXMLLoader.apply(WindowType.MENU.URL())));
             put(WindowType.AUTHORIZATION, new AWindow(makeFXMLLoader.apply(WindowType.AUTHORIZATION.URL())));

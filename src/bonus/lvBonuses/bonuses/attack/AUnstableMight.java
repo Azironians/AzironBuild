@@ -66,7 +66,7 @@ public final class AUnstableMight extends ExtendedBonus implements RegularHandle
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                if (actionEvent.getActionType() == ActionType.BEFORE_USED_BONUS
+                if (actionEvent.getActionType() == ActionType.SHOWED_BONUSES
                         && actionEvent.getData().equals("UnstableMight")
                         && actionEvent.getPlayer() == currentPlayer){
                     timeline.play();

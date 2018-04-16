@@ -1,5 +1,6 @@
 package managment.actionManagement.actions;
 
+import bonus.bonuses.Bonus;
 import com.google.inject.Singleton;
 import heroes.abstractHero.hero.Hero;
 import javafx.util.Pair;
@@ -60,11 +61,11 @@ public final class ActionEventFactory {
         return new ActionEvent(ActionType.AFTER_DEAL_DAMAGE, player, new Pair<>(victim, damage));
     }
 
-    public static ActionEvent getUsedSkill(final Player player, String skillName){
+    public static ActionEvent getBeforeUsedSkill(final Player player, String skillName){
         return new ActionEvent(ActionType.BEFORE_USED_SKILL, player, skillName);
     }
 
-    public static ActionEvent getUsedBonus(final Player player, String bonusName){
-        return new ActionEvent(ActionType.AFTER_USED_BONUS, player, bonusName);
+    public static ActionEvent getAfterUsedBonus(final Player player, final Bonus bonus){
+        return new ActionEvent(ActionType.AFTER_USED_BONUS, player, bonus);
     }
 }

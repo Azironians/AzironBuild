@@ -1,11 +1,12 @@
 package bonus.devourerBonuses.bonuses.attack;
 
 import bonus.bonuses.ExtendedBonus;
+import bonus.bonuses.subInterfaces.QuestBonus;
 import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-public final class AUpgradeHooks extends ExtendedBonus{
+public final class AUpgradeHooks extends ExtendedBonus implements QuestBonus {
 
     private static final int START_COUNT = 0;
 
@@ -26,7 +27,7 @@ public final class AUpgradeHooks extends ExtendedBonus{
 
     @Override
     public final void use() {
-        if (count + 1 == END_COUNT){
+        if (count + 1 >= END_COUNT){
             final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
             currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
             count = START_COUNT;
@@ -34,5 +35,15 @@ public final class AUpgradeHooks extends ExtendedBonus{
             this.count++;
             text.setText(count + "/" + END_COUNT);
         }
+    }
+
+    @Override
+    public final int getProgress() {
+        return count;
+    }
+
+    @Override
+    public final void setProgress(final int progress) {
+        this.count = progress;
     }
 }

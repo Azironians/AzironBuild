@@ -1,5 +1,6 @@
 package managment.actionManagement;
 
+import annotations.sourceAnnotations.Transcendental;
 import bonus.bonuses.Bonus;
 import gui.service.graphicEngine.GraphicEngine;
 import com.google.inject.Inject;
@@ -30,16 +31,25 @@ public final class ActionManager {
     @Inject
     private GraphicEngine graphicEngine;
 
+    // FIXME: 17.04.2018 There are not standard processors!!!
+    // FIXME: You should to wrap all actions in SAM Processor and add all processor Bonuses field "previousProcessor"
+
+    @Transcendental
     private boolean isStandardAttack = true;
 
+    @Transcendental
     private boolean isStandardTreatment = true;
 
+    @Transcendental
     private boolean isStandardSwap = true;
 
+    @Transcendental
     private boolean isStandardBonus = true;
 
+    @Transcendental
     private boolean isStandardSkill = true;
 
+    @Transcendental
     private Processor processor = () -> {
         //Nothing;
     };
@@ -112,7 +122,7 @@ public final class ActionManager {
             final boolean access = skill.isSkillAccess();
             log.info("skill access:" + access);
             if (access) {
-                eventEngine.handle(ActionEventFactory.getUsedSkill(currentPlayer
+                eventEngine.handle(ActionEventFactory.getBeforeUsedSkill(currentPlayer
                         , skill.getName()));
                 skillProcess(currentTeam, skill);
             }
@@ -122,7 +132,7 @@ public final class ActionManager {
     private void skillProcess(final ATeam currentTeam, Skill skill) {
         if (isStandardSkill) {
             skill.getActionEvents().clear();
-            skill.use(battleManager, playerManager);
+            skill.use(battleManager, playerManager); //FIXME: wrap all skills in processor
             skill.reset();
             skill.getActionEvents().forEach(eventEngine::handle);
             refreshScreen();
@@ -164,7 +174,7 @@ public final class ActionManager {
         graphicEngine.hideBonuses();
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
-        eventEngine.handle(ActionEventFactory.getUsedBonus(currentPlayer, bonus.getName()));
+        eventEngine.handle(ActionEventFactory.getAfterUsedBonus(currentPlayer, bonus));
         bonusProcess(bonus);
     }
 
@@ -204,7 +214,7 @@ public final class ActionManager {
         return graphicEngine;
     }
 
-
+    @Transcendental
     public final Processor getProcessor() {
         return processor;
     }
@@ -213,47 +223,58 @@ public final class ActionManager {
         this.processor = processor;
     }
 
+    @Transcendental
     public final void setDefaultProcessor() {
         this.processor = () -> {
         };
     }
 
+    @Transcendental
     public boolean isStandardAttack() {
         return isStandardAttack;
     }
 
+    @Transcendental
     public void setStandardAttack(boolean standardAttack) {
         isStandardAttack = standardAttack;
     }
 
+    @Transcendental
     public boolean isStandardTreatment() {
         return isStandardTreatment;
     }
 
+    @Transcendental
     public void setStandardTreatment(boolean standardTreatment) {
         isStandardTreatment = standardTreatment;
     }
 
+    @Transcendental
     public boolean isStandardSwap() {
         return isStandardSwap;
     }
 
+    @Transcendental
     public void setStandardSwap(boolean standardSwap) {
         isStandardSwap = standardSwap;
     }
 
+    @Transcendental
     public boolean isStandardBonus() {
         return isStandardBonus;
     }
 
+    @Transcendental
     public void setStandardBonus(boolean standardBonus) {
         isStandardBonus = standardBonus;
     }
 
+    @Transcendental
     public boolean isStandardSkill() {
         return isStandardSkill;
     }
 
+    @Transcendental
     public void setStandardSkill(boolean standardSkill) {
         isStandardSkill = standardSkill;
     }
