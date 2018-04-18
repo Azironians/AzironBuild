@@ -1,13 +1,11 @@
-package bonus.devourerBonuses.bonuses.attack;
+package bonus.devourerBonuses.bonuses.attack.fromFireIntoTheFire;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
+import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
-import managment.actionManagement.service.engine.EventEngine;
 import managment.actionManagement.service.engine.services.DynamicHandleService;
 import managment.playerManagement.Player;
 import managment.processors.Processor;
@@ -16,46 +14,39 @@ import org.slf4j.LoggerFactory;
 
 public final class AFromFireIntoTheFire extends Bonus implements DynamicHandleService {
 
-    private static final Logger log = LoggerFactory.getLogger(AFromFireIntoTheFire.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AFromFireIntoTheFire.class);
+
+    private Processor previousProcessor;
 
     public AFromFireIntoTheFire(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
-    private final Processor treatmentProcessor = () -> {
-        final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getCurrentHero();
-        final Hero opponentHero = opponentPlayer.getCurrentHero();
-        final double damage = currentHero.getTreatment();
-
-        if (opponentHero.getDamage(damage)) {
-            final EventEngine eventEngine = actionManager.getEventEngine();
-            eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
-            eventEngine.handle(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage));
-        }
-        actionManager.refreshScreen();
-        if (battleManager.isEndTurn()) {
-            actionManager.endTurn(playerManager.getCurrentTeam());
-        }
-    };
-
     @Override
     public final void use() {
-        installCustomTreatment();
+        this.installCustomTreatmentProcessor();
         actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 
-    private void installCustomTreatment() {
-        actionManager.setStandardTreatment(false);
-        actionManager.setProcessor(treatmentProcessor);
-        log.info("INSTALLED CUSTOM BEFORE_TREATMENT PROCESSOR");
+    private void installCustomTreatmentProcessor() {
+        this.previousProcessor = actionManager.getTreatmentProcessor();
+        final Processor treatmentProcessor = new FromFireIntoTheFireProcessor(actionManager, battleManager
+                , playerManager);
+        try {
+            actionManager.setTreatmentProcessor(treatmentProcessor);
+            LOG.info("INSTALLED CUSTOM BEFORE_TREATMENT PROCESSOR");
+        } catch (final ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     private void installDefaultTreatment() {
-        actionManager.setDefaultProcessor();
-        actionManager.setStandardTreatment(true);
-        log.info("INSTALLED DEFAULT BEFORE_TREATMENT PROCESSOR");
+        try {
+            actionManager.setTreatmentProcessor(previousProcessor);
+            LOG.info("INSTALLED DEFAULT BEFORE_TREATMENT PROCESSOR");
+        } catch (ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

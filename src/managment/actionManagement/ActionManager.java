@@ -35,7 +35,7 @@ public final class ActionManager {
     //Action processors:
     private AttackProcessor attackProcessor;
 
-    private HealingProcessor healingProcessor;
+    private TreatmentProcessor treatmentProcessor;
 
     private SkillProcessor skillProcessor;
 
@@ -45,7 +45,7 @@ public final class ActionManager {
 
     public final void install() {
         this.attackProcessor = new AttackProcessor(this, battleManager);
-        this.healingProcessor = new HealingProcessor(this, battleManager);
+        this.treatmentProcessor = new TreatmentProcessor(this, battleManager);
         this.skillProcessor = new SkillProcessor(this, battleManager, playerManager);
         this.swapProcessor = new SwapProcessor(this, battleManager, playerManager, skillProcessor);
         this.bonusProcessor = new BonusProcessor(this);
@@ -59,8 +59,8 @@ public final class ActionManager {
         if (clickedTeam.equals(currentTeam)) {
             if (currentHero.isTreatmentAccess()) {
                 eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
-                this.healingProcessor.setTeam(clickedTeam);
-                this.healingProcessor.process();
+                this.treatmentProcessor.setTeam(clickedTeam);
+                this.treatmentProcessor.process();
             }
         } else {
             if (currentHero.isAttackAccess()) {
@@ -141,13 +141,13 @@ public final class ActionManager {
         }
     }
 
-    public final Processor getHealingProcessor() {
-        return healingProcessor;
+    public final Processor getTreatmentProcessor() {
+        return treatmentProcessor;
     }
 
-    public final void setHealingProcessor(final Processor processor) throws UnsupportedProcessorException {
-        if (processor instanceof HealingProcessor) {
-            this.healingProcessor = (HealingProcessor) processor;
+    public final void setTreatmentProcessor(final Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof TreatmentProcessor) {
+            this.treatmentProcessor = (TreatmentProcessor) processor;
         } else {
             throw new UnsupportedProcessorException("Invalid healing processor");
         }

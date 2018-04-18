@@ -21,8 +21,6 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
 
     private Processor previousProcessor;
 
-    private final Processor attackProcessor = new DoubleInHeadProcessor(actionManager, battleManager, playerManager);
-
     public ADoubleInHead(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
@@ -35,6 +33,7 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
 
     private void installCustomAttackProcessor() {
         try {
+            final Processor attackProcessor = new DoubleInHeadProcessor(actionManager, battleManager, playerManager);
             this.previousProcessor = actionManager.getAttackProcessor();
             this.actionManager.setAttackProcessor(attackProcessor);
             LOG.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");

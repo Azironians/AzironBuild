@@ -1,10 +1,9 @@
-package bonus.devourerBonuses.bonuses.health;
+package bonus.devourerBonuses.bonuses.health.regenerationRoot;
 
 import bonus.bonuses.Bonus;
-import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
+import managment.actionManagement.ActionManager;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import managment.actionManagement.service.engine.services.DynamicHandleService;
@@ -21,22 +20,7 @@ public final class HRegenerationRoot extends Bonus implements DynamicHandleServi
         super(name, id, sprite);
     }
 
-    private final Processor attackProcessor = () -> {
-        final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Hero currentHero = currentPlayer.getCurrentHero();
-        final double treatmentValue = currentHero.getAttack();
-
-        if (currentHero.getHealing(treatmentValue)) {
-            actionManager.getEventEngine().handle(ActionEventFactory.getAttack(currentPlayer));
-        }
-        if (currentHero.addExperience(treatmentValue)){
-            actionManager.getEventEngine().handle();
-        }
-        actionManager.refreshScreen();
-        if (battleManager.isEndTurn()) {
-            actionManager.endTurn(playerManager.getCurrentTeam());
-        }
-    };
+    private Processor previousProcessor;
 
     @Override
     public final void use() {
@@ -45,15 +29,23 @@ public final class HRegenerationRoot extends Bonus implements DynamicHandleServi
     }
 
     private void installCustomAttack() {
-        actionManager.setStandardAttack(false);
-        actionManager.setProcessor(attackProcessor);
-        log.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
+        this.previousProcessor = actionManager.getAttackProcessor();
+        final Processor attackProcessor = new RegenerationRootProcessor(actionManager, battleManager, playerManager);
+        try {
+            actionManager.setAttackProcessor(attackProcessor);
+            log.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
+        } catch (final ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     private void installDefaultAttack() {
-        actionManager.setDefaultProcessor();
-        actionManager.setStandardAttack(true);
-        log.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
+        try {
+            actionManager.setAttackProcessor(previousProcessor );
+            log.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
+        } catch (final ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

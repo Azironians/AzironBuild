@@ -8,15 +8,15 @@ import managment.playerManagement.Player;
 import managment.processors.Processor;
 
 //Not final!
-public class HealingProcessor implements Processor {
+public class TreatmentProcessor implements Processor {
 
-    private final ActionManager actionManager;
+    protected final ActionManager actionManager;
 
-    private final BattleManager battleManager;
+    protected final BattleManager battleManager;
 
     private ATeam team;
 
-    public HealingProcessor(final ActionManager actionManager, final BattleManager battleManager){
+    public TreatmentProcessor(final ActionManager actionManager, final BattleManager battleManager){
         this.actionManager = actionManager;
         this.battleManager = battleManager;
     }
