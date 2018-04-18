@@ -1,15 +1,13 @@
-package bonus.generalBonuses.bonuses.attack;
+package bonus.generalBonuses.bonuses.attack.doubleInHead;
 
 import bonus.bonuses.Bonus;
+import managment.actionManagement.ActionManager;
+import managment.actionManagement.actionProccessors.AttackProcessor;
 import managment.actionManagement.service.components.handleComponet.HandleComponent;
 import managment.actionManagement.service.engine.services.DynamicHandleService;
-import heroes.abstractHero.hero.Hero;
 import javafx.scene.image.ImageView;
 import managment.actionManagement.actions.ActionEvent;
-import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.actions.ActionType;
-import managment.actionManagement.service.engine.EventEngine;
-import managment.playerManagement.ATeam;
 import managment.playerManagement.Player;
 import managment.processors.Processor;
 import org.slf4j.Logger;
@@ -17,52 +15,41 @@ import org.slf4j.LoggerFactory;
 
 public final class ADoubleInHead extends Bonus implements DynamicHandleService {
 
-    private static final Logger log = LoggerFactory.getLogger(ADoubleInHead.class);
+    static final Logger LOG = LoggerFactory.getLogger(ADoubleInHead.class);
 
-    private static final double ATTACK_COEFFICIENT = 2;
+    static final double ATTACK_COEFFICIENT = 2;
+
+    private Processor previousProcessor;
+
+    private final Processor attackProcessor = new DoubleInHeadProcessor(actionManager, battleManager, playerManager);
 
     public ADoubleInHead(final String name, final int id, final ImageView sprite) {
         super(name, id, sprite);
     }
 
-    private final Processor attackProcessor = () -> {
-        final ATeam attackTeam = playerManager.getCurrentTeam();
-        final ATeam victimTeam = playerManager.getOpponentATeam();
-        final Player attackPlayer = attackTeam.getCurrentPlayer();
-        final Hero attackHero = attackPlayer.getCurrentHero();
-
-        final EventEngine eventEngine = actionManager.getEventEngine();
-
-        final double attackValue = attackHero.getAttack() * ATTACK_COEFFICIENT;
-        log.info("BEFORE_ATTACK IS DUPLICATED");
-
-        final Hero opponentHero = victimTeam.getCurrentPlayer().getCurrentHero();
-        if (opponentHero.getDamage(attackValue)) {
-            eventEngine.handle(ActionEventFactory.getAfterDealDamage(attackPlayer, opponentHero, attackValue));
-        }
-
-        actionManager.refreshScreen();
-        if (battleManager.isEndTurn()) {
-            actionManager.endTurn(attackTeam);
-        }
-    };
-
     @Override
     public final void use() {
-        installCustomAttack();
+        this.installCustomAttackProcessor();
         actionManager.getEventEngine().addHandler(getHandlerInstance());
     }
 
-    private void installCustomAttack() {
-        actionManager.setStandardAttack(false);
-        actionManager.setProcessor(attackProcessor);
-        log.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
+    private void installCustomAttackProcessor() {
+        try {
+            this.previousProcessor = actionManager.getAttackProcessor();
+            this.actionManager.setAttackProcessor(attackProcessor);
+            LOG.info("INSTALLED CUSTOM BEFORE_ATTACK PROCESSOR");
+        } catch (final ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     private void installDefaultAttack() {
-        actionManager.setDefaultProcessor();
-        actionManager.setStandardAttack(true);
-        log.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
+        try {
+            actionManager.setAttackProcessor(previousProcessor);
+            LOG.info("INSTALLED DEFAULT BEFORE_ATTACK PROCESSOR");
+        } catch (ActionManager.UnsupportedProcessorException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -79,11 +66,11 @@ public final class ADoubleInHead extends Bonus implements DynamicHandleService {
             }
 
             @Override
-            public void handle(final ActionEvent actionEvent) {
+            public final void handle(final ActionEvent actionEvent) {
                 final ActionType actionType = actionEvent.getActionType();
                 if (actionType == ActionType.END_TURN) {
                     installDefaultAttack();
-                    isWorking = false;
+                    this.isWorking = false;
                 }
             }
 

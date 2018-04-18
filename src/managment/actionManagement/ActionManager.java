@@ -1,11 +1,11 @@
 package managment.actionManagement;
 
-import annotations.sourceAnnotations.Transcendental;
 import bonus.bonuses.Bonus;
-import gui.service.graphicEngine.GraphicEngine;
 import com.google.inject.Inject;
+import gui.service.graphicEngine.GraphicEngine;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
+import managment.actionManagement.actionProccessors.*;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.engine.EventEngine;
 import managment.battleManagement.BattleManager;
@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class ActionManager {
+
     private static final Logger log = LoggerFactory.getLogger(ActionManager.class);
 
     @Inject
@@ -31,28 +32,24 @@ public final class ActionManager {
     @Inject
     private GraphicEngine graphicEngine;
 
-    // FIXME: 17.04.2018 There are not standard processors!!!
-    // FIXME: You should to wrap all actions in SAM Processor and add all processor Bonuses field "previousProcessor"
+    //Action processors:
+    private AttackProcessor attackProcessor;
 
-    @Transcendental
-    private boolean isStandardAttack = true;
+    private HealingProcessor healingProcessor;
 
-    @Transcendental
-    private boolean isStandardTreatment = true;
+    private SkillProcessor skillProcessor;
 
-    @Transcendental
-    private boolean isStandardSwap = true;
+    private SwapProcessor swapProcessor;
 
-    @Transcendental
-    private boolean isStandardBonus = true;
+    private BonusProcessor bonusProcessor;
 
-    @Transcendental
-    private boolean isStandardSkill = true;
-
-    @Transcendental
-    private Processor processor = () -> {
-        //Nothing;
-    };
+    public final void install() {
+        this.attackProcessor = new AttackProcessor(this, battleManager);
+        this.healingProcessor = new HealingProcessor(this, battleManager);
+        this.skillProcessor = new SkillProcessor(this, battleManager, playerManager);
+        this.swapProcessor = new SwapProcessor(this, battleManager, playerManager, skillProcessor);
+        this.bonusProcessor = new BonusProcessor(this);
+    }
 
     public final void setHeroRequest(final ATeam clickedTeam) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
@@ -62,60 +59,21 @@ public final class ActionManager {
         if (clickedTeam.equals(currentTeam)) {
             if (currentHero.isTreatmentAccess()) {
                 eventEngine.handle(ActionEventFactory.getTreatment(currentPlayer));
-                healingProcess(clickedTeam);
+                this.healingProcessor.setTeam(clickedTeam);
+                this.healingProcessor.process();
             }
         } else {
             if (currentHero.isAttackAccess()) {
-                eventEngine.handle(ActionEventFactory.getAttack(currentPlayer));
-                attackProcess(clickedTeam, currentTeam);
+                this.eventEngine.handle(ActionEventFactory.getAttack(currentPlayer));
+                this.attackProcessor.setTeams(currentTeam, clickedTeam);
+                this.attackProcessor.process();
             }
-        }
-    }
-
-    private void healingProcess(final ATeam team) {
-        if (isStandardTreatment) {
-            final Player currentPlayer = team.getCurrentPlayer();
-            final Hero currentHero = currentPlayer.getCurrentHero();
-            final double treatmentValue = currentHero.getTreatment();
-
-            if (currentHero.getHealing(treatmentValue)) {
-                eventEngine.handle();
-            }
-            refreshScreen();
-            if (battleManager.isEndTurn()) {
-                endTurn(team);
-            }
-        } else {
-            processor.process();
-        }
-    }
-
-    private void attackProcess(final ATeam victimTeam, final ATeam attackTeam) {
-        if (isStandardAttack) {
-            final Player attackPlayer = attackTeam.getCurrentPlayer();
-            final Hero attackHero = attackPlayer.getCurrentHero();
-            final double attackValue = attackHero.getAttack();
-
-            if (attackHero.addExperience(attackValue)) {
-                eventEngine.handle();
-            }
-            final Hero victimHero = victimTeam.getCurrentPlayer().getCurrentHero();
-            if (victimHero.getDamage(attackValue)) {
-                eventEngine.handle(ActionEventFactory.getAfterDealDamage(attackPlayer, victimHero, attackValue));
-            }
-            refreshScreen();
-            if (battleManager.isEndTurn()) {
-                endTurn(attackTeam);
-            }
-        } else {
-            processor.process();
         }
     }
 
     public final void setSkillRequest(final Hero hero, final Skill skill) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         final Player currentPlayer = currentTeam.getCurrentPlayer();
-
         final boolean heroAuthentication = hero.equals(currentPlayer.getCurrentHero());
         log.info("hero authentication: " + heroAuthentication);
         if (heroAuthentication) {
@@ -124,49 +82,17 @@ public final class ActionManager {
             if (access) {
                 eventEngine.handle(ActionEventFactory.getBeforeUsedSkill(currentPlayer
                         , skill.getName()));
-                skillProcess(currentTeam, skill);
+                this.skillProcessor.setTeamAndSkill(currentTeam, skill);
+                this.skillProcessor.process();
             }
-        }
-    }
-
-    private void skillProcess(final ATeam currentTeam, Skill skill) {
-        if (isStandardSkill) {
-            skill.getActionEvents().clear();
-            skill.use(battleManager, playerManager); //FIXME: wrap all skills in processor
-            skill.reset();
-            skill.getActionEvents().forEach(eventEngine::handle);
-            refreshScreen();
-            if (battleManager.isEndTurn()) {
-                endTurn(currentTeam);
-            }
-        } else {
-            processor.process();
         }
     }
 
     public final void setPlayerSwapRequest(final ATeam team) {
         final ATeam currentTeam = playerManager.getCurrentTeam();
         if (team.equals(currentTeam)) {
-            if (isStandardSwap) {
-                final Hero alternativeHero = currentTeam.getAlternativePlayer().getCurrentHero();
-                if (alternativeHero.getSwapSkill().isReady() && team.swapPlayers()) {
-                    final Hero currentHero = currentTeam.getCurrentPlayer().getCurrentHero();
-                    final Skill swapSkill = currentHero.getSwapSkill();
-                    eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getCurrentPlayer()));
-                    eventEngine.handle(ActionEventFactory.getPlayerSwap(currentTeam.getAlternativePlayer()));
-                    if (swapSkill.isSkillAccess()) {
-                        battleManager.setEndTurn(false);
-                        skillProcess(currentTeam, swapSkill);
-                        battleManager.setEndTurn(true);
-                    }
-                    refreshScreen();
-                    if (battleManager.isEndTurn()) {
-                        endTurn(team);
-                    }
-                }
-            } else {
-                processor.process();
-            }
+            swapProcessor.setTeam(currentTeam);
+            swapProcessor.process();
         }
     }
 
@@ -178,16 +104,9 @@ public final class ActionManager {
         bonusProcess(bonus);
     }
 
-    private void bonusProcess(final Bonus bonus){
-        if (isStandardBonus) {
-            bonus.getActionEvents().clear();
-            bonus.use();
-            refreshScreen();
-            eventEngine.handle();
-            refreshScreen();
-        } else {
-            processor.process();
-        }
+    private void bonusProcess(final Bonus bonus) {
+        bonusProcessor.setBonus(bonus);
+        bonusProcessor.process();
     }
 
     public final void setEagerPlayerSwapRequest(final ATeam team) {
@@ -210,72 +129,69 @@ public final class ActionManager {
         return eventEngine;
     }
 
-    public final GraphicEngine getGraphicEngine() {
-        return graphicEngine;
+    public final Processor getAttackProcessor() {
+        return attackProcessor;
     }
 
-    @Transcendental
-    public final Processor getProcessor() {
-        return processor;
+    public final void setAttackProcessor(Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof AttackProcessor) {
+            this.attackProcessor = (AttackProcessor) processor;
+        } else {
+            throw new UnsupportedProcessorException("Invalid attack processor");
+        }
     }
 
-    public final void setProcessor(Processor processor) {
-        this.processor = processor;
+    public final Processor getHealingProcessor() {
+        return healingProcessor;
     }
 
-    @Transcendental
-    public final void setDefaultProcessor() {
-        this.processor = () -> {
-        };
+    public final void setHealingProcessor(final Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof HealingProcessor) {
+            this.healingProcessor = (HealingProcessor) processor;
+        } else {
+            throw new UnsupportedProcessorException("Invalid healing processor");
+        }
     }
 
-    @Transcendental
-    public boolean isStandardAttack() {
-        return isStandardAttack;
+    public final Processor getSkillProcessor() {
+        return skillProcessor;
     }
 
-    @Transcendental
-    public void setStandardAttack(boolean standardAttack) {
-        isStandardAttack = standardAttack;
+    public final void setSkillProcessor(final Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof SkillProcessor) {
+            this.skillProcessor = (SkillProcessor) processor;
+        } else {
+            throw new UnsupportedProcessorException("Invalid skill processor");
+        }
     }
 
-    @Transcendental
-    public boolean isStandardTreatment() {
-        return isStandardTreatment;
+    public final Processor getSwapProcessor() {
+        return swapProcessor;
     }
 
-    @Transcendental
-    public void setStandardTreatment(boolean standardTreatment) {
-        isStandardTreatment = standardTreatment;
+    public final void setSwapProcessor(final Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof SwapProcessor) {
+            this.swapProcessor = (SwapProcessor) processor;
+        } else {
+            throw new UnsupportedProcessorException("Invalid swap processor");
+        }
     }
 
-    @Transcendental
-    public boolean isStandardSwap() {
-        return isStandardSwap;
+    public final Processor getBonusProcessor() {
+        return bonusProcessor;
     }
 
-    @Transcendental
-    public void setStandardSwap(boolean standardSwap) {
-        isStandardSwap = standardSwap;
+    public final void setBonusProcessor(final Processor processor) throws UnsupportedProcessorException {
+        if (processor instanceof BonusProcessor) {
+            this.bonusProcessor = (BonusProcessor) processor;
+        } else {
+            throw new UnsupportedProcessorException("Invalid bonus processor");
+        }
     }
 
-    @Transcendental
-    public boolean isStandardBonus() {
-        return isStandardBonus;
-    }
-
-    @Transcendental
-    public void setStandardBonus(boolean standardBonus) {
-        isStandardBonus = standardBonus;
-    }
-
-    @Transcendental
-    public boolean isStandardSkill() {
-        return isStandardSkill;
-    }
-
-    @Transcendental
-    public void setStandardSkill(boolean standardSkill) {
-        isStandardSkill = standardSkill;
+    public static final class UnsupportedProcessorException extends Exception {
+        private UnsupportedProcessorException(final String message) {
+            super(message);
+        }
     }
 }

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import main.AGame;
+import managment.actionManagement.ActionManager;
 import managment.actionManagement.service.engine.EventEngine;
 import managment.playerManagement.PlayerManager;
 import managment.profileManagement.Profile;
@@ -62,6 +63,9 @@ public final class ControllerPlayer implements Initializable, Controller {
     private EventEngine eventEngine;
 
     //Managers:
+    @Inject
+    private ActionManager actionManager;
+
     @Inject
     private PlayerManager playerManager;
 
@@ -125,6 +129,7 @@ public final class ControllerPlayer implements Initializable, Controller {
         installPlayers();
         installGraphic();
         installEngines();
+        installActionManager();
         installMatchMaking();
         start();
     }
@@ -144,6 +149,10 @@ public final class ControllerPlayer implements Initializable, Controller {
     private void installPlayers() {
         //setup randomly start team:
         playerManager.setStartPosition();
+    }
+
+    private void installActionManager(){
+        actionManager.install();
     }
 
     private void installGraphic(){
