@@ -1,4 +1,4 @@
-package bonus.devourerBonuses.bonuses.experience
+package bonus.devourerBonuses.bonuses.experience.snakeCollapse
 
 import bonus.bonuses.Bonus
 import javafx.scene.image.ImageView
@@ -11,9 +11,19 @@ import managment.processors.Processor
 final class XSnakeCollapse(name: String, id: Int, sprite: ImageView) extends Bonus(name, id, sprite)
   with DynamicHandleService {
 
+  private var previousProcessor: Processor = _
+
   override def use(): Unit = {
     actionManager.getEventEngine.addHandler(getHandlerInstance)
   }
+
+  def installCustomSkillProcessor(): Unit = {
+    previousProcessor = actionManager.getSkillProcessor
+    val snakeCollapseProcessor = new SnakeCollapseProcessor(actionManager, battleManager, playerManager)
+    actionManager.setSkillProcessor(snakeCollapseProcessor)
+  }
+
+  def installPreviousProcessor(): Unit = actionManager.setSkillProcessor(previousProcessor)
 
   override def getHandlerInstance: HandleComponent = new HandleComponent {
 
@@ -34,11 +44,17 @@ final class XSnakeCollapse(name: String, id: Int, sprite: ImageView) extends Bon
             data match {
               case skillName: String =>
                 if (skillName.equals("FlameSnakes")) {
-
+                  installCustomSkillProcessor()
                 }
             }
           case ActionType.AFTER_USED_SKILL =>
-
+            val data = actionEvent.getData
+            data match {
+              case skillName: String =>
+                if (skillName.equals("SkillCollapse")) {
+                  installPreviousProcessor()
+                }
+            }
         }
       }
     }

@@ -16,9 +16,9 @@ public class SkillProcessor implements Processor {
 
     private final PlayerManager playerManager;
 
-    private ATeam currentTeam;
+    protected ATeam currentTeam;
 
-    private Skill skill;
+    protected Skill skill;
 
     public SkillProcessor(final ActionManager actionManager, final BattleManager battleManager
             , final  PlayerManager playerManager){
