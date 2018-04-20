@@ -47,17 +47,18 @@ final class VoidStones(name: String, id: Int, sprite: ImageView) extends Bonus(n
     }
   }
 
-  private val bonusVsContainerMap = new mutable.HashMap[Bonus, Pane]()
+  private var bonusVsContainerMap = new mutable.HashMap[Bonus, Pane]()
 
   private def destroyBonus(): Unit ={
     val opponentHeroBonusCollection = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero.getBonusCollection
     for (i <- 0 until opponentHeroBonusCollection.size() - 1)  {
       val bonus = opponentHeroBonusCollection.get(i)
-      bonusVsContainerMap.put(bonus, preparePane(bonus))
+      bonusVsContainerMap += (bonus -> preparePane(bonus))
     }
   }
 
   private def preparePane(bonus: Bonus) = {
+    //Abstract container build:
     new Pane()
   }
 

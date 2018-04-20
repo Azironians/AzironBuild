@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2fb4dcc-e957-48a7-904d-33485e9ae172" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/LeftFragment.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/RightFragment.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/DestroyWall.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/XFireWall.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,23 +17,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VoidStones.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala">
+      <file leaf-file-name="XFireWall.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/XFireWall.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+            <state relative-caret-position="-383">
+              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding>
-                <element signature="e#61#87#0" expanded="true" />
+                <element signature="e#60#103#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HashMap.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/collection/mutable/HashMap.scala">
+      <file leaf-file-name="DestroyWall.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/DestroyWall.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="127" column="6" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+            <state relative-caret-position="119">
+              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+              <folding>
+                <element signature="e#59#85#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,8 +44,8 @@
       <file leaf-file-name="HOracle.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/HOracle.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state>
+              <caret selection-end-line="46" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -50,8 +53,8 @@
       <file leaf-file-name="Concentration.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/Concentration.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            <state>
+              <caret selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -59,11 +62,20 @@
       <file leaf-file-name="SnakeCollapseSkill.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseSkill.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="238">
+              <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
               <folding>
                 <element signature="e#64#125#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XSnakeCollapse.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/XSnakeCollapse.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -104,9 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkillProxyComponent.scala" />
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/snakeShield/HSnakeShield.scala" />
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/HOracle.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/Concentration.java" />
         <option value="$PROJECT_DIR$/src/heroes/abstractHero/hero/Hero.java" />
         <option value="$PROJECT_DIR$/src/heroes/abstractHero/skills/abstractSkill/AbstractSkill.java" />
@@ -147,14 +156,17 @@
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/AFromFireIntoTheFire.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/regenerationRoot/RegenerationRootProcessor.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/regenerationRoot/HRegenerationRoot.java" />
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseSkill.scala" />
         <option value="$PROJECT_DIR$/src/managment/actionManagement/actionProccessors/SkillProcessor.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseProcessor.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/XSnakeCollapse.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/ABurnOfKron.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/LeftFragment.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/RightFragment.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseSkill.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/DestroyWall.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/aaa.java" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/XFireWall.scala" />
       </list>
     </option>
   </component>
@@ -175,7 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,6 +243,24 @@
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
               <item name="experience" type="462c0819:PsiDirectoryNode" />
+              <item name="fireWall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
+              <item name="experience" type="462c0819:PsiDirectoryNode" />
+              <item name="kronMark" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
+              <item name="experience" type="462c0819:PsiDirectoryNode" />
               <item name="oracle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -240,14 +270,63 @@
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
               <item name="experience" type="462c0819:PsiDirectoryNode" />
-              <item name="voidStones" type="462c0819:PsiDirectoryNode" />
+              <item name="snakeCollapse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
+              <item name="health" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="heroes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="heroes" type="462c0819:PsiDirectoryNode" />
+              <item name="abstractHero" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="heroes" type="462c0819:PsiDirectoryNode" />
+              <item name="abstractHero" type="462c0819:PsiDirectoryNode" />
+              <item name="bonusManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="heroes" type="462c0819:PsiDirectoryNode" />
+              <item name="devourer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="managment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="managment" type="462c0819:PsiDirectoryNode" />
+              <item name="battleManagement" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,7 +470,11 @@
       <workItem from="1524093184966" duration="3535000" />
       <workItem from="1524161071363" duration="86000" />
       <workItem from="1524164920768" duration="49000" />
-      <workItem from="1524179708164" duration="3006000" />
+      <workItem from="1524179708164" duration="3824000" />
+      <workItem from="1524222331350" duration="1084000" />
+      <workItem from="1524226175908" duration="741000" />
+      <workItem from="1524228322148" duration="54000" />
+      <workItem from="1524264120955" duration="4432000" />
     </task>
     <task id="LOCAL-00001" summary="02.04.2018 WORKING WITH BONUSES:&#10;Added right handling of events in the several bonuses;&#10;Added experience bonuses: Braxador, Usurpation, VoidChannel&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
       <created>1522625845473</created>
@@ -547,37 +630,60 @@
       <option name="project" value="LOCAL" />
       <updated>1524096732674</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="20.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;in development: VoidStones devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
+      <created>1524185668941</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1524185668941</updated>
+    </task>
+    <task id="LOCAL-00024" summary="20.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;in development: VoidStones devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
+      <created>1524185976083</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1524185976083</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102409000" />
+    <option name="totallyTimeSpent" value="109538000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31208053" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29731545" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
@@ -593,28 +699,28 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29932886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49932885" visible="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29932886" />
+      <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +749,8 @@
     <MESSAGE value="17.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: TempoSpeed bonus&#10;in development: SnakeCollapse bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------'&#10;TASK: WRAP SKILLS IN SAM PROCESSOR &amp; ADD + CHANGE SIGNATURE IN ActionEventFactory (about skills)&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
     <MESSAGE value="19.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;refactored: actionManager &amp; custom processor Bonuses&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
     <MESSAGE value="19.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: SnakeCollapse devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
-    <option name="LAST_COMMIT_MESSAGE" value="19.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: SnakeCollapse devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
+    <MESSAGE value="20.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;in development: VoidStones devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
+    <option name="LAST_COMMIT_MESSAGE" value="20.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;in development: VoidStones devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -651,61 +758,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/kronMark/HKronMark.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/duplexMap/DuplexMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/heroBuildComponent/HeroBuildTestComponent.java" />
-    <entry file="file://$PROJECT_DIR$/out/production/AzironConsole/lib/duplexMap/DuplexMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/AzironConsole/main/AGame.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastAssistant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/lvBonuses/bonuses/attack/ADarkSnatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="73" column="62" selection-start-line="73" selection-start-column="62" selection-end-line="73" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/lvBonuses/bonuses/attack/AUnstableMight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="68" column="62" selection-start-line="68" selection-start-column="62" selection-end-line="68" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/Predef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="135" column="7" selection-start-line="135" selection-start-column="7" selection-end-line="135" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -896,16 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseSkill.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#64#125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/ConcentrationAbility.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -913,37 +955,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/Concentration.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/HOracle.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/XSnakeCollapse.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#64#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseProcessor.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="e#64#103#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,9 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="620">
           <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -964,20 +976,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/XTempoSpeed.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/RightFragment.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="e#61#87#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -992,25 +994,135 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding>
-            <element signature="e#63#89#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/collection/mutable/HashMap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
+        <state relative-caret-position="412">
           <caret line="127" column="6" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/Predef.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9078">
+          <caret line="540" column="48" selection-start-line="540" selection-start-column="48" selection-end-line="540" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.graphics/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15317">
+          <caret line="6259" column="40" selection-start-line="6259" selection-start-column="40" selection-end-line="6259" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/javafx.base/javafx/beans/value/WritableDoubleValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/voidStones/VoidStones.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+        <state relative-caret-position="433">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
           <folding>
             <element signature="e#61#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/XTempoSpeed.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/HOracle.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="46" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/XSnakeCollapse.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/SnakeCollapseSkill.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+          <folding>
+            <element signature="e#64#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/Concentration.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/managment/battleManagement/BattleManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="134" column="32" lean-forward="true" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/service/graphicEngine/GraphicEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="165" column="32" selection-start-line="165" selection-start-column="32" selection-end-line="165" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/heroes/abstractHero/bonusManagement/BonusManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/aaa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/DestroyWall.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+          <folding>
+            <element signature="e#59#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/fireWall/XFireWall.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-383">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <element signature="e#60#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
