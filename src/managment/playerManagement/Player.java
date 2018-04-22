@@ -16,7 +16,7 @@ public final class Player {
     private Hero currentHero;
 
     @Transcendental
-    private List<Hero> otherHeroes;
+    private List<Hero> allHeroes;
 
     private boolean isCurrent;
 
@@ -141,8 +141,8 @@ public final class Player {
     }
 
     @Transcendental
-    public List<Hero> getOtherHeroes() {
-        return otherHeroes;
+    public final List<Hero> getAllHeroes() {
+        return allHeroes;
     }
 }
 

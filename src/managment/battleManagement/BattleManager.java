@@ -1,5 +1,6 @@
 package managment.battleManagement;
 
+import annotations.sourceAnnotations.Transcendental;
 import bonus.bonuses.Bonus;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -118,6 +119,7 @@ public final class BattleManager {
         loadRandomBonuses(currentPlayer.getCurrentHero());
     }
 
+    @Transcendental
     public void loadRandomBonuses(final Hero hero) {
         if (isStandardRandomBonusEngine){
             final List<Bonus> bonusList = hero.getBonusCollection();
@@ -171,18 +173,22 @@ public final class BattleManager {
         this.skipTurn = skipTurn;
     }
 
+    @Transcendental
     public final void setStandardRandomBonusEngine(boolean standardRandomBonusEngine) {
         this.isStandardRandomBonusEngine = standardRandomBonusEngine;
     }
 
+    @Transcendental
     public final Processor getProcessor() {
         return processor;
     }
 
+    @Transcendental
     public final void setProcessor(final Processor processor) {
         this.processor = processor;
     }
 
+    @Transcendental
     public final void setDefaultProcessor() {
         this.processor = () -> {
             //Empty

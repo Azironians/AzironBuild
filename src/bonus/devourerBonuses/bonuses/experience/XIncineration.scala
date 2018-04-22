@@ -10,7 +10,7 @@ import managment.playerManagement.Player
 
 import scala.collection.mutable
 
-final class Incineration(name: String, id: Int, sprite: ImageView) extends Bonus(name, id, sprite)
+final class XIncineration(name: String, id: Int, sprite: ImageView) extends Bonus(name, id, sprite)
   with DynamicHandleService {
 
   private val previousProviderComponentList = new mutable.MutableList[ProviderComponent[java.lang.Integer]]()
@@ -34,7 +34,7 @@ final class Incineration(name: String, id: Int, sprite: ImageView) extends Bonus
 
     private val undefined: Int = -1
 
-    override final def getValue: Int = undefined
+    override final def getValue: Integer = undefined
 
     override final def getPriority: Int = 0
 
@@ -65,7 +65,7 @@ final class Incineration(name: String, id: Int, sprite: ImageView) extends Bonus
         val bonusManager = opponentHero.getBonusManager
         val providerComponentList = bonusManager.getProviderComponentList
         for (i <- 0 until providerComponentList.size()){
-          val previousProviderComponent: ProviderComponent[java.lang.Integer] = previousProviderComponentList.get(i).get
+          val previousProviderComponent: ProviderComponent[java.lang.Integer] = previousProviderComponentList(i)
           bonusManager.returnPreviousProviderComponent(i, previousProviderComponent)
         }
       }

@@ -18,7 +18,7 @@ public final class ATeam {
     private Player alternativePlayer;
 
     @Transcendental
-    private List<Player> otherPlayers;
+    private List<Player> allPlayers;
 
     private int turn;
 
@@ -135,7 +135,7 @@ public final class ATeam {
     }
 
     @Transcendental
-    public final List<Player> getOtherPlayers() {
-        return otherPlayers;
+    public final List<Player> getAllPlayers() {
+        return allPlayers;
     }
 }
