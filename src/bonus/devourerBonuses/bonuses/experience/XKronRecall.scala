@@ -22,10 +22,7 @@ final class XKronRecall(name: String, id: Int, sprite: ImageView) extends Extend
 
   private val text: Text = new Text(START_COUNT + "/" + END_COUNT)
 
-  def this(name: String, id: Int, sprite: ImageView) = {
-    this(name, id, sprite)
-    this.installContainer(this.text)
-  }
+  this.installContainer(this.text)
 
   override def use(): Unit = {
     if (this.count + 1 == END_COUNT) {
