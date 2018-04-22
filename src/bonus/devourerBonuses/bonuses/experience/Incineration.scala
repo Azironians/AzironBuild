@@ -1,7 +1,6 @@
 package bonus.devourerBonuses.bonuses.experience
 
 import bonus.bonuses.Bonus
-import bonus.bonuses.subInterfaces.QuestBonus
 import javafx.scene.image.ImageView
 import managment.actionManagement.actions.{ActionEvent, ActionType}
 import managment.actionManagement.service.components.handleComponet.HandleComponent
