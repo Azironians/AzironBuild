@@ -28,14 +28,12 @@ public abstract class Bonus {
         this.name = name;
         this.id = id;
         this.actionEvents = new ArrayList<>();
-
         sprite.setFitHeight(353.0);
         sprite.setFitWidth(309.0);
         sprite.setOnMouseClicked(event -> actionManager.setBonusRequest(this));
         sprite.setOnMouseEntered(event -> increaseBonusEntered());
         sprite.setOnMouseExited(event -> decreaseBonusExited());
         this.sprite = sprite;
-
     }
 
     public abstract void use();
@@ -44,13 +42,13 @@ public abstract class Bonus {
 
     //Animation:
     private void increaseBonusEntered(){
-        sprite.toFront();
-        scaleBonus(sprite, 1.8);
+        this.sprite.toFront();
+        scaleBonus(this.sprite, 1.8);
     }
 
     private void decreaseBonusExited(){
-        sprite.toBack();
-        scaleBonus(sprite, 1);
+        this.sprite.toBack();
+        scaleBonus(this.sprite, 1);
     }
 
     private void scaleBonus(final ImageView imageView, final double scale){
@@ -65,7 +63,7 @@ public abstract class Bonus {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return "Bonus{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
@@ -77,23 +75,23 @@ public abstract class Bonus {
         return actionEvents;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public ImageView getSprite() {
+    public final ImageView getSprite() {
         return sprite;
     }
 
-    public void setActionManager(final ActionManager actionManager) {
+    public final void setActionManager(final ActionManager actionManager) {
         this.actionManager = actionManager;
     }
 
-    public void setBattleManager(final BattleManager battleManager) {
+    public final void setBattleManager(final BattleManager battleManager) {
         this.battleManager = battleManager;
     }
 
-    public void setPlayerManager(final PlayerManager playerManager) {
+    public final void setPlayerManager(final PlayerManager playerManager) {
         this.playerManager = playerManager;
     }
 }
