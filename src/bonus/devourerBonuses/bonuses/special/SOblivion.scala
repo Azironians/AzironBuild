@@ -3,7 +3,7 @@ package bonus.devourerBonuses.bonuses.special
 import bonus.bonuses.Bonus
 import javafx.scene.image.ImageView
 
-final class Oblivion(name: String, id: Int, sprite: ImageView) extends Bonus(name, id, sprite) {
+final class SOblivion(name: String, id: Int, sprite: ImageView) extends Bonus(name, id, sprite) {
 
   private val SKILL_BOOST_COEFFICIENT: Double = 1.20
 
