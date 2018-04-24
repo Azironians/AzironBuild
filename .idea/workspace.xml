@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2fb4dcc-e957-48a7-904d-33485e9ae172" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/Oblivion.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/bonuses/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/bonuses/Bonus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCell.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/XBoneCell.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/XBoneCage.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +17,7 @@
       <file leaf-file-name="XIncineration.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/XIncineration.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
+            <state relative-caret-position="1088">
               <caret line="72" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#50#76#0" expanded="true" />
@@ -33,8 +29,8 @@
       <file leaf-file-name="DestroyCage.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="476">
+              <caret line="31" column="3" selection-start-line="10" selection-start-column="2" selection-end-line="31" selection-end-column="3" />
               <folding>
                 <element signature="e#59#93#0" expanded="true" />
               </folding>
@@ -42,13 +38,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Oblivion.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/Oblivion.scala">
+      <file leaf-file-name="SOblivion.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SOblivion.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="510">
+              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
               <folding>
                 <element signature="e#47#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SMeteora.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#47#81#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/ExtendedBonus.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#278#279#0" expanded="true" />
@@ -70,18 +78,14 @@
       </file>
       <file leaf-file-name="Bonus.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/Bonus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="XBoneCage.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/XBoneCage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+            <state relative-caret-position="323">
+              <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
               <folding>
                 <element signature="e#59#85#0" expanded="true" />
               </folding>
@@ -125,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/HOracle.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/StempoSpeed.scala" />
         <option value="$PROJECT_DIR$/src/managment/actionManagement/actions/ActionType.java" />
         <option value="$PROJECT_DIR$/src/main/AGame.java" />
@@ -176,6 +179,7 @@
         <option value="$PROJECT_DIR$/src/bonus/bonuses/Bonus.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCage.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/Oblivion.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala" />
       </list>
     </option>
   </component>
@@ -196,9 +200,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -237,7 +240,31 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
+              <item name="experience" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
+              <item name="experience" type="462c0819:PsiDirectoryNode" />
+              <item name="boneCell" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
               <item name="special" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="generalBonuses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
@@ -306,6 +333,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -457,7 +485,8 @@
       <workItem from="1524312813344" duration="69000" />
       <workItem from="1524354808932" duration="3282000" />
       <workItem from="1524434765465" duration="4184000" />
-      <workItem from="1524482110117" duration="5598000" />
+      <workItem from="1524482110117" duration="6217000" />
+      <workItem from="1524530109640" duration="66000" />
     </task>
     <task id="LOCAL-00001" summary="02.04.2018 WORKING WITH BONUSES:&#10;Added right handling of events in the several bonuses;&#10;Added experience bonuses: Braxador, Usurpation, VoidChannel&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
       <created>1522625845473</created>
@@ -669,11 +698,25 @@
       <option name="project" value="LOCAL" />
       <updated>1524486686667</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="23.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: KronRecall devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
+      <created>1524497653855</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1524497653855</updated>
+    </task>
+    <task id="LOCAL-00032" summary="23.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: KronRecall devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
+      <created>1524498139246</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1524498139246</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123002000" />
+    <option name="totallyTimeSpent" value="123687000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -701,7 +744,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3147651" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31946307" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -711,25 +754,25 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29932886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -739,10 +782,10 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
       <window_info id="Capture Tool" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49932885" visible="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
@@ -794,13 +837,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/FromFireIntoTheFireProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/AFromFireIntoTheFire.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1093,10 +1129,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
           <caret line="167" column="30" lean-forward="true" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
-          <folding>
-            <element signature="e#5833#5834#0" expanded="true" />
-            <element signature="e#5863#5864#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1109,7 +1141,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/XIncineration.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
+        <state relative-caret-position="1088">
           <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#50#76#0" expanded="true" />
@@ -1118,16 +1150,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/Bonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/ExtendedBonus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#278#279#0" expanded="true" />
@@ -1136,10 +1164,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SOblivion.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="e#47#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/XBoneCage.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        <state relative-caret-position="323">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
             <element signature="e#59#85#0" expanded="true" />
           </folding>
@@ -1148,20 +1186,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCage.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state relative-caret-position="476">
+          <caret line="31" column="3" selection-start-line="10" selection-start-column="2" selection-end-line="31" selection-end-column="3" />
           <folding>
             <element signature="e#59#93#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/Oblivion.scala">
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        <state relative-caret-position="119">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#47#73#0" expanded="true" />
+            <element signature="e#47#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
