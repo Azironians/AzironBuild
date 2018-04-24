@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2fb4dcc-e957-48a7-904d-33485e9ae172" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -50,14 +51,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SMeteora.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SMeteora.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="561">
+              <caret line="36" column="3" lean-forward="true" selection-start-line="7" selection-end-line="36" selection-end-column="3" />
               <folding>
                 <element signature="e#47#81#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SMerge.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+              <folding>
+                <element signature="e#53#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RichInt.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/runtime/RichInt.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Range.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/collection/immutable/Range.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="407" column="7" selection-start-line="407" selection-start-column="7" selection-end-line="407" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -74,11 +105,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bonus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/Bonus.java">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="XBoneCage.scala" pinned="false" current-in-tab="false">
@@ -129,8 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/StempoSpeed.scala" />
-        <option value="$PROJECT_DIR$/src/managment/actionManagement/actions/ActionType.java" />
         <option value="$PROJECT_DIR$/src/main/AGame.java" />
         <option value="$PROJECT_DIR$/src/bonus/bonuses/subInterfaces/QuestBonus.java" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/morphing/HMorphing.java" />
@@ -180,6 +204,8 @@
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/boneCell/DestroyCage.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/Oblivion.scala" />
         <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/XMerge.scala" />
+        <option value="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala" />
       </list>
     </option>
   </component>
@@ -201,7 +227,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,16 +265,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
-              <item name="experience" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bonus" type="462c0819:PsiDirectoryNode" />
-              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
-              <item name="experience" type="462c0819:PsiDirectoryNode" />
-              <item name="boneCell" type="462c0819:PsiDirectoryNode" />
+              <item name="special" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
@@ -258,6 +274,7 @@
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
               <item name="special" type="462c0819:PsiDirectoryNode" />
+              <item name="merge" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
@@ -333,6 +350,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -486,7 +504,8 @@
       <workItem from="1524354808932" duration="3282000" />
       <workItem from="1524434765465" duration="4184000" />
       <workItem from="1524482110117" duration="6217000" />
-      <workItem from="1524530109640" duration="66000" />
+      <workItem from="1524530109640" duration="202000" />
+      <workItem from="1524563196098" duration="1991000" />
     </task>
     <task id="LOCAL-00001" summary="02.04.2018 WORKING WITH BONUSES:&#10;Added right handling of events in the several bonuses;&#10;Added experience bonuses: Braxador, Usurpation, VoidChannel&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
       <created>1522625845473</created>
@@ -712,11 +731,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524498139246</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="24.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: BoneCage, Meteora, Oblivion devourer bonuses&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
+      <created>1524530239261</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1524530239261</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123687000" />
+    <option name="totallyTimeSpent" value="125814000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -739,19 +765,19 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31946307" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32416108" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
@@ -762,33 +788,33 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29932886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32905984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49932885" visible="true" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -821,7 +847,8 @@
     <MESSAGE value="21.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: FireWall devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
     <MESSAGE value="21.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: Incineration devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
     <MESSAGE value="23.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: KronRecall devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
-    <option name="LAST_COMMIT_MESSAGE" value="23.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: KronRecall devourer bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
+    <MESSAGE value="24.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: BoneCage, Meteora, Oblivion devourer bonuses&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
+    <option name="LAST_COMMIT_MESSAGE" value="24.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: BoneCage, Meteora, Oblivion devourer bonuses&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -837,13 +864,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/AFromFireIntoTheFire.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/regenerationRoot/HRegenerationRoot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -982,13 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/runtime/RichInt.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1149,9 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/Bonus.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/bonuses/ExtendedBonus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1196,10 +1206,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/SMeteora.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="561">
+          <caret line="36" column="3" lean-forward="true" selection-start-line="7" selection-end-line="36" selection-end-column="3" />
           <folding>
             <element signature="e#47#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/runtime/RichInt.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.5-sources.jar!/scala/collection/immutable/Range.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="407" column="7" selection-start-line="407" selection-start-column="7" selection-end-line="407" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding>
+            <element signature="e#53#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
