@@ -5,7 +5,9 @@ import heroes.abstractHero.hero.Hero
 import heroes.abstractHero.skills.Skill
 import javafx.scene.image.ImageView
 import javafx.scene.text.Text
-import managment.actionManagement.actions.ActionEventFactory
+import managment.playerManagement.Player
+
+import scala.collection.mutable
 
 final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBonus(name, id, sprite) {
 
@@ -23,7 +25,8 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
     if (this.count + 1 == END_COUNT) {
       val player = playerManager.getCurrentTeam.getCurrentPlayer
       val hero = player.getCurrentHero
-      this.mergeSkills(hero)
+      //FIXME: MOVE LOCATION CLASS ON HERO!!! NOW PLAYER IS TEMPORARY IN SIGNATURE!!!
+      this.mergeSkills(hero, player)
       this.count = START_COUNT
 
     }
@@ -33,21 +36,50 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
     }
   }
 
-  private def mergeSkills(hero: Hero): Unit = {
+  //FIXME: MOVE LOCATION CLASS ON HERO!!! NOW PLAYER IS TEMPORARY IN SIGNATURE!!!
+  private def mergeSkills(hero: Hero, player: Player): Unit = {
     val skills = hero.getCollectionOfSkills
-    val basicSkillCount = 3
-    if (skills.size() > basicSkillCount){
-
+    val indexBasicSkillList = this.foundBasicSkills(skills)
+    if (indexBasicSkillList.nonEmpty){
+      for (i <- indexBasicSkillList){
+        val skillPane = player.getLocation.getSkillPane
+        val skillNodes = skillPane.getChildren
+        skills.remove(i)
+        skillNodes.remove(i)
+      }
+      val firstIndex = indexBasicSkillList.head
+      this.createDevouringSkill(firstIndex, skills)
     }
   }
 
 
-  private def foundBasicSkills(skills: java.util.List[Skill]): List[Int] = {
+  private def foundBasicSkills(skills: java.util.List[Skill]): mutable.MutableList[Int] = {
+    val indexBasicSkillList: mutable.MutableList[Int] = new mutable.MutableList[Int]
     var foundFlameSnakes: Boolean = false
     var foundRegeneration: Boolean = false
     var foundConsuming: Boolean = false
     for (i <- 0 until skills.size()){
-
+      val skill = skills.get(i)
+      if (!foundFlameSnakes && skill.getName.equals("FlameSnakes")){
+        indexBasicSkillList.+=(i)
+        foundFlameSnakes = true
+      }
+      if (!foundRegeneration && skill.getName.equals("Regeneration")){
+        indexBasicSkillList.+=(i)
+        foundRegeneration = true
+      }
+      if (!foundConsuming && skill.getName.equals("Consuming")){
+        indexBasicSkillList.+=(i)
+        foundConsuming = true
+      }
+      if (foundFlameSnakes && foundRegeneration && foundConsuming){
+        return indexBasicSkillList
+      }
     }
+    mutable.MutableList.empty
+  }
+
+  private def createDevouringSkill(position: Int, skills : java.util.List[Skill])  = {
+    //TODO...
   }
 }
