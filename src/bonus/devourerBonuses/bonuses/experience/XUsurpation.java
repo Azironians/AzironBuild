@@ -23,7 +23,7 @@ public final class XUsurpation extends Bonus implements RegularHandleService {
     @Override
     public final void use() {
         final double experienceConsuming = EXPERIENCE_CONSUMING * experienceConsumingCoefficient;
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         if (opponentHero.removeExperience(experienceConsuming)){
             actionManager.getEventEngine().setRepeatHandling(true);
         }

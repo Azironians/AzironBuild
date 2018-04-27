@@ -21,7 +21,7 @@ public final class FurySkill extends AbstractSimplifiedSkill {
 
     @Override
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Hero currentHero = currentPlayer.getCurrentHero();
         final Hero opponentHero = opponentPlayer.getCurrentHero();

@@ -41,7 +41,7 @@ public final class HSelfKeepingInstinct extends Bonus implements DynamicHandleSe
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.opponentTeam = playerManager.getOpponentATeam();
+                this.opponentTeam = playerManager.getOpponentTeam();
                 this.isWorking = true;
             }
 

@@ -19,7 +19,7 @@ final class XIncineration(name: String, id: Int, sprite: ImageView) extends Bonu
     //Install handler:
     this.actionManager.getEventEngine.addHandler(getHandlerInstance)
     //Change bonus provider components:
-    val opponentHero = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero
+    val opponentHero = playerManager.getOpponentTeam.getCurrentPlayer.getCurrentHero
     val bonusManager = opponentHero.getBonusManager
     val providerComponentList = bonusManager.getProviderComponentList
     for (i <- 0 until providerComponentList.size()){
@@ -53,7 +53,7 @@ final class XIncineration(name: String, id: Int, sprite: ImageView) extends Bonu
 
     override final def setup(): Unit = {
       this.player = playerManager.getCurrentTeam.getCurrentPlayer
-      this.opponentPlayer = playerManager.getOpponentATeam.getCurrentPlayer
+      this.opponentPlayer = playerManager.getOpponentTeam.getCurrentPlayer
       this.work = true
     }
 

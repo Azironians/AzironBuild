@@ -38,7 +38,7 @@ public final class AHunt extends Bonus implements RegularHandleService {
 
     @Override
     public final void use() {
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         final BonusManager bonusManager = opponentHero.getBonusManager();
         final int index = bonusManager.getAvailableProviderComponent();
         final List<ProviderComponent<Integer>> providerComponents = bonusManager.getProviderComponentList();

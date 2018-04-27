@@ -43,13 +43,13 @@ public final class XAnticipation extends Bonus implements DynamicHandleService {
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.opponent = playerManager.getOpponentATeam().getCurrentPlayer();
-                this.alternativeOpponent = playerManager.getOpponentATeam().getAlternativePlayer();
+                this.opponent = playerManager.getOpponentTeam().getCurrentPlayer();
+                this.alternativeOpponent = playerManager.getOpponentTeam().getAlternativePlayer();
             }
 
             @Override
             public final void handle(final ActionEvent actionEvent) {
-                final Player victimPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+                final Player victimPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
                 final Player attackPlayer = actionEvent.getPlayer();
 
                 if (actionEvent.getActionType() == ActionType.BEFORE_ATTACK && (attackPlayer == opponent

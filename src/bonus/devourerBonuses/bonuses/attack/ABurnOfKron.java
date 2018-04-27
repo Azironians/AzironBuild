@@ -45,7 +45,7 @@ public final class ABurnOfKron extends Bonus implements DynamicHandleService{
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
                 this.damage = player.getCurrentHero().getAttack() * DAMAGE_COEFFICIENT;
-                this.opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+                this.opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
             }
 
             @Override

@@ -23,7 +23,7 @@ public final class ABreakthrough extends Bonus{
     @Override
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
 
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         final List<Skill> opponentSkills = opponentHero.getCollectionOfSkills();

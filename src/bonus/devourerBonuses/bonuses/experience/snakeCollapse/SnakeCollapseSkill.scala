@@ -6,7 +6,7 @@ import javafx.scene.media.Media
 import managment.battleManagement.BattleManager
 import managment.playerManagement.PlayerManager
 
-class SnakeCollapseSkill(name: String = "",
+final class SnakeCollapseSkill(name: String = "",
                          reload: Int = 0,
                          requiredLevel: Int = 1,
                          coefficients: java.util.List[java.lang.Double] = new java.util.ArrayList[java.lang.Double]
@@ -17,7 +17,7 @@ class SnakeCollapseSkill(name: String = "",
 
   override def use(battleManager: BattleManager, playerManager: PlayerManager): Unit = {
     val damage = getParent.getAttack * coefficients.get(0)
-    val opponentPlayer = playerManager.getOpponentATeam.getCurrentPlayer
+    val opponentPlayer = playerManager.getOpponentTeam.getCurrentPlayer
     val opponentHero = opponentPlayer.getCurrentHero
     opponentHero.removeExperience(damage)
   }

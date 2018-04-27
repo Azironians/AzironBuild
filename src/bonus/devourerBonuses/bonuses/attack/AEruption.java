@@ -45,7 +45,7 @@ public final class AEruption extends Bonus implements DynamicHandleService{
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
                 this.hitPoints = player.getCurrentHero().getHitPoints();
-                this.opponentTeam = playerManager.getOpponentATeam();
+                this.opponentTeam = playerManager.getOpponentTeam();
             }
 
             @Override

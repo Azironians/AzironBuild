@@ -21,7 +21,7 @@ public final class DepletionSkill extends AbstractSimplifiedSkill {
 
     @Override
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();

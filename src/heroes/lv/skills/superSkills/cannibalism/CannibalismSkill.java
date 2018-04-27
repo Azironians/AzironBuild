@@ -25,7 +25,7 @@ public final class CannibalismSkill extends AbstractSkill {
         final double DAMAGE = getParent().getAttack() * coefficients.get(0);
         final double HEALING = getParent().getAttack() * coefficients.get(1);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero currentHero = currentPlayer.getCurrentHero();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         if (opponentHero.getDamage(DAMAGE)) {

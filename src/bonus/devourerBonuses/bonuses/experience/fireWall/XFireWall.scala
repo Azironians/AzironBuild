@@ -33,7 +33,7 @@ final class XFireWall(name: String, id: Int, sprite: ImageView) extends Extended
   }
 
   private def closeBonuses(): Unit = {
-    val opponentHero = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero
+    val opponentHero = playerManager.getOpponentTeam.getCurrentPlayer.getCurrentHero
     val bonusManager = opponentHero.getBonusManager
     val providerComponentList = bonusManager.getProviderComponentList
     val bonusCollection = opponentHero.getBonusCollection

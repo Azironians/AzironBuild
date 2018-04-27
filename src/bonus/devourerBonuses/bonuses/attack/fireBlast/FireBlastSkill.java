@@ -40,7 +40,7 @@ public final class FireBlastSkill extends AbstractSkill {
     @Override
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Player player = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponent = playerManager.getOpponentTeam().getCurrentPlayer();
         final double damage = FireBlastAssistant.formDamage(player.getCurrentHero().getCollectionOfSkills());
         if (opponent.getCurrentHero().getDamage(damage)) {
             actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(player, opponent.getCurrentHero(), damage));

@@ -74,7 +74,7 @@ public final class HybridisationSkill extends AbstractSkill {
             public final void handle(final ActionEvent actionEvent) {
                 if (actionEvent.getActionType() == ActionType.START_TURN && actionEvent.getPlayer() == currentPlayer
                         && currentPlayer == playerManager.getCurrentTeam().getCurrentPlayer()){
-                    final Player opponent = playerManager.getOpponentATeam().getCurrentPlayer();
+                    final Player opponent = playerManager.getOpponentTeam().getCurrentPlayer();
                     final double damage = currentPlayer.getCurrentHero().getAttack() * hydraAggression * coefficient;
                     if (opponent.getCurrentHero().getDamage(damage)){
                         actionManager.getEventEngine().handle(ActionEventFactory.getAfterDealDamage(currentPlayer
@@ -82,7 +82,7 @@ public final class HybridisationSkill extends AbstractSkill {
                     }
                 }
                 if (actionEvent.getActionType() == ActionType.BEFORE_ATTACK
-                        && currentPlayer == playerManager.getOpponentATeam().getCurrentPlayer()){
+                        && currentPlayer == playerManager.getOpponentTeam().getCurrentPlayer()){
                     if (IS_HYDRA_DESTROYED(hydraAggression + 1)){
                         this.isWorking = false;
                         this.hydraAggression = 0;

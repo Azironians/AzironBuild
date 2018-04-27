@@ -48,6 +48,6 @@ public final class DoubleInHeadProcessor extends AttackProcessor {
     @Override
     public final void setTeams(final ATeam attackTeam, final ATeam victimTeam){
         this.attackTeam = playerManager.getCurrentTeam();
-        this.victimTeam = playerManager.getOpponentATeam();
+        this.victimTeam = playerManager.getOpponentTeam();
     }
 }

@@ -15,7 +15,7 @@ class AWooo(name: String, id: Int, sprite: ImageView) : Bonus(name, id, sprite){
     override fun use() {
         val player = playerManager.currentTeam.currentPlayer
         val hero = player.currentHero
-        val opponentHero = playerManager.opponentATeam.currentPlayer.currentHero
+        val opponentHero = playerManager.opponentTeam.currentPlayer.currentHero
         val damage = hero.attack * DAMAGE_COEFFICIENT
         val eventEngine = actionManager.eventEngine
         for (i  in 1..counter){

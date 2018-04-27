@@ -29,7 +29,7 @@ public final class FlameSnakesSkill extends AbstractSkill {
         final double damage = getParent().getAttack() * coefficients.get(0);
         log.info("FLAME_SNAKES_DAMAGE : " + damage);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage));

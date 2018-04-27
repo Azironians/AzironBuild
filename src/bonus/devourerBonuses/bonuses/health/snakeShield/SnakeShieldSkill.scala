@@ -23,7 +23,7 @@ final class SnakeShieldSkill(val proxyComponent: SnakeShieldSkillProxyComponent
   override def use(battleManager: BattleManager, playerManager: PlayerManager): Unit = {
     val damage: Double = proxyComponent.proxySkillVsDamageMap.get(this)
     val currentPlayer = playerManager.getCurrentTeam.getCurrentPlayer
-    val opponentPlayer = playerManager.getOpponentATeam.getCurrentPlayer
+    val opponentPlayer = playerManager.getOpponentTeam.getCurrentPlayer
     val opponentHero = opponentPlayer.getCurrentHero
     actionEvents.add(ActionEventFactory.getBeforeDealDamage(currentPlayer, opponentHero, damage))
     if (opponentHero.getDamage(damage)) {

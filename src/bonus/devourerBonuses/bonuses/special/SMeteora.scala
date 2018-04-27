@@ -23,7 +23,7 @@ final class SMeteora(name: String, id: Int, sprite: ImageView) extends ExtendedB
     if (this.count + 1 == END_COUNT) {
       this.count = START_COUNT
       val player = playerManager.getCurrentTeam.getCurrentPlayer
-      val opponentHero = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero
+      val opponentHero = playerManager.getOpponentTeam.getCurrentPlayer.getCurrentHero
       val eventEngine = this.actionManager.getEventEngine
       eventEngine.handle(ActionEventFactory.getBeforeDealDamage(player, opponentHero, DAMAGE))
       if (opponentHero.getDamage(DAMAGE)){

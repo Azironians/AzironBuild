@@ -20,7 +20,7 @@ public final class HealthGainSkill extends AbstractSimplifiedSkill {
     @Override
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         final int levelComparison = opponentHero.getLevel() - currentHero.getLevel();
         final double skillCoefficient = levelComparison > 0 ? (levelComparison + 1) * coefficients.get(0)
                 : coefficients.get(0);

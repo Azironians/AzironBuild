@@ -1,4 +1,4 @@
-package bonus.devourerBonuses.bonuses.experience.boneCell
+package bonus.devourerBonuses.bonuses.experience.boneCage
 
 import bonus.bonuses.Bonus
 import javafx.scene.image.ImageView
@@ -9,7 +9,7 @@ final class XBoneCage(name: String, id: Int, sprite: ImageView) extends Bonus(na
   private  var previousProviderComponent: ProviderComponent[java.lang.Integer] = _
 
   override def use(): Unit = {
-    val opponentHero = playerManager.getOpponentATeam.getCurrentPlayer.getCurrentHero
+    val opponentHero = playerManager.getOpponentTeam.getCurrentPlayer.getCurrentHero
     val bonusManager = opponentHero.getBonusManager
     val providerComponentList = bonusManager.getProviderComponentList
     val index = bonusManager.getAvailableProviderComponent

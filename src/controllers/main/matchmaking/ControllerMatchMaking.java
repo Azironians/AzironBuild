@@ -90,7 +90,7 @@ public final class ControllerMatchMaking implements Initializable, Controller {
     public final void buttonMenuClicked() {
         pausePane.setVisible(true);
         logger.info(playerManager.getCurrentTeam().toString());
-        logger.info(playerManager.getOpponentATeam().toString());
+        logger.info(playerManager.getOpponentTeam().toString());
     }
 
     public final void buttonResumeGameClicked() {

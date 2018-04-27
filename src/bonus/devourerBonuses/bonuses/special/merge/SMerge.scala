@@ -3,7 +3,9 @@ package bonus.devourerBonuses.bonuses.special.merge
 import bonus.bonuses.ExtendedBonus
 import heroes.abstractHero.hero.Hero
 import heroes.abstractHero.skills.Skill
+import javafx.scene.Node
 import javafx.scene.image.ImageView
+import javafx.scene.layout.{AnchorPane, Pane}
 import javafx.scene.text.Text
 import managment.playerManagement.Player
 
@@ -40,18 +42,17 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
   private def mergeSkills(hero: Hero, player: Player): Unit = {
     val skills = hero.getCollectionOfSkills
     val indexBasicSkillList = this.foundBasicSkills(skills)
+    val skillPane: Pane = player.getLocation.getSkillPane
+    val skillNodes = skillPane.getChildren
+    val firstBasicSkillPane = skillNodes.get(indexBasicSkillList.head)
     if (indexBasicSkillList.nonEmpty){
       for (i <- indexBasicSkillList){
-        val skillPane = player.getLocation.getSkillPane
-        val skillNodes = skillPane.getChildren
         skills.remove(i)
         skillNodes.remove(i)
       }
-      val firstIndex = indexBasicSkillList.head
-      this.createDevouringSkill(firstIndex, skills)
+      this.createDevouringSkill(skillPane = Pane, player, firstBasicSkillPane )
     }
   }
-
 
   private def foundBasicSkills(skills: java.util.List[Skill]): mutable.MutableList[Int] = {
     val indexBasicSkillList: mutable.MutableList[Int] = new mutable.MutableList[Int]
@@ -79,7 +80,11 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
     mutable.MutableList.empty
   }
 
-  private def createDevouringSkill(position: Int, skills : java.util.List[Skill])  = {
-    //TODO...
+  private def createDevouringSkill(skillPane: Pane, parentPlayer: Player, firstPane: Node): Unit = {
+    val devouringSkill = new DevouringSkill()
+    val layoutX = firstPane.getLayoutX
+    val layoutY = firstPane.getLayoutY
+    devouringSkill.install(skillPane, parentPlayer.getCurrentHero, layoutX, layoutY, layoutX, -127
+      , parentPlayer.getLocation.isInvert)
   }
 }

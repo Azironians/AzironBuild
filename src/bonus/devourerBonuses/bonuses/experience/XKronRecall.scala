@@ -40,7 +40,7 @@ final class XKronRecall(name: String, id: Int, sprite: ImageView) extends Extend
 
     private val player: Player = playerManager.getCurrentTeam.getCurrentPlayer
 
-    private val opponentTeam: ATeam = playerManager.getOpponentATeam
+    private val opponentTeam: ATeam = playerManager.getOpponentTeam
 
     private var work: Boolean = true
 

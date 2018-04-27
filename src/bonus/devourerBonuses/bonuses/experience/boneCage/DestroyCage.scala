@@ -1,4 +1,4 @@
-package bonus.devourerBonuses.bonuses.experience.boneCell
+package bonus.devourerBonuses.bonuses.experience.boneCage
 
 import bonus.bonuses.ExtendedBonus
 import heroes.abstractHero.hero.Hero

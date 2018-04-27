@@ -146,7 +146,7 @@ public final class PlayerManager {
     }
 
     @Contract(pure = true)
-    public final ATeam getOpponentATeam() {
+    public final ATeam getOpponentTeam() {
         return opponentATeam;
     }
 }

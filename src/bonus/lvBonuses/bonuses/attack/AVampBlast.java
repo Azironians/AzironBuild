@@ -21,7 +21,7 @@ public final class AVampBlast extends Bonus {
     public final void use() {
         final ATeam team = playerManager.getCurrentTeam();
         final Player player = team.getCurrentPlayer();
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         team.changeTimeBy(TIME_LOSING);
         actionManager.getEventEngine().handle();
         if (opponentHero.getDamage(DAMAGE)) {

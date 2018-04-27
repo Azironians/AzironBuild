@@ -2,7 +2,6 @@ package bonus.devourerBonuses.bonuses.attack.fromFireIntoTheFire;
 
 import heroes.abstractHero.hero.Hero;
 import managment.actionManagement.ActionManager;
-import managment.actionManagement.actionProccessors.AttackProcessor;
 import managment.actionManagement.actionProccessors.TreatmentProcessor;
 import managment.actionManagement.actions.ActionEventFactory;
 import managment.actionManagement.service.engine.EventEngine;
@@ -42,6 +41,6 @@ public final class FromFireIntoTheFireProcessor extends TreatmentProcessor {
 
     public final void setTeam(final ATeam unused){
         this.currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        this.opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        this.opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
     }
 }

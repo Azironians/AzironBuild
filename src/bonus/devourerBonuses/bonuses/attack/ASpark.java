@@ -16,7 +16,7 @@ public final class ASpark extends Bonus{
 
     @Override
     public final void use() {
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         final double fixExperience = opponentHero.getCurrentExperience() * EXPERIENCE_COEFFICIENT;
         if (opponentHero.removeExperience(fixExperience)) {

@@ -17,7 +17,7 @@ public final class AIntimidation extends Bonus {
     @Override
     public final void use() {
         final Hero currentHero = playerManager.getCurrentTeam().getCurrentPlayer().getCurrentHero();
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         if (opponentHero.getHitPoints() < LIMIT_HEALTH){
             currentHero.setAttack(currentHero.getAttack() + ATTACK_BOOST);
         }

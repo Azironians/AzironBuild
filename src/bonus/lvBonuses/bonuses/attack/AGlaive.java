@@ -34,7 +34,7 @@ public final class AGlaive extends Bonus implements RegularHandleService {
     public final void use() {
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
         final Hero currentHero = currentPlayer.getCurrentHero();
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         final EventEngine eventEngine = actionManager.getEventEngine();
         final double damage = currentHero.getAttack() * DAMAGE_COEFFICIENT;
         eventEngine.handle(ActionEventFactory.getBeforeDealDamage(currentPlayer, opponentHero, damage));

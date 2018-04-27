@@ -35,7 +35,7 @@ public final class ASuffocation extends Bonus implements RegularHandleService {
 
     @Override
     public final void use() {
-        final Hero opponentHero = playerManager.getOpponentATeam().getCurrentPlayer().getCurrentHero();
+        final Hero opponentHero = playerManager.getOpponentTeam().getCurrentPlayer().getCurrentHero();
         for (final Pair<Hero, Stack<Integer>> heroVsDamage : listHeroVsDamage){
             if (heroVsDamage.getKey() == opponentHero){
                 final Stack<Integer> damageStack = heroVsDamage.getValue();

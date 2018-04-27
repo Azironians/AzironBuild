@@ -24,7 +24,7 @@ public final class SCounterSpell extends Bonus implements DynamicHandleService {
 
     @Override
     public final void use() {
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         final List<Skill> opponentSkills = opponentHero.getCollectionOfSkills();
 
@@ -51,8 +51,8 @@ public final class SCounterSpell extends Bonus implements DynamicHandleService {
             @Override
             public final void setup() {
                 this.player = playerManager.getCurrentTeam().getCurrentPlayer();
-                this.opponent = playerManager.getOpponentATeam().getCurrentPlayer();
-                this.alternativeOpponent = playerManager.getOpponentATeam().getAlternativePlayer();
+                this.opponent = playerManager.getOpponentTeam().getCurrentPlayer();
+                this.alternativeOpponent = playerManager.getOpponentTeam().getAlternativePlayer();
             }
 
             @Override

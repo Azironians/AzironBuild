@@ -28,7 +28,7 @@ public final class BashSkill extends AbstractSkill {
     public final void use(final BattleManager battleManager, final PlayerManager playerManager) {
         final double damage = getParent().getAttack() * coefficients.get(0);
         final Player currentPlayer = playerManager.getCurrentTeam().getCurrentPlayer();
-        final Player opponentPlayer = playerManager.getOpponentATeam().getCurrentPlayer();
+        final Player opponentPlayer = playerManager.getOpponentTeam().getCurrentPlayer();
         final Hero opponentHero = opponentPlayer.getCurrentHero();
         if (opponentHero.getDamage(damage)) {
             actionEvents.add(ActionEventFactory.getAfterDealDamage(currentPlayer, opponentHero, damage));
