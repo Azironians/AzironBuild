@@ -17,6 +17,10 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
 
   private val END_COUNT = 8
 
+  private val REQUIRED_LEVEL = 6
+
+  private val EXPERIENCE_BOOST = 50
+
   private var count: Int = START_COUNT
 
   private val text: Text = new Text(START_COUNT + "/" + END_COUNT)
@@ -24,17 +28,21 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
   this.installContainer(this.text)
 
   override def use(): Unit = {
-    if (this.count + 1 == END_COUNT) {
-      val player = playerManager.getCurrentTeam.getCurrentPlayer
-      val hero = player.getCurrentHero
-      //FIXME: MOVE LOCATION CLASS ON HERO!!! NOW PLAYER IS TEMPORARY IN SIGNATURE!!!
-      this.mergeSkills(hero, player)
-      this.count = START_COUNT
+    val player = playerManager.getCurrentTeam.getCurrentPlayer
+    val hero = player.getCurrentHero
+    if (hero.getLevel >= REQUIRED_LEVEL){
+      if (this.count + 1 == END_COUNT) {
+        //FIXME: MOVE LOCATION CLASS ON HERO!!! NOW PLAYER IS TEMPORARY IN SIGNATURE!!!
+        this.mergeSkills(hero, player)
+        this.count = START_COUNT
 
-    }
-    else {
-      this.count += 1
-      this.text.setText(count + "/" + END_COUNT)
+      }
+      else {
+        this.count += 1
+        this.text.setText(count + "/" + END_COUNT)
+      }
+    } else {
+      hero.addExperience(EXPERIENCE_BOOST)
     }
   }
 
