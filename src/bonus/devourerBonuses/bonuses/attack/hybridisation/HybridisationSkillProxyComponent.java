@@ -1,5 +1,6 @@
 package bonus.devourerBonuses.bonuses.attack.hybridisation;
 
+import gui.service.locations.ALocation;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
@@ -35,7 +36,7 @@ final class HybridisationSkillProxyComponent {
     }
 
     private void initProxyPane(final Player player){
-        final Pane skillPane = player.getLocation().getSkillPane();
+        final Pane skillPane = player.getCurrentHero().getLocation().getSkillPane();
         this.proxyHybridisationPane = new Pane();
         this.proxyHybridisationPane.setLayoutX(skillPane.getLayoutX());
         this.proxyHybridisationPane.setLayoutY(skillPane.getLayoutY());
@@ -52,7 +53,8 @@ final class HybridisationSkillProxyComponent {
             final Skill currentSkill = availableSkill.getKey();
             final Integer containerIndex = availableSkill.getValue();
             //Get main super skill location:
-            final ObservableList<Node> mainSkillContainers = player.getLocation().getSkillPane().getChildren();
+            final ALocation location = player.getCurrentHero().getLocation();
+            final ObservableList<Node> mainSkillContainers = location.getSkillPane().getChildren();
             final Node skillNode = mainSkillContainers.get(containerIndex);
             //Creating custom skill:
             final AbstractSkill hybridisationSkill = new HybridisationSkill(this);

@@ -1,6 +1,7 @@
 package gui.animation;
 
 import com.google.inject.Singleton;
+import gui.service.locations.ALocation;
 import heroes.abstractHero.hero.Hero;
 import managment.playerManagement.Player;
 
@@ -19,12 +20,12 @@ public final class MainAnimator {
         if (player.isCurrent()){
             final Hero hero = player.getCurrentHero();
             final int level = hero.getLevel();
+            final ALocation location = player.getCurrentHero().getLocation();
             if (level - 1 < 9){
-                player.getLocation().setRequiredExperience(hero.getListOfRequiredExperience().get(level - 1).intValue());
+                location.setRequiredExperience(hero.getListOfRequiredExperience().get(level - 1).intValue());
             } else {
-                player.getLocation().setRequiredExperience("");
+                location.setRequiredExperience("");
             }
-
         } else {
 
         }

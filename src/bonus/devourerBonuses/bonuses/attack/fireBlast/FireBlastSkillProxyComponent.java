@@ -1,5 +1,6 @@
 package bonus.devourerBonuses.bonuses.attack.fireBlast;
 
+import gui.service.locations.ALocation;
 import heroes.abstractHero.hero.Hero;
 import heroes.abstractHero.skills.Skill;
 import heroes.abstractHero.skills.abstractSkill.AbstractSkill;
@@ -38,7 +39,7 @@ final class FireBlastSkillProxyComponent {
     }
 
     private void initProxyPane(final Player player){
-        final Pane skillPane = player.getLocation().getSkillPane();
+        final Pane skillPane = player.getCurrentHero().getLocation().getSkillPane();
         this.proxyFireBlastPane = new Pane();
         this.proxyFireBlastPane.setLayoutX(skillPane.getLayoutX());
         this.proxyFireBlastPane.setLayoutY(skillPane.getLayoutY());
@@ -55,7 +56,8 @@ final class FireBlastSkillProxyComponent {
             final Skill currentSkill = availableSkill.getKey();
             final Integer containerIndex = availableSkill.getValue();
             //Get main super skill location:
-            final ObservableList<Node> mainSkillContainers = player.getLocation().getSkillPane().getChildren();
+            final ALocation location = player.getCurrentHero().getLocation();
+            final ObservableList<Node> mainSkillContainers = location.getSkillPane().getChildren();
             final Node skillNode = mainSkillContainers.get(containerIndex);
             //Creating custom skill:
             final AbstractSkill fireBlastSkill = new FireBlastSkill(this);

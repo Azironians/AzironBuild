@@ -1,6 +1,7 @@
 package heroes.abstractHero.hero;
 
 import bonus.bonuses.Bonus;
+import gui.service.locations.ALocation;
 import heroes.abstractHero.bonusManagement.BonusManager;
 import heroes.abstractHero.skills.Skill;
 import javafx.scene.image.ImageView;
@@ -368,4 +369,14 @@ public abstract class Hero {
         return additionalAbilityMap;
     }
 
+    //Location:
+    private ALocation location;
+
+    public final ALocation getLocation(){
+        return this.location;
+    }
+
+    public final void setLocation(final ALocation location){
+        this.location = location;
+    }
 }

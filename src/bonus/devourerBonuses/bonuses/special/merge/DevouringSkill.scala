@@ -12,7 +12,7 @@ final class DevouringSkill(name: String = "",
                            requiredLevel: Int = 1,
                            coefficients: java.util.List[java.lang.Double] = new java.util.ArrayList[java.lang.Double]
                            , spite: ImageView = new ImageView()
-                           , val description: ImageView = new ImageView()
+                           , description: ImageView = new ImageView()
                            , listMedia: java.util.List[Media] = new java.util.ArrayList[Media])
   extends AbstractSkill(name, reload, requiredLevel, coefficients, spite, description, listMedia) {
 

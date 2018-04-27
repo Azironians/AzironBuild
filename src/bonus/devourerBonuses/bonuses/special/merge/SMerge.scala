@@ -35,7 +35,6 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
         //FIXME: MOVE LOCATION CLASS ON HERO!!! NOW PLAYER IS TEMPORARY IN SIGNATURE!!!
         this.mergeSkills(hero, player)
         this.count = START_COUNT
-
       }
       else {
         this.count += 1
@@ -50,7 +49,7 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
   private def mergeSkills(hero: Hero, player: Player): Unit = {
     val skills = hero.getCollectionOfSkills
     val indexBasicSkillList = this.foundBasicSkills(skills)
-    val skillPane: Pane = player.getLocation.getSkillPane
+    val skillPane: Pane = player.getCurrentHero.getLocation.getSkillPane
     val skillNodes = skillPane.getChildren
     val firstBasicSkillPane = skillNodes.get(indexBasicSkillList.head)
     if (indexBasicSkillList.nonEmpty){
@@ -58,7 +57,7 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
         skills.remove(i)
         skillNodes.remove(i)
       }
-      this.createDevouringSkill(skillPane = Pane, player, firstBasicSkillPane )
+      this.createDevouringSkill(skillPane, player, firstBasicSkillPane )
     }
   }
 
@@ -93,6 +92,6 @@ final class SMerge(name: String, id: Int, sprite: ImageView) extends ExtendedBon
     val layoutX = firstPane.getLayoutX
     val layoutY = firstPane.getLayoutY
     devouringSkill.install(skillPane, parentPlayer.getCurrentHero, layoutX, layoutY, layoutX, -127
-      , parentPlayer.getLocation.isInvert)
+      , parentPlayer.getCurrentHero.getLocation.isInvert)
   }
 }

@@ -117,7 +117,7 @@ public final class GraphicEngine {
     private void showLocation(final ALocation location, final ATeam team){
         final Player currentPlayer = team.getCurrentPlayer();
         final Hero hero = currentPlayer.getCurrentHero();
-        currentPlayer.setLocation(location);
+        hero.setLocation(location);
         location.setFace(currentPlayer.getCurrentHero().getFace());
         //Profile:
         location.setName(currentPlayer.getProfile().getName());

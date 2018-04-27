@@ -124,14 +124,6 @@ public final class Player {
         this.winner = winner;
     }
 
-    public ALocation getLocation() {
-        return location;
-    }
-
-    public void setLocation(ALocation location) {
-        this.location = location;
-    }
-
     public boolean isCurrent() {
         return isCurrent;
     }

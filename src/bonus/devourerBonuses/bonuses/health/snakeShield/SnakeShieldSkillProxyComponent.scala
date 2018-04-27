@@ -23,7 +23,7 @@ final class SnakeShieldSkillProxyComponent (var player: Player) {
   var justInTimeSnakeShieldSkill: Skill = _
 
   def packSkill(index: Int, skills: java.util.List[Skill]): Unit ={
-    val mainSkillContainers: ObservableList[Node] = player.getLocation.getSkillPane.getChildren
+    val mainSkillContainers: ObservableList[Node] = player.getCurrentHero.getLocation.getSkillPane.getChildren
     val skillNode: Node = mainSkillContainers.get(index)
     //Creating custom skill:
     val snakeShieldSkill: AbstractSkill = new SnakeShieldSkill(this)
