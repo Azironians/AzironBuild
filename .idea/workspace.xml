@@ -3,66 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e2fb4dcc-e957-48a7-904d-33485e9ae172" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/bashBonuses/bonuses/attack/AWooo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/bashBonuses/bonuses/attack/AWooo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ABreakthrough.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ABreakthrough.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ABurnOfKron$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ABurnOfKron$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/AEruption$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/AEruption$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/AHarpoonUnderworlds.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/AHarpoonUnderworlds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ASpark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/ASpark.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkillProxyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkillProxyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/FromFireIntoTheFireProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fromFireIntoTheFire/FromFireIntoTheFireProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/ArmageddonSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/ArmageddonSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/growTentacle/AGrowTentacle$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/growTentacle/AGrowTentacle$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkill$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkill$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkillProxyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkillProxyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/experience/XUsurpation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/experience/XUsurpation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkProxyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkProxyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HArhawrath$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HArhawrath$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HSelfKeepingInstinct$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HSelfKeepingInstinct$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HSoulPiercing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/HSoulPiercing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkillProxyComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkillProxyComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/attack/ABerserk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/attack/ABerserk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/attack/doubleInHead/DoubleInHeadProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/attack/doubleInHead/DoubleInHeadProcessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/experience/XAnticipation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/experience/XAnticipation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/experience/XFeedBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/experience/XFeedBack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/special/SCounterSpell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/special/SCounterSpell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/special/SCounterSpell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/generalBonuses/bonuses/special/SCounterSpell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/ADarts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/ADarts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AGlaive.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AGlaive.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AIntimidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AIntimidation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AVampBlast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/AVampBlast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/hunt/AHunt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/hunt/AHunt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/suffocation/ASuffocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/bonus/lvBonuses/bonuses/attack/suffocation/ASuffocation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/controllers/main/matchmaking/ControllerMatchMaking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/controllers/main/matchmaking/ControllerMatchMaking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/gui/animation/MainAnimator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/gui/animation/MainAnimator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/gui/service/graphicEngine/GraphicEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/gui/service/graphicEngine/GraphicEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/abstractHero/hero/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/abstractHero/hero/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/superSkills/consuming/ConsumingSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/superSkills/consuming/ConsumingSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/superSkills/flameSnakes/FlameSnakesSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/superSkills/flameSnakes/FlameSnakesSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/swapSkills/depletion/DepletionSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/devourer/skills/swapSkills/depletion/DepletionSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/lv/skills/superSkills/cannibalism/CannibalismSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/lv/skills/superSkills/cannibalism/CannibalismSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/lv/skills/swapSkills/fury/FurySkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/lv/skills/swapSkills/fury/FurySkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/bash/BashSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/bash/BashSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/favouriteBeater/FavouriteBeaterSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/favouriteBeater/FavouriteBeaterSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/rush/RushSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/superSkills/rush/RushSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/swapSkills/healthGain/HealthGainSkill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/heroes/orcBash/skills/swapSkills/healthGain/HealthGainSkill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/managment/playerManagement/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/managment/playerManagement/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AzironConsole/managment/playerManagement/PlayerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AzironConsole/managment/playerManagement/PlayerManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkillProxyComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fireBlast/FireBlastSkillProxyComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/fusedFromBowel/FusedFromBowelSkillProxyComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkillProxyComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/attack/hybridisation/HybridisationSkillProxyComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkProxyComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkProxyComponent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkillProxyComponent.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/health/snakeShield/SnakeShieldSkillProxyComponent.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/DevouringSkill.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/DevouringSkill.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/special/merge/SMerge.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/animation/MainAnimator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/animation/MainAnimator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/service/graphicEngine/GraphicEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/service/graphicEngine/GraphicEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heroes/abstractHero/hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/heroes/abstractHero/hero/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managment/playerManagement/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managment/playerManagement/Player.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,7 +13,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="KronMarkAssistant.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkAssistant.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,9 +130,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,15 +172,6 @@
               <item name="bonus" type="462c0819:PsiDirectoryNode" />
               <item name="bonuses" type="462c0819:PsiDirectoryNode" />
               <item name="experience" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BonusDevelopment" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bonus" type="462c0819:PsiDirectoryNode" />
-              <item name="bonuses" type="462c0819:PsiDirectoryNode" />
-              <item name="experience" type="462c0819:PsiDirectoryNode" />
-              <item name="kronMark" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BonusDevelopment" type="b2602c69:ProjectViewProjectNode" />
@@ -541,7 +482,8 @@
       <workItem from="1524563196098" duration="2446000" />
       <workItem from="1524611433789" duration="2332000" />
       <workItem from="1524808152476" duration="3347000" />
-      <workItem from="1524841426854" duration="1489000" />
+      <workItem from="1524841426854" duration="1586000" />
+      <workItem from="1524864811431" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="02.04.2018 WORKING WITH BONUSES:&#10;Added right handling of events in the several bonuses;&#10;Added experience bonuses: Braxador, Usurpation, VoidChannel&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE">
       <created>1522625845473</created>
@@ -802,11 +744,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524811427347</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="27.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;moved field ALocation from Player clazz to Hero clazz =)&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE">
+      <created>1524843011497</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1524843011497</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133437000" />
+    <option name="totallyTimeSpent" value="134144000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -819,10 +768,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -830,11 +779,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33825505" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34295303" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -848,34 +797,35 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49932885" weight="0.32905984" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49932885" weight="0.32905984" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33355704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32905984" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026846" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49932885" weight="0.32905984" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
@@ -913,7 +863,8 @@
     <MESSAGE value="24.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: BoneCage, Meteora, Oblivion devourer bonuses&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRONALIVE" />
     <MESSAGE value="25.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;in development: Merge devourer's bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE" />
     <MESSAGE value="27.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: Merge devourer's bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE" />
-    <option name="LAST_COMMIT_MESSAGE" value="27.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;added: Merge devourer's bonus&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE" />
+    <MESSAGE value="27.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;moved field ALocation from Player clazz to Hero clazz =)&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.04.2018 WORKING WITH BONUSES (Plugged Scala &amp; Kotlin):&#10;moved field ALocation from Player clazz to Hero clazz =)&#10;------------------------------------------------------------&#10;------------------------------------------------------------&#10;#AZIRON_ALIVE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -929,13 +880,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/snakeCollapse/XSnakeCollapse.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/oracle/Concentration.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1123,9 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#50#76#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,10 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
           <caret line="148" column="34" selection-start-line="148" selection-start-column="34" selection-end-line="148" selection-end-column="34" />
-          <folding>
-            <element signature="e#4123#4124#0" expanded="true" />
-            <element signature="e#4159#4160#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1179,9 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#59#85#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1217,9 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#53#114#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1255,9 +1186,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
           <caret line="86" column="29" lean-forward="true" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
-          <folding>
-            <element signature="e#53#87#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1293,12 +1221,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="381" column="1" lean-forward="true" selection-start-line="381" selection-start-column="1" selection-end-line="381" selection-end-column="1" />
-          <folding>
-            <element signature="e#10490#10491#0" expanded="true" />
-            <element signature="e#10516#10517#0" expanded="true" />
-            <element signature="e#10592#10593#0" expanded="true" />
-            <element signature="e#10631#10632#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bonus/devourerBonuses/bonuses/experience/kronMark/KronMarkAssistant.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
