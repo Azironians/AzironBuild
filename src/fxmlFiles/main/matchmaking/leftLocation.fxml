@@ -50,7 +50,7 @@
                         <Font size="38.0" />
                     </font>
                 </Text>
-                <Text fx:id="level" fill="#070707" layoutX="306.0" layoutY="44.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="50.0">
+                <Text fx:id="id" fill="#070707" layoutX="306.0" layoutY="44.0" opacity="0.7" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="50.0">
                     <font>
                         <Font size="37.0" />
                     </font>

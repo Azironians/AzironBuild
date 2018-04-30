@@ -49,20 +49,20 @@
 //    @Contract(pure = true)
 //    @Override
 //    public Text getLevel() {
-//        return level;
+//        return id;
 //    }
 //
 //    @Override
 //    public void changeLevel(final int delta) {
-//        int level = Integer.parseInt(this.level.getText());
-//        level += delta;
-//        this.level.setText(level + "");
+//        int id = Integer.parseInt(this.id.getText());
+//        id += delta;
+//        this.id.setText(id + "");
 //    }
 //
 //
 //    @Override
-//    public void setLevel(final int level) {
-//        this.level.setText(level + "");
+//    public void setLevel(final int id) {
+//        this.id.setText(id + "");
 //    }
 //
 //    @Nullable

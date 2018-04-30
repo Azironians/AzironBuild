@@ -31,7 +31,7 @@ public interface ControllerLocation extends Controller {
 
     void changeLevel(final int delta);
 
-    void setLevel (final int level);
+    void setLevel (final int id);
 
     Text getAttack();
 
